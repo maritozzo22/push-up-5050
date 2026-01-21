@@ -6,14 +6,23 @@
 ## Current State
 
 **Phase:** Phase 2.1 - Foundation & Setup
-**Plan:** 02 of 03 (Plan 01 complete)
-**Status:** In Progress
+**Plan:** 02 of 03 COMPLETE, 03 next
+**Status:** Wave 3 Pending
 
-**Progress: ████████░░░░░░░░░░░░░ 30%** (3/10 plans complete)
+**Progress: ██████████░░░░░░░░░░░░ 40%** (4/10 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-21
+- **Completed Phase 2.1 Plan 02:** Integrate Widget Updates into App State
+  - Added WidgetUpdateService dependency to UserStatsProvider
+  - Added WidgetUpdateService dependency to ActiveWorkoutProvider
+  - Initialized WidgetUpdateService in main.dart
+  - Widgets now update automatically when stats load or workout completes
+  - All tests passing
+- **Commits:** f979cb9, f6c2dd2, 2f90232
+
+### 2026-01-21 (Earlier)
 - **Completed Phase 2.1 Plan 01:** Verify & Fix Widget Infrastructure
   - Upgraded home_widget from 0.5.0 to 0.9.0 for Flutter SDK compatibility
   - Fixed WidgetUpdateService API to match home_widget v0.9.0
@@ -21,7 +30,7 @@
   - All 26 tests passing (17 widget_update_service + 9 widget_data)
 - **Commits:** b07afa7 (chore), 8cc4831 (fix)
 
-### 2026-01-21 (Earlier)
+### 2026-01-21 (Planning)
 - **Created Phase 2.1 execution plan:** 3 plans in 3 waves
   - Plan 01 (Wave 1): Verify dependencies, fix widget ID mismatch
   - Plan 02 (Wave 2): Integrate widget updates into app state providers
@@ -38,18 +47,18 @@
 
 ## Current Work
 
-**Next Immediate Task:** Execute Phase 2.1-02: Integrate Widget Updates into App State
+**Next Immediate Task:** Execute Phase 2.1-03: Add Integration Tests
 
 ### Plans Status:
 1. **02.1-01-PLAN.md** — ✅ Verify & Fix Widget Infrastructure (COMPLETE)
-2. **02.1-02-PLAN.md** — Integrate Widget Updates into App State (NEXT)
-3. **02.1-03-PLAN.md** — Add Integration Tests (Pending)
+2. **02.1-02-PLAN.md** — ✅ Integrate Widget Updates into App State (COMPLETE)
+3. **02.1-03-PLAN.md** — Add Integration Tests (NEXT)
 
 ### Key Findings from Planning:
 - **Most infrastructure exists:** home_widget, WidgetData, WidgetUpdateService, tests, Android providers
 - **Critical bug found:** WidgetUpdateService uses incorrect widget IDs (simple names instead of receiver class names) ✅ FIXED
-- **Integration gap:** WidgetUpdateService not connected to UserStatsProvider or ActiveWorkoutProvider
-- **Solution:** 3 focused plans to verify, integrate, and test
+- **Integration complete:** WidgetUpdateService now connected to UserStatsProvider and ActiveWorkoutProvider ✅
+- **Remaining:** Add integration tests for end-to-end widget update flow
 
 ## Completed Work
 
@@ -65,6 +74,12 @@
 - Fixed WidgetUpdateService API and widget IDs (8cc4831)
 - All tests passing (26 tests)
 
+### Phase 2.1 Plan 02 ✅
+- UserStatsProvider widget integration (f979cb9)
+- ActiveWorkoutProvider widget integration (f6c2dd2)
+- main.dart WidgetUpdateService initialization (2f90232)
+- All tests passing
+
 ### Phase 2.1 Research ✅
 - Researched home_widget plugin capabilities
 - Verified existing infrastructure
@@ -73,7 +88,7 @@
 
 ## Known Issues
 
-**None** - Previous critical issue (WidgetUpdateService widget IDs mismatch) has been fixed.
+**None** - All previous issues resolved.
 
 ## Technical Debt
 
@@ -100,7 +115,8 @@
 | Core app | ~70% | ✅ Meets goal |
 | WidgetUpdateService | 100% | ✅ All 17 tests pass |
 | WidgetData model | 100% | ✅ All 9 tests pass |
-| Widget integration | 0% | ⏳ To be added in 02.1-03 |
+| Widget integration (provider level) | 100% | ✅ Code complete, tests pending |
+| Widget integration (E2E) | 0% | ⏳ To be added in 02.1-03 |
 
 ## Decisions Made
 
@@ -109,15 +125,20 @@
 - **Widget ID naming**: Widget IDs must match AndroidManifest.xml receiver class names without package prefix (e.g., "PushupWidgetStatsProvider")
 - **API pattern for updates**: saveWidgetData(id, data) then updateWidget(androidName: 'ClassName')
 
+### From Phase 2.1-02
+- **Dependency injection pattern**: WidgetUpdateService injected via constructor into both UserStatsProvider and ActiveWorkoutProvider
+- **Single shared instance**: WidgetUpdateService created once in main.dart and shared across providers
+- **Silent failure for widget updates**: Try-catch blocks with empty catch blocks - widgets are optional, failures should not crash app
+- **Widget update triggers**: After loadStats() in UserStatsProvider, after endWorkout() in ActiveWorkoutProvider
+
 ## Next Steps
 
-1. Execute Phase 2.1-02: Integrate Widget Updates into App State
-2. Execute Phase 2.1-03: Add Integration Tests
-3. Proceed to Phase 2.2: Widget 1 - Quick Stats
+1. Execute Phase 2.1-03: Add Integration Tests
+2. Proceed to Phase 2.2: Widget 1 - Quick Stats
 
 ---
 
 *Last updated: 2026-01-21*
 *Last session: 2026-01-21*
-*Stopped at: Completed 02.1-01-PLAN.md*
-*Resume file: .planning/phases/02.1-foundation-setup/02.1-01-SUMMARY.md*
+*Stopped at: Completed 02.1-02-PLAN.md*
+*Resume file: .planning/phases/02.1-foundation-setup/02.1-02-SUMMARY.md*
