@@ -15,6 +15,8 @@ import 'package:push_up_5050/services/haptic_feedback_service.dart';
 import 'package:push_up_5050/services/notification_service.dart';
 import 'package:push_up_5050/services/proximity_sensor_service.dart';
 import 'package:push_up_5050/services/widget_update_service.dart';
+import 'package:push_up_5050/services/deep_link_service.dart';
+import 'package:push_up_5050/screens/series_selection/series_selection_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Entry point for Push-Up 5050 app.
@@ -94,22 +96,60 @@ Future<void> main() async {
 /// - Localizations support (IT/EN)
 /// - Locale based on AppSettingsService
 /// - MainNavigationWrapper as home screen
+/// - Deep link handling for widget START button
 ///
 /// Wrapped by MultiProvider in main() for state management.
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+  late DeepLinkService _deepLinkService;
+
+  @override
+  void initState() {
+    super.initState();
+    _deepLinkService = DeepLinkService(
+      onDeepLink: (route) {
+        // Navigate to the deep link route
+        _navigatorKey.currentState?.pushNamed(route);
+      },
+    );
+    // Initialize deep link service after first frame
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _deepLinkService.initialize();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Consumer<AppSettingsService>(
       builder: (context, settings, _) {
         return MaterialApp(
+          navigatorKey: _navigatorKey,
           title: 'Push-Up 5050',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.darkTheme,
           locale: Locale(settings.appLanguage),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
+          initialRoute: '/',
+          onGenerateRoute: (settings) {
+            // Handle deep link routes
+            if (settings.name == SeriesSelectionScreen.routeName) {
+              return MaterialPageRoute(
+                builder: (_) => const SeriesSelectionScreen(),
+              );
+            }
+            // Default route
+            return MaterialPageRoute(
+              builder: (_) => const MainNavigationWrapper(),
+            );
+          },
           home: const MainNavigationWrapper(),
         );
       },
