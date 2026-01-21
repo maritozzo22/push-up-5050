@@ -6,14 +6,23 @@
 ## Current State
 
 **Phase:** Phase 2.2 - Widget 1 - Quick Stats
-**Plan:** 01 of 05 COMPLETE
+**Plan:** 02 of 06 COMPLETE
 **Status:** In progress
 
-**Progress: █████████░░░░░░░░░░░░ 55%** (6/10 plans complete)
+**Progress: ██████████░░░░░░░░░░░ 60%** (6/10 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-21
+- **Completed Phase 2.2 Plan 02a:** Create Widget Drawable Resources
+  - Created widget_background.xml with 28dp corner radius and dark theme (#121212)
+  - Created widget_start_button_background.xml with orange glow effect (#FF6B00)
+  - Created widget_start_button_selector.xml for pressed state handling
+  - Created ic_widget_logo.xml as 24dp vector drawable with clock icon
+  - All drawables follow app design system colors
+- **Commits:** f81bd11, df70832, 6957f0c
+
+### 2026-01-21 (Earlier)
 - **Completed Phase 2.2 Plan 01:** Implement Widget Data Loading from home_widget
   - Updated PushupWidgetStatsProvider.kt to read from home_widget storage
   - Uses HomeWidgetPlugin.getData() with 'pushup_json_data' key
@@ -121,6 +130,12 @@
 - Localized widget strings (EN/IT) created (614ddc0)
 - Data flow: Flutter -> WidgetUpdateService -> home_widget -> Android widget
 
+### Phase 2.2 Plan 02a: Widget Drawable Resources ✅
+- Widget background with 28dp corner radius (f81bd11)
+- START button with glow effect using layer-list (df70832)
+- Button selector for pressed state (df70832)
+- Logo icon as 24dp vector drawable (6957f0c)
+
 ## Known Issues
 
 **None** - All issues resolved.
@@ -180,17 +195,21 @@
 - **Shared key pattern**: 'pushup_json_data' key used on both Flutter and Kotlin sides for data access
 - **Graceful degradation**: Zeros as defaults when data unavailable or parsing fails
 
+### From Phase 2.2-02a
+- **Drawable layer-list for glow effects**: Using offset items in layer-list creates shadow/glow effect on buttons
+- **Selector for pressed states**: state_pressed in selector provides visual feedback on button tap
+- **Vector drawables for scalability**: 24dp standard size for icons, scales without quality loss
+
 ## Next Steps
 
-1. **Phase 2.2 Plan 02a:** Implement Quick Stats Widget Layout (Background) - Create widget layout XML with background
-2. **Phase 2.2 Plan 02b:** Implement Quick Stats Widget Layout (Foreground) - Add text views and START button
-3. **Phase 2.2 Plan 03a:** Add App Icon to Widget
-4. **Phase 2.2 Plan 03b:** Implement START Button with Glow Effect
-5. **Phase 2.2 Plan 04:** Connect START Button to App
+1. **Phase 2.2 Plan 02b:** Implement Quick Stats Widget Layout (Foreground) - Add text views and START button using drawables
+2. **Phase 2.2 Plan 03a:** Add App Icon to Widget
+3. **Phase 2.2 Plan 03b:** Implement START Button with Glow Effect
+4. **Phase 2.2 Plan 04:** Connect START Button to App
 
 ---
 
 *Last updated: 2026-01-21*
 *Last session: 2026-01-21*
-*Stopped at: Completed Phase 2.2 Plan 01 (02.2-01-PLAN.md)*
-*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-01-SUMMARY.md*
+*Stopped at: Completed Phase 2.2 Plan 02a (02.2-02a-PLAN.md)*
+*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-02a-SUMMARY.md*
