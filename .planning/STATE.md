@@ -6,14 +6,21 @@
 ## Current State
 
 **Phase:** Phase 2.2 - Widget 1 - Quick Stats
-**Plan:** 03 of 06 COMPLETE
+**Plan:** 04 of 06 COMPLETE
 **Status:** In progress
 
-**Progress: ██████████░░░░░░░░░░░ 60%** (6/10 plans complete)
+**Progress: ██████████░░░░░░░░░░░ 70%** (7/10 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-21
+- **Completed Phase 2.2 Plan 03a:** Configure Android Deep Link Handling
+  - Added deep link intent filter to AndroidManifest (pushup5050://series_selection)
+  - Extended MainActivity with MethodChannel for deep link communication
+  - Updated widget START button to use deep link PendingIntent
+  - Commits: ea8b656, 20e260c, 22ea682
+
+### 2026-01-21 (Earlier)
 - **Completed Phase 2.2 Plan 02b:** Update Widget Layout XML
   - Created widget_font.xml with sans-serif-medium and sans-serif font families
   - Added logo content description strings (EN/IT)
@@ -91,8 +98,8 @@
 1. **02.2-01-PLAN.md** — ✅ Implement Widget Data Loading from home_widget (COMPLETE)
 2. **02.2-02a-PLAN.md** — ✅ Create Widget Drawable Resources (COMPLETE - via 02b blocking fix)
 3. **02.2-02b-PLAN.md** — ✅ Update Widget Layout XML (COMPLETE)
-4. **02.2-03a-PLAN.md** — Pending: Implement Widget Views
-5. **02.2-03b-PLAN.md** — Pending: Connect START Button to App
+4. **02.2-03a-PLAN.md** — ✅ Configure Android Deep Link Handling (COMPLETE)
+5. **02.2-03b-PLAN.md** — Pending: Connect Flutter Deep Link Routing
 6. **02.2-04-PLAN.md** — Pending: Add Widget Configuration
 
 ## Completed Work
@@ -151,6 +158,13 @@
 - Proper typography applied (36sp, 28sp, 12sp, 11sp)
 - Logo icon in header
 - Localized labels with string resources
+
+### Phase 2.2 Plan 03a: Android Deep Link Handling ✅
+- AndroidManifest intent-filter for pushup5050://series_selection (ea8b656)
+- MainActivity MethodChannel for deep link communication (20e260c)
+- Widget START button deep link PendingIntent (22ea682)
+- Custom URL scheme (no HTTPS verification needed)
+- FLAG_ACTIVITY_CLEAR_TOP + FLAG_ACTIVITY_SINGLE_TOP prevents duplicate activities
 
 ## Known Issues
 
@@ -217,15 +231,19 @@
 - **Vector drawables for scalability**: 24dp standard size for icons, scales without quality loss
 - **System fonts instead of embedded fonts**: Using sans-serif-medium instead of embedding Montserrat (smaller APK, simpler implementation)
 
+### From Phase 2.2-03a
+- **Custom URL scheme over HTTPS**: Used pushup5050:// instead of https:// to avoid web asset verification complexity
+- **MethodChannel full-duplex communication**: Both getInitialDeepLink (Flutter query) and onDeepLink (Android notification) implemented
+- **Activity flags for single-instance**: FLAG_ACTIVITY_NEW_TASK | CLEAR_TOP | SINGLE_TOP prevents duplicate activities
+
 ## Next Steps
 
-1. **Phase 2.2 Plan 03a:** Implement Widget Views - Create AppWidgetProvider for rendering
-2. **Phase 2.2 Plan 03b:** Connect START Button to App - Deep link or pending intent
-3. **Phase 2.2 Plan 04:** Add Widget Configuration
+1. **Phase 2.2 Plan 03b:** Connect Flutter Deep Link Routing - Handle deep links in Flutter
+2. **Phase 2.2 Plan 04:** Add Widget Configuration
 
 ---
 
 *Last updated: 2026-01-21*
 *Last session: 2026-01-21*
-*Stopped at: Completed Phase 2.2 Plan 02b (02.2-02b-PLAN.md)*
-*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-02b-SUMMARY.md*
+*Stopped at: Completed Phase 2.2 Plan 03a (02.2-03a-PLAN.md)*
+*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-03a-SUMMARY.md*
