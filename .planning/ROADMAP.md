@@ -55,15 +55,15 @@ All core functionality has been implemented:
 
 **Goal:** Implement widget showing today's and total push-up progress
 
-**Status:** 🔄 IN PROGRESS
+**Status:** 🔄 IN PROGRESS (5/6 plans complete)
 
 **Plans:**
 - [x] 02.2-01-PLAN.md — Implement widget data loading from home_widget (COMPLETE)
-- [ ] 02.2-02a-PLAN.md — Implement Quick Stats Widget Layout (Background)
-- [ ] 02.2-02b-PLAN.md — Implement Quick Stats Widget Layout (Foreground)
-- [ ] 02.2-03a-PLAN.md — Add App Icon to Widget
-- [ ] 02.2-03b-PLAN.md — Implement START Button with Glow Effect
-- [ ] 02.2-04-PLAN.md — Connect START Button to App
+- [x] 02.2-02a-PLAN.md — Create widget drawable resources (COMPLETE)
+- [x] 02.2-02b-PLAN.md — Update widget layout XML (COMPLETE)
+- [x] 02.2-03a-PLAN.md — Configure Android deep link handling (COMPLETE)
+- [x] 02.2-03b-PLAN.md — Implement Flutter deep link routing (COMPLETE)
+- [ ] 02.2-04-PLAN.md — Add widget configuration (PENDING)
 
 **Widget UI Specs** (based on mockup):
 - Width/Height: 4x4 cells (standard widget size)

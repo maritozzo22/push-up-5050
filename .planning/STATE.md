@@ -6,14 +6,22 @@
 ## Current State
 
 **Phase:** Phase 2.2 - Widget 1 - Quick Stats
-**Plan:** 04 of 06 COMPLETE
+**Plan:** 05 of 06 COMPLETE
 **Status:** In progress
 
-**Progress: ██████████░░░░░░░░░░░ 70%** (7/10 plans complete)
+**Progress: ███████████░░░░░░░░ 70%** (7/10 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-21
+- **Completed Phase 2.2 Plan 03b:** Implement Flutter Deep Link Handling
+  - Added routeName constant to SeriesSelectionScreen (/series_selection)
+  - Created DeepLinkService with MethodChannel communication
+  - Integrated deep link handling into main.dart with navigatorKey
+  - Converted MyApp to StatefulWidget for service initialization
+  - Commits: ea8b656, 20e260c, 2dd45e5
+
+### 2026-01-21 (Earlier)
 - **Completed Phase 2.2 Plan 03a:** Configure Android Deep Link Handling
   - Added deep link intent filter to AndroidManifest (pushup5050://series_selection)
   - Extended MainActivity with MethodChannel for deep link communication
@@ -99,7 +107,7 @@
 2. **02.2-02a-PLAN.md** — ✅ Create Widget Drawable Resources (COMPLETE - via 02b blocking fix)
 3. **02.2-02b-PLAN.md** — ✅ Update Widget Layout XML (COMPLETE)
 4. **02.2-03a-PLAN.md** — ✅ Configure Android Deep Link Handling (COMPLETE)
-5. **02.2-03b-PLAN.md** — Pending: Connect Flutter Deep Link Routing
+5. **02.2-03b-PLAN.md** — ✅ Implement Flutter Deep Link Handling (COMPLETE)
 6. **02.2-04-PLAN.md** — Pending: Add Widget Configuration
 
 ## Completed Work
@@ -165,6 +173,13 @@
 - Widget START button deep link PendingIntent (22ea682)
 - Custom URL scheme (no HTTPS verification needed)
 - FLAG_ACTIVITY_CLEAR_TOP + FLAG_ACTIVITY_SINGLE_TOP prevents duplicate activities
+
+### Phase 2.2 Plan 03b: Flutter Deep Link Handling ✅
+- SeriesSelectionScreen routeName constant added (ea8b656)
+- DeepLinkService created with MethodChannel communication (20e260c)
+- MyApp converted to StatefulWidget for service initialization (2dd45e5)
+- navigatorKey pattern for programmatic navigation from service layer
+- onGenerateRoute handler for /series_selection route
 
 ## Known Issues
 
@@ -236,14 +251,19 @@
 - **MethodChannel full-duplex communication**: Both getInitialDeepLink (Flutter query) and onDeepLink (Android notification) implemented
 - **Activity flags for single-instance**: FLAG_ACTIVITY_NEW_TASK | CLEAR_TOP | SINGLE_TOP prevents duplicate activities
 
+### From Phase 2.2-03b
+- **StatefulWidget for MyApp**: Converted from StatelessWidget to enable initState lifecycle for DeepLinkService initialization
+- **navigatorKey pattern**: Used GlobalKey<NavigatorState> to enable programmatic navigation from service layer (outside widget tree)
+- **postFrameCallback initialization**: Delayed DeepLinkService.initialize() until after first frame to ensure FlutterEngine is ready
+- **Route name constants**: Static routeName on screen widgets enables type-safe navigation
+
 ## Next Steps
 
-1. **Phase 2.2 Plan 03b:** Connect Flutter Deep Link Routing - Handle deep links in Flutter
-2. **Phase 2.2 Plan 04:** Add Widget Configuration
+1. **Phase 2.2 Plan 04:** Add Widget Configuration
 
 ---
 
 *Last updated: 2026-01-21*
 *Last session: 2026-01-21*
-*Stopped at: Completed Phase 2.2 Plan 03a (02.2-03a-PLAN.md)*
-*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-03a-SUMMARY.md*
+*Stopped at: Completed Phase 2.2 Plan 03b (02.2-03b-PLAN.md)*
+*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-03b-SUMMARY.md*
