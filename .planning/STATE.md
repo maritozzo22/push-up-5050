@@ -6,7 +6,7 @@
 ## Current State
 
 **Phase:** Phase 2.2 - Widget 1 - Quick Stats
-**Plan:** 02 of 06 COMPLETE
+**Plan:** 03 of 06 COMPLETE
 **Status:** In progress
 
 **Progress: ██████████░░░░░░░░░░░ 60%** (6/10 plans complete)
@@ -14,6 +14,15 @@
 ## Recent Activity
 
 ### 2026-01-21
+- **Completed Phase 2.2 Plan 02b:** Update Widget Layout XML
+  - Created widget_font.xml with sans-serif-medium and sans-serif font families
+  - Added logo content description strings (EN/IT)
+  - Updated pushup_widget_stats.xml layout to use drawable resources
+  - Applied proper typography (today: 36sp, total: 28sp, labels: 12sp, units: 11sp)
+  - Note: Drawable resources from plan 02a were created as blocking fix (Rule 3)
+  - Commits: 8b651b1, b8a7237, 4ac5b18
+
+### 2026-01-21 (Earlier)
 - **Completed Phase 2.2 Plan 02a:** Create Widget Drawable Resources
   - Created widget_background.xml with 28dp corner radius and dark theme (#121212)
   - Created widget_start_button_background.xml with orange glow effect (#FF6B00)
@@ -80,11 +89,11 @@
 
 ### Plans Status:
 1. **02.2-01-PLAN.md** — ✅ Implement Widget Data Loading from home_widget (COMPLETE)
-2. **02.2-02a-PLAN.md** — Pending: Implement Quick Stats Widget Layout (Background)
-3. **02.2-02b-PLAN.md** — Pending: Implement Quick Stats Widget Layout (Foreground)
-4. **02.2-03a-PLAN.md** — Pending: Add App Icon to Widget
-5. **02.2-03b-PLAN.md** — Pending: Implement START Button with Glow Effect
-6. **02.2-04-PLAN.md** — Pending: Connect START Button to App
+2. **02.2-02a-PLAN.md** — ✅ Create Widget Drawable Resources (COMPLETE - via 02b blocking fix)
+3. **02.2-02b-PLAN.md** — ✅ Update Widget Layout XML (COMPLETE)
+4. **02.2-03a-PLAN.md** — Pending: Implement Widget Views
+5. **02.2-03b-PLAN.md** — Pending: Connect START Button to App
+6. **02.2-04-PLAN.md** — Pending: Add Widget Configuration
 
 ## Completed Work
 
@@ -131,10 +140,17 @@
 - Data flow: Flutter -> WidgetUpdateService -> home_widget -> Android widget
 
 ### Phase 2.2 Plan 02a: Widget Drawable Resources ✅
-- Widget background with 28dp corner radius (f81bd11)
-- START button with glow effect using layer-list (df70832)
-- Button selector for pressed state (df70832)
-- Logo icon as 24dp vector drawable (6957f0c)
+- Widget background with 28dp corner radius (created as part of 02b)
+- START button with glow effect using layer-list (created as part of 02b)
+- Button selector for pressed state (created as part of 02b)
+- Logo icon as 24dp vector drawable (created as part of 02b)
+
+### Phase 2.2 Plan 02b: Widget Layout XML ✅
+- Font family resource created (sans-serif-medium)
+- Layout updated to use drawable resources
+- Proper typography applied (36sp, 28sp, 12sp, 11sp)
+- Logo icon in header
+- Localized labels with string resources
 
 ## Known Issues
 
@@ -195,21 +211,21 @@
 - **Shared key pattern**: 'pushup_json_data' key used on both Flutter and Kotlin sides for data access
 - **Graceful degradation**: Zeros as defaults when data unavailable or parsing fails
 
-### From Phase 2.2-02a
+### From Phase 2.2-02a/02b
 - **Drawable layer-list for glow effects**: Using offset items in layer-list creates shadow/glow effect on buttons
 - **Selector for pressed states**: state_pressed in selector provides visual feedback on button tap
 - **Vector drawables for scalability**: 24dp standard size for icons, scales without quality loss
+- **System fonts instead of embedded fonts**: Using sans-serif-medium instead of embedding Montserrat (smaller APK, simpler implementation)
 
 ## Next Steps
 
-1. **Phase 2.2 Plan 02b:** Implement Quick Stats Widget Layout (Foreground) - Add text views and START button using drawables
-2. **Phase 2.2 Plan 03a:** Add App Icon to Widget
-3. **Phase 2.2 Plan 03b:** Implement START Button with Glow Effect
-4. **Phase 2.2 Plan 04:** Connect START Button to App
+1. **Phase 2.2 Plan 03a:** Implement Widget Views - Create AppWidgetProvider for rendering
+2. **Phase 2.2 Plan 03b:** Connect START Button to App - Deep link or pending intent
+3. **Phase 2.2 Plan 04:** Add Widget Configuration
 
 ---
 
 *Last updated: 2026-01-21*
 *Last session: 2026-01-21*
-*Stopped at: Completed Phase 2.2 Plan 02a (02.2-02a-PLAN.md)*
-*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-02a-SUMMARY.md*
+*Stopped at: Completed Phase 2.2 Plan 02b (02.2-02b-PLAN.md)*
+*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-02b-SUMMARY.md*
