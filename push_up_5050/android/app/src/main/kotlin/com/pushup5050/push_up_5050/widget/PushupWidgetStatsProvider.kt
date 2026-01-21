@@ -4,7 +4,9 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.widget.RemoteViews
+import com.pushup5050.push_up_5050.MainActivity
 import com.pushup5050.push_up_5050.R
 import com.home_widget.HomeWidgetPlugin
 import org.json.JSONObject
@@ -76,18 +78,24 @@ class PushupWidgetStatsProvider : AppWidgetProvider() {
             views.setTextViewText(R.id.today_count, todayPushups.toString())
             views.setTextViewText(R.id.total_count, "$totalPushups / $goalPushups")
 
-            // Set click intent for START button
-            val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
-            intent?.let {
-                views.setOnClickPendingIntent(R.id.start_button,
-                    android.app.PendingIntent.getActivity(
-                        context,
-                        0,
-                        it,
-                        android.app.PendingIntent.FLAG_UPDATE_CURRENT or android.app.PendingIntent.FLAG_IMMUTABLE
-                    )
-                )
+            // Set click intent for START button to deep link
+            val deepLinkIntent = Intent(context, MainActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                data = Uri.parse("pushup5050://series_selection")
+                // Start as new task but don't create multiple instances
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
+
+            views.setOnClickPendingIntent(R.id.start_button,
+                android.app.PendingIntent.getActivity(
+                    context,
+                    0,
+                    deepLinkIntent,
+                    android.app.PendingIntent.FLAG_UPDATE_CURRENT or android.app.PendingIntent.FLAG_IMMUTABLE
+                )
+            )
 
             // Update widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
