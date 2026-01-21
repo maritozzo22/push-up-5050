@@ -1,0 +1,76 @@
+name: push_up_5050
+description: Progressive push-up training app with gamification.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Fonts & UI
+  google_fonts: ^6.1.0
+
+  # Storage & Data
+  shared_preferences: ^2.2.2
+  path_provider: ^2.1.1
+
+  # Device Features
+  proximity_sensor: ^1.3.8
+  vibration: ^3.1.0
+  audioplayers: ^6.5.1
+  flutter_local_notifications: ^17.2.3
+  timezone: ^0.9.4
+  home_widget: ^0.9.0
+
+  # UI Components
+  table_calendar: ^3.0.9
+  fl_chart: ^0.65.0
+
+  # Utilities
+  intl: ^0.20.2
+
+  # State Management
+  provider: ^6.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  golden_toolkit: ^0.15.0
+  mockito: ^5.4.4
+  build_runner: ^2.4.6
+  flutter_launcher_icons: ^0.13.1
+
+# Flutter Launcher Icons configuration
+# NOTA: Convertire icon.svg in icon.png (512x512) prima di generare
+# Usa: https://cloudconvert.com/svg-to/png
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/launcher/icon.png"  # Cambiato da .svg a .png
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/launcher/icon.png"
+  min_sdk_android: 21
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/sounds/
+    - assets/images/
+    - assets/launcher/
+# Force rebuild
