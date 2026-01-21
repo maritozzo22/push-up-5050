@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_today_label">OGGI:</string>
+    <string name="widget_total_label">TOTALE:</string>
+    <string name="widget_pushups">push-ups</string>
+    <string name="widget_start">START</string>
+</resources>
