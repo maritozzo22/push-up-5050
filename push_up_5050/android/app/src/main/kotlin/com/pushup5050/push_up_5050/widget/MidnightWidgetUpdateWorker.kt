@@ -1,10 +1,11 @@
 package com.pushup5050.push_up_5050.widget
 
 import android.content.Context
+import android.appwidget.AppWidgetManager
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import es.antonborri.home_widget.HomeWidget
 import android.util.Log
+import android.content.ComponentName
 
 /**
  * WorkManager worker that updates widgets at midnight.
@@ -22,19 +23,37 @@ class MidnightWidgetUpdateWorker(
         return try {
             Log.d(TAG, "Starting midnight widget update")
 
-            // Trigger widget refresh - calendar will re-render
-            // with updated day statuses (yesterday may now be missed)
-            HomeWidget.updateWidget(
-                applicationContext,
-                "PushupWidgetQuickStartProvider"
-            )
-            Log.d(TAG, "Updated QuickStart widget")
+            val appWidgetManager = AppWidgetManager.getInstance(applicationContext)
 
-            HomeWidget.updateWidget(
+            // Update QuickStart widget (4x4)
+            val quickStartProvider = ComponentName(
                 applicationContext,
-                "PushupWidgetSmallProvider"
+                PushupWidgetQuickStartProvider::class.java
             )
-            Log.d(TAG, "Updated Small widget")
+            val quickStartIds = appWidgetManager.getAppWidgetIds(quickStartProvider)
+            if (quickStartIds.isNotEmpty()) {
+                PushupWidgetQuickStartProvider().onUpdate(
+                    applicationContext,
+                    appWidgetManager,
+                    quickStartIds
+                )
+                Log.d(TAG, "Updated QuickStart widget (${quickStartIds.size} instances)")
+            }
+
+            // Update Small widget (2x1)
+            val smallProvider = ComponentName(
+                applicationContext,
+                PushupWidgetSmallProvider::class.java
+            )
+            val smallIds = appWidgetManager.getAppWidgetIds(smallProvider)
+            if (smallIds.isNotEmpty()) {
+                PushupWidgetSmallProvider().onUpdate(
+                    applicationContext,
+                    appWidgetManager,
+                    smallIds
+                )
+                Log.d(TAG, "Updated Small widget (${smallIds.size} instances)")
+            }
 
             Log.d(TAG, "Midnight widget update completed successfully")
             Result.success()
