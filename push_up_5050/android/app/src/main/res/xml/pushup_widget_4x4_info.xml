@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  2x1 Widget Info - Size registration
-  Uses new layout pushup_widget_2x1 matching template structure
+  4x4 Widget Info - Size registration
+  CRITICAL: targetCellWidth="4" targetCellHeight="4" fixes the previous 2x2 bug
 -->
 <appwidget-provider
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:minWidth="146dp"
-    android:minHeight="66dp"
-    android:targetCellWidth="2"
-    android:targetCellHeight="1"
+    android:minWidth="250dp"
+    android:minHeight="250dp"
+    android:targetCellWidth="4"
+    android:targetCellHeight="4"
     android:updatePeriodMillis="1800000"
-    android:initialLayout="@layout/pushup_widget_2x1"
+    android:initialLayout="@layout/pushup_widget_4x4"
     android:resizeMode="none"
     android:widgetCategory="home_screen"
     android:previewImage="@drawable/pushup_widget_preview">
