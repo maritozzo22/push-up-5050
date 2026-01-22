@@ -6,14 +6,22 @@
 ## Current State
 
 **Phase:** Phase 2.7 - Widget Rebuild from Templates
-**Plan:** 01 of 4 (Drawable Resources)
-**Status:** Plan 01 complete, Plan 02 in progress (Wave 1)
+**Plan:** 02 of 4 (Widget Layouts)
+**Status:** Plans 01-02 complete (Wave 1), Plan 03 pending
 
-**Progress: ██████████░░░░░░░░░ 70%** (Phase 2.7: 1/4 plans complete)
+**Progress: ██████████░░░░░░░░░ 75%** (Phase 2.7: 2/4 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-22
+- **Completed Phase 2.7 Plan 02:** Widget Layouts
+  - Created pushup_widget_4x4.xml with 4 vertical sections matching template
+  - Created pushup_widget_2x1.xml with centered stats and 3-day view
+  - Created pushup_widget_4x4_info.xml with targetCellWidth=4 targetCellHeight=4 (fixes 2x2 bug)
+  - Updated pushup_widget_small_info.xml to point to new 2x1 layout
+  - View IDs preserved for provider compatibility: today_count, total_count, start_button_container, day_1-7, day_yesterday_*, day_today_*, day_tomorrow_*
+  - Commits: 24991c8, bb77f98, 5d3971a
+
 - **Completed Phase 2.7 Plan 01:** Widget Drawable Resources
   - Created centralized widget_colors.xml with 13 color values matching templates
   - Created 4x4 widget drawables (6 files): background, top panel, start button, day chips
@@ -378,20 +386,31 @@
 - **Curved edge simulation**: 4x4 top panel's quadraticBezier curve from Flutter approximated using layer-list with rounded corners (Android XML limitation)
 - **X mark with rotated shapes**: Missed day chip uses rotated rectangles instead of path element for better Android compatibility
 
+### From Phase 2.7-02
+- **4x4 layout structure**: FrameLayout root with LinearLayout vertical container for 4-section stack (top panel, stats, START button, 7-day row)
+- **2x1 3-line total format**: Total displayed as 3 separate TextViews (value / slash / goal) matching template's "44 / 5050" visual
+- **View ID preservation**: All IDs from existing layouts preserved (today_count, total_count, start_button_container, day_1-7) so providers work without code changes
+- **resizeMode=none**: Both widgets use fixed size (no resizing) because templates are designed for specific aspect ratios
+- **4x4 size bug fix**: Created pushup_widget_4x4_info.xml with targetCellWidth=4 targetCellHeight=4 (previous widget was incorrectly registered as 2x2)
+
 ## Next Steps
 
-1. **Phase 2.7 Plan 02:** Widget Layout Integration (create XML layouts using new drawables)
-2. **Phase 2.7 Plan 03:** Widget Provider Implementation (update providers with new layouts)
-3. **Phase 2.7 Plan 04:** Widget Size Registration (register 4x4 and 2x1 in XML)
+1. **Phase 2.7 Plan 03:** Widget Provider Implementation (update providers to use new layouts)
+2. **Phase 2.7 Plan 04:** AndroidManifest Registration (register new widget info files)
 
 ---
 
 ## Roadmap Evolution
 
+- **2026-01-22:** Phase 2.7 Plan 02 completed - Widget Layouts
+  - Created 4x4 layout with 4 vertical sections (top panel, stats, START button, 7-day row)
+  - Created 2x1 layout with centered stats and 3-day view
+  - Fixed 4x4 size registration (was 2x2, now 4x4)
+  - View IDs preserved for provider compatibility
+
 - **2026-01-22:** Phase 2.7 Plan 01 completed - Widget Drawable Resources
   - Created centralized widget_colors.xml with exact template colors
   - Created 9 drawable resources (6 for 4x4, 3 for 2x1)
-  - Ready for layout integration in Plan 02
 
 - **2026-01-22:** Phase 2.7 added - Widget Rebuild from Templates (2.6 rejected)
   - Previous widget work unsatisfactory (4x4 missing, 2x1 non-functional)
@@ -407,5 +426,5 @@
 
 *Last updated: 2026-01-22*
 *Last session: 2026-01-22*
-*Stopped at: Completed Phase 2.7 Plan 01 - Widget Drawable Resources*
-*Resume file: None (Plan complete, proceed to Plan 02)*
+*Stopped at: Completed Phase 2.7 Plan 02 - Widget Layouts*
+*Resume file: None (Plan complete, proceed to Plan 03)*
