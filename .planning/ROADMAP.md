@@ -310,6 +310,85 @@ All core functionality has been implemented:
 
 ---
 
+### Phase 2.7: Widget Rebuild from Templates
+
+**Goal:** Completely rebuild widgets from scratch using exact template designs provided
+
+**Status:** 🔄 IN PROGRESS
+
+**Plans:**
+- [ ] 02.7-01-PLAN.md — Create widget drawable resources with exact template colors
+- [ ] 02.7-02-PLAN.md — Create widget layouts matching template structure
+- [ ] 02.7-03-PLAN.md — Update widget providers and AndroidManifest registration
+- [ ] 02.7-04-PLAN.md — Build, deploy, and verify widgets on device
+
+**Context:**
+Previous widget work (2.6) is unsatisfactory. Widgets are either:
+- Missing (4x4 widget not available in widget picker)
+- Non-functional (2x1 widget doesn't work)
+- Visually incorrect (don't match provided templates)
+
+**Requirements:**
+
+#### What to Keep (Reuse)
+1. **Data sync layer**: WidgetCalendarService, WidgetData model
+2. **Pushup data**: Today's count, total/goal from UserStatsProvider
+3. **Calendar data**: WeekDayData, threeDayData from WidgetCalendarService
+4. **Deep link**: START button → pushup5050://series_selection
+5. **Update mechanism**: WidgetUpdateService integration with providers
+
+#### What to Rebuild (From Scratch)
+1. **Widget 4x4**: Use exact design from `template-widget 4x4.md`
+2. **Widget 2x1**: Use exact design from `template-widget 2x1.md`
+3. **Android widget providers**: New XML layouts with correct sizes
+4. **Widget registration**: Proper sizing in AndroidManifest.xml
+
+#### Widget 4x4 Specifications (from template)
+```
+Size: 4x4 cells (must appear as 4x4 in widget picker)
+Layout: Vertical structure
+- Top panel (gradient: #20262B to #111416) with curved bottom edge
+- Stats: OGGI (left), OBIETTIVO (right)
+- Center: Large circular START button (gradient orange, glow effect)
+- Bottom: 7-day row (L M M G V S D) with day chips
+Colors:
+- Top A: #20262B, Top B: #111416
+- Bottom A: #0F1113, Bottom B: #0B0D0F
+- Orange: #F46A1E, Orange2: #EF7A1A
+- Text soft: #B9C0C7
+```
+
+#### Widget 2x1 Specifications (from template)
+```
+Size: 2x1 cells (must appear as 2x1 in widget picker)
+Layout: Vertical structure
+- Top panel (62% height, gradient background)
+- Centered stats: OGGI PUSHUPS + TOTALE PUSHUPS
+- Bottom: 3-day row (Yesterday-Today-Tomorrow)
+- Total displayed as 3 lines: "44 / 5050"
+```
+
+#### What Must Work
+- [ ] Both widgets appear in widget picker with correct sizes
+- [ ] Widget 4x4 displays exactly like template
+- [ ] Widget 2x1 displays exactly like template
+- [ ] START button opens SeriesSelectionScreen
+- [ ] Calendar shows correct states (completed/missed/pending)
+- [ ] Widgets update within 5 seconds of data changes
+
+**Deliverables:**
+- Working 4x4 widget (visible in picker, functional)
+- Working 2x1 widget (visible in picker, functional)
+- Android widget providers matching template designs
+- Proper widget size registration in AndroidManifest
+
+**Acceptance Criteria:**
+- Widget picker shows both widgets with correct sizes
+- Visual design matches templates exactly
+- All functionality works (data sync, deep links, updates)
+
+---
+
 ## Future Milestones
 
 ### Milestone 3: iOS Widgets (Future)
