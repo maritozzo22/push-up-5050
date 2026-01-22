@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Day indicator - completed with orange glow effect -->
+<!-- Matches New-design.md gradient: #FFB347 -> #FF5F1F -->
+<!-- Glow color: #FF7A18 with blur 38dp, spread 10dp -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer glow effect -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#00FF7A18" />
+            <size
+                android:width="62dp"
+                android:height="62dp" />
+        </shape>
+    </item>
+
+    <!-- Middle glow -->
+    <item android:left="4dp" android:top="4dp" android:right="4dp" android:bottom="4dp">
+        <shape android:shape="oval">
+            <solid android:color="#33FF7A18" />
+        </shape>
+    </item>
+
+    <!-- Inner glow -->
+    <item android:left="8dp" android:top="8dp" android:right="8dp" android:bottom="8dp">
+        <shape android:shape="oval">
+            <solid android:color="#66FF7A18" />
+        </shape>
+    </item>
+
+    <!-- Main circle with gradient -->
+    <item android:left="10dp" android:top="10dp" android:right="10dp" android:bottom="10dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#FFFFB347"
+                android:endColor="#FFFF5F1F" />
+            <size
+                android:width="42dp"
+                android:height="42dp" />
+        </shape>
+    </item>
+
+    <!-- Inner highlight for depth -->
+    <item android:left="13dp" android:top="13dp" android:right="13dp" android:bottom="13dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="60%"
+                android:centerColor="#33FFFFFF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+</layer-list>

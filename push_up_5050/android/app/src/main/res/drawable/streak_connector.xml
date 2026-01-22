@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Streak connector - glowing horizontal line between consecutive completed days -->
+<!-- Color: #FF7A18 with glow effect, 4dp height -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer glow -->
+    <item android:left="-3dp" android:right="-3dp" android:top="-3dp" android:bottom="-3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#33FF7A18" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <!-- Middle glow -->
+    <item android:left="-1dp" android:right="-1dp" android:top="-1dp" android:bottom="-1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#66FF7A18" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <!-- Main line with gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="0"
+                android:startColor="#FFFFB347"
+                android:endColor="#FFFF5F1F" />
+            <corners android:radius="2dp" />
+            <size
+                android:height="4dp"
+                android:width="24dp" />
+        </shape>
+    </item>
+
+    <!-- Center highlight -->
+    <item android:top="1dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#33FFFFFF" />
+            <corners android:radius="1dp" />
+            <size
+                android:height="2dp"
+                android:width="24dp" />
+        </shape>
+    </item>
+
+</layer-list>
