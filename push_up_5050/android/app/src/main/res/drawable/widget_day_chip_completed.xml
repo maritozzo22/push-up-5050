@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Day Chip - Completed (Orange with glow)
+Matches template: _DayChip selected state
+Shadow: 0.35/10dp/6dp offset, Color: widget_orange
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer glow shadow -->
+    <item
+        android:left="0dp"
+        android:top="6dp"
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="oval">
+            <solid android:color="#59000000" />
+            <size
+                android:width="32dp"
+                android:height="32dp" />
+        </shape>
+    </item>
+
+    <!-- Main circle - orange -->
+    <item
+        android:left="0dp"
+        android:top="6dp"
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/widget_orange" />
+            <size
+                android:width="32dp"
+                android:height="32dp" />
+        </shape>
+    </item>
+
+    <!-- Inner highlight for depth -->
+    <item
+        android:left="2dp"
+        android:top="8dp"
+        android:right="2dp"
+        android:bottom="2dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="60%"
+                android:centerColor="#38FFFFFF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+</layer-list>

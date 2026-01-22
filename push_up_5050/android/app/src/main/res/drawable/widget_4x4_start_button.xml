@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+4x4 Widget START Button - Circular button with gradient and highlight
+Matches template: StartButton with shadow, gradient circle, top highlight
+Shadow: 0xAA/24dp/14dp, Base: #2A2F35, Gradient: orange2->orange, Highlight: white 0.22
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer shadow -->
+    <item
+        android:left="0dp"
+        android:top="14dp"
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/widget_shadow_color" />
+            <size
+                android:width="96dp"
+                android:height="96dp" />
+        </shape>
+    </item>
+
+    <!-- Base circle (darker background) -->
+    <item
+        android:left="0dp"
+        android:top="14dp"
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/widget_button_base" />
+            <size
+                android:width="96dp"
+                android:height="96dp" />
+        </shape>
+    </item>
+
+    <!-- Gradient circle (88% of base size) -->
+    <item
+        android:left="6dp"
+        android:top="20dp"
+        android:right="6dp"
+        android:bottom="6dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="@color/widget_orange2"
+                android:endColor="@color/widget_orange" />
+            <size
+                android:width="84dp"
+                android:height="84dp" />
+        </shape>
+    </item>
+
+    <!-- Top highlight (top 40% with white gradient) -->
+    <item
+        android:left="6dp"
+        android:top="20dp"
+        android:right="6dp"
+        android:bottom="38dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="linear"
+                android:angle="90"
+                android:startColor="#38FFFFFF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+</layer-list>
