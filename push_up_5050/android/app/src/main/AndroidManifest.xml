@@ -47,10 +47,10 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
-        <!-- Widget 1: Quick Stats -->
+        <!-- Widget 1: Quick Stats - DISABLED -->
         <receiver
             android:name=".widget.PushupWidgetStatsProvider"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -60,10 +60,10 @@
                 android:resource="@xml/pushup_widget_stats_info" />
         </receiver>
 
-        <!-- Widget 2: Calendar Preview -->
+        <!-- Widget 2: Calendar Preview - DISABLED -->
         <receiver
             android:name=".widget.PushupWidgetCalendarProvider"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -73,7 +73,7 @@
                 android:resource="@xml/pushup_widget_calendar_info" />
         </receiver>
 
-        <!-- Widget 3: Quick Start -->
+        <!-- Widget 3: Quick Start (large with START button) - ENABLED -->
         <receiver
             android:name=".widget.PushupWidgetQuickStartProvider"
             android:enabled="true"
@@ -84,6 +84,29 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/pushup_widget_quick_start_info" />
+        </receiver>
+
+        <!-- Widget 4: Small Stats Only - ENABLED -->
+        <receiver
+            android:name=".widget.PushupWidgetSmallProvider"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/pushup_widget_small_info" />
+        </receiver>
+
+        <!-- Widget Midnight Update Receiver -->
+        <receiver
+            android:name=".widget.WidgetUpdateReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
         </receiver>
     </application>
     <!-- Required to query activities that can process text, see:
