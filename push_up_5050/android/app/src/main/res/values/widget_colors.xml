@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Widget Colors - Centralized color values from template specifications
+Source: template-widget 4x4.md lines 31-38
+-->
+<resources>
+    <!-- Gradient colors for top panel -->
+    <color name="widget_top_a">#20262B</color>
+    <color name="widget_top_b">#111416</color>
+
+    <!-- Gradient colors for bottom panel -->
+    <color name="widget_bottom_a">#0F1113</color>
+    <color name="widget_bottom_b">#0B0D0F</color>
+
+    <!-- Orange accent colors -->
+    <color name="widget_orange">#F46A1E</color>
+    <color name="widget_orange2">#EF7A1A</color>
+
+    <!-- Text colors -->
+    <color name="widget_text_soft">#B9C0C7</color>
+    <color name="widget_text_white">#FFFFFF</color>
+
+    <!-- Day indicator colors -->
+    <color name="widget_day_pending">#3A4046</color>
+    <color name="widget_day_pending_text">#D7DEE6</color>
+    <color name="widget_day_missed">#F44336</color>
+
+    <!-- Supporting colors -->
+    <color name="widget_button_base">#2A2F35</color>
+    <color name="widget_shadow_color">#AA000000</color>
+</resources>
