@@ -204,30 +204,22 @@ class UserStatsProvider extends ChangeNotifier {
 
   /// Update all home screen widgets with current stats data.
   ///
-  /// Builds WidgetData from current provider state and triggers
-  /// widget updates via WidgetUpdateService.
+  /// Uses WidgetUpdateService.buildWidgetData() to create widget data
+  /// enriched with calendar information (when calendar service is available).
+  /// Triggers widget updates via updateAllWidgets().
   Future<void> _updateWidgets() async {
     try {
-      // Build calendar days from last 30 days records
-      final calendarDays = _last30DaysRecords.asMap().entries.map((entry) {
-        final index = entry.key;
-        final record = entry.value;
-        // Calculate day number from today (index 29 = today)
-        final now = DateTime.now();
-        final day = now.subtract(Duration(days: 29 - index)).day;
-        return CalendarDayData(day, record?.goalReached ?? false);
-      }).toList();
-
-      final widgetData = WidgetData(
+      // Build widget data using WidgetUpdateService.buildWidgetData()
+      // This will include calendar data if calendar service is available
+      final widgetData = await _widgetUpdateService.buildWidgetData(
         todayPushups: _todayPushups,
         totalPushups: _totalPushupsAllTime,
         goalPushups: 5050,
-        todayGoalReached: _todayPushups >= 50,
         streakDays: _currentStreak,
         lastWorkoutDate: _allDailyRecords.isNotEmpty
             ? _getLastWorkoutDate()
             : null,
-        calendarDays: calendarDays,
+        allDailyRecords: _allDailyRecords,
       );
 
       await _widgetUpdateService.updateAllWidgets(widgetData);
