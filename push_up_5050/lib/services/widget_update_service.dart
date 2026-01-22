@@ -1,7 +1,7 @@
 import 'dart:developer' as developer;
 import 'package:flutter/foundation.dart';
-import 'package:home_widget/home_widget.dart';
 import 'package:flutter/services.dart';
+import 'package:home_widget/home_widget.dart';
 import '../models/widget_data.dart';
 import 'widget_calendar_service.dart';
 
@@ -146,6 +146,15 @@ class WidgetUpdateService {
   /// Gracefully handles failures - widgets will still update on app launch.
   Future<void> scheduleMidnightUpdate() async {
     if (!_isAvailable) return;
+
+    // Skip platform channel invocation on non-Android platforms (tests, Windows, etc.)
+    // to avoid hanging on MethodChannel.invokeMethod with no platform handler
+    if (defaultTargetPlatform != TargetPlatform.android) {
+      developer.log('Skipping midnight update scheduling (not Android)',
+          name: 'WidgetUpdateService');
+      return;
+    }
+
     try {
       await _widgetChannel.invokeMethod('scheduleMidnightUpdate');
       developer.log('Midnight widget update scheduled', name: 'WidgetUpdateService');
