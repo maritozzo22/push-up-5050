@@ -5,15 +5,23 @@
 
 ## Current State
 
-**Phase:** Phase 2.6 - Widget Redesign
-**Plan:** 04 of 05 COMPLETE
-**Status:** In progress
+**Phase:** Phase 2.7 - Widget Rebuild from Templates
+**Plan:** 01 of 4 (Drawable Resources)
+**Status:** Plan 01 complete, Plan 02 in progress (Wave 1)
 
-**Progress: █████████████░░░░░░ 90%** (10/11 plans complete)
+**Progress: ██████████░░░░░░░░░ 70%** (Phase 2.7: 1/4 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-22
+- **Completed Phase 2.7 Plan 01:** Widget Drawable Resources
+  - Created centralized widget_colors.xml with 13 color values matching templates
+  - Created 4x4 widget drawables (6 files): background, top panel, start button, day chips
+  - Created 2x1 widget drawables (3 files): background, top panel, day chip selector
+  - All colors use @color/widget_* references for consistency
+  - Corner radii: 28dp (4x4), 26dp (2x1) as per template specs
+  - Commits: 6774c57, b2b8382, 32e3b4a
+
 - **Completed Phase 2.6 Plan 04:** WorkManager Midnight Update for Calendar Refresh
   - Added WorkManager dependency (androidx.work:work-runtime-ktx:2.9.0)
   - Created MidnightWidgetUpdateWorker for 00:01 daily widget refresh
@@ -362,14 +370,34 @@
 - **MethodChannel for scheduling**: Allows Flutter app to trigger midnight update scheduling on first launch, ensuring activation without user intervention
 - **Graceful degradation**: Midnight update failure is non-fatal - widgets still update on app launch and user-triggered actions
 
+### From Phase 2.7-01
+- **Centralized color resources**: All widget colors defined in widget_colors.xml using exact hex values from Flutter templates
+- **Template exact match**: Colors (topA=#20262B, topB=#111416, bottomA=#0F1113, bottomB=#0B0D0F, orange=#F46A1E, orange2=#EF7A1A) match template specifications precisely
+- **@color references**: All drawables use @color/widget_* references instead of hardcoded hex values for maintainability
+- **Corner radius difference**: 4x4 uses 28dp, 2x1 uses 26dp (exactly as specified in templates)
+- **Curved edge simulation**: 4x4 top panel's quadraticBezier curve from Flutter approximated using layer-list with rounded corners (Android XML limitation)
+- **X mark with rotated shapes**: Missed day chip uses rotated rectangles instead of path element for better Android compatibility
+
 ## Next Steps
 
-1. **Phase 2.6 Plan 05:** Widget Testing & Verification
+1. **Phase 2.7 Plan 02:** Widget Layout Integration (create XML layouts using new drawables)
+2. **Phase 2.7 Plan 03:** Widget Provider Implementation (update providers with new layouts)
+3. **Phase 2.7 Plan 04:** Widget Size Registration (register 4x4 and 2x1 in XML)
 
 ---
 
 ## Roadmap Evolution
 
+- **2026-01-22:** Phase 2.7 Plan 01 completed - Widget Drawable Resources
+  - Created centralized widget_colors.xml with exact template colors
+  - Created 9 drawable resources (6 for 4x4, 3 for 2x1)
+  - Ready for layout integration in Plan 02
+
+- **2026-01-22:** Phase 2.7 added - Widget Rebuild from Templates (2.6 rejected)
+  - Previous widget work unsatisfactory (4x4 missing, 2x1 non-functional)
+  - Will rebuild from scratch using exact template designs provided
+  - Keep: data sync, calendar service, deep links
+  - Rebuild: XML layouts, widget providers, size registration
 - **2026-01-22:** Phase 2.6 Plan 04 completed - WorkManager midnight update for calendar refresh
 - **2026-01-22:** Phase 2.6 Plan 03 completed - Android widget providers updated with calendar rendering
 - **2026-01-22:** Phase 2.6 Plan 02 completed - WidgetUpdateService integrated with WidgetCalendarService
@@ -379,5 +407,5 @@
 
 *Last updated: 2026-01-22*
 *Last session: 2026-01-22*
-*Stopped at: Completed Phase 2.6 Plan 04*
-*Resume file: .planning/phases/02.6-widget-redesign/*
+*Stopped at: Completed Phase 2.7 Plan 01 - Widget Drawable Resources*
+*Resume file: None (Plan complete, proceed to Plan 02)*
