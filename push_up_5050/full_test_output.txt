@@ -1,0 +1,974 @@
+00:00 +0: loading C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/constants/app_colors_test.dart
+00:00 +0: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/constants/app_colors_test.dart: AppColors primary orange should be correct HEX value
+00:00 +1: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/constants/app_colors_test.dart: AppColors background should be correct HEX value
+00:00 +2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/constants/app_colors_test.dart: AppColors all recovery timer colors should be defined
+00:00 +3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/constants/app_colors_test.dart: AppColors text colors should have correct opacity
+00:00 +4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations appName returns PUSHUP 5050
+00:00 +5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations homeTitle returns PUSHUP 5050
+00:00 +6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations start returns INIZIA
+00:00 +7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations settingsTitle returns Impostazioni
+00:00 +8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations todayPushups with placeholder works correctly
+00:00 +9: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations dayXofY with placeholders works correctly
+00:00 +10: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations achievementPoints with placeholder works correctly
+00:00 +11: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations achievementUnlocked with placeholder works correctly
+00:00 +12: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations level names are correct
+00:00 +13: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations Italian translations haptic intensity labels are correct
+00:00 +14: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations appName returns PUSHUP 5050
+00:00 +15: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations homeTitle returns PUSHUP 5050
+00:00 +16: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations start returns START
+00:00 +17: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations settingsTitle returns Settings
+00:00 +18: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations todayPushups with placeholder works correctly
+00:00 +19: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations dayXofY with placeholders works correctly
+00:00 +20: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations achievementPoints with placeholder works correctly
+00:00 +21: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations achievementUnlocked with placeholder works correctly
+00:00 +22: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations English translations haptic intensity labels are correct
+00:00 +23: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations AppLocalizations configuration supportedLocales contains IT and EN
+00:00 +24: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations AppLocalizations configuration localizationsDelegates is not empty
+00:00 +25: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/l10n/app_localizations_test.dart: AppLocalizations AppLocalizations configuration delegate is _AppLocalizationsDelegate
+00:00 +26: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/router_test.dart: AppRoutes home route should be root path
+00:00 +27: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/router_test.dart: AppRoutes seriesSelection route should be correct
+00:00 +28: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/router_test.dart: AppRoutes workoutExecution route should be correct
+00:00 +29: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/router_test.dart: AppRoutes statistics route should be correct
+00:00 +30: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/router_test.dart: AppRoutes profile route should be correct
+00:00 +31: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/router_test.dart: AppRoutes all route constants should be unique strings
+00:00 +32: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/router_test.dart: AppRoutes all routes should start with forward slash
+00:00 +33: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/utils/calculator_test.dart: Calculator should calculate kcal correctly (0.45 per push-up)
+00:00 +34: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/utils/calculator_test.dart: Calculator should calculate points correctly
+00:00 +35: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/utils/calculator_test.dart: Calculator should apply multiplier correctly based on streak
+00:00 +36: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/utils/calculator_test.dart: Calculator should calculate level correctly based on points
+00:00 +37: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/utils/calculator_test.dart: Calculator should get level name correctly
+00:00 +38: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/core/utils/calculator_test.dart: Calculator should calculate final points with multiplier
+00:00 +39: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/debug_series_test.dart: Debug series calculation
+After series 1: repsCount=1, seriesCompleted=0
+After series 2: repsCount=3, seriesCompleted=1
+After series 3: repsCount=6, seriesCompleted=2
+Final: totalReps=6, seriesCompleted=3
+After series 1: repsCount=1, seriesCompleted=0
+After series 2: repsCount=3, seriesCompleted=1
+Final: totalReps=3, seriesCompleted=2
+00:01 +40: loading C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/home_screen_golden_test.dart
+Warning: A tag was used that wasn't specified in dart_test.yaml.
+  golden was used in:
+    the test "HomeScreen golden test"
+    the test "HomeScreen dark theme golden test"
+
+00:01 +40: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/home_screen_golden_test.dart: (setUpAll)
+00:01 +40: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/home_screen_golden_test.dart: HomeScreen golden test
+00:01 +40: loading C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/profile_screen_golden_test.dart
+Warning: A tag was used that wasn't specified in dart_test.yaml.
+  golden was used in:
+    the test "ProfileScreen golden test"
+    the test "ProfileScreen with achievements golden test"
+
+00:01 +40: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/home_screen_golden_test.dart: HomeScreen golden test
+00:01 +40: loading C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/series_selection_screen_golden_test.dart
+Warning: A tag was used that wasn't specified in dart_test.yaml.
+  golden was used in:
+    the test "SeriesSelectionScreen golden test"
+    the test "SeriesSelectionScreen scrolled golden test"
+
+00:01 +40: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/home_screen_golden_test.dart: HomeScreen golden test
+00:01 +40: loading C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/settings_screen_golden_test.dart
+Warning: A tag was used that wasn't specified in dart_test.yaml.
+  golden was used in:
+    the test "SettingsScreen golden test"
+    the test "SettingsScreen with toggles golden test"
+
+00:01 +40: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/home_screen_golden_test.dart: HomeScreen golden test
+00:01 +41: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/profile_screen_golden_test.dart: ProfileScreen golden test
+00:01 +42: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/profile_screen_golden_test.dart: ProfileScreen golden test
+00:01 +42: loading C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/statistics_screen_golden_test.dart
+Warning: A tag was used that wasn't specified in dart_test.yaml.
+  golden was used in:
+    the test "StatisticsScreen golden test"
+    the test "StatisticsScreen with data golden test"
+
+00:01 +42: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/profile_screen_golden_test.dart: ProfileScreen golden test
+00:01 +43: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/series_selection_screen_golden_test.dart: SeriesSelectionScreen golden test
+00:02 +44: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/series_selection_screen_golden_test.dart: SeriesSelectionScreen golden test
+00:02 +44: loading C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart
+Warning: A tag was used that wasn't specified in dart_test.yaml.
+  golden was used in:
+    the test "WorkoutExecutionScreen placeholder golden test"
+    the test "WorkoutExecutionScreen active workout golden test"
+    the test "WorkoutExecutionScreen with progress golden test"
+
+00:02 +44: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/series_selection_screen_golden_test.dart: SeriesSelectionScreen golden test
+00:02 +45: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/settings_screen_golden_test.dart: SettingsScreen golden test
+00:02 +46: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/settings_screen_golden_test.dart: SettingsScreen golden test
+00:02 +47: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/statistics_screen_golden_test.dart: StatisticsScreen golden test
+00:02 +48: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/statistics_screen_golden_test.dart: StatisticsScreen golden test
+00:02 +49: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +50: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +51: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +52: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +53: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +54: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +55: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +56: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +57: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +58: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +59: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +60: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +61: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/golden_tests/workout_execution_screen_golden_test.dart: WorkoutExecutionScreen placeholder golden test
+00:02 +62: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +63: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +64: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +65: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +66: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +67: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +68: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +69: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +70: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +71: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +72: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +73: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +74: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper initializes with Home screen (index 0)
+00:02 +75: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +76: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +77: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +78: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +79: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +80: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +81: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +82: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +83: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +84: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +85: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +86: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +87: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +88: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +89: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +90: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: App Initialization app launches without crash
+00:03 +91: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +92: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +93: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +94: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +95: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +96: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +97: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +98: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +99: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +100: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +101: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +102: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +103: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +104: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +105: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +106: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +107: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +108: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +109: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +110: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (Italian) returns "Spento" for HapticIntensity.off
+00:03 +111: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp supports IT and EN locales
+00:03 +112: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/active_workout_provider_test.dart: ActiveWorkoutProvider initially has no active session
+00:03 +113: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +114: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +115: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +116: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +117: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +118: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +119: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +120: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +121: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +122: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +123: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +124: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_navigation_wrapper_test.dart: MainNavigationWrapper Home tab is selected by default (currentIndex 0)
+00:03 +125: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp includes AppLocalizations.delegate
+00:03 +126: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp includes AppLocalizations.delegate
+00:03 +127: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp includes AppLocalizations.delegate
+00:03 +128: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp includes AppLocalizations.delegate
+00:03 +129: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp includes AppLocalizations.delegate
+00:03 +130: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp includes AppLocalizations.delegate
+00:03 +131: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (English) returns "Off" for HapticIntensity.off
+00:03 +132: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/main_test.dart: Localizations Configuration MaterialApp initial locale is Italian by default
+00:03 +133: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (English) returns "Light" for HapticIntensity.light
+00:03 +134: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/models/haptic_intensity_test.dart: HapticIntensity - i18n localizedLabel (English) returns "Medium" for HapticIntensity.medium
+00:03 +135: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider initially has loading state true
+00:03 +136: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider initially has zero values
+00:03 +137: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider loads stats from storage successfully
+00:03 +138: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider handles empty storage (first launch)
+00:03 +139: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider notifies listeners when data changes
+00:03 +140: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider refreshStats reloads data from storage
+00:03 +141: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider calculates total pushups from all records
+00:03 +142: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/providers/user_stats_provider_test.dart: UserStatsProvider counts only completed days for daysCompleted
+00:03 +143: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Active Session should save workout session correctly
+00:03 +144: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Active Session should load workout session correctly
+00:03 +145: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Active Session should return null when no active session
+00:03 +146: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Active Session should clear active session correctly
+00:03 +147: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Active Session should handle corrupted session data gracefully
+00:03 +148: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Daily Record should save daily record correctly
+00:03 +149: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Daily Record should load all daily records correctly
+00:03 +150: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Daily Record should return empty map when no records exist
+00:03 +151: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Daily Record should get specific daily record by date
+00:03 +152: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Daily Record should return null when specific record not found
+00:03 +153: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Daily Record should merge new record with existing records
+00:03 +154: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Daily Record should handle corrupted records data gracefully
+00:03 +155: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Streak Calculation should calculate streak from consecutive days
+00:03 +156: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Streak Calculation should break streak on missed day
+00:03 +157: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Streak Calculation should return 0 for no records
+00:03 +158: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Streak Calculation should not count days with less than 50 push-ups
+00:03 +159: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Streak Calculation should handle today not completed yet
+00:03 +160: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Achievements should save achievement unlock status
+00:03 +161: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Achievements should load all achievements correctly
+00:03 +162: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Achievements should return empty map when no achievements exist
+00:03 +163: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Achievements should handle corrupted achievements data gracefully
+00:03 +164: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - User Stats should calculate all-time totals correctly
+00:03 +165: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - User Stats should find max push-ups in one day
+00:03 +166: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - User Stats should count completed days correctly
+00:03 +167: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - User Stats should return zeros when no records exist
+00:03 +168: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/repositories/storage_service_test.dart: StorageService - Clear Data should clear all data correctly
+00:04 +169: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/home/home_screen_test.dart: HomeScreen - Original Tests widget builds without errors
+00:04 +170: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration widget builds without errors
+00:04 +171: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration widget builds without errors
+00:04 +172: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration widget builds without errors
+00:04 +172: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/home/home_screen_test.dart: HomeScreen - Original Tests bottom navigation is present
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "BottomNavigationBar": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/home/home_screen_test.dart:159:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/home/home_screen_test.dart line 159
+The test description was:
+  bottom navigation is present
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +172 -1: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration widget builds without errors
+00:04 +172 -1: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/home/home_screen_test.dart: HomeScreen - Original Tests bottom navigation is present [E]
+  Test failed. See exception logs above.
+  The test description was: bottom navigation is present
+  
+00:04 +172 -1: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/home/home_screen_test.dart: HomeScreen - Original Tests all three navigation tabs are present
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Home": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/home/home_screen_test.dart:173:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/home/home_screen_test.dart line 173
+The test description was:
+  all three navigation tabs are present
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +172 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration widget builds without errors
+00:04 +172 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/home/home_screen_test.dart: HomeScreen - Original Tests all three navigation tabs are present [E]
+  Test failed. See exception logs above.
+  The test description was: all three navigation tabs are present
+  
+00:04 +173 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:04 +174 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:04 +175 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:04 +176 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:05 +177 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:05 +177 -2: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration bottom navigation is present
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "BottomNavigationBar": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/profile/profile_screen_test.dart:170:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/profile/profile_screen_test.dart line 170
+The test description was:
+  bottom navigation is present
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +177 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:05 +177 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration bottom navigation is present [E]
+  Test failed. See exception logs above.
+  The test description was: bottom navigation is present
+  
+00:05 +178 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:05 +179 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:05 +180 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen widget builds without errors
+00:05 +181 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +182 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +182 -3: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration Profile tab is selected (currentIndex 2)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.widget (package:flutter_test/src/controller.dart:808:30)
+#2      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/profile/profile_screen_test.dart:190:35)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Profile tab is selected (currentIndex 2)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +182 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +182 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/profile/profile_screen_test.dart: ProfileScreen - Provider Integration Profile tab is selected (currentIndex 2) [E]
+  Test failed. See exception logs above.
+  The test description was: Profile tab is selected (currentIndex 2)
+  
+00:05 +183 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +184 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +185 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +186 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +187 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +188 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +189 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +190 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +191 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +192 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +193 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +194 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +195 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +196 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +197 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +198 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +199 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +200 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +201 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +202 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +203 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +204 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +205 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +206 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +207 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +208 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +209 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +210 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +211 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +212 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +213 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +214 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +215 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +216 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Widget Build widget builds without errors
+00:05 +217 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +218 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +219 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +220 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +221 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +222 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +223 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +224 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +225 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +226 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +227 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +228 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +229 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +230 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +231 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +232 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +233 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +234 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +235 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +236 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +237 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +238 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +239 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +240 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +241 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +242 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +243 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +244 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +245 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +246 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +247 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +248 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +249 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests widget builds without errors
+00:05 +250 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +251 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +252 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +253 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +254 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +255 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +256 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +257 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +258 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +259 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +260 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +261 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +262 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen widget builds without errors
+00:05 +263 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +264 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +265 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +266 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +267 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +267 -4: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests bottom navigation is present
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "BottomNavigationBar": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/statistics/statistics_screen_test.dart:131:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/statistics/statistics_screen_test.dart line 131
+The test description was:
+  bottom navigation is present
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +267 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +267 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests bottom navigation is present [E]
+  Test failed. See exception logs above.
+  The test description was: bottom navigation is present
+  
+00:05 +268 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +269 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +270 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +271 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +272 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +273 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests widget builds without errors
+00:05 +274 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests Stats tab is selected (currentIndex 1)
+00:05 +275 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests Stats tab is selected (currentIndex 1)
+00:05 +276 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests Stats tab is selected (currentIndex 1)
+00:05 +277 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests Stats tab is selected (currentIndex 1)
+00:05 +278 -5: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests Stats tab is selected (currentIndex 1)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.widget (package:flutter_test/src/controller.dart:808:30)
+#2      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/statistics/statistics_screen_test.dart:144:35)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  Stats tab is selected (currentIndex 1)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +278 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen PAUSA button is tappable
+00:05 +278 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen - Original Tests Stats tab is selected (currentIndex 1) [E]
+  Test failed. See exception logs above.
+  The test description was: Stats tab is selected (currentIndex 1)
+  
+00:05 +279 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen PAUSA button is tappable
+00:05 +280 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen PAUSA button is tappable
+00:05 +281 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen PAUSA button is tappable
+00:05 +282 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen PAUSA button is tappable
+00:05 +283 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen PAUSA button is tappable
+00:05 +284 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:05 +285 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:05 +286 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:05 +287 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:05 +288 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:05 +289 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:06 +290 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:06 +291 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:06 +292 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration calls provider.startWorkout() on INIZIA ALLENAMENTO
+00:06 +293 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +294 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +295 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +296 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +297 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +298 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +299 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +300 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +301 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +302 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +303 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +304 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays progress circle with real data when loaded
+00:06 +305 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +306 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +307 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +308 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +309 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +310 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +311 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +312 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +313 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +314 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +315 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +316 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +317 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+00:06 +318 -6: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following ProviderNotFoundException was thrown running a test:
+Error: Could not find the correct Provider<UserStatsProvider> above this WorkoutExecutionScreen
+Widget
+
+This happens because you used a `BuildContext` that does not include the provider
+of your choice. There are a few common scenarios:
+
+- You added a new provider in your `main.dart` and performed a hot-reload.
+  To fix, perform a hot-restart.
+
+- The provider you are trying to read is in a different route.
+
+  Providers are "scoped". So if you insert of provider inside a route, then
+  other routes will not be able to access that provider.
+
+- You used a `BuildContext` that is an ancestor of the provider you are trying to read.
+
+  Make sure that WorkoutExecutionScreen is under your MultiProvider/Provider<UserStatsProvider>.
+  This usually happens when you are creating a provider and trying to read it immediately.
+
+  For example, instead of:
+
+  ```
+  Widget build(BuildContext context) {
+    return Provider<Example>(
+      create: (_) => Example(),
+      // Will throw a ProviderNotFoundError, because `context` is associated
+      // to the widget that is the parent of `Provider<Example>`
+      child: Text(context.watch<Example>().toString()),
+    );
+  }
+  ```
+
+  consider using `builder` like so:
+
+  ```
+  Widget build(BuildContext context) {
+    return Provider<Example>(
+      create: (_) => Example(),
+      // we use `builder` to obtain a new `BuildContext` that has access to the provider
+      builder: (context, child) {
+        // No longer throws
+        return Text(context.watch<Example>().toString());
+      }
+    );
+  }
+  ```
+
+If none of these solutions work, consider asking for help on StackOverflow:
+https://stackoverflow.com/questions/tagged/flutter
+
+When the exception was thrown, this was the stack:
+#0      Provider._inheritedElementOf (package:provider/src/provider.dart:377:7)
+#1      Provider.of (package:provider/src/provider.dart:327:30)
+#2      ReadContext.read (package:provider/src/provider.dart:683:21)
+#3      _WorkoutExecutionScreenState._handleEndWorkout (package:push_up_5050/screens/workout_execution/workout_execution_screen.dart:109:31)
+#4      _WorkoutExecutionScreenState._buildWorkoutScreen.<anonymous closure> (package:push_up_5050/screens/workout_execution/workout_execution_screen.dart:329:34)
+#5      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1222:21)
+#6      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#7      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#8      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#9      BaseTapGestureRecognizer.acceptGesture (package:flutter/src/gestures/tap.dart:353:7)
+#10     GestureArenaManager.sweep (package:flutter/src/gestures/arena.dart:173:27)
+#11     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:532:20)
+#12     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#13     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#14     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#15     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#16     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:678:42)
+#17     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:688:11)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:678:5)
+#19     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#22     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#23     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#24     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:538:26)
+#27     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#28     TestGesture.up (package:flutter_test/src/test_pointer.dart:531:27)
+#29     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1117:21)
+<asynchronous suspension>
+#30     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#31     main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart:177:7)
+<asynchronous suspension>
+#32     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#33     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  TERMINA button is tappable
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +318 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +318 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen TERMINA button is tappable [E]
+  Test failed. See exception logs above.
+  The test description was: TERMINA button is tappable
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: null
+  Actual: <Instance of 'WorkoutSession'>
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:149:31)
+#1      _expect (package:matcher/src/expect/expect.dart:144:3)
+#2      expect (package:matcher/src/expect/expect.dart:56:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart:181:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: TERMINA button is tappable
+  
+00:06 +319 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +320 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +321 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +322 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +323 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +324 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +325 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +326 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +327 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +328 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +329 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +330 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +331 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen with ActiveWorkoutProvider Integration button limits are enforced for rest time
+00:06 +332 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests continue button returns to home
+00:06 +333 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests continue button returns to home
+00:06 +334 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_summary/workout_summary_screen_test.dart: WorkoutSummaryScreen Widget Tests continue button returns to home
+00:06 +335 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +336 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +337 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +338 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +339 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +340 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +341 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +342 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +343 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+00:06 +344 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/statistics/statistics_screen_test.dart: StatisticsScreen with UserStatsProvider Integration displays completed days with orange background
+DEBUG: Found 3 Icons.check out of 20 total Icon widgets
+00:06 +345 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +346 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +347 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +348 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +349 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +350 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +351 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +352 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +353 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +354 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +355 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +356 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +357 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +358 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +359 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +360 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +361 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +362 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +363 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +364 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +365 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +366 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +367 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +368 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +369 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +370 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +371 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +372 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +373 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Haptic Intensity Dropdown haptic intensity dropdown shows all options
+00:06 +374 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/series_selection/series_selection_screen_test.dart: SeriesSelectionScreen - I18n displays baseRecoveryHint in Italian
+00:06 +375 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen with ActiveWorkoutProvider Integration pause button toggles session pause state
+00:06 +376 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +377 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +378 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +379 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +380 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +380 -7: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen with ActiveWorkoutProvider Integration end button saves session and clears provider
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following ProviderNotFoundException was thrown running a test:
+Error: Could not find the correct Provider<UserStatsProvider> above this WorkoutExecutionScreen
+Widget
+
+This happens because you used a `BuildContext` that does not include the provider
+of your choice. There are a few common scenarios:
+
+- You added a new provider in your `main.dart` and performed a hot-reload.
+  To fix, perform a hot-restart.
+
+- The provider you are trying to read is in a different route.
+
+  Providers are "scoped". So if you insert of provider inside a route, then
+  other routes will not be able to access that provider.
+
+- You used a `BuildContext` that is an ancestor of the provider you are trying to read.
+
+  Make sure that WorkoutExecutionScreen is under your MultiProvider/Provider<UserStatsProvider>.
+  This usually happens when you are creating a provider and trying to read it immediately.
+
+  For example, instead of:
+
+  ```
+  Widget build(BuildContext context) {
+    return Provider<Example>(
+      create: (_) => Example(),
+      // Will throw a ProviderNotFoundError, because `context` is associated
+      // to the widget that is the parent of `Provider<Example>`
+      child: Text(context.watch<Example>().toString()),
+    );
+  }
+  ```
+
+  consider using `builder` like so:
+
+  ```
+  Widget build(BuildContext context) {
+    return Provider<Example>(
+      create: (_) => Example(),
+      // we use `builder` to obtain a new `BuildContext` that has access to the provider
+      builder: (context, child) {
+        // No longer throws
+        return Text(context.watch<Example>().toString());
+      }
+    );
+  }
+  ```
+
+If none of these solutions work, consider asking for help on StackOverflow:
+https://stackoverflow.com/questions/tagged/flutter
+
+When the exception was thrown, this was the stack:
+#0      Provider._inheritedElementOf (package:provider/src/provider.dart:377:7)
+#1      Provider.of (package:provider/src/provider.dart:327:30)
+#2      ReadContext.read (package:provider/src/provider.dart:683:21)
+#3      _WorkoutExecutionScreenState._handleEndWorkout (package:push_up_5050/screens/workout_execution/workout_execution_screen.dart:109:31)
+#4      _WorkoutExecutionScreenState._buildWorkoutScreen.<anonymous closure> (package:push_up_5050/screens/workout_execution/workout_execution_screen.dart:329:34)
+#5      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1222:21)
+#6      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#7      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#8      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#9      BaseTapGestureRecognizer.acceptGesture (package:flutter/src/gestures/tap.dart:353:7)
+#10     GestureArenaManager.sweep (package:flutter/src/gestures/arena.dart:173:27)
+#11     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:532:20)
+#12     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#13     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#14     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#15     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#16     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:678:42)
+#17     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:688:11)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:678:5)
+#19     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#22     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#23     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#24     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:538:26)
+#27     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#28     TestGesture.up (package:flutter_test/src/test_pointer.dart:531:27)
+#29     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1117:21)
+<asynchronous suspension>
+#30     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#31     main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart:396:7)
+<asynchronous suspension>
+#32     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#33     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  end button saves session and clears provider
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +380 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +380 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen with ActiveWorkoutProvider Integration end button saves session and clears provider [E]
+  Test failed. See exception logs above.
+  The test description was: end button saves session and clears provider
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: null
+  Actual: <Instance of 'WorkoutSession'>
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:149:31)
+#1      _expect (package:matcher/src/expect/expect.dart:144:3)
+#2      expect (package:matcher/src/expect/expect.dart:56:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Script/Android-Apps/Push-up%20flutter%20Nuovo%20test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart:400:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: end button saves session and clears provider
+  
+00:06 +380 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +381 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +382 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +383 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/services/proximity_sensor_service_test.dart: FakeProximitySensorService (for testing) should respect debounce delay
+00:06 +384 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration proximity toggle updates AppSettingsService
+00:06 +385 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration proximity toggle updates AppSettingsService
+00:06 +386 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration proximity toggle updates AppSettingsService
+00:06 +387 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration proximity toggle updates AppSettingsService
+00:06 +388 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen - Service Integration plays beep when recovery timer reaches 0
+00:06 +389 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/workout_execution/workout_execution_screen_test.dart: WorkoutExecutionScreen - Service Integration plays beep when recovery timer reaches 0
+00:06 +390 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration haptic intensity dropdown updates AppSettingsService
+00:06 +391 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration haptic intensity dropdown updates AppSettingsService
+00:06 +392 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration haptic intensity dropdown updates AppSettingsService
+00:06 +393 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration haptic intensity dropdown updates AppSettingsService
+00:06 +394 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration haptic intensity dropdown updates AppSettingsService
+00:06 +395 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Service Integration haptic intensity dropdown updates AppSettingsService
+00:06 +396 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:06 +397 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:06 +398 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:06 +399 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:06 +400 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:06 +401 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:06 +402 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +403 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +404 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +405 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +406 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +407 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +408 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +409 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +410 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +411 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/test_helpers_test.dart: createTestApp should include AppLocalizations.localizationsDelegates
+00:07 +412 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +413 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +414 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +415 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +416 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +417 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +418 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +419 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +420 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +421 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +422 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +423 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +424 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +425 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +426 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +427 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +428 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/bottom_navigation_bar_test.dart: AppBottomNavigationBar widget renders 4 navigation items
+00:07 +429 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +430 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +431 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +432 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +433 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +434 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +435 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +436 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +437 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/common/statistics_badge_test.dart: StatisticsBadge Widget displays label and value correctly
+00:07 +438 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +439 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +440 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +441 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +442 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +443 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +444 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +445 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +446 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +447 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +448 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +449 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +450 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/profile/achievement_card_test.dart: AchievementCard Rendering displays achievement icon correctly
+00:07 +451 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/achievement_popup_test.dart: AchievementPopup Widget displays achievement name
+00:07 +452 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/achievement_popup_test.dart: AchievementPopup Widget displays achievement name
+00:07 +453 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/achievement_popup_test.dart: AchievementPopup Widget displays achievement name
+00:07 +454 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/achievement_popup_test.dart: AchievementPopup Widget displays achievement name
+00:07 +455 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/achievement_popup_test.dart: AchievementPopup Widget displays achievement name
+00:07 +456 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/achievement_popup_test.dart: AchievementPopup Widget displays achievement name
+00:07 +457 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +458 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +459 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +460 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +461 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +462 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +463 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +464 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +465 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +466 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +467 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:07 +468 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +469 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +470 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +471 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +472 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +473 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +474 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +475 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +476 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +477 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +478 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +479 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +480 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/countdown_circle_test.dart: CountdownCircle Widget displays number at center
+00:08 +481 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +482 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +483 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +484 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +485 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +486 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +487 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +488 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +489 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +490 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +491 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +492 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +493 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +494 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +495 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +496 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget displays series label (Serie X di Y)
+00:08 +497 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Audio Card Expansion achievement toggle updates AppSettingsService
+00:08 +498 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Audio Card Expansion achievement toggle updates AppSettingsService
+00:08 +499 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget shows green color when 100-66% remaining
+00:08 +500 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Audio Card Expansion volume slider works independent of master switch
+00:08 +501 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Audio Card Expansion volume slider works independent of master switch
+00:08 +502 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Audio Card Expansion volume slider works independent of master switch
+00:08 +503 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Audio Card Expansion volume slider works independent of master switch
+00:08 +504 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar Widget has correct border radius (6px)
+00:08 +505 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Platform Specific scrolls correctly on small screens
+00:08 +506 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Platform Specific scrolls correctly on small screens
+00:08 +507 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Platform Specific scrolls correctly on small screens
+00:08 +508 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/widgets/workout/recovery_timer_bar_test.dart: RecoveryTimerBar - I18n displays different series numbers correctly in Italian
+00:08 +509 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Platform Specific all switches are tappable
+00:08 +510 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Platform Specific all switches are tappable
+00:08 +511 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Platform Specific screen recovers from rebuild with same state
+00:08 +512 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Language Switcher language dropdown is present
+00:08 +513 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Language Switcher language dropdown shows Italian and English options
+00:08 +514 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Language Switcher language dropdown reflects current setting
+00:08 +515 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Language Switcher changing language to English updates AppSettingsService
+00:08 +516 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Language Switcher changing language to Italian updates AppSettingsService
+00:09 +517 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Language Switcher language card appears first in settings list
+00:09 +518 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: SettingsScreen - Language Switcher language card uses icon and follows settings card pattern
+00:09 +519 -8: C:/Script/Android-Apps/Push-up flutter Nuovo test/push_up_5050/test/screens/settings/settings_screen_test.dart: (tearDownAll)
+00:09 +519 -8: Some tests failed.

@@ -3,7 +3,7 @@ package com.pushup5050.push_up_5050.widget
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import es.antonborri.home_widget.HomeWidgetPlugin
+import es.antonborri.home_widget.HomeWidget
 import android.util.Log
 
 /**
@@ -24,13 +24,13 @@ class MidnightWidgetUpdateWorker(
 
             // Trigger widget refresh - calendar will re-render
             // with updated day statuses (yesterday may now be missed)
-            HomeWidgetPlugin.updateWidget(
+            HomeWidget.updateWidget(
                 applicationContext,
                 "PushupWidgetQuickStartProvider"
             )
             Log.d(TAG, "Updated QuickStart widget")
 
-            HomeWidgetPlugin.updateWidget(
+            HomeWidget.updateWidget(
                 applicationContext,
                 "PushupWidgetSmallProvider"
             )

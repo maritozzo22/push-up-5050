@@ -5,10 +5,11 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.widget.RemoteViews
 import com.pushup5050.push_up_5050.MainActivity
 import com.pushup5050.push_up_5050.R
-import com.home_widget.HomeWidgetPlugin
+import es.antonborri.home_widget.HomeWidgetPlugin
 import org.json.JSONObject
 
 /**
@@ -38,6 +39,7 @@ class PushupWidgetStatsProvider : AppWidgetProvider() {
     }
 
     companion object {
+        private const val TAG = "PushupWidgetStats"
         private const val DATA_KEY = "pushup_json_data"
 
         fun updateAppWidget(
@@ -45,33 +47,38 @@ class PushupWidgetStatsProvider : AppWidgetProvider() {
             appWidgetManager: AppWidgetManager,
             appWidgetId: Int
         ) {
+            Log.e(TAG, "updateAppWidget STATS called for widgetId: $appWidgetId")
             val views = RemoteViews(context.packageName, R.layout.pushup_widget_stats)
 
-            // Load widget data from home_widget storage
-            val jsonData = HomeWidgetPlugin.getData(context, DATA_KEY)
+            // Get SharedPreferences from home_widget plugin
+            val widgetData = HomeWidgetPlugin.getData(context)
+            Log.e(TAG, "Got SharedPreferences from HomeWidgetPlugin")
 
-            // Parse JSON data
-            val todayPushups: Int
-            val totalPushups: Int
-            val goalPushups: Int
+            val jsonData = widgetData.getString(DATA_KEY, null)
+            Log.e(TAG, "JSON data: $jsonData")
 
-            if (!jsonData.isNullOrEmpty()) {
+            // Parse JSON data - use var to allow reassignment
+            var todayPushups = 0
+            var totalPushups = 0
+            var goalPushups = 5050
+
+            if (!jsonData.isNullOrBlank()) {
                 try {
                     val json = JSONObject(jsonData)
+                    // Use optInt() to avoid exceptions
                     todayPushups = json.optInt("todayPushups", 0)
                     totalPushups = json.optInt("totalPushups", 0)
                     goalPushups = json.optInt("goalPushups", 5050)
+                    Log.e(TAG, "Parsed: today=$todayPushups, total=$totalPushups")
                 } catch (e: Exception) {
-                    // Fallback to zeros if JSON parsing fails
+                    Log.e(TAG, "JSON parse error", e)
+                    // Fallback to defaults if JSON parsing fails
                     todayPushups = 0
                     totalPushups = 0
                     goalPushups = 5050
                 }
             } else {
-                // No data available - use defaults
-                todayPushups = 0
-                totalPushups = 0
-                goalPushups = 5050
+                Log.w(TAG, "No JSON data found")
             }
 
             // Update views

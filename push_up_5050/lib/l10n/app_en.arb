@@ -1,0 +1,233 @@
+{
+  "@@locale": "en",
+
+  "appName": "PUSHUP 5050",
+
+  "homeTitle": "PUSHUP 5050",
+  "workoutInProgress": "Workout in Progress",
+  "statsTitle": "Statistics",
+  "settingsTitle": "Settings",
+
+  "start": "START",
+  "beginWorkout": "START WORKOUT",
+  "pause": "PAUSE",
+  "resume": "RESUME",
+  "end": "END",
+  "saveAndReturn": "SAVE AND RETURN HOME",
+
+  "startingSeries": "Starting Series",
+  "restTime": "Recovery Time (seconds)",
+  "totalReps": "Total Reps",
+  "kcalBurned": "Kcal Burned",
+  "currentLevel": "Current Level",
+  "currentSeries": "Series",
+  "ofWord": "of",
+  "todayPushups": "TODAY: {count} PUSHUP",
+  "@todayPushups": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "pushupTotal": "TOTAL PUSHUPS",
+
+  "touchToCount": "Tap to Count",
+  "progressiveSeriesHint": "Progressive Series (e.g., Series 3 = 3 pushups)",
+  "baseRecoveryHint": "Base 10s, increases with series",
+
+  "levelBeginner": "Beginner",
+  "levelIntermediate": "Intermediate",
+  "levelAdvanced": "Advanced",
+  "levelExpert": "Expert",
+  "levelMaster": "Master",
+
+  "keepTheRhythm": "Keep the rhythm to reach 5050!",
+  "goalReached": "🎉 Goal Reached! Congratulations!",
+  "dontGiveUp": "Don't give up! Resume your series today.",
+
+  "achievementUnlocked": "{name}",
+  "@achievementUnlocked": {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "First Series"
+      }
+    }
+  },
+  "achievementPoints": "+{points} points",
+  "@achievementPoints": {
+    "placeholders": {
+      "points": {
+        "type": "int",
+        "example": "100"
+      }
+    }
+  },
+  "workoutComplete": "Workout Complete!",
+  "seriesCompleted": "Series Completed",
+  "pushupsTotal": "Total Push-ups",
+  "kcal": "Kcal Burned",
+
+  "errorLoadingData": "Unable to load data",
+  "retry": "Retry",
+  "sensorUnavailable": "Sensor unavailable. Use the manual button.",
+  "storageFull": "Insufficient storage space. Free up space and try again.",
+
+  "dontLoseStreak": "Don't lose your streak!",
+  "completePushupsReminder": "Complete your push-ups today to maintain your multiplier. Only {count} push-up to go!",
+  "@completePushupsReminder": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+
+  "dayXofY": "Day {current} of {total}",
+  "@dayXofY": {
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "5"
+      },
+      "total": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+
+  "settingsProximitySensor": "Proximity Sensor",
+  "settingsProximitySensorDesc": "Count repetitions using the proximity sensor",
+  "settingsHapticFeedback": "Haptic Feedback",
+  "settingsHapticFeedbackDesc": "Light vibration on each repetition",
+  "settingsHapticIntensity": "Haptic Intensity",
+  "settingsDefaultRecoveryTime": "Default Recovery Time",
+  "settingsDailyReminder": "Daily Reminder",
+  "settingsDailyReminderDesc": "Remind me to do push-ups every day",
+  "settingsReminderTime": "Reminder Time",
+  "soundsMaster": "Master Sounds",
+  "settingsSoundsMaster": "Master Sounds",
+  "settingsSoundsMasterDesc": "Enable/disable all sounds",
+  "settingsBeepSound": "Recovery Beep",
+  "settingsBeepSoundDesc": "Sound when recovery ends",
+  "settingsAchievementSound": "Achievement Sound",
+  "settingsAchievementSoundDesc": "Sound when you unlock an achievement",
+  "settingsVolume": "Volume",
+  "settingsResetDefaults": "Reset to Defaults",
+  "settingsResetConfirm": "Reset all settings to default values?",
+  "settingsResetConfirmYes": "Reset",
+  "settingsResetConfirmNo": "Cancel",
+
+  "language": "Language",
+  "italian": "Italian",
+  "english": "English",
+
+  "hapticOff": "Off",
+  "hapticLight": "Light",
+  "hapticMedium": "Medium",
+
+  "home": "Home",
+  "stats": "Stats",
+  "profile": "Profile",
+  "settings": "Settings",
+
+  "loading": "Loading...",
+  "startFirstWorkout": "Start your first workout today!",
+  "pushupToday": "Push-ups Today",
+  "currentSeriesLabel": "Current Series",
+  "days": "days",
+
+  "noActiveWorkout": "No Active Workout",
+  "backToHome": "Back to Home",
+  "totalRepsLabel": "Total Reps:",
+  "kcalLabel": "Kcal:",
+  "recovery": "Recovery...",
+  "inPause": "PAUSED",
+
+  "profileTitle": "Profile",
+  "level": "Level",
+  "points": "Points",
+  "streak": "Streak",
+  "daysLabel": "Days",
+  "achievementsTitle": "Achievements",
+  "unlocked": "Unlocked",
+  "pointsLowercase": "points",
+
+  "sensors": "Sensors",
+  "feedback": "Feedback",
+  "workout": "Workout",
+  "notifications": "Notifications",
+  "audio": "Audio",
+
+  "workoutSeriesBadge": "Series {series}",
+  "@workoutSeriesBadge": {
+    "placeholders": {
+      "series": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "workoutSeriesOfTotal": "Series {current} of {total}",
+  "@workoutSeriesOfTotal": {
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+
+  "achievementsCount": "Achievements ({unlocked}/{total})",
+  "@achievementsCount": {
+    "placeholders": {
+      "unlocked": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "6"
+      }
+    }
+  },
+
+  "unlockedDate": "Unlocked: {date}",
+  "@unlockedDate": {
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "example": "01/15/2026"
+      }
+    }
+  },
+
+  "seriesCompletedLabel": "Series Completed",
+  "seriesRange": "{start}-{end}",
+  "@seriesRange": {
+    "placeholders": {
+      "start": {
+        "type": "int",
+        "example": "1"
+      },
+      "end": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "timeSpent": "Time Spent",
+  "pointsEarnedLabel": "Points Earned",
+  "streakMultiplierLabel": "Streak Multiplier",
+  "newlyUnlocked": "Newly Unlocked",
+  "noAchievementsThisTime": "No achievements unlocked this time",
+  "continueToHome": "CONTINUE"
+}

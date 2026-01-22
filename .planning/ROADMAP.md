@@ -1,7 +1,7 @@
 # ROADMAP.md
 
 **Project:** Push-Up 5050 - Android Widgets
-**Last Updated:** 2026-01-21
+**Last Updated:** 2026-01-22
 
 ## Overview
 
@@ -241,6 +241,75 @@ All core functionality has been implemented:
 
 ---
 
+### Phase 2.6: Widget Redesign with New UI
+
+**Goal:** Replace existing widgets with new Flutter-based design and implement full calendar synchronization
+
+**Status:** ⏳ NOT STARTED
+
+**Plans:**
+- [ ] 02.6-01-PLAN.md — Create Calendar Service for Widget Data
+- [ ] 02.6-02-PLAN.md — Integrate Calendar Service with Widget Updates
+- [ ] 02.6-03-PLAN.md — Update Android Widget Providers with Calendar Rendering
+- [ ] 02.6-04-PLAN.md — Implement Midnight Widget Update for Calendar Refresh
+- [ ] 02.6-05-PLAN.md — Verify Widget Redesign End-to-End
+
+**Tasks:**
+
+#### Widget 4x4 (Large Widget)
+1. Implement Flutter widget code using provided Pushup5050Widget design
+2. Wire up real data from UserStatsProvider (today's push-ups, total/goal)
+3. Connect START button to deep link (reuse existing functionality)
+4. Implement 7-day calendar row at bottom:
+   - Show days L M M G V S D (Italian)
+   - Orange = completed day
+   - Gray = pending/future day
+   - Red with X = missed day (at midnight if no workout)
+5. Add connecting line between consecutive orange days (streak indicator)
+6. Update widget automatically when app state changes
+
+#### Widget 2x1 (Small Widget)
+1. Implement Flutter widget code using provided Pushup5050SmallWidget design
+2. Wire up real data from UserStatsProvider
+3. Implement 3-day calendar row (Yesterday - Today - Tomorrow):
+   - Dynamic day labels based on current date
+   - Orange = completed, Gray = pending, Red with X = missed
+4. Update widget automatically when app state changes
+
+#### Calendar Synchronization (Both Widgets)
+1. Create CalendarWidgetService to read from DailyRecords
+2. Implement midnight check to mark missed days
+3. Update widget calendar at 00:00 if no workout completed
+4. Connect orange dots with horizontal line for consecutive days
+5. Handle month transitions correctly
+
+#### Android Integration
+1. Update widget providers to use FlutterEmbeddedView (new approach)
+2. Register new widget sizes in AndroidManifest.xml
+3. Update home_widget integration for new data structure
+4. Ensure backward compatibility or deprecate old widgets
+
+**Deliverables:**
+- 4x4 widget with new design and functional calendar
+- 2x1 widget with new design and 3-day calendar
+- Full calendar synchronization (orange/gray/red states)
+- Streak connecting lines between consecutive completed days
+- Midnight missed day detection
+- Automatic widget updates on data changes
+- Integration tests for calendar logic
+
+**Acceptance Criteria:**
+- Widgets display new Flutter design exactly as provided
+- Today's push-ups and total/goal sync from app
+- START button opens SeriesSelectionScreen via deep link
+- Calendar shows correct states for each day
+- Consecutive completed days show orange connecting line
+- Missed days appear with red X at midnight
+- 3-day widget shows Yesterday-Today-Tomorrow correctly
+- All widget updates occur within 5 seconds of app state change
+
+---
+
 ## Future Milestones
 
 ### Milestone 3: iOS Widgets (Future)
@@ -264,4 +333,4 @@ All core functionality has been implemented:
 
 ---
 
-*Last updated: 2026-01-21*
+*Last updated: 2026-01-22*

@@ -1,0 +1,233 @@
+{
+  "@@locale": "it",
+
+  "appName": "PUSHUP 5050",
+
+  "homeTitle": "PUSHUP 5050",
+  "workoutInProgress": "Allenamento in Corso",
+  "statsTitle": "Statistiche",
+  "settingsTitle": "Impostazioni",
+
+  "start": "INIZIA",
+  "beginWorkout": "INIZIA ALLENAMENTO",
+  "pause": "PAUSA",
+  "resume": "RIPRENDI",
+  "end": "TERMINA",
+  "saveAndReturn": "SALVA E TORNA A HOME",
+
+  "startingSeries": "Serie di Partenza",
+  "restTime": "Tempo di Recupero (secondi)",
+  "totalReps": "Rep Totali",
+  "kcalBurned": "Kcal Bruciate",
+  "currentLevel": "Livello Attuale",
+  "currentSeries": "Serie",
+  "ofWord": "di",
+  "todayPushups": "OGGI: {count} PUSHUP",
+  "@todayPushups": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "pushupTotal": "PUSHUP TOTALI",
+
+  "touchToCount": "Tocca per Contare",
+  "progressiveSeriesHint": "Progressive Series (e.g., Series 3 = 3 pushups)",
+  "baseRecoveryHint": "Base 10s, increases with series",
+
+  "levelBeginner": "Beginner",
+  "levelIntermediate": "Intermediate",
+  "levelAdvanced": "Advanced",
+  "levelExpert": "Expert",
+  "levelMaster": "Master",
+
+  "keepTheRhythm": "Mantieni il ritmo per raggiungere 5050!",
+  "goalReached": "🎉 Obiettivo Raggiunto! Complimenti!",
+  "dontGiveUp": "Non arrenderti! Riprendi la tua serie oggi.",
+
+  "achievementUnlocked": "{name}",
+  "@achievementUnlocked": {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Prima Serie"
+      }
+    }
+  },
+  "achievementPoints": "+{points} punti",
+  "@achievementPoints": {
+    "placeholders": {
+      "points": {
+        "type": "int",
+        "example": "100"
+      }
+    }
+  },
+  "workoutComplete": "Allenamento Completato!",
+  "seriesCompleted": "Serie Completate",
+  "pushupsTotal": "Push-up Totali",
+  "kcal": "Kcal Bruciate",
+
+  "errorLoadingData": "Impossibile caricare i dati",
+  "retry": "Riprova",
+  "sensorUnavailable": "Sensore non disponibile. Usa il pulsante manuale.",
+  "storageFull": "Spazio di archiviazione insufficiente. Libera spazio e riprova.",
+
+  "dontLoseStreak": "Non perdere la tua serie!",
+  "completePushupsReminder": "Completa i tuoi push-up oggi per mantenere il moltiplicatore. Ti mancano solo {count} push-up!",
+  "@completePushupsReminder": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+
+  "dayXofY": "Giorno {current} di {total}",
+  "@dayXofY": {
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "5"
+      },
+      "total": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+
+  "settingsProximitySensor": "Sensore di Prossimità",
+  "settingsProximitySensorDesc": "Conta le ripetizioni usando il sensore di prossimità",
+  "settingsHapticFeedback": "Feedback Aptico",
+  "settingsHapticFeedbackDesc": "Vibrazione leggera ad ogni ripetizione",
+  "settingsHapticIntensity": "Intensità Feedback Aptico",
+  "settingsDefaultRecoveryTime": "Tempo Recupero Predefinito",
+  "settingsDailyReminder": "Promemoria Giornaliero",
+  "settingsDailyReminderDesc": "Ricordami di fare push-up ogni giorno",
+  "settingsReminderTime": "Orario Promemoria",
+  "soundsMaster": "Suoni Master",
+  "settingsSoundsMaster": "Suoni Master",
+  "settingsSoundsMasterDesc": "Attiva/disattiva tutti i suoni",
+  "settingsBeepSound": "Beep di Recupero",
+  "settingsBeepSoundDesc": "Suono quando il recupero termina",
+  "settingsAchievementSound": "Suono Achievement",
+  "settingsAchievementSoundDesc": "Suono quando sblocchi un achievement",
+  "settingsVolume": "Volume",
+  "settingsResetDefaults": "Ripristina Predefiniti",
+  "settingsResetConfirm": "Ripristinare tutte le impostazioni ai valori predefiniti?",
+  "settingsResetConfirmYes": "Ripristina",
+  "settingsResetConfirmNo": "Annulla",
+
+  "language": "Lingua",
+  "italian": "Italiano",
+  "english": "English",
+
+  "hapticOff": "Spento",
+  "hapticLight": "Leggero",
+  "hapticMedium": "Medio",
+
+  "home": "Home",
+  "stats": "Statistiche",
+  "profile": "Profilo",
+  "settings": "Impostazioni",
+
+  "loading": "Caricamento...",
+  "startFirstWorkout": "Inizia il tuo primo allenamento oggi!",
+  "pushupToday": "Push-up Oggi",
+  "currentSeriesLabel": "Serie Attuale",
+  "days": "giorni",
+
+  "noActiveWorkout": "Nessun Allenamento Attivo",
+  "backToHome": "Torna alla Home",
+  "totalRepsLabel": "Rep Totali:",
+  "kcalLabel": "Kcal:",
+  "recovery": "Recupero...",
+  "inPause": "IN PAUSA",
+
+  "profileTitle": "Profilo",
+  "level": "Livello",
+  "points": "Punti",
+  "streak": "Striscia",
+  "daysLabel": "Giorni",
+  "achievementsTitle": "Achievements",
+  "unlocked": "Sbloccato",
+  "pointsLowercase": "punti",
+
+  "sensors": "Sensori",
+  "feedback": "Feedback",
+  "workout": "Allenamento",
+  "notifications": "Notifiche",
+  "audio": "Audio",
+
+  "workoutSeriesBadge": "Serie {series}",
+  "@workoutSeriesBadge": {
+    "placeholders": {
+      "series": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "workoutSeriesOfTotal": "Serie {current} di {total}",
+  "@workoutSeriesOfTotal": {
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+
+  "achievementsCount": "Achievements ({unlocked}/{total})",
+  "@achievementsCount": {
+    "placeholders": {
+      "unlocked": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "6"
+      }
+    }
+  },
+
+  "unlockedDate": "Sbloccato: {date}",
+  "@unlockedDate": {
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "example": "15/01/2026"
+      }
+    }
+  },
+
+  "seriesCompletedLabel": "Serie Completate",
+  "seriesRange": "{start}-{end}",
+  "@seriesRange": {
+    "placeholders": {
+      "start": {
+        "type": "int",
+        "example": "1"
+      },
+      "end": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "timeSpent": "Tempo Impiegato",
+  "pointsEarnedLabel": "Punti Guadagnati",
+  "streakMultiplierLabel": "Moltiplicatore Streak",
+  "newlyUnlocked": "Nuovi Sbloccati",
+  "noAchievementsThisTime": "Nessun achievement sbloccato questa volta",
+  "continueToHome": "CONTINUA"
+}

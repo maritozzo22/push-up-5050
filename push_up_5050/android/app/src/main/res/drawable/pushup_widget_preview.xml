@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Widget preview placeholder -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#121212" />
+    <corners android:radius="28dp" />
+    <stroke android:width="2dp" android:color="#FF6B00" />
+</shape>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter run:*)",
+      "Bash(flutter devices:*)",
+      "Bash(flutter build:*)",
+      "Bash(flutter:*)",
+      "Bash(dir:*)",
+      "Bash(.gradlew.bat assembleRelease:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(./gradlew assembleRelease:*)",
+      "Bash(powershell.exe:*)"
+    ]
+  }
+}
