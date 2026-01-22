@@ -1,5 +1,7 @@
 import 'dart:developer' as developer;
+import 'package:flutter/foundation.dart';
 import 'package:home_widget/home_widget.dart';
+import 'package:flutter/services.dart';
 import '../models/widget_data.dart';
 import 'widget_calendar_service.dart';
 
@@ -20,6 +22,9 @@ import 'widget_calendar_service.dart';
 /// Calendar integration: When [WidgetCalendarService] is provided,
 /// widget data includes week calendar data and 3-day view data.
 class WidgetUpdateService {
+  // Platform channel for widget operations (Android only)
+  static const MethodChannel _widgetChannel = MethodChannel('com.pushup5050/widget');
+
   // Widget IDs must match AndroidManifest.xml receiver class names
   // WITHOUT the package prefix (e.g., ".widget.PushupWidgetQuickStartProvider")
 
@@ -117,15 +122,36 @@ class WidgetUpdateService {
   /// Initialize widget service.
   ///
   /// Returns true if widgets are supported (Android), false otherwise.
+  /// Also schedules the midnight widget update for calendar refresh.
   Future<bool> initialize() async {
     try {
       // Check if we're on Android
       _isAvailable = true; // home_widget handles platform checks
+      // Schedule midnight update for widget calendar refresh
+      await scheduleMidnightUpdate();
       return _isAvailable;
     } catch (e) {
       // Widget service unavailable - gracefully degrade
       _isAvailable = false;
       return false;
+    }
+  }
+
+  /// Schedule midnight widget update via WorkManager (Android only).
+  ///
+  /// Uses a platform channel to trigger Android's WorkManager to schedule
+  /// a daily widget refresh at 00:01. This ensures widget calendars show
+  /// correct day statuses (e.g., yesterday marked as missed if no workout).
+  ///
+  /// Gracefully handles failures - widgets will still update on app launch.
+  Future<void> scheduleMidnightUpdate() async {
+    if (!_isAvailable) return;
+    try {
+      await _widgetChannel.invokeMethod('scheduleMidnightUpdate');
+      developer.log('Midnight widget update scheduled', name: 'WidgetUpdateService');
+    } catch (e) {
+      // Non-fatal - widgets will still work via app-triggered updates
+      developer.log('Failed to schedule midnight update: $e', name: 'WidgetUpdateService');
     }
   }
 
