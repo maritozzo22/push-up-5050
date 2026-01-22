@@ -6,14 +6,23 @@
 ## Current State
 
 **Phase:** Phase 2.6 - Widget Redesign
-**Plan:** 01 of 05 COMPLETE
+**Plan:** 02 of 05 COMPLETE
 **Status:** In progress
 
-**Progress: ████████████░░░░░░░ 80%** (8/10 plans complete)
+**Progress: ████████████░░░░░░░ 80%** (9/10 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-22
+- **Completed Phase 2.6 Plan 02:** Integrate Calendar Service with Widget Updates
+  - WidgetUpdateService integrates with WidgetCalendarService via optional dependency
+  - Added buildWidgetData() method for calendar-enriched widget data
+  - Includes week data (7 days Mon-Sun) and 3-day data (Ieri/Oggi/Domani)
+  - UserStatsProvider uses buildWidgetData() in _updateWidgets()
+  - Backward compatible: works without calendar service (graceful degradation)
+  - 5 new calendar integration tests added
+  - Commits: 1e64a61, 6ca01ef, dba5262
+
 - **Completed Phase 2.6 Plan 01:** Create Calendar Service for Widget Data
   - Created WidgetCalendarService with week data generation (Mon-Sun)
   - Added CalendarDayStatus enum (completed, missed, pending, today)
@@ -118,7 +127,7 @@
 
 ### Plans Status:
 1. **02.6-01-PLAN.md** — ✅ Create Calendar Service for Widget Data (COMPLETE)
-2. **02.6-02-PLAN.md** — Pending: Update WidgetUpdateService to use WidgetCalendarService
+2. **02.6-02-PLAN.md** — ✅ Integrate Calendar Service with Widget Updates (COMPLETE)
 3. **02.6-03-PLAN.md** — Pending: Create 4x4 Calendar Widget Layout
 4. **02.6-04-PLAN.md** — Pending: Create 2x1 Small Widget Layout
 5. **02.6-05-PLAN.md** — Pending: Widget Testing & Verification
@@ -205,6 +214,14 @@
 - Extended WidgetData with weekDayData, threeDayData, hasStreakLine
 - WidgetData.withCalendarData() factory for easy integration
 
+### Phase 2.6 Plan 02: Integrate Calendar Service with Widget Updates ✅
+- WidgetUpdateService with optional WidgetCalendarService dependency (1e64a61)
+- Added buildWidgetData() method for calendar-enriched widget data
+- UserStatsProvider updated to use buildWidgetData() in _updateWidgets() (6ca01ef)
+- Calendar integration tests with MockStorageService (dba5262)
+- Backward compatible: works without calendar service
+- 5 new tests: week data, 3-day data, streak line, storage save, graceful degradation
+
 ## Known Issues
 
 **None** - All issues resolved.
@@ -288,22 +305,27 @@
 - **Italian day labels hardcoded**: L, M, M, G, V, S, D and I/O/D hardcoded in service (no localization library needed for single-character labels)
 - **Streak calculation per-widget**: hasStreakLine calculated per week for visual display; separate from app-level streak count
 
+### From Phase 2.6-02
+- **Optional dependency injection**: WidgetCalendarService is nullable in WidgetUpdateService constructor, graceful degradation when unavailable
+- **buildWidgetData() method**: Centralized widget data creation with calendar enrichment, separates data building from update logic
+- **Backward compatibility**: New calendar fields in WidgetData default to empty lists when calendar service unavailable
+
 ## Next Steps
 
-1. **Phase 2.6 Plan 02:** Update WidgetUpdateService to use WidgetCalendarService
-2. **Phase 2.6 Plan 03:** Create 4x4 Calendar Widget Layout
-3. **Phase 2.6 Plan 04:** Create 2x1 Small Widget Layout
-4. **Phase 2.6 Plan 05:** Widget Testing & Verification
+1. **Phase 2.6 Plan 03:** Create 4x4 Calendar Widget Layout
+2. **Phase 2.6 Plan 04:** Create 2x1 Small Widget Layout
+3. **Phase 2.6 Plan 05:** Widget Testing & Verification
 
 ---
 
 ## Roadmap Evolution
 
+- **2026-01-22:** Phase 2.6 Plan 02 completed - WidgetUpdateService integrated with WidgetCalendarService
 - **2026-01-22:** Phase 2.6 Plan 01 completed - WidgetCalendarService created with 20 tests
 
 ---
 
 *Last updated: 2026-01-22*
 *Last session: 2026-01-22*
-*Stopped at: Completed Phase 2.6 Plan 01*
+*Stopped at: Completed Phase 2.6 Plan 02*
 *Resume file: .planning/phases/02.6-widget-redesign/*
