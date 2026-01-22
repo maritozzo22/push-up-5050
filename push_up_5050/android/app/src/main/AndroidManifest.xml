@@ -73,7 +73,7 @@
                 android:resource="@xml/pushup_widget_calendar_info" />
         </receiver>
 
-        <!-- Widget 3: Quick Start (large with START button) - ENABLED -->
+        <!-- Widget 3: Quick Start (4x4 with START button) - ENABLED -->
         <receiver
             android:name=".widget.PushupWidgetQuickStartProvider"
             android:enabled="true"
@@ -83,10 +83,10 @@
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/pushup_widget_quick_start_info" />
+                android:resource="@xml/pushup_widget_4x4_info" />
         </receiver>
 
-        <!-- Widget 4: Small Stats Only - ENABLED -->
+        <!-- Widget 4: Small Stats (2x1) - ENABLED -->
         <receiver
             android:name=".widget.PushupWidgetSmallProvider"
             android:enabled="true"
@@ -96,7 +96,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/pushup_widget_small_info" />
+                android:resource="@xml/pushup_widget_2x1_info" />
         </receiver>
 
         <!-- Widget Midnight Update Receiver -->

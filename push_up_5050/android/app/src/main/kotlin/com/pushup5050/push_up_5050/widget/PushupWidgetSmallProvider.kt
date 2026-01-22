@@ -21,6 +21,11 @@ import org.json.JSONObject
  * Data source: home_widget storage (shared with Flutter)
  * Reads threeDayData from JSON for 3-day calendar display
  *
+ * Layout: pushup_widget_2x1.xml (matching template design)
+ *
+ * Day indicators use widget_2x1_day_chip selector drawable
+ * Labels are fixed in layout (IERI/OGGI/DOMANI) - no localization needed
+ *
  * Day indicator colors:
  * - Orange glow: completed (checkmark)
  * - Red outline: missed (X)
@@ -72,7 +77,7 @@ class PushupWidgetSmallProvider : AppWidgetProvider() {
             appWidgetId: Int
         ) {
             Log.e(TAG, "updateAppWidget SMALL called for widgetId: $appWidgetId")
-            val views = RemoteViews(context.packageName, R.layout.pushup_widget_quick_start_small)
+            val views = RemoteViews(context.packageName, R.layout.pushup_widget_2x1)
 
             // Get SharedPreferences from home_widget plugin
             val widgetData: SharedPreferences = HomeWidgetPlugin.getData(context)
