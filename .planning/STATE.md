@@ -1,17 +1,31 @@
 # STATE.md
 
 **Project:** Push-Up 5050 - Android Widgets
-**Last Updated:** 2026-01-21
+**Last Updated:** 2026-01-22
 
 ## Current State
 
-**Phase:** Phase 2.2 - Widget 1 - Quick Stats
-**Plan:** 05 of 06 COMPLETE
+**Phase:** Phase 2.6 - Widget Redesign
+**Plan:** 01 of 05 COMPLETE
 **Status:** In progress
 
-**Progress: ███████████░░░░░░░░ 70%** (7/10 plans complete)
+**Progress: ████████████░░░░░░░ 80%** (8/10 plans complete)
 
 ## Recent Activity
+
+### 2026-01-22
+- **Completed Phase 2.6 Plan 01:** Create Calendar Service for Widget Data
+  - Created WidgetCalendarService with week data generation (Mon-Sun)
+  - Added CalendarDayStatus enum (completed, missed, pending, today)
+  - Added WeekDayData and WeekData models with JSON serialization
+  - Implemented getWeekData(), getThreeDayData(), isDayMissed() methods
+  - Italian day labels: L, M, M, G, V, S, D (Lunedi-Domenica)
+  - 3-day view labels: I (Ieri), O (Oggi), D (Domani)
+  - Streak line calculation for consecutive days
+  - Extended WidgetData with weekDayData, threeDayData, hasStreakLine
+  - Added WidgetData.withCalendarData() factory
+  - 20 tests passing, backward compatibility maintained
+  - Commits: 5dac759, f657cef
 
 ### 2026-01-21
 - **Completed Phase 2.2 Plan 03b:** Implement Flutter Deep Link Handling
@@ -100,15 +114,14 @@
 
 ## Current Work
 
-**Phase 2.2: Widget 1 - Quick Stats — IN PROGRESS**
+**Phase 2.6: Widget Redesign — IN PROGRESS**
 
 ### Plans Status:
-1. **02.2-01-PLAN.md** — ✅ Implement Widget Data Loading from home_widget (COMPLETE)
-2. **02.2-02a-PLAN.md** — ✅ Create Widget Drawable Resources (COMPLETE - via 02b blocking fix)
-3. **02.2-02b-PLAN.md** — ✅ Update Widget Layout XML (COMPLETE)
-4. **02.2-03a-PLAN.md** — ✅ Configure Android Deep Link Handling (COMPLETE)
-5. **02.2-03b-PLAN.md** — ✅ Implement Flutter Deep Link Handling (COMPLETE)
-6. **02.2-04-PLAN.md** — Pending: Add Widget Configuration
+1. **02.6-01-PLAN.md** — ✅ Create Calendar Service for Widget Data (COMPLETE)
+2. **02.6-02-PLAN.md** — Pending: Update WidgetUpdateService to use WidgetCalendarService
+3. **02.6-03-PLAN.md** — Pending: Create 4x4 Calendar Widget Layout
+4. **02.6-04-PLAN.md** — Pending: Create 2x1 Small Widget Layout
+5. **02.6-05-PLAN.md** — Pending: Widget Testing & Verification
 
 ## Completed Work
 
@@ -181,6 +194,17 @@
 - navigatorKey pattern for programmatic navigation from service layer
 - onGenerateRoute handler for /series_selection route
 
+### Phase 2.6 Plan 01: Calendar Service for Widget Data ✅
+- Created WidgetCalendarService with 424 lines (5dac759)
+- Created 20 tests with 469 lines (f657cef)
+- CalendarDayStatus enum: completed, missed, pending, today
+- WeekDayData: day, dayLabel, status, pushups, isPartOfStreak
+- WeekData: 7 days (Mon-Sun) with hasStreakLine flag
+- Italian labels: L, M, M, G, V, S, D for week; I, O, D for 3-day
+- getWeekData(), getThreeDayData(), isDayMissed() methods
+- Extended WidgetData with weekDayData, threeDayData, hasStreakLine
+- WidgetData.withCalendarData() factory for easy integration
+
 ## Known Issues
 
 **None** - All issues resolved.
@@ -210,11 +234,12 @@
 | Core app | ~70% | ✅ Meets goal |
 | WidgetUpdateService | 100% | ✅ All 17 tests pass |
 | WidgetData model | 100% | ✅ All 9 tests pass |
+| WidgetCalendarService | 100% | ✅ All 20 tests pass |
 | Widget Android integration | 100% | ✅ All 5 tests pass |
 | Widget integration (provider level) | 100% | ✅ Code complete |
 | Widget integration (E2E) | 100% | ✅ All 11 integration tests pass |
 
-**Total widget-related tests:** 42 (17 service + 9 model + 5 Android integration + 11 E2E)
+**Total widget-related tests:** 62 (17 update + 9 data + 20 calendar + 5 Android + 11 E2E)
 
 ## Decisions Made
 
@@ -257,13 +282,28 @@
 - **postFrameCallback initialization**: Delayed DeepLinkService.initialize() until after first frame to ensure FlutterEngine is ready
 - **Route name constants**: Static routeName on screen widgets enables type-safe navigation
 
+### From Phase 2.6-01
+- **Test double instead of mockito**: Used custom MockStorageService class instead of mockito due to build_runner issues on Windows; simpler implementation with same test coverage
+- **JSON serialization for calendar data**: WeekDayData serialized as Map<String, dynamic> in WidgetData for easier Android widget consumption
+- **Italian day labels hardcoded**: L, M, M, G, V, S, D and I/O/D hardcoded in service (no localization library needed for single-character labels)
+- **Streak calculation per-widget**: hasStreakLine calculated per week for visual display; separate from app-level streak count
+
 ## Next Steps
 
-1. **Phase 2.2 Plan 04:** Add Widget Configuration
+1. **Phase 2.6 Plan 02:** Update WidgetUpdateService to use WidgetCalendarService
+2. **Phase 2.6 Plan 03:** Create 4x4 Calendar Widget Layout
+3. **Phase 2.6 Plan 04:** Create 2x1 Small Widget Layout
+4. **Phase 2.6 Plan 05:** Widget Testing & Verification
 
 ---
 
-*Last updated: 2026-01-21*
-*Last session: 2026-01-21*
-*Stopped at: Completed Phase 2.2 Plan 03b (02.2-03b-PLAN.md)*
-*Resume file: .planning/phases/02.2-quick-stats-widget/02.2-03b-SUMMARY.md*
+## Roadmap Evolution
+
+- **2026-01-22:** Phase 2.6 Plan 01 completed - WidgetCalendarService created with 20 tests
+
+---
+
+*Last updated: 2026-01-22*
+*Last session: 2026-01-22*
+*Stopped at: Completed Phase 2.6 Plan 01*
+*Resume file: .planning/phases/02.6-widget-redesign/*
