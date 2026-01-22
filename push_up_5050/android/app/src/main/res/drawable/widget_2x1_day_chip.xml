@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+2x1 Widget Day Chip - Selector for 3-day view (Ieri/Oggi/Domani)
+Matches template: _DayChip with selected state
+state_selected: widget_orange with glow shadow
+default: widget_day_pending with lighter shadow
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Selected state (completed/today) -->
+    <item android:state_selected="true">
+        <layer-list>
+            <!-- Outer glow shadow -->
+            <item
+                android:left="0dp"
+                android:top="6dp"
+                android:right="0dp"
+                android:bottom="0dp">
+                <shape android:shape="oval">
+                    <solid android:color="#59000000" />
+                    <size
+                        android:width="36dp"
+                        android:height="36dp" />
+                </shape>
+            </item>
+
+            <!-- Main circle - orange -->
+            <item
+                android:left="0dp"
+                android:top="6dp"
+                android:right="0dp"
+                android:bottom="0dp">
+                <shape android:shape="oval">
+                    <solid android:color="@color/widget_orange" />
+                    <size
+                        android:width="36dp"
+                        android:height="36dp" />
+                </shape>
+            </item>
+
+            <!-- Inner highlight -->
+            <item
+                android:left="2dp"
+                android:top="8dp"
+                android:right="2dp"
+                android:bottom="2dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:type="radial"
+                        android:gradientRadius="60%"
+                        android:centerColor="#38FFFFFF"
+                        android:endColor="#00000000" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Default state (pending/future) -->
+    <item>
+        <layer-list>
+            <!-- Shadow -->
+            <item
+                android:left="0dp"
+                android:top="6dp"
+                android:right="0dp"
+                android:bottom="0dp">
+                <shape android:shape="oval">
+                    <solid android:color="#40000000" />
+                    <size
+                        android:width="36dp"
+                        android:height="36dp" />
+                </shape>
+            </item>
+
+            <!-- Main circle - gray -->
+            <item
+                android:left="0dp"
+                android:top="6dp"
+                android:right="0dp"
+                android:bottom="0dp">
+                <shape android:shape="oval">
+                    <solid android:color="@color/widget_day_pending" />
+                    <size
+                        android:width="36dp"
+                        android:height="36dp" />
+                </shape>
+            </item>
+
+            <!-- Subtle highlight -->
+            <item
+                android:left="2dp"
+                android:top="8dp"
+                android:right="2dp"
+                android:bottom="2dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:type="radial"
+                        android:gradientRadius="70%"
+                        android:centerColor="#22FFFFFF"
+                        android:endColor="#00000000" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+</selector>
