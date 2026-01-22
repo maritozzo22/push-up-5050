@@ -6,7 +6,7 @@
 ## Current State
 
 **Phase:** Phase 2.6 - Widget Redesign
-**Plan:** 02 of 05 COMPLETE
+**Plan:** 03 of 05 COMPLETE
 **Status:** In progress
 
 **Progress: ████████████░░░░░░░ 80%** (9/10 plans complete)
@@ -14,6 +14,15 @@
 ## Recent Activity
 
 ### 2026-01-22
+- **Completed Phase 2.6 Plan 03:** Update Android Widget Providers with Calendar Rendering
+  - Created drawable resources: day_indicator_glow, streak_connector, day_indicator_missed_new
+  - Updated PushupWidgetQuickStartProvider to parse weekDayData from JSON
+  - Updated PushupWidgetSmallProvider to parse threeDayData from JSON
+  - Updated widget layouts with reduced day circle sizes (24dp)
+  - Added 8 integration tests for calendar widget data flow
+  - All tests passing
+  - Commits: ef73cf4, ab7b3a9, e56b48c, fefaf20, 515e89d
+
 - **Completed Phase 2.6 Plan 02:** Integrate Calendar Service with Widget Updates
   - WidgetUpdateService integrates with WidgetCalendarService via optional dependency
   - Added buildWidgetData() method for calendar-enriched widget data
@@ -128,8 +137,8 @@
 ### Plans Status:
 1. **02.6-01-PLAN.md** — ✅ Create Calendar Service for Widget Data (COMPLETE)
 2. **02.6-02-PLAN.md** — ✅ Integrate Calendar Service with Widget Updates (COMPLETE)
-3. **02.6-03-PLAN.md** — Pending: Create 4x4 Calendar Widget Layout
-4. **02.6-04-PLAN.md** — Pending: Create 2x1 Small Widget Layout
+3. **02.6-03-PLAN.md** — ✅ Update Android Widget Providers with Calendar Rendering (COMPLETE)
+4. **02.6-04-PLAN.md** — Pending: WorkManager Midnight Update
 5. **02.6-05-PLAN.md** — Pending: Widget Testing & Verification
 
 ## Completed Work
@@ -222,6 +231,14 @@
 - Backward compatible: works without calendar service
 - 5 new tests: week data, 3-day data, streak line, storage save, graceful degradation
 
+### Phase 2.6 Plan 03: Update Android Widget Providers with Calendar Rendering ✅
+- Created drawable resources: day_indicator_glow, streak_connector, day_indicator_missed_new (ef73cf4)
+- Updated PushupWidgetQuickStartProvider with weekDayData parsing (ab7b3a9)
+- Updated PushupWidgetSmallProvider with threeDayData parsing (e56b48c)
+- Updated widget layouts with 24dp day circles (fefaf20)
+- Added 8 integration tests for calendar data flow (515e89d)
+- All tests passing
+
 ## Known Issues
 
 **None** - All issues resolved.
@@ -231,6 +248,7 @@
 1. **TODO:** Implement widget data caching for offline scenarios (future enhancement)
 2. **TODO:** Add widget configuration UI (if needed for user preferences)
 3. **TODO:** Consider widget update frequency optimization (currently 30-min via updatePeriodMillis)
+4. **TODO:** Streak connector lines not yet rendered in layouts (drawable created but not implemented)
 
 ## Dependencies Status
 
@@ -252,11 +270,11 @@
 | WidgetUpdateService | 100% | ✅ All 17 tests pass |
 | WidgetData model | 100% | ✅ All 9 tests pass |
 | WidgetCalendarService | 100% | ✅ All 20 tests pass |
-| Widget Android integration | 100% | ✅ All 5 tests pass |
+| Widget Android integration | 100% | ✅ All 8 calendar tests pass |
 | Widget integration (provider level) | 100% | ✅ Code complete |
 | Widget integration (E2E) | 100% | ✅ All 11 integration tests pass |
 
-**Total widget-related tests:** 62 (17 update + 9 data + 20 calendar + 5 Android + 11 E2E)
+**Total widget-related tests:** 70 (17 update + 9 data + 20 calendar + 8 Android calendar + 11 E2E)
 
 ## Decisions Made
 
@@ -310,16 +328,23 @@
 - **buildWidgetData() method**: Centralized widget data creation with calendar enrichment, separates data building from update logic
 - **Backward compatibility**: New calendar fields in WidgetData default to empty lists when calendar service unavailable
 
+### From Phase 2.6-03
+- **Layer-list for glow effect**: Used multiple layer items with different opacity and offset values to create outer glow matching New-design.md specification
+- **JSON-first calendar data**: Android widget providers are passive consumers - Flutter WidgetCalendarService is authoritative source
+- **Status string matching**: Used exact string matching ("completed", "missed", "pending", "today") between Flutter and Android for simplicity
+- **Reduced day button size**: Changed from 28dp/32dp to 24dp for more compact calendar display
+- **Italian labels hardcoded**: Day labels (L,M,M,G,V,S,D and I,O,D) in both layout XML and provider code
+
 ## Next Steps
 
-1. **Phase 2.6 Plan 03:** Create 4x4 Calendar Widget Layout
-2. **Phase 2.6 Plan 04:** Create 2x1 Small Widget Layout
-3. **Phase 2.6 Plan 05:** Widget Testing & Verification
+1. **Phase 2.6 Plan 04:** WorkManager Midnight Update
+2. **Phase 2.6 Plan 05:** Widget Testing & Verification
 
 ---
 
 ## Roadmap Evolution
 
+- **2026-01-22:** Phase 2.6 Plan 03 completed - Android widget providers updated with calendar rendering
 - **2026-01-22:** Phase 2.6 Plan 02 completed - WidgetUpdateService integrated with WidgetCalendarService
 - **2026-01-22:** Phase 2.6 Plan 01 completed - WidgetCalendarService created with 20 tests
 
@@ -327,5 +352,5 @@
 
 *Last updated: 2026-01-22*
 *Last session: 2026-01-22*
-*Stopped at: Completed Phase 2.6 Plan 02*
+*Stopped at: Completed Phase 2.6 Plan 03*
 *Resume file: .planning/phases/02.6-widget-redesign/*
