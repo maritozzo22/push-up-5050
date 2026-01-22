@@ -6,14 +6,23 @@
 ## Current State
 
 **Phase:** Phase 2.7 - Widget Rebuild from Templates
-**Plan:** 02 of 4 (Widget Layouts)
-**Status:** Plans 01-02 complete (Wave 1), Plan 03 pending
+**Plan:** 03 of 4 (Widget Provider Implementation)
+**Status:** Plans 01-03 complete (Waves 1-2), Plan 04 pending
 
-**Progress: ██████████░░░░░░░░░ 75%** (Phase 2.7: 2/4 plans complete)
+**Progress: ████████████░░░░░░░ 75%** (Phase 2.7: 3/4 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-22
+- **Completed Phase 2.7 Plan 03:** Widget Provider Implementation
+  - Updated PushupWidgetQuickStartProvider to use R.layout.pushup_widget_4x4
+  - Added getDayLabels() method for locale-based day labels (IT: L M M G V S D, EN: M T W T F S S)
+  - Updated updateCalendarDays() to use new widget_day_chip_* drawables
+  - Verified PushupWidgetSmallProvider uses R.layout.pushup_widget_2x1
+  - Created pushup_widget_2x1_info.xml for correct size registration
+  - AndroidManifest verified with correct widget info file references
+  - Commits: da5651d, 62a15cb, 7c5b37a
+
 - **Completed Phase 2.7 Plan 02:** Widget Layouts
   - Created pushup_widget_4x4.xml with 4 vertical sections matching template
   - Created pushup_widget_2x1.xml with centered stats and 3-day view
@@ -393,14 +402,24 @@
 - **resizeMode=none**: Both widgets use fixed size (no resizing) because templates are designed for specific aspect ratios
 - **4x4 size bug fix**: Created pushup_widget_4x4_info.xml with targetCellWidth=4 targetCellHeight=4 (previous widget was incorrectly registered as 2x2)
 
+### From Phase 2.7-03
+- **Locale-based day labels**: Added getDayLabels() method checking locale.language for Italian/English labels
+- **Drawable name migration**: Updated from day_indicator_* to widget_day_chip_* for visual consistency
+- **Widget class name preservation**: Kept receiver names unchanged for HomeWidgetPlugin compatibility
+- **Info file naming convention**: Created pushup_widget_2x1_info.xml for clearer size-based naming
+
 ## Next Steps
 
-1. **Phase 2.7 Plan 03:** Widget Provider Implementation (update providers to use new layouts)
-2. **Phase 2.7 Plan 04:** AndroidManifest Registration (register new widget info files)
+1. **Phase 2.7 Plan 04:** Build and Test - Verify widgets display correctly on device
 
 ---
 
 ## Roadmap Evolution
+
+- **2026-01-22:** Phase 2.7 Plan 03 completed - Widget Provider Implementation
+  - Updated providers to use new layouts (pushup_widget_4x4, pushup_widget_2x1)
+  - Added locale-based day label support
+  - Created pushup_widget_2x1_info.xml
 
 - **2026-01-22:** Phase 2.7 Plan 02 completed - Widget Layouts
   - Created 4x4 layout with 4 vertical sections (top panel, stats, START button, 7-day row)
@@ -426,5 +445,5 @@
 
 *Last updated: 2026-01-22*
 *Last session: 2026-01-22*
-*Stopped at: Completed Phase 2.7 Plan 02 - Widget Layouts*
-*Resume file: None (Plan complete, proceed to Plan 03)*
+*Stopped at: Completed Phase 2.7 Plan 03 - Widget Provider Implementation*
+*Resume file: None (Plan complete, proceed to Plan 04)*
