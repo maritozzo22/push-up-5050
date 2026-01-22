@@ -28,11 +28,13 @@
             android:layout_weight="1">
 
             <!-- Top panel with gradient (62% of total height) -->
-            <View
+            <ImageView
                 android:id="@+id/top_panel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/widget_2x1_top_panel" />
+                android:src="@drawable/widget_2x1_top_panel"
+                android:scaleType="centerCrop"
+                android:contentDescription="Top panel background" />
 
             <!-- Stats section - Centered -->
             <LinearLayout
