@@ -13,6 +13,7 @@ import com.pushup5050.push_up_5050.R
 import es.antonborri.home_widget.HomeWidgetPlugin
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.Locale
 
 /**
  * Widget: Quick Start (4x4)
@@ -20,6 +21,8 @@ import org.json.JSONObject
  *
  * Data source: home_widget storage (shared with Flutter)
  * Reads weekDayData from JSON for calendar display
+ *
+ * Layout: pushup_widget_4x4.xml (matching template design)
  */
 class PushupWidgetQuickStartProvider : AppWidgetProvider() {
 
@@ -51,7 +54,24 @@ class PushupWidgetQuickStartProvider : AppWidgetProvider() {
         private const val STREAK_KEY = "pushup_streak_days"
 
         // Italian day labels for calendar row (Monday-Sunday)
-        private val DAY_LABELS = listOf("L", "M", "M", "G", "V", "S", "D")
+        private val DAY_LABELS_IT = listOf("L", "M", "M", "G", "V", "S", "D")
+
+        // English day labels for calendar row (Monday-Sunday)
+        private val DAY_LABELS_EN = listOf("M", "T", "W", "T", "F", "S", "S")
+
+        /**
+         * Get localized day labels based on device locale
+         * @param context Application context
+         * @return List of 7 single-character day labels (Monday-Sunday)
+         */
+        fun getDayLabels(context: Context): List<String> {
+            val locale: Locale = context.resources.configuration.locales.get(0)
+            return if (locale.language == "it") {
+                DAY_LABELS_IT
+            } else {
+                DAY_LABELS_EN
+            }
+        }
 
         /**
          * Data class for calendar day info from JSON
@@ -70,7 +90,7 @@ class PushupWidgetQuickStartProvider : AppWidgetProvider() {
             appWidgetId: Int
         ) {
             Log.e(TAG, "updateAppWidget called for widgetId: $appWidgetId")
-            val views = RemoteViews(context.packageName, R.layout.pushup_widget_quick_start)
+            val views = RemoteViews(context.packageName, R.layout.pushup_widget_4x4)
 
             // Get SharedPreferences from home_widget plugin
             val widgetData: SharedPreferences = HomeWidgetPlugin.getData(context)
@@ -122,7 +142,7 @@ class PushupWidgetQuickStartProvider : AppWidgetProvider() {
             views.setTextViewText(R.id.total_count, "$totalPushups / $goalPushups")
 
             // Update calendar day buttons based on weekDayData
-            updateCalendarDays(views, weekDayDataList)
+            updateCalendarDays(context, views, weekDayDataList)
 
             // Set click intent for START button container to deep link
             val deepLinkIntent = Intent(context, MainActivity::class.java).apply {
@@ -173,40 +193,51 @@ class PushupWidgetQuickStartProvider : AppWidgetProvider() {
 
         /**
          * Update calendar day buttons with status-based backgrounds
+         * Uses new unified widget_day_chip_* drawables for visual consistency
+         * Day labels are localized based on device locale
          */
-        private fun updateCalendarDays(views: RemoteViews, weekDayData: List<WeekDayInfo>) {
+        private fun updateCalendarDays(context: Context, views: RemoteViews, weekDayData: List<WeekDayInfo>) {
             val dayButtonIds = intArrayOf(
                 R.id.day_1, R.id.day_2, R.id.day_3, R.id.day_4,
                 R.id.day_5, R.id.day_6, R.id.day_7
             )
 
+            // Get localized day labels (Italian: L M M G V S D, English: M T W T F S S)
+            val dayLabels = getDayLabels(context)
+
             // If we have weekDayData from JSON, use it
             if (weekDayData.size == 7) {
                 for (i in dayButtonIds.indices) {
                     val dayInfo = weekDayData[i]
+
+                    // Use new widget_day_chip_* drawables from Plan 01
                     val backgroundRes = when (dayInfo.status) {
-                        "completed" -> R.drawable.day_indicator_glow
-                        "missed" -> R.drawable.day_indicator_missed_new
-                        "today" -> R.drawable.day_indicator_in_progress
-                        else -> R.drawable.day_indicator_pending
+                        "completed" -> R.drawable.widget_day_chip_completed
+                        "missed" -> R.drawable.widget_day_chip_missed
+                        "today" -> R.drawable.widget_day_chip_pending  // Today uses pending base with orange border
+                        else -> R.drawable.widget_day_chip_pending
                     }
 
                     views.setInt(dayButtonIds[i], "setBackgroundResource", backgroundRes)
 
+                    // Set localized day label text
+                    views.setTextViewText(dayButtonIds[i], dayLabels.getOrElse(i) { dayLabels[0] })
+
                     // Set text color based on status
                     val textColor = when (dayInfo.status) {
-                        "completed" -> 0xFFFFFFFF.toInt()  // White on glow
-                        "missed" -> 0xFFF44336.toInt()     // Red for X
-                        "today" -> 0xFFFF6B00.toInt()      // Orange for in progress
-                        else -> 0xFF888888.toInt()         // Gray for pending
+                        "completed" -> 0xFFFFFFFF.toInt()  // White on completed
+                        "missed" -> 0xFFFFFFFF.toInt()     // White on missed (X is red in drawable)
+                        "today" -> 0xFFFFFFFF.toInt()      // White for today
+                        else -> 0xFFB9C0C7.toInt()         // Soft gray for pending (widget_day_pending_text color)
                     }
                     views.setTextColor(dayButtonIds[i], textColor)
                 }
             } else {
-                // Fallback: Use default gray background for all days
+                // Fallback: Use default gray background with localized labels
                 for (i in dayButtonIds.indices) {
-                    views.setInt(dayButtonIds[i], "setBackgroundResource", R.drawable.day_indicator_pending)
-                    views.setTextColor(dayButtonIds[i], 0xFF888888.toInt())
+                    views.setInt(dayButtonIds[i], "setBackgroundResource", R.drawable.widget_day_chip_pending)
+                    views.setTextViewText(dayButtonIds[i], dayLabels.getOrElse(i) { dayLabels[0] })
+                    views.setTextColor(dayButtonIds[i], 0xFFB9C0C7.toInt())
                 }
             }
         }
