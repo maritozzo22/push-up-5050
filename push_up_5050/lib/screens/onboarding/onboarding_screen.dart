@@ -78,8 +78,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     final daysNeeded = (_totalTarget / _dailyGoal).ceil();
     final monthsNeeded = (daysNeeded / 30).ceil();
+    final isItalian = _l10n.localeName.startsWith('it');
 
-    if (_l10n.appLocale?.languageCode == 'it') {
+    if (isItalian) {
       if (monthsNeeded <= 1) {
         return 'A questo ritmo raggiungerai 5050 in circa $monthsNeeded mese';
       } else if (monthsNeeded <= 6) {
