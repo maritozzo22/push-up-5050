@@ -389,6 +389,47 @@ Layout: Vertical structure
 
 ---
 
+### Phase 2.8: App Polish & Tutorial
+
+**Goal:** Complete app polish including UI fixes, onboarding tutorial, and branding assets
+
+**Status:** PLANNED (4 plans in 3 waves)
+
+**Depends on:** Phase 2.7
+
+**Plans:**
+- [ ] 02.8-01-PLAN.md — Launch Android emulator and install debug APK for testing (Wave 1)
+- [ ] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (Wave 2)
+- [ ] 02.8-03-PLAN.md — Create 3-page onboarding tutorial with bilingual support and goal configuration (Wave 3)
+- [ ] 02.8-04-PLAN.md — Set up app logo and icon from Icone-App-Pushup assets (Wave 1)
+
+**Wave Structure:**
+- Wave 1: 02.8-01 (emulator setup), 02.8-04 (icon setup - parallel, no dependencies)
+- Wave 2: 02.8-02 (overflow fixes - depends on 02.8-01 for testing)
+- Wave 3: 02.8-03 (onboarding - depends on overflow fixes being verified)
+
+**Deliverables:**
+- Working debug APK installed on emulator
+- All bottom overflow issues resolved on Series Selection and Statistics screens
+- Complete 3-page onboarding flow with PageView navigation
+- Bilingual IT/EN onboarding support
+- Goal configuration (daily/monthly) with persistence
+- Settings screen "Restart Tutorial" option
+- Configured app logo/icon using flutter_launcher_icons
+
+**Acceptance Criteria:**
+- App runs on emulator without crashes
+- No RenderFlex overflow errors on Series Selection or Statistics screens
+- Onboarding tutorial shows on first launch (full gate - cannot skip)
+- User can set daily goal (default: 50) with +/- buttons
+- Monthly goal auto-calculates (daily * 30) and is manually editable
+- Progress preview shows estimated time to reach 5050
+- Onboarding supports Italian and English based on device locale
+- Settings has "Restart Tutorial" button
+- App icon displays correctly on home screen
+
+---
+
 ## Future Milestones
 
 ### Milestone 3: iOS Widgets (Future)
