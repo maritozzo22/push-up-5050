@@ -339,7 +339,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
 
                     // Starting Series Card
                     _FrostCardStepper(
-                      height: 140,
+                      height: 120,
                       titleTop: _l10n.startingSeries,
                       value: _startingSeries.toString(),
                       titleBottom: '',
@@ -365,7 +365,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
 
                     // Rest Time Card with acceleration indicator
                     _FrostCardStepper(
-                      height: 160,
+                      height: 135,
                       titleTop: _l10n.restTime,
                       value: _restTime.toString(),
                       titleBottom: 'seconds',
@@ -382,7 +382,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
 
                     // Goal Push-ups Card with acceleration indicator
                     _FrostCardStepper(
-                      height: 160,
+                      height: 135,
                       titleTop: 'Goal Push-ups',
                       value: _goalPushups > 0 ? _goalPushups.toString() : '-',
                       titleBottom: 'total',
