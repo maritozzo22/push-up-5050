@@ -436,12 +436,15 @@ Layout: Vertical structure
 
 **Goal:** Wire user-configured goals from onboarding to GoalsProvider
 
-**Status:** ⏳ NOT STARTED
+**Status:** ⏳ PLANNED
 
 **Gap Closure:** Closes integration gap where goals saved in onboarding are never loaded
 
 **Plans:**
 - [ ] 02.9-01-PLAN.md — Update GoalsProvider to load saved goals from StorageService
+
+**Wave Structure:**
+- Wave 1: 02.9-01 (single autonomous plan)
 
 **Tasks:**
 1. Update GoalsProvider._loadSavedGoals() to call storage.getDailyGoal()/getMonthlyGoal()
