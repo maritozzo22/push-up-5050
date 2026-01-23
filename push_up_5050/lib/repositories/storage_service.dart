@@ -31,6 +31,9 @@ class StorageService {
   static const String _keyAchievements = 'achievements';
   static const String _keyWorkoutPreferences = 'workout_preferences';
   static const String _keyProgramStartDate = 'program_start_date';
+  static const String _keyDailyGoal = 'daily_goal';
+  static const String _keyMonthlyGoal = 'monthly_goal';
+  static const String _keyOnboardingCompleted = 'onboarding_completed';
 
   // ==================== Active Session ====================
 
@@ -300,5 +303,45 @@ class StorageService {
   /// Clear the program start date.
   Future<void> clearProgramStartDate() async {
     await _prefs.remove(_keyProgramStartDate);
+  }
+
+  // ==================== Goals & Onboarding ====================
+
+  /// Save daily goal to storage.
+  Future<void> setDailyGoal(int goal) async {
+    await _prefs.setInt(_keyDailyGoal, goal);
+  }
+
+  /// Get daily goal from storage.
+  /// Returns 50 as default if not set.
+  int getDailyGoal() {
+    return _prefs.getInt(_keyDailyGoal) ?? 50;
+  }
+
+  /// Save monthly goal to storage.
+  Future<void> setMonthlyGoal(int goal) async {
+    await _prefs.setInt(_keyMonthlyGoal, goal);
+  }
+
+  /// Get monthly goal from storage.
+  /// Returns 1500 (50 * 30) as default if not set.
+  int getMonthlyGoal() {
+    return _prefs.getInt(_keyMonthlyGoal) ?? 1500;
+  }
+
+  /// Save onboarding completion status.
+  Future<void> setOnboardingCompleted(bool completed) async {
+    await _prefs.setBool(_keyOnboardingCompleted, completed);
+  }
+
+  /// Check if onboarding is completed.
+  /// Returns false by default (first-time users).
+  bool isOnboardingCompleted() {
+    return _prefs.getBool(_keyOnboardingCompleted) ?? false;
+  }
+
+  /// Reset onboarding status (for "Restart Tutorial" feature).
+  Future<void> resetOnboarding() async {
+    await _prefs.remove(_keyOnboardingCompleted);
   }
 }
