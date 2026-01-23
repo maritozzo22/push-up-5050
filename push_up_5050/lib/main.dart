@@ -9,7 +9,7 @@ import 'package:push_up_5050/providers/achievements_provider.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
-import 'package:push_up_5050/screens/onboarding/onboarding_screen.dart';
+import 'package:push_up_5050/screens/onboarding/personalized_onboarding_screen.dart';
 import 'package:push_up_5050/services/app_settings_service.dart';
 import 'package:push_up_5050/services/audio_service.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
@@ -162,7 +162,7 @@ class _MyAppState extends State<MyApp> {
                 locale: Locale(settings.appLanguage),
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
-                home: const OnboardingScreen(),
+                home: const PersonalizedOnboardingScreen(),
               );
             }
 
