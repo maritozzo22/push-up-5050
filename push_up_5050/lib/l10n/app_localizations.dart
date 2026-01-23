@@ -763,6 +763,144 @@ abstract class AppLocalizations {
   /// In it, this message translates to:
   /// **'CONTINUA'**
   String get continueToHome;
+
+  /// No description provided for @onboardingWelcomeTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Benvenuto in Push-Up 5050'**
+  String get onboardingWelcomeTitle;
+
+  /// No description provided for @onboardingWelcomeSubtitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Il tuo viaggio verso 5050 flessioni inizia qui'**
+  String get onboardingWelcomeSubtitle;
+
+  /// No description provided for @onboardingPhilosophyTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Prenditi il Tuo Tempo'**
+  String get onboardingPhilosophyTitle;
+
+  /// No description provided for @onboardingPhilosophyText.
+  ///
+  /// In it, this message translates to:
+  /// **'Puoi impiegare 1 mese, 1 anno o 5 anni. L\'importante è la costanza.'**
+  String get onboardingPhilosophyText;
+
+  /// No description provided for @onboardingHowItWorksTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Come Funziona'**
+  String get onboardingHowItWorksTitle;
+
+  /// No description provided for @onboardingProgressiveSeries.
+  ///
+  /// In it, this message translates to:
+  /// **'Serie Progressive'**
+  String get onboardingProgressiveSeries;
+
+  /// No description provided for @onboardingProgressiveSeriesDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Serie 1 = 1 flessione, Serie 2 = 2 flessioni...'**
+  String get onboardingProgressiveSeriesDesc;
+
+  /// No description provided for @onboardingStreakTracking.
+  ///
+  /// In it, this message translates to:
+  /// **'Tracciamento Striscia'**
+  String get onboardingStreakTracking;
+
+  /// No description provided for @onboardingStreakTrackingDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Tieni traccia dei giorni consecutivi per guadagnare moltiplicatori'**
+  String get onboardingStreakTrackingDesc;
+
+  /// No description provided for @onboardingPointsSystem.
+  ///
+  /// In it, this message translates to:
+  /// **'Sistema Punti'**
+  String get onboardingPointsSystem;
+
+  /// No description provided for @onboardingPointsSystemDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Guadagna punti per ogni allenamento completato'**
+  String get onboardingPointsSystemDesc;
+
+  /// No description provided for @onboardingAchievements.
+  ///
+  /// In it, this message translates to:
+  /// **'Achievement'**
+  String get onboardingAchievements;
+
+  /// No description provided for @onboardingAchievementsDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Sblocca badge mentre progredisci'**
+  String get onboardingAchievementsDesc;
+
+  /// No description provided for @onboardingGoalTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Imposta i Tuoi Obiettivi'**
+  String get onboardingGoalTitle;
+
+  /// No description provided for @onboardingDailyGoal.
+  ///
+  /// In it, this message translates to:
+  /// **'Obiettivo Giornaliero'**
+  String get onboardingDailyGoal;
+
+  /// No description provided for @onboardingMonthlyGoal.
+  ///
+  /// In it, this message translates to:
+  /// **'Obiettivo Mensile'**
+  String get onboardingMonthlyGoal;
+
+  /// No description provided for @onboardingPushups.
+  ///
+  /// In it, this message translates to:
+  /// **'flessioni'**
+  String get onboardingPushups;
+
+  /// No description provided for @onboardingProgressPreview.
+  ///
+  /// In it, this message translates to:
+  /// **'A questo ritmo, raggiungerai 5050 in {time}'**
+  String onboardingProgressPreview(String time);
+
+  /// No description provided for @onboardingGetStarted.
+  ///
+  /// In it, this message translates to:
+  /// **'Inizia'**
+  String get onboardingGetStarted;
+
+  /// No description provided for @onboardingBack.
+  ///
+  /// In it, this message translates to:
+  /// **'Indietro'**
+  String get onboardingBack;
+
+  /// No description provided for @onboardingNext.
+  ///
+  /// In it, this message translates to:
+  /// **'Avanti'**
+  String get onboardingNext;
+
+  /// No description provided for @settingsRestartTutorial.
+  ///
+  /// In it, this message translates to:
+  /// **'Riavvia Tutorial'**
+  String get settingsRestartTutorial;
+
+  /// No description provided for @settingsRestartTutorialDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Ripeti il flusso di onboarding'**
+  String get settingsRestartTutorialDesc;
 }
 
 class _AppLocalizationsDelegate

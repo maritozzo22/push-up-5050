@@ -86,7 +86,7 @@
                 android:resource="@xml/pushup_widget_4x4_info" />
         </receiver>
 
-        <!-- Widget 4: Small Stats (2x1) - ENABLED -->
+        <!-- Widget 4: Small Stats (1x2 vertical) - ENABLED -->
         <receiver
             android:name=".widget.PushupWidgetSmallProvider"
             android:enabled="true"
@@ -96,7 +96,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/pushup_widget_2x1_info" />
+                android:resource="@xml/pushup_widget_small_info" />
         </receiver>
 
         <!-- Widget Midnight Update Receiver -->

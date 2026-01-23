@@ -364,4 +364,81 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continueToHome => 'CONTINUE';
+
+  @override
+  String get onboardingWelcomeTitle => 'Welcome to Push-Up 5050';
+
+  @override
+  String get onboardingWelcomeSubtitle =>
+      'Your journey to 5050 push-ups starts here';
+
+  @override
+  String get onboardingPhilosophyTitle => 'Take Your Time';
+
+  @override
+  String get onboardingPhilosophyText =>
+      'You can take 1 month, 1 year, or 5 years. The only thing that matters is consistency.';
+
+  @override
+  String get onboardingHowItWorksTitle => 'How It Works';
+
+  @override
+  String get onboardingProgressiveSeries => 'Progressive Series';
+
+  @override
+  String get onboardingProgressiveSeriesDesc =>
+      'Series 1 = 1 push-up, Series 2 = 2 push-ups...';
+
+  @override
+  String get onboardingStreakTracking => 'Streak Tracking';
+
+  @override
+  String get onboardingStreakTrackingDesc =>
+      'Track consecutive days to earn multipliers';
+
+  @override
+  String get onboardingPointsSystem => 'Points System';
+
+  @override
+  String get onboardingPointsSystemDesc =>
+      'Earn points for every workout completed';
+
+  @override
+  String get onboardingAchievements => 'Achievements';
+
+  @override
+  String get onboardingAchievementsDesc => 'Unlock badges as you progress';
+
+  @override
+  String get onboardingGoalTitle => 'Set Your Goals';
+
+  @override
+  String get onboardingDailyGoal => 'Daily Goal';
+
+  @override
+  String get onboardingMonthlyGoal => 'Monthly Goal';
+
+  @override
+  String get onboardingPushups => 'push-ups';
+
+  @override
+  String onboardingProgressPreview(String time) {
+    return 'At this pace, you\'ll reach 5050 in $time';
+  }
+
+  @override
+  String get onboardingGetStarted => 'Get Started';
+
+  @override
+  String get onboardingBack => 'Back';
+
+  @override
+  String get onboardingNext => 'Next';
+
+  @override
+  String get settingsRestartTutorial => 'Restart Tutorial';
+
+  @override
+  String get settingsRestartTutorialDesc =>
+      'Go through the onboarding flow again';
 }

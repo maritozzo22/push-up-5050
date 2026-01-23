@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  4x4 Widget Layout - Matching template structure exactly
-  Reference: template-widget 4x4.md lines 54-167
+  4x4 Widget Layout - Matching template-widget 4x4.md exactly
 
-  Structure (4 vertical sections):
-  1. Top stats panel (58% of inner height) with gradient background
-  2. Stats section overlay (OGGI left, OBIETTIVO right)
-  3. Circular START button (centered, overlapping panel boundary)
-  4. 7-day row at bottom (L M M G V S D)
+  Structure:
+  1. Background with gradient (bottom colors)
+  2. Top panel with gradient (top colors) and rounded corners
+  3. Stats section: OGGI (left), OBIETTIVO (right)
+  4. Circular START button with gradient
+  5. 7-day row at bottom
 -->
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,265 +15,264 @@
     android:layout_height="match_parent"
     android:background="@drawable/widget_4x4_background">
 
-    <!-- Main vertical container -->
+    <!-- Top panel with gradient -->
+    <ImageView
+        android:id="@+id/top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/widget_4x4_top_panel"
+        android:scaleType="fitXY"
+        android:contentDescription="Top panel background" />
+
+    <!-- Main content container -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="0dp">
+        android:padding="16dp">
 
-        <!-- Top section: Top panel + Stats + START button area -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <!-- Top panel with gradient (58% of this section's height) -->
-            <ImageView
-                android:id="@+id/top_panel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/widget_4x4_top_panel"
-                android:scaleType="centerCrop"
-                android:contentDescription="Top panel background" />
-
-            <!-- Stats overlay - Left column (OGGI) -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp"
-                android:paddingTop="18dp"
-                android:gravity="top|center_horizontal">
-
-                <!-- Left stats - OGGI -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="start">
-
-                    <TextView
-                        android:id="@+id/today_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="OGGI:"
-                        android:textColor="@color/widget_orange"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.07" />
-
-                    <TextView
-                        android:id="@+id/today_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="0"
-                        android:textColor="@color/widget_text_white"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.02" />
-
-                    <TextView
-                        android:id="@+id/today_unit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="push-ups"
-                        android:textColor="@color/widget_text_soft"
-                        android:textSize="11sp"
-                        android:letterSpacing="0.03" />
-
-                </LinearLayout>
-
-                <!-- Right stats - OBIETTIVO -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="end">
-
-                    <TextView
-                        android:id="@+id/total_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="OBIETTIVO:"
-                        android:textColor="@color/widget_orange"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.07" />
-
-                    <TextView
-                        android:id="@+id/total_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="0 / 5050"
-                        android:textColor="@color/widget_text_white"
-                        android:textSize="28sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.02" />
-
-                    <TextView
-                        android:id="@+id/total_unit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="push-ups"
-                        android:textColor="@color/widget_text_soft"
-                        android:textSize="11sp"
-                        android:letterSpacing="0.03" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- START Button Container (centered, overlapping panel boundary) -->
-            <FrameLayout
-                android:id="@+id/start_button_container"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp">
-
-                <!-- START button background -->
-                <ImageView
-                    android:id="@+id/start_button_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/widget_4x4_start_button"
-                    android:scaleType="fitXY"
-                    android:contentDescription="START button" />
-
-                <!-- START text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="START"
-                    android:textColor="@color/widget_text_white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.12" />
-
-            </FrameLayout>
-
-        </FrameLayout>
-
-        <!-- Spacer area between START button and day row -->
+        <!-- Spacer for top panel area -->
         <Space
             android:layout_width="match_parent"
-            android:layout_height="12dp" />
+            android:layout_height="30dp" />
 
-        <!-- 7-Day Row (bottom section) -->
+        <!-- Stats row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingStart="14dp"
-            android:paddingEnd="14dp"
-            android:paddingBottom="18dp"
             android:gravity="center">
 
-            <!-- Day 1 - L (Lunedi) -->
+            <!-- Today stats (left) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/today_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OGGI:"
+                    android:textColor="@color/widget_orange"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+
+                <TextView
+                    android:id="@+id/today_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="41"
+                    android:textColor="@color/widget_text_white"
+                    android:textSize="42sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.02" />
+
+                <TextView
+                    android:id="@+id/today_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="push-ups"
+                    android:textColor="@color/widget_text_soft"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <!-- Total stats (right) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/total_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OBIETTIVO:"
+                    android:textColor="@color/widget_orange"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+
+                <TextView
+                    android:id="@+id/total_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="44 / 5050"
+                    android:textColor="@color/widget_text_white"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.02" />
+
+                <TextView
+                    android:id="@+id/total_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="push-ups"
+                    android:textColor="@color/widget_text_soft"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Spacer -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1" />
+
+        <!-- START button container -->
+        <FrameLayout
+            android:id="@+id/start_button_container"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center">
+
+            <!-- Button background with gradient -->
+            <ImageView
+                android:id="@+id/start_button_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/widget_4x4_start_button"
+                android:contentDescription="START button background" />
+
+            <!-- START text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="START"
+                android:textColor="@color/widget_text_white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:elevation="8dp" />
+
+        </FrameLayout>
+
+        <!-- Spacer -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1" />
+
+        <!-- 7-day row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
             <TextView
                 android:id="@+id/day_1"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:text="L"
-                android:textColor="@color/widget_day_pending_text"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:gravity="center"
+                android:text="L"
+                android:textColor="@color/widget_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:background="@drawable/widget_day_chip_pending" />
 
-            <!-- Day 2 - M (Martedi) -->
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/day_2"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:text="M"
-                android:textColor="@color/widget_day_pending_text"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:gravity="center"
+                android:text="M"
+                android:textColor="@color/widget_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:background="@drawable/widget_day_chip_pending" />
 
-            <!-- Day 3 - M (Mercoledi) -->
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/day_3"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:text="M"
-                android:textColor="@color/widget_day_pending_text"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:gravity="center"
+                android:text="M"
+                android:textColor="@color/widget_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:background="@drawable/widget_day_chip_pending" />
 
-            <!-- Day 4 - G (Giovedi) -->
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/day_4"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:text="G"
-                android:textColor="@color/widget_day_pending_text"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:gravity="center"
+                android:text="G"
+                android:textColor="@color/widget_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:background="@drawable/widget_day_chip_pending" />
 
-            <!-- Day 5 - V (Venerdi) -->
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/day_5"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:text="V"
-                android:textColor="@color/widget_day_pending_text"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:gravity="center"
+                android:text="V"
+                android:textColor="@color/widget_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:background="@drawable/widget_day_chip_pending" />
 
-            <!-- Day 6 - S (Sabato) -->
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/day_6"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:text="S"
-                android:textColor="@color/widget_day_pending_text"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:gravity="center"
+                android:text="S"
+                android:textColor="@color/widget_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:background="@drawable/widget_day_chip_pending" />
 
-            <!-- Day 7 - D (Domenica) -->
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/day_7"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:layout_margin="2dp"
-                android:text="D"
-                android:textColor="@color/widget_day_pending_text"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:gravity="center"
+                android:text="D"
+                android:textColor="@color/widget_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:background="@drawable/widget_day_chip_pending" />
 
         </LinearLayout>

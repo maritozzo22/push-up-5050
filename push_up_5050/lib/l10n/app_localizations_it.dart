@@ -369,4 +369,80 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get continueToHome => 'CONTINUA';
+
+  @override
+  String get onboardingWelcomeTitle => 'Benvenuto in Push-Up 5050';
+
+  @override
+  String get onboardingWelcomeSubtitle =>
+      'Il tuo viaggio verso 5050 flessioni inizia qui';
+
+  @override
+  String get onboardingPhilosophyTitle => 'Prenditi il Tuo Tempo';
+
+  @override
+  String get onboardingPhilosophyText =>
+      'Puoi impiegare 1 mese, 1 anno o 5 anni. L\'importante è la costanza.';
+
+  @override
+  String get onboardingHowItWorksTitle => 'Come Funziona';
+
+  @override
+  String get onboardingProgressiveSeries => 'Serie Progressive';
+
+  @override
+  String get onboardingProgressiveSeriesDesc =>
+      'Serie 1 = 1 flessione, Serie 2 = 2 flessioni...';
+
+  @override
+  String get onboardingStreakTracking => 'Tracciamento Striscia';
+
+  @override
+  String get onboardingStreakTrackingDesc =>
+      'Tieni traccia dei giorni consecutivi per guadagnare moltiplicatori';
+
+  @override
+  String get onboardingPointsSystem => 'Sistema Punti';
+
+  @override
+  String get onboardingPointsSystemDesc =>
+      'Guadagna punti per ogni allenamento completato';
+
+  @override
+  String get onboardingAchievements => 'Achievement';
+
+  @override
+  String get onboardingAchievementsDesc => 'Sblocca badge mentre progredisci';
+
+  @override
+  String get onboardingGoalTitle => 'Imposta i Tuoi Obiettivi';
+
+  @override
+  String get onboardingDailyGoal => 'Obiettivo Giornaliero';
+
+  @override
+  String get onboardingMonthlyGoal => 'Obiettivo Mensile';
+
+  @override
+  String get onboardingPushups => 'flessioni';
+
+  @override
+  String onboardingProgressPreview(String time) {
+    return 'A questo ritmo, raggiungerai 5050 in $time';
+  }
+
+  @override
+  String get onboardingGetStarted => 'Inizia';
+
+  @override
+  String get onboardingBack => 'Indietro';
+
+  @override
+  String get onboardingNext => 'Avanti';
+
+  @override
+  String get settingsRestartTutorial => 'Riavvia Tutorial';
+
+  @override
+  String get settingsRestartTutorialDesc => 'Ripeti il flusso di onboarding';
 }

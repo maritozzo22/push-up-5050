@@ -393,15 +393,15 @@ Layout: Vertical structure
 
 **Goal:** Complete app polish including UI fixes, onboarding tutorial, and branding assets
 
-**Status:** PLANNED (4 plans in 3 waves)
+**Status:** ✅ COMPLETE
 
 **Depends on:** Phase 2.7
 
 **Plans:**
-- [ ] 02.8-01-PLAN.md — Launch Android emulator and install debug APK for testing (Wave 1)
-- [ ] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (Wave 2)
-- [ ] 02.8-03-PLAN.md — Create 3-page onboarding tutorial with bilingual support and goal configuration (Wave 3)
-- [ ] 02.8-04-PLAN.md — Set up app logo and icon from Icone-App-Pushup assets (Wave 1)
+- [x] 02.8-01-PLAN.md — Launch Android emulator and install debug APK for testing (COMPLETE)
+- [x] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (COMPLETE)
+- [x] 02.8-03-PLAN.md — Create 3-page onboarding tutorial with bilingual support and goal configuration (COMPLETE)
+- [x] 02.8-04-PLAN.md — Set up app logo and icon from Icone-App-Pushup assets (COMPLETE)
 
 **Wave Structure:**
 - Wave 1: 02.8-01 (emulator setup), 02.8-04 (icon setup - parallel, no dependencies)

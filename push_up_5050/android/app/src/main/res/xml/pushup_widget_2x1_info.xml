@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  2x1 Widget Info - Size registration
-  Uses new layout pushup_widget_2x1 matching template structure
+  1x2 Widget Info - Vertical widget (1 column, 2 rows)
+  Uses new layout pushup_widget_1x2 matching template structure
 -->
 <appwidget-provider
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:minWidth="146dp"
-    android:minHeight="66dp"
-    android:targetCellWidth="2"
-    android:targetCellHeight="1"
+    android:minWidth="70dp"
+    android:minHeight="146dp"
+    android:targetCellWidth="1"
+    android:targetCellHeight="2"
     android:updatePeriodMillis="1800000"
-    android:initialLayout="@layout/pushup_widget_2x1"
+    android:initialLayout="@layout/pushup_widget_1x2"
     android:resizeMode="none"
     android:widgetCategory="home_screen"
     android:previewImage="@drawable/pushup_widget_preview">

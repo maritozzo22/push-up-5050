@@ -4,6 +4,9 @@ Widget Colors - Centralized color values from template specifications
 Source: template-widget 4x4.md lines 31-38
 -->
 <resources>
+    <!-- Main background -->
+    <color name="widget_background">#0B0D0F</color>
+
     <!-- Gradient colors for top panel -->
     <color name="widget_top_a">#20262B</color>
     <color name="widget_top_b">#111416</color>
