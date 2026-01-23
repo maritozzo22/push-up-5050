@@ -465,84 +465,54 @@ Layout: Vertical structure
 
 ---
 
-### Phase 2.10: Create Missing Documentation
+### Phase 2.10: Update ROADMAP.md Phase Statuses
 
-**Goal:** Complete documentation for completed phases
+**Goal:** Align ROADMAP.md with actual project state
 
 **Status:** ⏳ NOT STARTED
 
-**Gap Closure:** Closes tech debt where SUMMARY.md files are missing
+**Gap Closure:** Closes tech debt where ROADMAP.md shows outdated phase statuses
 
 **Plans:**
-- [ ] 02.10-01-PLAN.md — Create SUMMARY.md for 02.8-01 (emulator setup)
-- [ ] 02.10-02-PLAN.md — Create SUMMARY.md for 02.8-02 (overflow attempt 1)
+- [ ] 02.10-01-PLAN.md — Update ROADMAP.md phase statuses to match completion state
 
 **Tasks:**
-1. Create 02.8-01-SUMMARY.md documenting emulator setup process
-2. Create 02.8-02-SUMMARY.md noting it was superseded by 02.8-05
-3. Document key findings and outcomes
+1. Update phase 02.6 status from "NOT STARTED" to actual state (COMPLETE/IN PROGRESS)
+2. Update phase 02.7 status to actual state
+3. Update phase 02.8 status to COMPLETE (all 5 plans verified)
+4. Update phase 02.9 status from "PLANNED" to COMPLETE
 
 **Deliverables:**
-- Complete documentation for all phase 02.8 plans
+- ROADMAP.md with accurate phase statuses reflecting reality
 
 **Acceptance Criteria:**
-- All 02.8 plans have corresponding SUMMARY.md files
-- Documentation accurately reflects what was accomplished
+- ROADMAP.md phase statuses match actual completion state
+- Last updated date is current
 
 ---
 
-### Phase 2.11: Resolve Adaptive Icons Discrepancy
+### Phase 2.11: Clean Up Empty Phase Directories
 
-**Goal:** Fix discrepancy between claimed and actual adaptive icon implementation
-
-**Status:** ⏳ NOT STARTED
-
-**Gap Closure:** Closes integration gap where adaptive icon files are claimed but don't exist
-
-**Plans:**
-- [ ] 02.11-01-PLAN.md — Resolve adaptive icons discrepancy
-
-**Tasks:**
-1. Verify current icon implementation in android/app/src/main/res/
-2. Either: Create missing mipmap-anydpi-v26/ic_launcher.xml and foreground assets, OR
-3. Update 02.8-04-SUMMARY.md to reflect standard-only implementation
-
-**Deliverables:**
-- Accurate documentation of icon implementation
-- OR: Working adaptive icons if created
-
-**Acceptance Criteria:**
-- Documentation matches reality (files exist OR summary is corrected)
-
----
-
-### Phase 2.12: Resolve TODOs and ROADMAP Update
-
-**Goal:** Clean up tech debt and update documentation status
+**Goal:** Remove or populate empty gap closure phase directories
 
 **Status:** ⏳ NOT STARTED
 
-**Gap Closure:** Closes tech debt items in ROADMAP and TODOs in code
+**Gap Closure:** Closes tech debt where gap closure phases (02.10-02.12) exist as empty directories
 
 **Plans:**
-- [ ] 02.12-01-PLAN.md — Update ROADMAP.md phase statuses
-- [ ] 02.12-02-PLAN.md — Resolve or document StatisticsScreen TODOs
-- [ ] 02.12-03-PLAN.md — Replace hardcoded locale logic with intl package (if feasible)
+- [ ] 02.11-01-PLAN.md — Remove empty phase directories after ROADMAP update
 
 **Tasks:**
-1. Update ROADMAP.md phase statuses (02.6, 02.7, 02.8) to match actual completion state
-2. Implement or document TODO items in StatisticsScreen (daily average, weekSeries)
-3. Replace hardcoded Italian/English logic with intl package
+1. After Phase 02.10 is complete, remove the renamed/replaced empty directories
+2. Keep only active phases with actual plans
+3. Update git history to remove placeholder directories
 
 **Deliverables:**
-- ROADMAP.md with accurate phase statuses
-- StatisticsScreen TODOs resolved or documented
-- Locale handling using intl package
+- Clean phases directory with no empty folders
 
 **Acceptance Criteria:**
-- ROADMAP.md accurately reflects project state
-- All critical TODOs are resolved
-- Locale handling follows Flutter best practices
+- All phase directories contain actual plan files
+- No empty placeholder directories remain
 
 ---
 
