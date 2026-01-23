@@ -261,5 +261,19 @@
   "onboardingBack": "Indietro",
   "onboardingNext": "Avanti",
   "settingsRestartTutorial": "Riavvia Tutorial",
-  "settingsRestartTutorialDesc": "Ripeti il flusso di onboarding"
+  "settingsRestartTutorialDesc": "Ripeti il flusso di onboarding",
+
+  "onboardingActivityLevel": "Quanto sei attivo?",
+  "onboardingActivityLevelDesc": "Questo ci aiuta a personalizzare il tuo piano",
+  "onboardingSedentary": "Sedentario",
+  "onboardingSedentaryDesc": "Poca o nessuna attività fisica",
+  "onboardingLightlyActive": "Leggermente Attivo",
+  "onboardingLightlyActiveDesc": "Attività fisica 1-3 giorni a settimana",
+  "onboardingActive": "Attivo",
+  "onboardingActiveDesc": "Attività fisica 3-5 giorni a settimana",
+  "onboardingVeryActive": "Molto Attivo",
+  "onboardingVeryActiveDesc": "Attività fisica 6-7 giorni a settimana",
+  "onboardingCapacityTitle": "Flessioni Massime",
+  "onboardingCapacityQuestion": "Qual è il massimo numero di flessioni che riesci a fare in una sola serie?",
+  "onboardingMaxPushups": "flessioni massime"
 }
