@@ -5,13 +5,22 @@
 
 ## Current State
 
-**Phase:** Phase 02.10 - Update ROADMAP.md Phase Statuses ✅ COMPLETE
-**Next Phase:** Milestone 2 complete - ready for Milestone 3 or new features
-**Status:** ROADMAP.md synchronized with actual project state
+**Milestone:** Milestone 2 ✅ COMPLETE (2026-01-23)
+**Next Phase:** Ready for Milestone 3 planning
+**Status:** v2.0 shipped - Android Widgets Integration & App Polish
 
-**Progress: ████████████████████ 100%** (Phase 02.10: 1/1 plan complete)
+**Progress: ████████████████████ 100%** (Milestone 2: 4 phases complete, 2 partial)
 
 ## Recent Activity
+
+### 2026-01-23
+
+- **Milestone 2 COMPLETE:** v2.0 - Android Widgets Integration & App Polish
+  - Gap fixed: HomeScreen now uses goals.dailyGoal.target instead of hardcoded 50
+  - All phases 02.8, 02.9, 02.10, 02.11 complete with summaries
+  - ROADMAP archived to milestones/v2.0-ROADMAP.md
+  - PROJECT.md updated with v2.0 shipped features
+  - Tagged: v2.0
 
 ### 2026-01-23
 - **Phase 02.10 COMPLETE:** Update ROADMAP.md Phase Statuses
@@ -475,11 +484,11 @@
 
 ## Next Steps
 
-1. **Phase 02.11:** Clean up empty phase directories (if needed)
-2. **Milestone 3:** iOS Widgets or Advanced Features (future work)
-3. **Incomplete phases:**
-   - Phase 02.6: Widget Testing & Verification (02.6-05 - PENDING)
-   - Phase 02.7: Build, deploy, and verify widgets on device (02.7-04 - PENDING)
+1. **Milestone 2 Complete** ✅ - v2.0 shipped 2026-01-23
+2. **Milestone 3 Planning:** Run `/gsd:new-milestone` to plan next milestone
+3. **Incomplete phases (deferred to next milestone):**
+   - Phase 02.6: Widget Testing & Verification (02.6-05 - PENDING - requires device)
+   - Phase 02.7: Build, deploy, and verify widgets on device (02.7-04 - PENDING - requires device)
 
 ---
 
