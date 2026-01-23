@@ -1,17 +1,22 @@
 # ROADMAP.md
 
-**Project:** Push-Up 5050 - Android Widgets
+**Project:** Push-Up 5050 - Engagement & Retention
 **Last Updated:** 2026-01-23
 
 ## Overview
 
-This roadmap defines the phases for implementing Android home screen widgets for the Push-Up 5050 app.
+This roadmap defines the phases for implementing Milestone v2.5: Engagement & Retention features. The milestone focuses on increasing user engagement through personalized onboarding, enhanced gamification (aggressive points system, weekly goals, challenges), smart notifications, and anti-cheat measures.
+
+## Milestones
+
+- ✅ **v1.0 Core App** - Progressive workout system (SHIPPED)
+- ✅ **v2.0 Android Widgets** - Widget infrastructure & app polish (SHIPPED 2026-01-23)
+- 📋 **v2.5 Engagement & Retention** - Phases 03.1-03.5 (PLANNED)
 
 ---
 
-## Milestone 1: Core Flutter App
-
-**Status:** ✅ COMPLETE
+<details>
+<summary>✅ Milestone 1: Core Flutter App (SHIPPED)</summary>
 
 All core functionality has been implemented:
 - Progressive workout system with series counting
@@ -19,522 +24,147 @@ All core functionality has been implemented:
 - Achievement system with unlock notifications
 - Settings and user preferences
 
----
+</details>
 
-## Milestone 2: Android Widgets Integration
+<details>
+<summary>✅ Milestone 2: Android Widgets Integration (SHIPPED 2026-01-23)</summary>
 
-**Status:** 🔄 IN PROGRESS
+**Phases completed:**
+- 02.1: Foundation & Setup (3/3 plans)
+- 02.2: Widget 1 - Quick Stats (5/6 plans)
+- 02.6: Widget Redesign (4/5 plans)
+- 02.7: Widget Rebuild (3/4 plans)
+- 02.8: App Polish & Tutorial (5/5 plans)
+- 02.9: Fix Goals Persistence Integration (1/1 plan)
+- 02.10: Update ROADMAP.md Statuses (1/1 plan)
+- 02.11: Clean Up Empty Directories (1/1 plan)
 
-### Phase 2.1: Foundation & Setup
+**Archive:** `.planning/milestones/v2.0-ROADMAP.md`
 
-**Goal:** Set up Android widget infrastructure in Flutter project
+</details>
 
-**Status:** ✅ COMPLETE
+## 📋 Milestone 3: Engagement & Retention (Planned)
 
-**Plans:**
-- [x] 02.1-01-PLAN.md — Verify dependencies and fix widget ID mismatch (COMPLETE)
-- [x] 02.1-02-PLAN.md — Integrate widget updates into app state providers (COMPLETE)
-- [x] 02.1-03-PLAN.md — Add integration tests for widget updates (COMPLETE)
+**Milestone Goal:** Increase user engagement and retention through personalized experiences, enhanced gamification, weekly goals, challenges, and smart notifications.
 
-**Deliverables:**
-- Working home_widget integration with corrected widget IDs
-- WidgetData model with JSON serialization (already exists)
-- Background update mechanism integrated into providers
-- Unit and integration tests for widget data layer
+### Phase 03.1: Personalized Onboarding
 
-**Acceptance Criteria:**
-- `flutter pub get` succeeds with new dependencies
-- Widget receiver registered in AndroidManifest.xml (already exists)
-- WidgetData can serialize/deserialize to JSON (already exists)
-- Widget updates trigger automatically on state changes
-- All tests pass including integration tests
+**Goal:** New users receive personalized workout recommendations based on their fitness level
 
----
+**Depends on:** Nothing (first phase of milestone)
 
-### Phase 2.2: Widget 1 - Quick Stats
+**Requirements:** ONBD-01, ONBD-02, ONBD-03, ONBD-04
 
-**Goal:** Implement widget showing today's and total push-up progress
-
-**Status:** 🔄 IN PROGRESS (5/6 plans complete)
-
-**Plans:**
-- [x] 02.2-01-PLAN.md — Implement widget data loading from home_widget (COMPLETE)
-- [x] 02.2-02a-PLAN.md — Create widget drawable resources (COMPLETE)
-- [x] 02.2-02b-PLAN.md — Update widget layout XML (COMPLETE)
-- [x] 02.2-03a-PLAN.md — Configure Android deep link handling (COMPLETE)
-- [x] 02.2-03b-PLAN.md — Implement Flutter deep link routing (COMPLETE)
-- [ ] 02.2-04-PLAN.md — Add widget configuration (PENDING)
-
-**Widget UI Specs** (based on mockup):
-- Width/Height: 4x4 cells (standard widget size)
-- Background: #121212 (dark)
-- Accent: #FF6B00 (orange)
-- Corner radius: 28dp
-- Layout: Vertical 3-section structure
-
-**Content Structure:**
-- **Header Section**:
-  - Top-left: "PUSHUP 5050" logo (small icon)
-  - Centered: "PUSHUP 5050" title (large, bold, white)
-
-- **Middle Section** (2 columns):
-  - Left column:
-    - "OGGI:" / "TODAY:" (orange, bold)
-    - "41" (white, large) - today's count
-    - "push-ups" (white, small)
-  - Right column:
-    - "TOTALE:" / "TOTAL:" (orange, bold)
-    - "44 / 5050" (white, large) - total progress
-    - "push-ups" (white, small)
-
-- **Bottom Section**:
-  - Orange rectangular button with "START" text (white, bold)
-
-**Deliverables:**
-- Widget 1 Android implementation
-- Flutter service to update widget data
-- Tap handler to open SeriesSelectionScreen
-- Integration tests
-
-**Acceptance Criteria:**
-- Widget appears on home screen after adding
-- Widget displays correct push-up count from app
-- Widget updates within 5 seconds after app state changes
-- Tapping START button opens SeriesSelectionScreen
-- Visual style matches mockup exactly
-
----
-
-### Phase 2.3: Widget 2 - Calendar Preview
-
-**Goal:** Implement mini calendar widget showing workout history
-
-**Status:** ⏳ NOT STARTED
+**Success Criteria** (what must be TRUE):
+1. User completes 4-screen onboarding flow (activity, capacity, frequency, goal) on first launch
+2. System calculates and displays personalized recommendations (starting series, daily goal, recovery time)
+3. User can skip onboarding with default values (intermediate, 20 push-ups, 5 days/week, 50/day)
+4. User can edit all recommendations in settings after onboarding completes
+5. Personalized values persist across app sessions via GoalsProvider
 
 **Plans:** TBD
 
-**Tasks:**
-1. Create calendar widget layout (XML)
-2. Implement calendar rendering logic (7 columns x 5-6 rows)
-3. Style day headers (L, M, M, G, V, S, D - Italian)
-4. Style highlighted days (orange with glow effect, connected by line)
-5. Style regular days (gray circles on dark background)
-6. Handle tap to open Statistics screen
-7. Write widget tests
-
-**Widget UI Specs** (based on mockup):
-- Width/Height: Responsive (landscape orientation recommended)
-- Background: #121212 (dark)
-- Accent: #FF6600 (orange with glow)
-- Corner radius: 28px
-
-**Content Structure:**
-- **Header Row**: 7 day abbreviations (L, M, M, G, V, S, D)
-  - Color: #AAAAAA (light gray)
-- **Calendar Grid**: 5-6 rows of 7 columns each
-  - Day circles: #333333 (dark gray) background
-  - Day numbers: #AAAAAA (light gray) text
-- **Highlighted Days** (e.g., days 20-21):
-  - Background: Bright orange (#FF6600) with glow effect
-  - Text: Black (#000000)
-  - Connected by horizontal line to show consecutive streak
-
-**Deliverables:**
-- Widget 2 Android implementation
-- Calendar data serialization
-- Visual indicators for each day status
-
-**Acceptance Criteria:**
-- Calendar displays full month grid (31 days max)
-- Day colors match app's calendar exactly
-- Consecutive completed days show connecting line
-- Widget opens Statistics screen on tap
-- Updates within 5 seconds of completing a workout
-
 ---
 
-### Phase 2.4: Widget 3 - Quick Start
+### Phase 03.2: Enhanced Points System & Anti-Cheat
 
-**Goal:** Implement large circular button widget for immediate workout start
+**Goal:** Points system redesigned for aggressive progression while preventing abuse
 
-**Status:** ⏳ NOT STARTED
+**Depends on:** Phase 03.1 (onboarding sets user's baseline capacity)
+
+**Requirements:** POINTS-01, POINTS-02, POINTS-03, POINTS-04, POINTS-05, ANTCHEAT-01, ANTCHEAT-02
+
+**Success Criteria** (what must be TRUE):
+1. Points calculated with new formula: Base × (RepMult + SeriesMult) × StreakMult
+2. Rep multiplier = push-ups × 0.3, Series multiplier = series × 0.8
+3. Points persisted to DailyRecord.pointsEarned and DailyRecord.multiplier
+4. Total points accumulated in UserStats.totalPoints and displayed in statistics
+5. Daily cap enforced based on user level (goal × 1.5 to 2.5), excess push-ups tracked but not rewarded
 
 **Plans:** TBD
 
-**Tasks:**
-1. Create quick start widget layout (XML)
-2. Style large circular button with gradient
-3. Add "START" text with bold styling
-4. Handle tap to start workout directly
-5. Add top section with progress stats
-6. Add bottom row with day selection buttons
-7. Write widget tests
-
-**Widget UI Specs** (based on mockup):
-- Width/Height: Responsive (square-ish, 4x2 cells)
-- Background: #121212 (dark)
-- Accent: #FF6B00 (orange)
-- Corner radius: 28px
-- Layout: 3-section vertical structure
-
-**Content Structure:**
-- **Top Section** (black background):
-  - Top-left: "PUSHUP 5050" small icon
-  - Centered: "PUSHUP 5050" title (large, bold, white)
-  - Left: "OGGI:" (orange) + "41" (white, large) + "push-ups" (small)
-  - Right: "TOTALE:" (orange) + "44 / 5050" (white, large) + "push-ups" (small)
-
-- **Middle Section**:
-  - Large circular orange button with "START" text (white, bold, centered)
-  - Gradient/glow effect on button
-
-- **Bottom Section**:
-  - Row of 7 circular day buttons (L, M, M, G, V, S, D)
-  - First 2 buttons: Orange (completed days)
-  - Remaining 5 buttons: Gray (pending days)
-  - Text: White, centered in each button
-
-**Deliverables:**
-- Widget 3 Android implementation
-- Deep link to workout start
-- Progress stats display in header
-- Day selection buttons at bottom
-
-**Acceptance Criteria:**
-- Widget displays large orange circular START button
-- Tapping START button opens SeriesSelectionScreen directly
-- Header shows today's and total progress
-- Day buttons show completion status (orange/gray)
-- Updates within 5 seconds of completing workout
-
 ---
 
-### Phase 2.5: Polish & Testing
+### Phase 03.3: Weekly Goals System
 
-**Goal:** Finalize widgets with comprehensive testing and bug fixes
+**Goal:** Users work toward weekly targets with Sunday review and goal progression
 
-**Status:** ⏳ NOT STARTED
+**Depends on:** Phase 03.2 (points system required for weekly bonuses)
+
+**Requirements:** WEEKLY-01, WEEKLY-02, WEEKLY-03, WEEKLY-04, WEEKLY-05
+
+**Success Criteria** (what must be TRUE):
+1. Weekly target calculated as daily goal × 5 and displayed in statistics
+2. Sunday popup shows weekly progress percentage (push-ups completed / weekly target)
+3. User receives 500 bonus points when weekly target is reached
+4. Popup offers goal increase options (maintain, +10%, +20%) when target reached
+5. Streak resets only if user completes 0 workouts in the week (any push-ups preserve streak)
 
 **Plans:** TBD
 
-**Tasks:**
-1. Performance testing (widget update frequency)
-2. Battery usage optimization
-3. Edge case handling (no data, empty state)
-4. Multiple widget instances support
-5. Widget configuration activity (if needed)
-6. Golden tests for widget documentation
-7. End-to-end integration testing
+---
 
-**Deliverables:**
-- Performance metrics report
-- All edge cases handled gracefully
-- Multiple widget instances working
-- Complete test coverage for widget layer
+### Phase 03.4: Challenges & Streak Freeze
 
-**Acceptance Criteria:**
-- All tests pass (70%+ coverage)
-- No battery drain issues
-- Widgets handle empty states gracefully
-- User can add multiple instances of each widget
-- Golden tests pass for visual documentation
+**Goal:** Weekly challenges provide additional motivation with streak protection
+
+**Depends on:** Phase 03.3 (weekly goals system required for challenges)
+
+**Requirements:** CHAL-01, CHAL-02, CHAL-03
+
+**Success Criteria** (what must be TRUE):
+1. User can view weekly challenge in statistics screen ("Complete X push-ups this week")
+2. User receives badge notification and 200 bonus points upon challenge completion
+3. User has 1 streak freeze per month (prevents streak reset, auto-activates if weekly push-ups > 0)
+
+**Plans:** TBD
 
 ---
 
-### Phase 2.6: Widget Redesign with New UI
+### Phase 03.5: Smart Notifications
 
-**Goal:** Replace existing widgets with new Flutter-based design and implement full calendar synchronization
+**Goal:** Contextual notifications keep users engaged without spamming
 
-**Status:** 🔄 IN PROGRESS (4/5 plans complete)
+**Depends on:** Phase 03.3 (weekly goals), Phase 03.4 (challenges), Phase 03.1 (workout patterns)
 
-**Plans:**
-- [x] 02.6-01-PLAN.md — Create Calendar Service for Widget Data (COMPLETE)
-- [x] 02.6-02-PLAN.md — Integrate Calendar Service with Widget Updates (COMPLETE)
-- [x] 02.6-03-PLAN.md — Update Android Widget Providers with Calendar Rendering (COMPLETE)
-- [x] 02.6-04-PLAN.md — Implement Midnight Widget Update for Calendar Refresh (COMPLETE)
-- [ ] 02.6-05-PLAN.md — Verify Widget Redesign End-to-End (PENDING - never executed)
+**Requirements:** NOTIF-01, NOTIF-02, NOTIF-03, NOTIF-04
 
-**Tasks:**
+**Success Criteria** (what must be TRUE):
+1. User receives "streak at risk" notification after 2 missed days
+2. User receives progress notification when within 5 push-ups of daily goal
+3. Notification time personalized to user's workout patterns (median completion time)
+4. User receives new challenge notification on Sunday at 8:00 AM
 
-#### Widget 4x4 (Large Widget)
-1. Implement Flutter widget code using provided Pushup5050Widget design
-2. Wire up real data from UserStatsProvider (today's push-ups, total/goal)
-3. Connect START button to deep link (reuse existing functionality)
-4. Implement 7-day calendar row at bottom:
-   - Show days L M M G V S D (Italian)
-   - Orange = completed day
-   - Gray = pending/future day
-   - Red with X = missed day (at midnight if no workout)
-5. Add connecting line between consecutive orange days (streak indicator)
-6. Update widget automatically when app state changes
-
-#### Widget 2x1 (Small Widget)
-1. Implement Flutter widget code using provided Pushup5050SmallWidget design
-2. Wire up real data from UserStatsProvider
-3. Implement 3-day calendar row (Yesterday - Today - Tomorrow):
-   - Dynamic day labels based on current date
-   - Orange = completed, Gray = pending, Red with X = missed
-4. Update widget automatically when app state changes
-
-#### Calendar Synchronization (Both Widgets)
-1. Create CalendarWidgetService to read from DailyRecords
-2. Implement midnight check to mark missed days
-3. Update widget calendar at 00:00 if no workout completed
-4. Connect orange dots with horizontal line for consecutive days
-5. Handle month transitions correctly
-
-#### Android Integration
-1. Update widget providers to use FlutterEmbeddedView (new approach)
-2. Register new widget sizes in AndroidManifest.xml
-3. Update home_widget integration for new data structure
-4. Ensure backward compatibility or deprecate old widgets
-
-**Deliverables:**
-- 4x4 widget with new design and functional calendar
-- 2x1 widget with new design and 3-day calendar
-- Full calendar synchronization (orange/gray/red states)
-- Streak connecting lines between consecutive completed days
-- Midnight missed day detection
-- Automatic widget updates on data changes
-- Integration tests for calendar logic
-
-**Acceptance Criteria:**
-- Widgets display new Flutter design exactly as provided
-- Today's push-ups and total/goal sync from app
-- START button opens SeriesSelectionScreen via deep link
-- Calendar shows correct states for each day
-- Consecutive completed days show orange connecting line
-- Missed days appear with red X at midnight
-- 3-day widget shows Yesterday-Today-Tomorrow correctly
-- All widget updates occur within 5 seconds of app state change
-
----
-
-### Phase 2.7: Widget Rebuild from Templates
-
-**Goal:** Completely rebuild widgets from scratch using exact template designs provided
-
-**Status:** 🔄 IN PROGRESS (3/4 plans complete)
-
-**Plans:**
-- [x] 02.7-01-PLAN.md — Create widget drawable resources with exact template colors (COMPLETE)
-- [x] 02.7-02-PLAN.md — Create widget layouts matching template structure (COMPLETE)
-- [x] 02.7-03-PLAN.md — Update widget providers and AndroidManifest registration (COMPLETE)
-- [ ] 02.7-04-PLAN.md — Build, deploy, and verify widgets on device (PENDING - never executed)
-
-**Context:**
-Previous widget work (2.6) is unsatisfactory. Widgets are either:
-- Missing (4x4 widget not available in widget picker)
-- Non-functional (2x1 widget doesn't work)
-- Visually incorrect (don't match provided templates)
-
-**Requirements:**
-
-#### What to Keep (Reuse)
-1. **Data sync layer**: WidgetCalendarService, WidgetData model
-2. **Pushup data**: Today's count, total/goal from UserStatsProvider
-3. **Calendar data**: WeekDayData, threeDayData from WidgetCalendarService
-4. **Deep link**: START button → pushup5050://series_selection
-5. **Update mechanism**: WidgetUpdateService integration with providers
-
-#### What to Rebuild (From Scratch)
-1. **Widget 4x4**: Use exact design from `template-widget 4x4.md`
-2. **Widget 2x1**: Use exact design from `template-widget 2x1.md`
-3. **Android widget providers**: New XML layouts with correct sizes
-4. **Widget registration**: Proper sizing in AndroidManifest.xml
-
-#### Widget 4x4 Specifications (from template)
-```
-Size: 4x4 cells (must appear as 4x4 in widget picker)
-Layout: Vertical structure
-- Top panel (gradient: #20262B to #111416) with curved bottom edge
-- Stats: OGGI (left), OBIETTIVO (right)
-- Center: Large circular START button (gradient orange, glow effect)
-- Bottom: 7-day row (L M M G V S D) with day chips
-Colors:
-- Top A: #20262B, Top B: #111416
-- Bottom A: #0F1113, Bottom B: #0B0D0F
-- Orange: #F46A1E, Orange2: #EF7A1A
-- Text soft: #B9C0C7
-```
-
-#### Widget 2x1 Specifications (from template)
-```
-Size: 2x1 cells (must appear as 2x1 in widget picker)
-Layout: Vertical structure
-- Top panel (62% height, gradient background)
-- Centered stats: OGGI PUSHUPS + TOTALE PUSHUPS
-- Bottom: 3-day row (Yesterday-Today-Tomorrow)
-- Total displayed as 3 lines: "44 / 5050"
-```
-
-#### What Must Work
-- [ ] Both widgets appear in widget picker with correct sizes
-- [ ] Widget 4x4 displays exactly like template
-- [ ] Widget 2x1 displays exactly like template
-- [ ] START button opens SeriesSelectionScreen
-- [ ] Calendar shows correct states (completed/missed/pending)
-- [ ] Widgets update within 5 seconds of data changes
-
-**Deliverables:**
-- Working 4x4 widget (visible in picker, functional)
-- Working 2x1 widget (visible in picker, functional)
-- Android widget providers matching template designs
-- Proper widget size registration in AndroidManifest
-
-**Acceptance Criteria:**
-- Widget picker shows both widgets with correct sizes
-- Visual design matches templates exactly
-- All functionality works (data sync, deep links, updates)
-
----
-
-### Phase 2.8: App Polish & Tutorial
-
-**Goal:** Complete app polish including UI fixes, onboarding tutorial, and branding assets
-
-**Status:** ✅ COMPLETE (all 5 plans complete)
-
-**Depends on:** Phase 2.7
-
-**Plans:**
-- [x] 02.8-01-PLAN.md — Launch Android emulator and install debug APK for testing (COMPLETE)
-- [x] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (COMPLETE)
-- [x] 02.8-03-PLAN.md — Create 3-page onboarding tutorial with bilingual support and goal configuration (COMPLETE)
-- [x] 02.8-04-PLAN.md — Set up app logo and icon from Icone-App-Pushup assets (COMPLETE)
-- [x] 02.8-05-PLAN.md — Fix persistent overflow errors (COMPLETE - gap closure verified)
-
-**Verification:** See `.planning/phases/02.8-app-polish-tutorial/02.8-VERIFICATION.md`
-
-**Wave Structure:**
-- Wave 1: 02.8-01 (emulator setup), 02.8-04 (icon setup - parallel, no dependencies)
-- Wave 2: 02.8-02 (overflow fixes - depends on 02.8-01 for testing) - ISSUES FOUND
-- Wave 3: 02.8-03 (onboarding - depends on overflow fixes being verified)
-- Wave 4: 02.8-05 (gap closure - further height reductions) - IN PROGRESS
-
-**Deliverables:**
-- Working debug APK installed on emulator
-- All bottom overflow issues resolved on Series Selection and Statistics screens
-- Complete 3-page onboarding flow with PageView navigation
-- Bilingual IT/EN onboarding support
-- Goal configuration (daily/monthly) with persistence
-- Settings screen "Restart Tutorial" option
-- Configured app logo/icon using flutter_launcher_icons
-
-**Acceptance Criteria:**
-- App runs on emulator without crashes
-- No RenderFlex overflow errors on Series Selection or Statistics screens
-- Onboarding tutorial shows on first launch (full gate - cannot skip)
-- User can set daily goal (default: 50) with +/- buttons
-- Monthly goal auto-calculates (daily * 30) and is manually editable
-- Progress preview shows estimated time to reach 5050
-- Onboarding supports Italian and English based on device locale
-- Settings has "Restart Tutorial" button
-- App icon displays correctly on home screen
-
----
-
-### Phase 2.9: Fix Goals Persistence Integration
-
-**Goal:** Wire user-configured goals from onboarding to GoalsProvider
-
-**Status:** ✅ COMPLETE
-
-**Gap Closure:** Closes integration gap where goals saved in onboarding are never loaded
-
-**Plans:**
-- [x] 02.9-01-PLAN.md — Update GoalsProvider to load saved goals from StorageService (COMPLETE)
-
-**Summary:** See `.planning/phases/02.9-fix-goals-persistence-integration/02.9-01-SUMMARY.md`
-
-**Wave Structure:**
-- Wave 1: 02.9-01 (single autonomous plan)
-
-**Tasks:**
-1. Update GoalsProvider._loadSavedGoals() to call storage.getDailyGoal()/getMonthlyGoal()
-2. Add fallback to default values (50/1500) when saved values don't exist
-3. Verify user-configured goals propagate to all screens
-4. Write tests for goal loading persistence
-
-**Deliverables:**
-- GoalsProvider loads user-configured goals from SharedPreferences
-- User sees their custom goals throughout the app
-- Tests confirming goal persistence works end-to-end
-
-**Acceptance Criteria:**
-- User-configured daily goal is loaded and used in app
-- User-configured monthly goal is loaded and used in app
-- Goals fall back to defaults when first launched
-- All tests pass
-
----
-
-### Phase 2.10: Update ROADMAP.md Phase Statuses
-
-**Goal:** Align ROADMAP.md with actual project state
-
-**Status:** ✅ COMPLETE
-
-**Gap Closure:** Closes tech debt where ROADMAP.md shows outdated phase statuses
-
-**Plans:**
-- [x] 02.10-01-PLAN.md — Update ROADMAP.md phase statuses to match completion state (COMPLETE)
-
-**Tasks:**
-1. Update phase 02.6 status from "NOT STARTED" to actual state (COMPLETE/IN PROGRESS) ✅
-2. Update phase 02.7 status to actual state ✅
-3. Update phase 02.8 status to COMPLETE (all 5 plans verified) ✅
-4. Update phase 02.9 status from "PLANNED" to COMPLETE ✅
-
-**Deliverables:**
-- ROADMAP.md with accurate phase statuses reflecting reality ✅
-
-**Acceptance Criteria:**
-- ROADMAP.md phase statuses match actual completion state ✅
-- Last updated date is current ✅
-
-**Verification:** 02.10-VERIFICATION.md — 7/7 must-haves verified
-
----
-
-### Phase 2.11: Clean Up Empty Phase Directories
-
-**Goal:** Remove or populate empty gap closure phase directories
-
-**Status:** ✅ COMPLETE
-
-**Gap Closure:** Closes tech debt where gap closure phases (02.10-02.12) exist as empty directories
-
-**Plans:**
-- [x] 02.11-01-PLAN.md — Remove empty phase directories after ROADMAP update (COMPLETE)
-
-**Summary:** See `.planning/phases/02.11-cleanup-empty-phases/02.11-01-SUMMARY.md`
-
-**Tasks:**
-1. After Phase 02.10 is complete, remove the renamed/replaced empty directories ✅
-2. Keep only active phases with actual plans ✅
-3. Update git history to remove placeholder directories ✅
-
-**Deliverables:**
-- Clean phases directory with no empty folders ✅
-
-**Acceptance Criteria:**
-- All phase directories contain actual plan files ✅
-- No empty placeholder directories remain ✅
+**Plans:** TBD
 
 ---
 
 ## Future Milestones
 
-### Milestone 3: iOS Widgets (Future)
-- iOS 14+ home screen widgets
-- Similar functionality to Android widgets
+### Milestone 4: Social Features (Future)
+- Social sharing (Instagram templates, shareable badges)
+- Multiplayer challenges
+- Challenge links and invitations
 
-### Milestone 4: Advanced Features (Future)
-- Cloud sync across devices
-- Social sharing challenges
-- Workout video tutorials
-- Custom workout programs
+### Milestone 5: Monetization (Future)
+- Ad integration
+- Shop themes
+- Premium features
+
+---
+
+## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
+
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 03.1 Personalized Onboarding | v2.5 | 0/TBD | Not started | - |
+| 03.2 Enhanced Points & Anti-Cheat | v2.5 | 0/TBD | Not started | - |
+| 03.3 Weekly Goals | v2.5 | 0/TBD | Not started | - |
+| 03.4 Challenges & Streak Freeze | v2.5 | 0/TBD | Not started | - |
+| 03.5 Smart Notifications | v2.5 | 0/TBD | Not started | - |
 
 ---
 
@@ -542,7 +172,7 @@ Layout: Vertical structure
 
 - ✅ Complete
 - 🔄 In Progress
-- ⏳ Not Started
+- ⏳ Not started
 - ❌ Blocked
 
 ---

@@ -1,6 +1,6 @@
 # PROJECT.md
 
-**Project Name:** Push-Up 5050 - Android Widgets
+**Project Name:** Push-Up 5050 - Engagement & Retention
 **Status:** Active Development
 **Last Updated:** 2026-01-23
 
@@ -8,7 +8,7 @@
 
 Progressive push-up training mobile app with gamification elements. Users complete incremental push-up series (1, 2, 3, 4, 5...) with recovery intervals, tracking progress toward a goal of 50 push-ups/day within 30 consecutive days.
 
-**Current Status**: Core Flutter app with Android widget infrastructure, onboarding tutorial, and goals persistence.
+**Current Status**: Core Flutter app with Android widget infrastructure, onboarding tutorial, and goals persistence. Preparing Milestone v2.5 focused on engagement and retention features.
 
 **Target Platforms**: Android (production), Windows (development)
 
@@ -32,20 +32,14 @@ Progressive push-up training mobile app with gamification elements. Users comple
 - App launcher icon configuration
 - Overflow fixes for Series Selection and Statistics screens
 
-### New Feature: Android Home Screen Widgets (In Progress)
-
-**3 Widget Types:**
-
-1. **Widget 1 - Quick Stats**: Displays today's progress (push-ups completed / goal)
-2. **Widget 2 - Calendar Preview**: Mini 30-day calendar showing workout history
-3. **Widget 3 - Quick Start**: Large button to immediately start workout
-
-**Widget Specifications:**
-- Background: `#121212` (dark)
-- Accent color: `#FF6B00` (orange)
-- Border radius: `28px`
-- All widgets open app on tap
-- Update periodically to reflect latest data
+### v2.5 Features (Planned)
+- Personalized onboarding with activity/capacity/frequency assessment
+- Enhanced points system with aggressive formula (Base × (RepMult + SeriesMult) × StreakMult)
+- Anti-cheat system with daily caps based on user level
+- Weekly goals with Sunday review and goal progression
+- Weekly challenges with badges and bonus points
+- Streak freeze (1 per month) to prevent streak reset
+- Smart notifications (streak at risk, progress alerts, personalized timing)
 
 ## Technical Stack
 
@@ -54,6 +48,7 @@ Progressive push-up training mobile app with gamification elements. Users comple
 - **State Management**: Provider (ChangeNotifier pattern)
 - **Storage**: shared_preferences (local JSON persistence)
 - **Widget Framework**: home_widget package for Android home screen widgets
+- **Notifications**: flutter_local_notifications
 
 ## Development Approach
 
@@ -114,20 +109,37 @@ lib/
 
 **Archive:** `.planning/milestones/v2.0-ROADMAP.md`
 
-### Milestone 3: Future Work (PLANNING)
-- Complete widget verification (requires physical device)
-- iOS widgets (if needed)
-- Advanced features
+### Milestone 3: Engagement & Retention 📋 (PLANNED)
+**Goal:** Increase user engagement and retention through personalization and enhanced gamification
+
+**Planned Phases:**
+- 03.1: Personalized Onboarding (4 requirements)
+- 03.2: Enhanced Points System & Anti-Cheat (7 requirements)
+- 03.3: Weekly Goals System (5 requirements)
+- 03.4: Challenges & Streak Freeze (3 requirements)
+- 03.5: Smart Notifications (4 requirements)
+
+**Total:** 19 requirements across 5 phases
+
+**Key Features:**
+- Activity/capacity/frequency assessment on first launch
+- Aggressive points formula: Base × (RepMult + SeriesMult) × StreakMult
+- Daily caps to prevent cheating (goal × 1.5 to 2.5 based on level)
+- Sunday weekly review popup with goal progression options
+- Weekly challenges with badges and 200-point bonus
+- Streak freeze (1/month) prevents streak reset
+- Smart notifications (streak at risk, progress alerts, personalized timing)
 
 ## Current State
 
 **Shipped:** v2.0 - Android Widgets Integration & App Polish (2026-01-23)
 
+**Current Milestone:** v2.5 - Engagement & Retention (Planning)
+
 **Latest Changes:**
-- Fixed HomeScreen to use custom daily goal from GoalsProvider
-- All goal persistence integration complete (100%)
-- Onboarding tutorial functional with bilingual support
-- Widget infrastructure ready for device testing
+- ROADMAP.md created for Milestone v2.5
+- REQUIREMENTS.md created with 19 requirements across 6 categories
+- 5 phases derived from requirements with 100% coverage
 
 **Known Issues:**
 - Widget verification plans pending (require physical Android device)
@@ -138,14 +150,6 @@ lib/
 - TODO: Implement weekSeries in UserStatsProvider (low priority)
 - TODO: Implement proper daily average calculation in StatisticsScreen (low priority)
 - TODO: Replace hardcoded locale logic with intl package in OnboardingScreen (low priority)
-
-## Next Milestone Goals
-
-**Potential v2.1 Goals:**
-1. Complete widget end-to-end verification on physical device
-2. Finalize Widget 2 (Calendar Preview)
-3. Finalize Widget 3 (Quick Start)
-4. Performance testing and optimization
 
 ## Success Criteria
 
@@ -159,6 +163,15 @@ lib/
 - [x] Key overflow issues resolved
 - [x] All tests passing for completed features
 
+### v2.5 Status (Planned)
+- [ ] Personalized onboarding with 4-screen flow
+- [ ] Enhanced points system with aggressive formula
+- [ ] Anti-cheat daily caps enforced
+- [ ] Weekly goals with Sunday review
+- [ ] Weekly challenges with badges
+- [ ] Streak freeze feature (1/month)
+- [ ] Smart notifications system
+
 ---
 
-*Last updated: 2026-01-23 after v2.0 milestone*
+*Last updated: 2026-01-23 for Milestone v2.5*
