@@ -57,12 +57,15 @@ All core functionality has been implemented:
 
 **Success Criteria** (what must be TRUE):
 1. User completes 4-screen onboarding flow (activity, capacity, frequency, goal) on first launch
-2. System calculates and displays personalized recommendations (starting series, daily goal, recovery time)
-3. User can skip onboarding with default values (intermediate, 20 push-ups, 5 days/week, 50/day)
-4. User can edit all recommendations in settings after onboarding completes
-5. Personalized values persist across app sessions via GoalsProvider
+2. System calculates personalized recommendations (starting series, daily goal, recovery time)
+3. Onboarding is mandatory (no skip button) per anti-cheat requirements
+4. Values cannot be edited after onboarding (anti-cheat: prevents gaming points system)
+5. Personalized values persist across app sessions via StorageService
 
-**Plans:** TBD
+**Plans:**
+- [ ] 03.1-01-PLAN.md — Create OnboardingData model and first two screen widgets (Activity Level, Capacity)
+- [ ] 03.1-02-PLAN.md — Create remaining onboarding widgets (Frequency, Daily Goal)
+- [ ] 03.1-03-PLAN.md — Create main PersonalizedOnboardingScreen with PageView and integrate with main.dart
 
 ---
 
@@ -160,7 +163,7 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 03.1 Personalized Onboarding | v2.5 | 0/TBD | Not started | - |
+| 03.1 Personalized Onboarding | v2.5 | 0/3 | Not started | - |
 | 03.2 Enhanced Points & Anti-Cheat | v2.5 | 0/TBD | Not started | - |
 | 03.3 Weekly Goals | v2.5 | 0/TBD | Not started | - |
 | 03.4 Challenges & Streak Freeze | v2.5 | 0/TBD | Not started | - |
