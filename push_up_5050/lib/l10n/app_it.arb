@@ -229,5 +229,37 @@
   "streakMultiplierLabel": "Moltiplicatore Streak",
   "newlyUnlocked": "Nuovi Sbloccati",
   "noAchievementsThisTime": "Nessun achievement sbloccato questa volta",
-  "continueToHome": "CONTINUA"
+  "continueToHome": "CONTINUA",
+
+  "onboardingWelcomeTitle": "Benvenuto in Push-Up 5050",
+  "onboardingWelcomeSubtitle": "Il tuo viaggio verso 5050 flessioni inizia qui",
+  "onboardingPhilosophyTitle": "Prenditi il Tuo Tempo",
+  "onboardingPhilosophyText": "Puoi impiegare 1 mese, 1 anno o 5 anni. L'importante è la costanza.",
+  "onboardingHowItWorksTitle": "Come Funziona",
+  "onboardingProgressiveSeries": "Serie Progressive",
+  "onboardingProgressiveSeriesDesc": "Serie 1 = 1 flessione, Serie 2 = 2 flessioni...",
+  "onboardingStreakTracking": "Tracciamento Striscia",
+  "onboardingStreakTrackingDesc": "Tieni traccia dei giorni consecutivi per guadagnare moltiplicatori",
+  "onboardingPointsSystem": "Sistema Punti",
+  "onboardingPointsSystemDesc": "Guadagna punti per ogni allenamento completato",
+  "onboardingAchievements": "Achievement",
+  "onboardingAchievementsDesc": "Sblocca badge mentre progredisci",
+  "onboardingGoalTitle": "Imposta i Tuoi Obiettivi",
+  "onboardingDailyGoal": "Obiettivo Giornaliero",
+  "onboardingMonthlyGoal": "Obiettivo Mensile",
+  "onboardingPushups": "flessioni",
+  "onboardingProgressPreview": "A questo ritmo, raggiungerai 5050 in {time}",
+  "@onboardingProgressPreview": {
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "circa 3 mesi"
+      }
+    }
+  },
+  "onboardingGetStarted": "Inizia",
+  "onboardingBack": "Indietro",
+  "onboardingNext": "Avanti",
+  "settingsRestartTutorial": "Riavvia Tutorial",
+  "settingsRestartTutorialDesc": "Ripeti il flusso di onboarding"
 }

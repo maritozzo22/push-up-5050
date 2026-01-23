@@ -229,5 +229,37 @@
   "streakMultiplierLabel": "Streak Multiplier",
   "newlyUnlocked": "Newly Unlocked",
   "noAchievementsThisTime": "No achievements unlocked this time",
-  "continueToHome": "CONTINUE"
+  "continueToHome": "CONTINUE",
+
+  "onboardingWelcomeTitle": "Welcome to Push-Up 5050",
+  "onboardingWelcomeSubtitle": "Your journey to 5050 push-ups starts here",
+  "onboardingPhilosophyTitle": "Take Your Time",
+  "onboardingPhilosophyText": "You can take 1 month, 1 year, or 5 years. The only thing that matters is consistency.",
+  "onboardingHowItWorksTitle": "How It Works",
+  "onboardingProgressiveSeries": "Progressive Series",
+  "onboardingProgressiveSeriesDesc": "Series 1 = 1 push-up, Series 2 = 2 push-ups...",
+  "onboardingStreakTracking": "Streak Tracking",
+  "onboardingStreakTrackingDesc": "Track consecutive days to earn multipliers",
+  "onboardingPointsSystem": "Points System",
+  "onboardingPointsSystemDesc": "Earn points for every workout completed",
+  "onboardingAchievements": "Achievements",
+  "onboardingAchievementsDesc": "Unlock badges as you progress",
+  "onboardingGoalTitle": "Set Your Goals",
+  "onboardingDailyGoal": "Daily Goal",
+  "onboardingMonthlyGoal": "Monthly Goal",
+  "onboardingPushups": "push-ups",
+  "onboardingProgressPreview": "At this pace, you'll reach 5050 in {time}",
+  "@onboardingProgressPreview": {
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "about 3 months"
+      }
+    }
+  },
+  "onboardingGetStarted": "Get Started",
+  "onboardingBack": "Back",
+  "onboardingNext": "Next",
+  "settingsRestartTutorial": "Restart Tutorial",
+  "settingsRestartTutorialDesc": "Go through the onboarding flow again"
 }
