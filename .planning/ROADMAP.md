@@ -1,7 +1,7 @@
 # ROADMAP.md
 
 **Project:** Push-Up 5050 - Android Widgets
-**Last Updated:** 2026-01-22
+**Last Updated:** 2026-01-23
 
 ## Overview
 
@@ -393,20 +393,22 @@ Layout: Vertical structure
 
 **Goal:** Complete app polish including UI fixes, onboarding tutorial, and branding assets
 
-**Status:** ✅ COMPLETE
+**Status:** ⚠️ GAPS FOUND (user reported overflow)
 
 **Depends on:** Phase 2.7
 
 **Plans:**
 - [x] 02.8-01-PLAN.md — Launch Android emulator and install debug APK for testing (COMPLETE)
-- [x] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (COMPLETE)
+- [ ] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (GAP CLOSURE)
 - [x] 02.8-03-PLAN.md — Create 3-page onboarding tutorial with bilingual support and goal configuration (COMPLETE)
 - [x] 02.8-04-PLAN.md — Set up app logo and icon from Icone-App-Pushup assets (COMPLETE)
+- [ ] 02.8-05-PLAN.md — Fix persistent overflow errors (GAP CLOSURE - gap_closure: true)
 
 **Wave Structure:**
 - Wave 1: 02.8-01 (emulator setup), 02.8-04 (icon setup - parallel, no dependencies)
-- Wave 2: 02.8-02 (overflow fixes - depends on 02.8-01 for testing)
+- Wave 2: 02.8-02 (overflow fixes - depends on 02.8-01 for testing) - ISSUES FOUND
 - Wave 3: 02.8-03 (onboarding - depends on overflow fixes being verified)
+- Wave 4: 02.8-05 (gap closure - further height reductions) - IN PROGRESS
 
 **Deliverables:**
 - Working debug APK installed on emulator
@@ -427,6 +429,117 @@ Layout: Vertical structure
 - Onboarding supports Italian and English based on device locale
 - Settings has "Restart Tutorial" button
 - App icon displays correctly on home screen
+
+---
+
+### Phase 2.9: Fix Goals Persistence Integration
+
+**Goal:** Wire user-configured goals from onboarding to GoalsProvider
+
+**Status:** ⏳ NOT STARTED
+
+**Gap Closure:** Closes integration gap where goals saved in onboarding are never loaded
+
+**Plans:**
+- [ ] 02.9-01-PLAN.md — Update GoalsProvider to load saved goals from StorageService
+
+**Tasks:**
+1. Update GoalsProvider._loadSavedGoals() to call storage.getDailyGoal()/getMonthlyGoal()
+2. Add fallback to default values (50/1500) when saved values don't exist
+3. Verify user-configured goals propagate to all screens
+4. Write tests for goal loading persistence
+
+**Deliverables:**
+- GoalsProvider loads user-configured goals from SharedPreferences
+- User sees their custom goals throughout the app
+- Tests confirming goal persistence works end-to-end
+
+**Acceptance Criteria:**
+- User-configured daily goal is loaded and used in app
+- User-configured monthly goal is loaded and used in app
+- Goals fall back to defaults when first launched
+- All tests pass
+
+---
+
+### Phase 2.10: Create Missing Documentation
+
+**Goal:** Complete documentation for completed phases
+
+**Status:** ⏳ NOT STARTED
+
+**Gap Closure:** Closes tech debt where SUMMARY.md files are missing
+
+**Plans:**
+- [ ] 02.10-01-PLAN.md — Create SUMMARY.md for 02.8-01 (emulator setup)
+- [ ] 02.10-02-PLAN.md — Create SUMMARY.md for 02.8-02 (overflow attempt 1)
+
+**Tasks:**
+1. Create 02.8-01-SUMMARY.md documenting emulator setup process
+2. Create 02.8-02-SUMMARY.md noting it was superseded by 02.8-05
+3. Document key findings and outcomes
+
+**Deliverables:**
+- Complete documentation for all phase 02.8 plans
+
+**Acceptance Criteria:**
+- All 02.8 plans have corresponding SUMMARY.md files
+- Documentation accurately reflects what was accomplished
+
+---
+
+### Phase 2.11: Resolve Adaptive Icons Discrepancy
+
+**Goal:** Fix discrepancy between claimed and actual adaptive icon implementation
+
+**Status:** ⏳ NOT STARTED
+
+**Gap Closure:** Closes integration gap where adaptive icon files are claimed but don't exist
+
+**Plans:**
+- [ ] 02.11-01-PLAN.md — Resolve adaptive icons discrepancy
+
+**Tasks:**
+1. Verify current icon implementation in android/app/src/main/res/
+2. Either: Create missing mipmap-anydpi-v26/ic_launcher.xml and foreground assets, OR
+3. Update 02.8-04-SUMMARY.md to reflect standard-only implementation
+
+**Deliverables:**
+- Accurate documentation of icon implementation
+- OR: Working adaptive icons if created
+
+**Acceptance Criteria:**
+- Documentation matches reality (files exist OR summary is corrected)
+
+---
+
+### Phase 2.12: Resolve TODOs and ROADMAP Update
+
+**Goal:** Clean up tech debt and update documentation status
+
+**Status:** ⏳ NOT STARTED
+
+**Gap Closure:** Closes tech debt items in ROADMAP and TODOs in code
+
+**Plans:**
+- [ ] 02.12-01-PLAN.md — Update ROADMAP.md phase statuses
+- [ ] 02.12-02-PLAN.md — Resolve or document StatisticsScreen TODOs
+- [ ] 02.12-03-PLAN.md — Replace hardcoded locale logic with intl package (if feasible)
+
+**Tasks:**
+1. Update ROADMAP.md phase statuses (02.6, 02.7, 02.8) to match actual completion state
+2. Implement or document TODO items in StatisticsScreen (daily average, weekSeries)
+3. Replace hardcoded Italian/English logic with intl package
+
+**Deliverables:**
+- ROADMAP.md with accurate phase statuses
+- StatisticsScreen TODOs resolved or documented
+- Locale handling using intl package
+
+**Acceptance Criteria:**
+- ROADMAP.md accurately reflects project state
+- All critical TODOs are resolved
+- Locale handling follows Flutter best practices
 
 ---
 
