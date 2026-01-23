@@ -5,6 +5,7 @@ import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/models/haptic_intensity.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
+import 'package:push_up_5050/screens/onboarding/onboarding_screen.dart';
 import 'package:push_up_5050/services/app_settings_service.dart';
 import 'package:push_up_5050/services/notification_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
@@ -306,6 +307,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             'Reset Profilo',
                             style: const TextStyle(
                               color: Color(0xFFF44336),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 8),
+
+                        // Restart Tutorial Button
+                        TextButton.icon(
+                          onPressed: () => _showRestartTutorialDialog(context, l10n),
+                          icon: const Icon(Icons.info_outline, color: Color(0xFF2196F3)),
+                          label: Text(
+                            l10n.settingsRestartTutorial,
+                            style: const TextStyle(
+                              color: Color(0xFF2196F3),
                               fontWeight: FontWeight.w700,
                               fontSize: 15,
                             ),
@@ -665,6 +682,71 @@ class _SettingsScreenState extends State<SettingsScreen> {
               'Elimina tutto',
               style: TextStyle(
                 color: Color(0xFFF44336),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showRestartTutorialDialog(
+    BuildContext context,
+    AppLocalizations l10n,
+  ) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        backgroundColor: const Color(0xFF1A1F28),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: Text(
+          l10n.settingsRestartTutorial,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          ),
+        ),
+        content: Text(
+          l10n.settingsRestartTutorialDesc,
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: Colors.white.withOpacity(0.80),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(
+              l10n.settingsResetConfirmNo,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () async {
+              final storage = context.read<StorageService>();
+              await storage.resetOnboarding();
+              if (context.mounted) {
+                Navigator.pop(dialogContext);
+                // Navigate to onboarding
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (_) => const OnboardingScreen(),
+                  ),
+                );
+              }
+            },
+            child: Text(
+              l10n.onboardingGetStarted,
+              style: const TextStyle(
+                color: Color(0xFF2196F3),
                 fontWeight: FontWeight.w700,
               ),
             ),
