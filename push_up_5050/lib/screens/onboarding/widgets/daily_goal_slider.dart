@@ -95,7 +95,7 @@ class DailyGoalSlider extends StatelessWidget {
             children: [
               // Title
               Text(
-                l10n.onboardingDailyGoalTitle,
+                l10n.onboardingDailyGoalSliderTitle,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
@@ -108,7 +108,7 @@ class DailyGoalSlider extends StatelessWidget {
 
               // Description
               Text(
-                l10n.onboardingDailyGoalDesc,
+                l10n.onboardingDailyGoalSliderDesc,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,

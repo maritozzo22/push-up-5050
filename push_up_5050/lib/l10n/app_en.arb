@@ -275,5 +275,20 @@
   "onboardingVeryActiveDesc": "Exercise 6-7 days per week",
   "onboardingCapacityTitle": "Max Push-Ups",
   "onboardingCapacityQuestion": "What's the most push-ups you can do in one set?",
-  "onboardingMaxPushups": "max push-ups"
+  "onboardingMaxPushups": "max push-ups",
+  "onboardingFrequencyTitle": "Workout Frequency",
+  "onboardingFrequencyDesc": "How many days per week do you plan to work out?",
+  "onboardingDaysPerWeek": "days per week",
+  "onboardingDailyGoalSliderTitle": "Daily Goal",
+  "onboardingDailyGoalSliderDesc": "Set a realistic daily target to maintain consistency",
+  "onboardingPushupsPerDay": "push-ups per day",
+  "onboardingPacePreview": "At this pace, you'll reach 5050 in about {time}",
+  "@onboardingPacePreview": {
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "3 months"
+      }
+    }
+  }
 }

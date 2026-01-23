@@ -275,5 +275,20 @@
   "onboardingVeryActiveDesc": "Attività fisica 6-7 giorni a settimana",
   "onboardingCapacityTitle": "Flessioni Massime",
   "onboardingCapacityQuestion": "Qual è il massimo numero di flessioni che riesci a fare in una sola serie?",
-  "onboardingMaxPushups": "flessioni massime"
+  "onboardingMaxPushups": "flessioni massime",
+  "onboardingFrequencyTitle": "Frequenza degli Allenamenti",
+  "onboardingFrequencyDesc": "Quanti giorni a settimana pianifichi di allenarti?",
+  "onboardingDaysPerWeek": "giorni a settimana",
+  "onboardingDailyGoalSliderTitle": "Obiettivo Giornaliero",
+  "onboardingDailyGoalSliderDesc": "Imposta un obiettivo giornaliero realistico per mantenere la costanza",
+  "onboardingPushupsPerDay": "flessioni al giorno",
+  "onboardingPacePreview": "A questo ritmo, raggiungerai 5050 in circa {time}",
+  "@onboardingPacePreview": {
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "3 mesi"
+      }
+    }
+  }
 }
