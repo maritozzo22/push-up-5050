@@ -6,14 +6,22 @@
 ## Current State
 
 **Phase:** Phase 2.8 - App Polish & Tutorial
-**Next Phase:** Phase 2.8 - App Polish & Tutorial (3 plans remaining)
-**Status:** Plan 04 complete
+**Next Phase:** Phase 2.8 - App Polish & Tutorial (1 plan remaining)
+**Status:** Plan 03 complete
 
-**Progress: ████████████░░░░░░░ 25%** (Phase 2.8: 1/4 plans complete)
+**Progress: ████████████████░░ 50%** (Phase 2.8: 2/4 plans complete)
 
 ## Recent Activity
 
 ### 2026-01-23
+- **Completed Phase 2.8 Plan 03:** Onboarding Tutorial with Goal Configuration
+  - Created 3-page onboarding flow (Welcome, How It Works, Goal Configuration)
+  - Added 24 localization keys for English and Italian
+  - Extended StorageService with dailyGoal, monthlyGoal, onboardingCompleted, resetOnboarding
+  - Integrated first-run detection gate in main.dart with FutureBuilder
+  - Added Restart Tutorial button in Settings with confirmation dialog
+  - Commits: 472162b, 1f84c35, 0b61166, 5b05748, 9d94613, 96dd41d
+
 - **Completed Phase 2.8 Plan 04:** App Launcher Icon Configuration
   - Generated standard launcher icons (ic_launcher.png) for all Android densities
   - Created adaptive icon configuration with black background (#000000)
@@ -423,11 +431,18 @@
 - **Foreground layer**: Uses the same icon image for consistency - the push-up figure is centered and recognizable
 - **No iOS icons**: iOS generation was disabled (ios: false) in pubspec.yaml as iOS is not a priority for this phase
 
+### From Phase 2.8-03
+- **PageController for onboarding navigation**: Used PageView with PageController for swipeable onboarding screens, consistent with Flutter best practices
+- **Long-press acceleration pattern**: Reused SeriesSelectionScreen pattern (1x -> 4x over 5 seconds) for consistent UX across goal selection screens
+- **FutureBuilder for loading state**: Added loading spinner while checking onboarding status to avoid janky transitions
+- **Monthly goal auto-calculated**: Monthly goal defaults to daily * 30, but users can override manually for flexibility
+- **localeName property**: AppLocalizations uses `localeName` property (String) not `appLocale` for language detection
+
 ## Next Steps
 
 1. **Phase 2.8 Plan 01:** Launch Android emulator and install debug APK
 2. **Phase 2.8 Plan 02:** Fix bottom overflow issues in screens
-3. **Phase 2.8 Plan 03:** Create onboarding tutorial with goal configuration
+3. **Phase 2.8 Plan 03:** ~~Create onboarding tutorial with goal configuration~~ (COMPLETE)
 4. **Phase 2.8 Plan 04:** ~~App Launcher Icon Configuration~~ (COMPLETE)
 
 ---
@@ -469,5 +484,5 @@
 
 *Last updated: 2026-01-23*
 *Last session: 2026-01-23*
-*Stopped at: Completed Phase 2.8 Plan 04 - App Launcher Icon Configuration*
-*Resume file: None (Plan complete, proceed to next plan)*
+*Stopped at: Completed Phase 2.8 Plan 03 - Onboarding Tutorial with Goal Configuration*
+*Resume file: None (Plan complete, awaiting checkpoint verification)*
