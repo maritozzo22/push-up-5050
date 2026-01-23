@@ -393,16 +393,18 @@ Layout: Vertical structure
 
 **Goal:** Complete app polish including UI fixes, onboarding tutorial, and branding assets
 
-**Status:** ⚠️ GAPS FOUND (user reported overflow)
+**Status:** ✅ COMPLETE (all 5 plans complete)
 
 **Depends on:** Phase 2.7
 
 **Plans:**
 - [x] 02.8-01-PLAN.md — Launch Android emulator and install debug APK for testing (COMPLETE)
-- [ ] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (GAP CLOSURE)
+- [x] 02.8-02-PLAN.md — Fix bottom overflow issues in Series Selection and Statistics screens (COMPLETE)
 - [x] 02.8-03-PLAN.md — Create 3-page onboarding tutorial with bilingual support and goal configuration (COMPLETE)
 - [x] 02.8-04-PLAN.md — Set up app logo and icon from Icone-App-Pushup assets (COMPLETE)
-- [ ] 02.8-05-PLAN.md — Fix persistent overflow errors (GAP CLOSURE - gap_closure: true)
+- [x] 02.8-05-PLAN.md — Fix persistent overflow errors (COMPLETE - gap closure verified)
+
+**Verification:** See `.planning/phases/02.8-app-polish-tutorial/02.8-VERIFICATION.md`
 
 **Wave Structure:**
 - Wave 1: 02.8-01 (emulator setup), 02.8-04 (icon setup - parallel, no dependencies)
