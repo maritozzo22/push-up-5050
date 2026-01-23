@@ -30,13 +30,14 @@ class CalorieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FrostCard(
-      height: 148,
+      height: 120,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Column(
         children: [
           // Icon circle at top
           Container(
-            width: 44,
-            height: 44,
+            width: 32,
+            height: 32,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: const LinearGradient(
@@ -47,37 +48,37 @@ class CalorieCard extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: const Color(0xFFFF7A18).withOpacity(0.25),
-                  blurRadius: 18,
-                  spreadRadius: 2,
+                  blurRadius: 10,
+                  spreadRadius: 1,
                 ),
               ],
             ),
             child: const Icon(
               Icons.local_fire_department_rounded,
               color: Colors.black87,
-              size: 24,
+              size: 16,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 4),
           // Label
           Text(
             'CALORIE BRUCIATE',
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 8,
               fontWeight: FontWeight.w800,
-              letterSpacing: 0.6,
+              letterSpacing: 0.4,
               color: Colors.white.withOpacity(0.70),
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 2),
           // Value
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
               '$kcal kcal',
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 13,
                 fontWeight: FontWeight.w900,
                 color: Colors.white,
               ),
@@ -86,7 +87,7 @@ class CalorieCard extends StatelessWidget {
           const Spacer(),
           // Small indicator bar at bottom
           Container(
-            height: 4,
+            height: 3,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 begin: Alignment.centerLeft,

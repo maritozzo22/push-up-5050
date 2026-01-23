@@ -305,7 +305,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 22),
                 child: Column(
                   children: [
-                    const SizedBox(height: 18),
+                    const SizedBox(height: 12),
 
                     // Top bar with back button
                     Row(
@@ -335,11 +335,11 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
                       ),
                     ),
 
-                    const SizedBox(height: 34),
+                    const SizedBox(height: 20),
 
                     // Starting Series Card
                     _FrostCardStepper(
-                      height: 120,
+                      height: 80,
                       titleTop: _l10n.startingSeries,
                       value: _startingSeries.toString(),
                       titleBottom: '',
@@ -361,11 +361,11 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
                           : null,
                     ),
 
-                    const SizedBox(height: 18),
+                    const SizedBox(height: 12),
 
                     // Rest Time Card with acceleration indicator
                     _FrostCardStepper(
-                      height: 135,
+                      height: 90,
                       titleTop: _l10n.restTime,
                       value: _restTime.toString(),
                       titleBottom: 'seconds',
@@ -378,11 +378,11 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
                       onLongPressEnd: _handleRestTimeTapCancel,
                     ),
 
-                    const SizedBox(height: 18),
+                    const SizedBox(height: 12),
 
                     // Goal Push-ups Card with acceleration indicator
                     _FrostCardStepper(
-                      height: 135,
+                      height: 90,
                       titleTop: 'Goal Push-ups',
                       value: _goalPushups > 0 ? _goalPushups.toString() : '-',
                       titleBottom: 'total',
@@ -401,7 +401,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
                       onLongPressEnd: _handleGoalTapCancel,
                     ),
 
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 16),
 
                     // BEGIN WORKOUT Button
                     _PrimaryButton(
@@ -458,8 +458,9 @@ class _FrostCardStepper extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
         child: Container(
-          height: height,
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+          // Remove fixed height, let content determine size
+          constraints: const BoxConstraints(minHeight: 70),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           decoration: BoxDecoration(
             color: const Color(0xFF1B1E24).withOpacity(0.55),
             border: Border.all(color: Colors.white.withOpacity(0.10), width: 1),
@@ -481,7 +482,7 @@ class _FrostCardStepper extends StatelessWidget {
                   Text(
                     titleTop,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.w700,
                       color: Colors.white.withOpacity(0.65),
                     ),
@@ -504,57 +505,59 @@ class _FrostCardStepper extends StatelessWidget {
                     ),
                 ],
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: 10),
               // Value row with +/- buttons
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Minus button
-                    _CircleIconButton(
-                      icon: Icons.remove_rounded,
-                      onTap: onMinus,
-                      onTapDown: useLongPress ? onMinusLongPress : null,
-                      onTapCancel: useLongPress ? onLongPressEnd : null,
-                      isEnabled: onMinus != null,
-                      useLongPress: useLongPress,
-                    ),
-                    // Value
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                    Text(
-                      value,
-                      style: const TextStyle(
-                        fontSize: 56,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.white,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Minus button
+                  _CircleIconButton(
+                    icon: Icons.remove_rounded,
+                    onTap: onMinus,
+                    onTapDown: useLongPress ? onMinusLongPress : null,
+                    onTapCancel: useLongPress ? onLongPressEnd : null,
+                    isEnabled: onMinus != null,
+                    useLongPress: useLongPress,
+                  ),
+                  // Value
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            value,
+                            style: const TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.white,
+                            ),
+                          ),
+                          if (titleBottom.isNotEmpty) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              titleBottom,
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white.withOpacity(0.55),
+                              ),
+                            ),
+                          ],
+                        ],
                       ),
                     ),
-                    if (titleBottom.isNotEmpty) ...[
-                      const SizedBox(height: 6),
-                      Text(
-                        titleBottom,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white.withOpacity(0.55),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
+                  ),
                     // Plus button
-                    _CircleIconButton(
-                      icon: Icons.add_rounded,
-                      onTap: onPlus,
-                      onTapDown: useLongPress ? onPlusLongPress : null,
-                      onTapCancel: useLongPress ? onLongPressEnd : null,
-                      isEnabled: onPlus != null,
-                      useLongPress: useLongPress,
-                    ),
-                  ],
-                ),
+                  _CircleIconButton(
+                    icon: Icons.add_rounded,
+                    onTap: onPlus,
+                    onTapDown: useLongPress ? onPlusLongPress : null,
+                    onTapCancel: useLongPress ? onLongPressEnd : null,
+                    isEnabled: onPlus != null,
+                    useLongPress: useLongPress,
+                  ),
+                ],
               ),
             ],
           ),

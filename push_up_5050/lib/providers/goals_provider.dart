@@ -9,7 +9,7 @@ import 'package:push_up_5050/repositories/storage_service.dart';
 class GoalsProvider extends ChangeNotifier {
   final StorageService _storage;
 
-  bool _isLoading = true;
+  bool _isLoading = false;
   List<Goal> _goals = [];
   int _weeklyProgress = 0;
   int _monthlyProgress = 0;
@@ -65,6 +65,33 @@ class GoalsProvider extends ChangeNotifier {
       .map((g) => g.copyWith(current: _totalProgress))
       .toList();
 
+  /// Get the primary daily goal (retrieved directly from storage)
+  Goal get dailyGoal {
+    // Get the daily target directly from storage, not calculated from weekly
+    final dailyTarget = _storage.getDailyGoal();
+    return Goal(
+      id: 'daily_current',
+      title: 'GIORNALIERA',
+      description: '$dailyTarget Push-up al giorno',
+      type: GoalType.weekly,
+      target: dailyTarget,
+      current: _weeklyProgress ~/ 7, // Approximate daily progress
+      iconName: 'today',
+    );
+  }
+
+  /// Get the primary weekly goal with current progress
+  Goal get weeklyGoal {
+    final weekly = weeklyGoals.isNotEmpty ? weeklyGoals.first : null;
+    return weekly ?? PredefinedGoals.weekly.copyWith(current: _weeklyProgress);
+  }
+
+  /// Get the primary monthly goal with current progress
+  Goal get monthlyGoal {
+    final monthly = monthlyGoals.isNotEmpty ? monthlyGoals.first : null;
+    return monthly ?? PredefinedGoals.monthly.copyWith(current: _monthlyProgress);
+  }
+
   /// Load goals from storage and initialize with defaults
   Future<void> loadGoals() async {
     _isLoading = true;
@@ -90,9 +117,37 @@ class GoalsProvider extends ChangeNotifier {
 
   /// Load saved goals from storage
   Future<List<Goal>> _loadSavedGoals() async {
-    // For now, return predefined goals
-    // Persistence can be added later if needed
-    return PredefinedGoals.all;
+    // Load user's custom daily and monthly goals from storage
+    // These are set during onboarding and persist across app restarts
+    final dailyGoal = _storage.getDailyGoal(); // defaults to 50
+    final monthlyGoal = _storage.getMonthlyGoal(); // defaults to 1500
+    final weeklyGoal = dailyGoal * 7; // auto-calculate weekly as daily * 7
+
+    return [
+      // Weekly goal with custom target (calculated from daily)
+      Goal(
+        id: 'weekly_custom',
+        title: PredefinedGoals.weekly.title,
+        description: PredefinedGoals.weekly.description,
+        type: GoalType.weekly,
+        target: weeklyGoal,
+        iconName: PredefinedGoals.weekly.iconName,
+      ),
+      // Monthly goal with custom target from storage
+      Goal(
+        id: 'monthly_custom',
+        title: PredefinedGoals.monthly.title,
+        description: PredefinedGoals.monthly.description,
+        type: GoalType.monthly,
+        target: monthlyGoal,
+        iconName: PredefinedGoals.monthly.iconName,
+      ),
+      // Keep predefined challenge and total goals (unchanged)
+      PredefinedGoals.total,
+      PredefinedGoals.centurion,
+      PredefinedGoals.perfectWeek,
+      PredefinedGoals.programComplete,
+    ];
   }
 
   /// Update progress from user stats

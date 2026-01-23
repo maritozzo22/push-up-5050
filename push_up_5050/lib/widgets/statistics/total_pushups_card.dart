@@ -28,13 +28,14 @@ class TotalPushupsCard extends StatelessWidget {
     final percentage = (progress * 100).round();
 
     return FrostCard(
-      height: 148,
+      height: 120,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Column(
         children: [
           // Icon circle at top
           Container(
-            width: 44,
-            height: 44,
+            width: 32,
+            height: 32,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: const LinearGradient(
@@ -45,37 +46,37 @@ class TotalPushupsCard extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: const Color(0xFFFF7A18).withOpacity(0.25),
-                  blurRadius: 18,
-                  spreadRadius: 2,
+                  blurRadius: 10,
+                  spreadRadius: 1,
                 ),
               ],
             ),
             child: Icon(
               Icons.directions_run_rounded,
               color: Colors.black.withOpacity(0.82),
-              size: 24,
+              size: 16,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 4),
           // Label
           Text(
             'TOTALE PUSHUPS',
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 8,
               fontWeight: FontWeight.w800,
-              letterSpacing: 0.6,
+              letterSpacing: 0.4,
               color: Colors.white.withOpacity(0.70),
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 2),
           // Value
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
               '$total / $goal',
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 13,
                 fontWeight: FontWeight.w900,
                 color: Colors.white,
               ),
@@ -84,12 +85,12 @@ class TotalPushupsCard extends StatelessWidget {
           const Spacer(),
           // Progress bar
           ProgressBar(value: progress),
-          const SizedBox(height: 6),
+          const SizedBox(height: 2),
           // Percentage
           Text(
             '$percentage%',
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 8,
               fontWeight: FontWeight.w800,
               color: Colors.white.withOpacity(0.55),
             ),

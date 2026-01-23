@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
+import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
 import 'package:push_up_5050/widgets/design_system/orange_circle_icon_button.dart';
@@ -55,12 +56,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               physics: const AlwaysScrollableScrollPhysics(),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
-                child: Consumer<UserStatsProvider>(
-                  builder: (context, stats, child) {
-                    if (stats.isLoading) {
-                      return _buildLoadingState();
-                    }
-                    return _buildContent(stats);
+                child: Consumer<GoalsProvider>(
+                  builder: (context, goals, child) {
+                    return Consumer<UserStatsProvider>(
+                      builder: (context, stats, child) {
+                        if (stats.isLoading) {
+                          return _buildLoadingState();
+                        }
+                        return _buildContent(stats, goals);
+                      },
+                    );
                   },
                 ),
               ),
@@ -82,9 +87,9 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
     );
   }
 
-  Widget _buildContent(UserStatsProvider stats) {
+  Widget _buildContent(UserStatsProvider stats, GoalsProvider goals) {
     final total = stats.totalPushupsAllTime;
-    const goal = 5050;
+    final dailyGoal = goals.dailyGoal.target;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +122,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
         Row(
           children: [
             Expanded(
-              child: TotalPushupsCard(total: total, goal: goal),
+              child: TotalPushupsCard(total: total, goal: dailyGoal),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -140,23 +145,23 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
           children: [
             Expanded(
               child: _MiniStatCard(
-                label: 'GIORNI CONSECUTIVI',
+                label: 'Streak',
                 value: stats.currentStreak.toString(),
                 icon: Icons.calendar_today_rounded,
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             Expanded(
               child: _MiniStatCard(
-                label: 'MEDIA GIORNALIERA',
+                label: 'Media',
                 value: _calculateDailyAvg(stats).toString(),
                 icon: Icons.trending_up_rounded,
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             Expanded(
               child: _MiniStatCard(
-                label: 'MIGLIOR GIORNO',
+                label: 'Record',
                 value: stats.daysCompleted.toString(),
                 icon: Icons.emoji_events_rounded,
                 subtitle: 'pushups',
@@ -205,45 +210,44 @@ class _MiniStatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FrostCard(
-      height: 100,
+      height: 70,
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            children: [
-              Icon(
-                icon,
-                size: 16,
-                color: const Color(0xFFFF7A18),
-              ),
-              const SizedBox(width: 6),
-              Expanded(
-                child: Text(
-                  label,
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 0.5,
-                    color: Colors.white.withOpacity(0.60),
-                  ),
-                ),
-              ),
-            ],
+          Icon(
+            icon,
+            size: 12,
+            color: const Color(0xFFFF7A18),
           ),
-          const Spacer(),
+          const SizedBox(height: 1),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 8,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.3,
+              color: Colors.white.withOpacity(0.60),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 2),
           Text(
             value,
             style: const TextStyle(
-              fontSize: 24,
+              fontSize: 16,
               fontWeight: FontWeight.w900,
               color: Colors.white,
             ),
+            textAlign: TextAlign.center,
           ),
           if (subtitle != null)
             Text(
               subtitle!,
               style: TextStyle(
-                fontSize: 10,
+                fontSize: 7,
                 fontWeight: FontWeight.w600,
                 color: Colors.white.withOpacity(0.50),
               ),

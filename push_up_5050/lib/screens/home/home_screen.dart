@@ -96,8 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   /// Normal state widget with real stats
   Widget _buildNormalState(UserStatsProvider stats, AppLocalizations l10n) {
-    const dailyGoal = 50;
-
     return Column(
       children: [
         const Spacer(),
@@ -150,12 +148,16 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: FrostCard(
-                height: 120,
-                child: MiniStat(
-                  label: 'OBIETTIVO',
-                  value: '$dailyGoal',
-                ),
+              child: Consumer<GoalsProvider>(
+                builder: (context, goals, child) {
+                  return FrostCard(
+                    height: 120,
+                    child: MiniStat(
+                      label: 'OBIETTIVO',
+                      value: '${goals.dailyGoal.target}',
+                    ),
+                  );
+                },
               ),
             ),
           ],
