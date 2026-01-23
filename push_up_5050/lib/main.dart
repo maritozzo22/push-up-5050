@@ -9,6 +9,7 @@ import 'package:push_up_5050/providers/achievements_provider.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
+import 'package:push_up_5050/screens/onboarding/onboarding_screen.dart';
 import 'package:push_up_5050/services/app_settings_service.dart';
 import 'package:push_up_5050/services/audio_service.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
@@ -129,30 +130,75 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Consumer<AppSettingsService>(
       builder: (context, settings, _) {
-        return MaterialApp(
-          navigatorKey: _navigatorKey,
-          title: 'Push-Up 5050',
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.darkTheme,
-          locale: Locale(settings.appLanguage),
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          initialRoute: '/',
-          onGenerateRoute: (settings) {
-            // Handle deep link routes
-            if (settings.name == SeriesSelectionScreen.routeName) {
-              return MaterialPageRoute(
-                builder: (_) => const SeriesSelectionScreen(),
+        return FutureBuilder<bool>(
+          future: _checkOnboarding(),
+          builder: (context, snapshot) {
+            // Loading state
+            if (snapshot.connectionState != ConnectionState.done) {
+              return MaterialApp(
+                title: 'Push-Up 5050',
+                theme: AppTheme.darkTheme,
+                locale: Locale(settings.appLanguage),
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                home: Scaffold(
+                  body: Container(
+                    color: const Color(0xFF1A1A1A),
+                    child: const Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFFFB347)),
+                      ),
+                    ),
+                  ),
+                ),
               );
             }
-            // Default route
-            return MaterialPageRoute(
-              builder: (_) => const MainNavigationWrapper(),
+
+            // Show onboarding if not completed
+            if (snapshot.data == false) {
+              return MaterialApp(
+                title: 'Push-Up 5050',
+                theme: AppTheme.darkTheme,
+                locale: Locale(settings.appLanguage),
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                home: const OnboardingScreen(),
+              );
+            }
+
+            // Show main app
+            return MaterialApp(
+              navigatorKey: _navigatorKey,
+              title: 'Push-Up 5050',
+              debugShowCheckedModeBanner: false,
+              theme: AppTheme.darkTheme,
+              locale: Locale(settings.appLanguage),
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              initialRoute: '/',
+              onGenerateRoute: (settings) {
+                // Handle deep link routes
+                if (settings.name == SeriesSelectionScreen.routeName) {
+                  return MaterialPageRoute(
+                    builder: (_) => const SeriesSelectionScreen(),
+                  );
+                }
+                // Default route
+                return MaterialPageRoute(
+                  builder: (_) => const MainNavigationWrapper(),
+                );
+              },
+              home: const MainNavigationWrapper(),
             );
           },
-          home: const MainNavigationWrapper(),
         );
       },
     );
+  }
+
+  /// Check if onboarding is completed
+  Future<bool> _checkOnboarding() async {
+    final storage = context.read<StorageService>();
+    return storage.isOnboardingCompleted();
   }
 }
