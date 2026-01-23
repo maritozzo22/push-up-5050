@@ -456,6 +456,11 @@
 - **Monthly goal auto-calculated**: Monthly goal defaults to daily * 30, but users can override manually for flexibility
 - **localeName property**: AppLocalizations uses `localeName` property (String) not `appLocale` for language detection
 
+### From Phase 02.10-01
+- **Unexecuted plans remain in ROADMAP**: Plans 02.6-05 and 02.7-04 were never executed. Decision made to keep them in ROADMAP.md as PENDING rather than removing them, providing transparency about what was originally planned vs what was completed
+- **STATE.md as source of truth**: ROADMAP.md is updated to match STATE.md completion state. STATE.md entries determine actual phase status
+- **Phase completion without SUMMARY.md**: Phases 02.6 and 02.7 are documented in STATE.md without formal SUMMARY.md files. STATE.md Recent Activity section serves as completion documentation
+
 ## Next Steps
 
 1. **Phase 2.8 Plan 01:** Launch Android emulator and install debug APK
