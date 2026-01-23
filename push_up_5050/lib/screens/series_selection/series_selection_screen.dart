@@ -299,116 +299,119 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
         children: [
           const AppBackground(),
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22),
-              child: Column(
-                children: [
-                  const SizedBox(height: 18),
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 22),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 18),
 
-                  // Top bar with back button
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => Navigator.of(context).maybePop(),
-                        child: Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: const Color(0xFFFFB347).withOpacity(0.95),
-                          size: 22,
+                    // Top bar with back button
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => Navigator.of(context).maybePop(),
+                          child: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            color: const Color(0xFFFFB347).withOpacity(0.95),
+                            size: 22,
+                          ),
                         ),
-                      ),
-                      const Spacer(),
-                    ],
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  // Title
-                  Text(
-                    'Workout Setup',
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: 0.3,
-                      color: Colors.white.withOpacity(0.95),
+                        const Spacer(),
+                      ],
                     ),
-                  ),
 
-                  const SizedBox(height: 34),
+                    const SizedBox(height: 10),
 
-                  // Starting Series Card
-                  _FrostCardStepper(
-                    height: 140,
-                    titleTop: _l10n.startingSeries,
-                    value: _startingSeries.toString(),
-                    titleBottom: '',
-                    onMinus: _startingSeries > _minStartingSeries
-                        ? () {
-                            _triggerStartingSeriesHaptic();
-                            setState(() => _startingSeries =
-                                _getPreviousStartingSeries(_startingSeries));
-                            _savePreferences();
-                          }
-                        : null,
-                    onPlus: _startingSeries < _maxStartingSeries
-                        ? () {
-                            _triggerStartingSeriesHaptic();
-                            setState(() => _startingSeries =
-                                _getNextStartingSeries(_startingSeries));
-                            _savePreferences();
-                          }
-                        : null,
-                  ),
+                    // Title
+                    Text(
+                      'Workout Setup',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 0.3,
+                        color: Colors.white.withOpacity(0.95),
+                      ),
+                    ),
 
-                  const SizedBox(height: 18),
+                    const SizedBox(height: 34),
 
-                  // Rest Time Card with acceleration indicator
-                  _FrostCardStepper(
-                    height: 160,
-                    titleTop: _l10n.restTime,
-                    value: _restTime.toString(),
-                    titleBottom: 'seconds',
-                    accelerationLevel: _restTimeAccelerationLevel,
-                    useLongPress: true,
-                    onMinus: _restTime > _minRestTime ? () => setState(() => _restTime = (_restTime - 1).clamp(_minRestTime, _maxRestTime)) : null,
-                    onPlus: _restTime < _maxRestTime ? () => setState(() => _restTime = (_restTime + 1).clamp(_minRestTime, _maxRestTime)) : null,
-                    onMinusLongPress: _restTime > _minRestTime ? _handleRestTimeDecrement : null,
-                    onPlusLongPress: _restTime < _maxRestTime ? _handleRestTimeIncrement : null,
-                    onLongPressEnd: _handleRestTimeTapCancel,
-                  ),
+                    // Starting Series Card
+                    _FrostCardStepper(
+                      height: 140,
+                      titleTop: _l10n.startingSeries,
+                      value: _startingSeries.toString(),
+                      titleBottom: '',
+                      onMinus: _startingSeries > _minStartingSeries
+                          ? () {
+                              _triggerStartingSeriesHaptic();
+                              setState(() => _startingSeries =
+                                  _getPreviousStartingSeries(_startingSeries));
+                              _savePreferences();
+                            }
+                          : null,
+                      onPlus: _startingSeries < _maxStartingSeries
+                          ? () {
+                              _triggerStartingSeriesHaptic();
+                              setState(() => _startingSeries =
+                                  _getNextStartingSeries(_startingSeries));
+                              _savePreferences();
+                            }
+                          : null,
+                    ),
 
-                  const SizedBox(height: 18),
+                    const SizedBox(height: 18),
 
-                  // Goal Push-ups Card with acceleration indicator
-                  _FrostCardStepper(
-                    height: 160,
-                    titleTop: 'Goal Push-ups',
-                    value: _goalPushups > 0 ? _goalPushups.toString() : '-',
-                    titleBottom: 'total',
-                    accelerationLevel: _goalAccelerationLevel,
-                    useLongPress: true,
-                    onMinus: _goalPushups > 0 ? () {
-                      _triggerHapticFeedback();
-                      setState(() => _goalPushups = (_goalPushups - 1).clamp(0, _maxGoalPushups));
-                    } : null,
-                    onPlus: _goalPushups < _maxGoalPushups ? () {
-                      _triggerHapticFeedback();
-                      setState(() => _goalPushups = (_goalPushups + 1).clamp(0, _maxGoalPushups));
-                    } : null,
-                    onMinusLongPress: _goalPushups > 0 ? _handleGoalDecrement : null,
-                    onPlusLongPress: _goalPushups < _maxGoalPushups ? _handleGoalIncrement : null,
-                    onLongPressEnd: _handleGoalTapCancel,
-                  ),
+                    // Rest Time Card with acceleration indicator
+                    _FrostCardStepper(
+                      height: 160,
+                      titleTop: _l10n.restTime,
+                      value: _restTime.toString(),
+                      titleBottom: 'seconds',
+                      accelerationLevel: _restTimeAccelerationLevel,
+                      useLongPress: true,
+                      onMinus: _restTime > _minRestTime ? () => setState(() => _restTime = (_restTime - 1).clamp(_minRestTime, _maxRestTime)) : null,
+                      onPlus: _restTime < _maxRestTime ? () => setState(() => _restTime = (_restTime + 1).clamp(_minRestTime, _maxRestTime)) : null,
+                      onMinusLongPress: _restTime > _minRestTime ? _handleRestTimeDecrement : null,
+                      onPlusLongPress: _restTime < _maxRestTime ? _handleRestTimeIncrement : null,
+                      onLongPressEnd: _handleRestTimeTapCancel,
+                    ),
 
-                  const Spacer(),
+                    const SizedBox(height: 18),
 
-                  // BEGIN WORKOUT Button
-                  _PrimaryButton(
-                    text: 'BEGIN WORKOUT',
-                    onTap: _startWorkout,
-                  ),
+                    // Goal Push-ups Card with acceleration indicator
+                    _FrostCardStepper(
+                      height: 160,
+                      titleTop: 'Goal Push-ups',
+                      value: _goalPushups > 0 ? _goalPushups.toString() : '-',
+                      titleBottom: 'total',
+                      accelerationLevel: _goalAccelerationLevel,
+                      useLongPress: true,
+                      onMinus: _goalPushups > 0 ? () {
+                        _triggerHapticFeedback();
+                        setState(() => _goalPushups = (_goalPushups - 1).clamp(0, _maxGoalPushups));
+                      } : null,
+                      onPlus: _goalPushups < _maxGoalPushups ? () {
+                        _triggerHapticFeedback();
+                        setState(() => _goalPushups = (_goalPushups + 1).clamp(0, _maxGoalPushups));
+                      } : null,
+                      onMinusLongPress: _goalPushups > 0 ? _handleGoalDecrement : null,
+                      onPlusLongPress: _goalPushups < _maxGoalPushups ? _handleGoalIncrement : null,
+                      onLongPressEnd: _handleGoalTapCancel,
+                    ),
 
-                  const SizedBox(height: 24),
-                ],
+                    const SizedBox(height: 24),
+
+                    // BEGIN WORKOUT Button
+                    _PrimaryButton(
+                      text: 'BEGIN WORKOUT',
+                      onTap: _startWorkout,
+                    ),
+
+                    const SizedBox(height: 24),
+                  ],
+                ),
               ),
             ),
           ),
