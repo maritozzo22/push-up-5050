@@ -8,33 +8,34 @@
 See: .planning/PROJECT.md (updated 2026-01-23)
 
 **Core value:** Progressive push-up training app with gamification
-**Current focus:** Phase 03.1 - Personalized Onboarding
+**Current focus:** Phase 03.2 - Enhanced Points & Anti-Cheat
 
 ## Current Position
 
-Phase: 1 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 3 of 3 in current phase
+Phase: 2 of 5 (Milestone v2.5: Engagement & Retention)
+Plan: 4 of 4 in current phase
 Status: Phase complete, verified ✓
-Last activity: 2026-01-24 — Phase 03.1 complete, human verification approved
+Last activity: 2026-01-24 — Phase 03.2 complete, all tests passing
 
 Progress: ██████████ 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 7
 - Average duration: ~15 min
-- Total execution time: 0.75 hours
+- Total execution time: 1.75 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 03.1  | 3     | 3     | ~15 min  |
+| 03.2  | 4     | 4     | ~15 min  |
 
 **Recent Trend:**
-- Last 3 plans: 03.1-01 (9 min), 03.1-02 (12 min), 03.1-03 (30 min + testing)
-- Trend: Phase complete, pending verification
+- Last 4 plans: 03.2-01 (formula), 03.2-02 (model), 03.2-03 (integration), 03.2-04 (anti-cheat)
+- Trend: Phase 03.2 complete, all implementations already existed
 
 *Updated after each plan completion*
 
@@ -70,7 +71,15 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None.
+5 todos captured from user feedback:
+
+| Title | Area | File |
+|-------|------|------|
+| Remove duplicate Points section | ui | workout_execution_screen.dart |
+| Add points animation on rep | ui | workout_execution_screen.dart |
+| Points per rep (not per series) | core-logic | active_workout_provider.dart |
+| Move Points to Home page | ui | home_screen.dart |
+| Replace Week with Today Goal | ui | home_screen.dart |
 
 ### Blockers/Concerns
 
@@ -98,3 +107,12 @@ Resume file: None
 | 03.1-01 | Onboarding Data Model & Widgets (Screens 1-2) | Complete |
 | 03.1-02 | Onboarding Widgets (Screens 3-4) | Complete |
 | 03.1-03 | Main Onboarding Flow Integration | Complete |
+
+## Phase 03.2 Plans
+
+| Plan | Name | Status |
+|------|------|--------|
+| 03.2-01 | Aggressive Points Formula (Calculator) | Complete |
+| 03.2-02 | DailyRecord Points Tracking Fields | Complete |
+| 03.2-03 | Points Integration (Providers & UI) | Complete |
+| 03.2-04 | Daily Cap Anti-Cheat System | Complete |
