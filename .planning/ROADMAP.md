@@ -1,7 +1,7 @@
 # ROADMAP.md
 
 **Project:** Push-Up 5050 - Engagement & Retention
-**Last Updated:** 2026-01-23
+**Last Updated:** 2026-01-24
 
 ## Overview
 
@@ -84,7 +84,11 @@ All core functionality has been implemented:
 4. Total points accumulated in UserStats.totalPoints and displayed in statistics
 5. Daily cap enforced based on user level (goal × 1.5 to 2.5), excess push-ups tracked but not rewarded
 
-**Plans:** TBD
+**Plans:**
+- [ ] 03.2-01-PLAN.md — Implement new aggressive points formula in Calculator (TDD: getRepMultiplier, getSeriesMultiplier, calculateSeriesPoints)
+- [ ] 03.2-02-PLAN.md — Add pointsEarned and multiplier fields to DailyRecord model with JSON persistence
+- [ ] 03.2-03-PLAN.md — Wire points calculation into workout flow, display totalPoints in statistics
+- [ ] 03.2-04-PLAN.md — Implement daily cap calculation and anti-cheat enforcement
 
 ---
 
@@ -164,7 +168,7 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 03.1 Personalized Onboarding | v2.5 | 3/3 | Complete | 2026-01-24 |
-| 03.2 Enhanced Points & Anti-Cheat | v2.5 | 0/TBD | Not started | - |
+| 03.2 Enhanced Points & Anti-Cheat | v2.5 | 0/4 | Planning | 2026-01-24 |
 | 03.3 Weekly Goals | v2.5 | 0/TBD | Not started | - |
 | 03.4 Challenges & Streak Freeze | v2.5 | 0/TBD | Not started | - |
 | 03.5 Smart Notifications | v2.5 | 0/TBD | Not started | - |
@@ -180,4 +184,4 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 
 ---
 
-*Last updated: 2026-01-24*
+*Last updated: 2026-01-24 (Phase 03.2 planning complete)*
