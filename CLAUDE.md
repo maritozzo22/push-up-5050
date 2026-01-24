@@ -13,6 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 30-day calendar tracking
 - Achievement system with points/levels
 - Streak multipliers (1.0x → 2.0x based on consecutive days)
+- **v2.0**: Android widgets infrastructure, onboarding tutorial, goals persistence
 
 **Target Platforms**: Windows (development), Android/iOS (production)
 
@@ -27,6 +28,8 @@ This project uses **Test-Driven Development (TDD)**. ALL code must follow the Re
 **Never skip tests. Never write code before tests.** This is non-negotiable.
 
 ## Critical Commands
+
+**Note**: All commands assume you're in the `push_up_5050/` subdirectory.
 
 ### Testing
 ```bash
@@ -55,7 +58,6 @@ flutter test --coverage
 flutter pub get
 
 # Run on Windows (development)
-cd push_up_5050
 flutter run -d windows
 
 # Run on Android (testing)
@@ -95,16 +97,26 @@ The app is structured around **progressive workout sessions** with real-time sta
 
 ### Project Structure
 ```
-lib/
+push_up_5050/lib/
 ├── core/               # Foundation layer (constants, theme, utils)
 │   ├── constants/       # AppColors, AppStrings, AppSizes (centralized values)
 │   ├── theme/          # AppTheme with dark theme, Montserrat font
 │   └── utils/          # Calculator (kcal, points, level formulas)
 ├── models/             # Data models (WorkoutSession, DailyRecord, Achievement)
+├── providers/          # State management (Provider pattern)
+│   ├── user_stats_provider.dart
+│   ├── daily_records_provider.dart
+│   ├── achievements_provider.dart
+│   ├── active_workout_provider.dart
+│   └── goals_provider.dart
 ├── repositories/       # Storage service (shared_preferences wrapper)
 ├── screens/            # UI screens (home, series_selection, workout_execution, statistics)
 ├── widgets/            # Reusable widgets (common, workout, achievements)
-└── services/           # Device services (proximity sensor, notifications, audio)
+├── services/           # Device services (proximity sensor, notifications, audio)
+└── l10n/               # Internationalization (IT/EN, 77 keys)
+    ├── app_it.arb      # Italian (default)
+    ├── app_en.arb      # English
+    └── app_localizations*.dart  # Generated files
 ```
 
 ### State Management
@@ -150,11 +162,41 @@ lib/
 - Body: 16px Regular
 - Captions: 12px Regular
 
-**Components** (see UI_MOCKUPS.md):
+**Components** (see docs/archive/UI_MOCKUPS.md):
 - CountdownCircle: 280px diameter, radial gradient, scale animation on tap
 - RecoveryTimerBar: 12px height, 6px radius, color transitions
 - StatisticsBadge: 20px radius, orange circle icon (12px)
 - BottomNav: 56px height, orange when selected
+
+## i18n (Internationalization)
+
+The app supports multilingual localization using Flutter's built-in internationalization:
+
+**Languages**:
+- Italian (IT) - Default
+- English (EN)
+
+**Configuration**:
+- 77 localization keys covering all UI text
+- Files: `lib/l10n/app_*.arb` (Application Resource Bundle)
+- Generated: `app_localizations.dart`, `app_localizations_en.dart`, `app_localizations_it.dart`
+
+**Usage**:
+```dart
+// Access localized strings
+final loc = AppLocalizations.of(context)!;
+Text(loc.homeTitle)  // "PUSHUP 5050" / "PUSHUP 5050"
+Text(loc.start)      // "AVVIA" / "START"
+
+// With placeholders
+Text(loc.todayPushups(15))  // "OGGI: 15 FLESSIONI" / "TODAY: 15 PUSHUP"
+```
+
+**Adding New Translations**:
+1. Add key to both `app_it.arb` and `app_en.arb`
+2. Run `flutter pub get` to regenerate `app_localizations*.dart`
+3. Use via `AppLocalizations.of(context)!.yourKey`
+4. Use bang operator (`!`) - config guarantees locale exists
 
 ## Testing Strategy
 
@@ -182,9 +224,9 @@ lib/
 ## Important Implementation Notes
 
 ### When Adding Features
-1. Read PRD.md for complete specification
-2. Read UI_MOCKUPS.md for exact design specs (colors, sizes, spacing)
-3. Read PIP.md Phase X for implementation steps
+1. Read docs/archive/PRD.md for complete specification
+2. Read docs/archive/UI_MOCKUPS.md for exact design specs (colors, sizes, spacing)
+3. Read docs/archive/PIP.md Phase X for implementation steps
 4. Write tests FIRST (unit → widget → integration)
 5. Implement to make tests pass
 6. Run ALL tests: `flutter test`
@@ -210,16 +252,18 @@ lib/
 ## File References
 
 **Essential Reading** (in this order):
-1. **PRD.md** - Complete feature specifications, user flows, edge cases
-2. **UI_MOCKUPS.md** - Visual specifications for every screen (ASCII art + CSS)
-3. **PIP.md** - TDD implementation plan with 10 phases
+1. **docs/archive/PRD.md** - Complete feature specifications, user flows, edge cases
+2. **docs/archive/UI_MOCKUPS.md** - Visual specifications for every screen (ASCII art + CSS)
+3. **docs/archive/PIP.md** - TDD implementation plan with 10 phases
+4. **DEV.md** - Quick developer reference for common tasks
 
 **Key Implementation Files**:
-- `lib/core/constants/app_colors.dart` - All color values (use these, never hardcode)
-- `lib/core/constants/app_strings.dart` - All text strings (localization-ready)
-- `lib/core/utils/calculator.dart` - All calculation formulas
-- `lib/models/workout_session.dart` - Core workout model with series progression
-- `lib/repositories/storage_service.dart` - Local persistence wrapper
+- `push_up_5050/lib/core/constants/app_colors.dart` - All color values (use these, never hardcode)
+- `push_up_5050/lib/core/constants/app_strings.dart` - All text strings (replaced by i18n)
+- `push_up_5050/lib/core/utils/calculator.dart` - All calculation formulas
+- `push_up_5050/lib/models/workout_session.dart` - Core workout model with series progression
+- `push_up_5050/lib/repositories/storage_service.dart` - Local persistence wrapper
+- `push_up_5050/lib/l10n/app_*.arb` - Localization files (IT/EN, 77 keys)
 
 ## Debugging Tips
 
@@ -254,3 +298,29 @@ lib/
 - Configure proximity sensor in Info.plist
 - Configure notifications in Info.plist
 - Requires physical device for sensor testing
+
+## Widget Development Notes
+
+**Android Widgets** (v2.0):
+- Uses `home_widget` v0.9.0 for Android home screen widgets
+- Widget testing requires physical Android device (not supported on emulator)
+- Widget data updates via `HomeWidget.saveWidgetData()`
+- Template files: `template-widget 1x2.md` and `template-widget 4x4.md` in project root
+
+## Related Documentation
+
+**DEV.md** - Quick developer reference for:
+- Essential commands (run, test, build)
+- Project structure at a glance
+- Design system (colors, typography, sizes)
+- Key features and formulas
+- Platform-specific notes
+
+**This file (CLAUDE.md)** - Comprehensive guide for AI assistance with:
+- Detailed development approach (TDD workflow)
+- Complete architecture documentation
+- Testing strategy (unit, widget, integration, golden)
+- Implementation notes and edge cases
+- File references with paths
+
+**Use DEV.md for quick reference, CLAUDE.md for comprehensive guidance.**

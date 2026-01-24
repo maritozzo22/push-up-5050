@@ -441,4 +441,70 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get settingsRestartTutorialDesc =>
       'Go through the onboarding flow again';
+
+  @override
+  String get onboardingActivityLevel => 'How active are you?';
+
+  @override
+  String get onboardingActivityLevelDesc =>
+      'This helps us personalize your workout plan';
+
+  @override
+  String get onboardingSedentary => 'Sedentary';
+
+  @override
+  String get onboardingSedentaryDesc => 'Little to no exercise';
+
+  @override
+  String get onboardingLightlyActive => 'Lightly Active';
+
+  @override
+  String get onboardingLightlyActiveDesc => 'Exercise 1-3 days per week';
+
+  @override
+  String get onboardingActive => 'Active';
+
+  @override
+  String get onboardingActiveDesc => 'Exercise 3-5 days per week';
+
+  @override
+  String get onboardingVeryActive => 'Very Active';
+
+  @override
+  String get onboardingVeryActiveDesc => 'Exercise 6-7 days per week';
+
+  @override
+  String get onboardingCapacityTitle => 'Max Push-Ups';
+
+  @override
+  String get onboardingCapacityQuestion =>
+      'What\'s the most push-ups you can do in one set?';
+
+  @override
+  String get onboardingMaxPushups => 'max push-ups';
+
+  @override
+  String get onboardingFrequencyTitle => 'Workout Frequency';
+
+  @override
+  String get onboardingFrequencyDesc =>
+      'How many days per week do you plan to work out?';
+
+  @override
+  String get onboardingDaysPerWeek => 'days per week';
+
+  @override
+  String get onboardingDailyGoalSliderTitle => 'Daily Goal';
+
+  @override
+  String get onboardingDailyGoalSliderDesc =>
+      'Set a realistic daily target to maintain consistency';
+
+  @override
+  String get onboardingPushupsPerDay => 'push-ups per day';
+
+  @override
+  String onboardingPacePreview(String time) {
+    return 'At this pace, you\'ll reach 5050 in about $time';
+  }
 }

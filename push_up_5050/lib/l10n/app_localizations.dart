@@ -901,6 +901,126 @@ abstract class AppLocalizations {
   /// In it, this message translates to:
   /// **'Ripeti il flusso di onboarding'**
   String get settingsRestartTutorialDesc;
+
+  /// No description provided for @onboardingActivityLevel.
+  ///
+  /// In it, this message translates to:
+  /// **'Quanto sei attivo?'**
+  String get onboardingActivityLevel;
+
+  /// No description provided for @onboardingActivityLevelDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Questo ci aiuta a personalizzare il tuo piano'**
+  String get onboardingActivityLevelDesc;
+
+  /// No description provided for @onboardingSedentary.
+  ///
+  /// In it, this message translates to:
+  /// **'Sedentario'**
+  String get onboardingSedentary;
+
+  /// No description provided for @onboardingSedentaryDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Poca o nessuna attività fisica'**
+  String get onboardingSedentaryDesc;
+
+  /// No description provided for @onboardingLightlyActive.
+  ///
+  /// In it, this message translates to:
+  /// **'Leggermente Attivo'**
+  String get onboardingLightlyActive;
+
+  /// No description provided for @onboardingLightlyActiveDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Attività fisica 1-3 giorni a settimana'**
+  String get onboardingLightlyActiveDesc;
+
+  /// No description provided for @onboardingActive.
+  ///
+  /// In it, this message translates to:
+  /// **'Attivo'**
+  String get onboardingActive;
+
+  /// No description provided for @onboardingActiveDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Attività fisica 3-5 giorni a settimana'**
+  String get onboardingActiveDesc;
+
+  /// No description provided for @onboardingVeryActive.
+  ///
+  /// In it, this message translates to:
+  /// **'Molto Attivo'**
+  String get onboardingVeryActive;
+
+  /// No description provided for @onboardingVeryActiveDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Attività fisica 6-7 giorni a settimana'**
+  String get onboardingVeryActiveDesc;
+
+  /// No description provided for @onboardingCapacityTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Flessioni Massime'**
+  String get onboardingCapacityTitle;
+
+  /// No description provided for @onboardingCapacityQuestion.
+  ///
+  /// In it, this message translates to:
+  /// **'Qual è il massimo numero di flessioni che riesci a fare in una sola serie?'**
+  String get onboardingCapacityQuestion;
+
+  /// No description provided for @onboardingMaxPushups.
+  ///
+  /// In it, this message translates to:
+  /// **'flessioni massime'**
+  String get onboardingMaxPushups;
+
+  /// No description provided for @onboardingFrequencyTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Frequenza degli Allenamenti'**
+  String get onboardingFrequencyTitle;
+
+  /// No description provided for @onboardingFrequencyDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Quanti giorni a settimana pianifichi di allenarti?'**
+  String get onboardingFrequencyDesc;
+
+  /// No description provided for @onboardingDaysPerWeek.
+  ///
+  /// In it, this message translates to:
+  /// **'giorni a settimana'**
+  String get onboardingDaysPerWeek;
+
+  /// No description provided for @onboardingDailyGoalSliderTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Obiettivo Giornaliero'**
+  String get onboardingDailyGoalSliderTitle;
+
+  /// No description provided for @onboardingDailyGoalSliderDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Imposta un obiettivo giornaliero realistico per mantenere la costanza'**
+  String get onboardingDailyGoalSliderDesc;
+
+  /// No description provided for @onboardingPushupsPerDay.
+  ///
+  /// In it, this message translates to:
+  /// **'flessioni al giorno'**
+  String get onboardingPushupsPerDay;
+
+  /// No description provided for @onboardingPacePreview.
+  ///
+  /// In it, this message translates to:
+  /// **'A questo ritmo, raggiungerai 5050 in circa {time}'**
+  String onboardingPacePreview(String time);
 }
 
 class _AppLocalizationsDelegate

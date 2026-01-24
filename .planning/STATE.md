@@ -1,7 +1,7 @@
 # STATE.md
 
 **Project:** Push-Up 5050 - Engagement & Retention
-**Last Updated:** 2026-01-23
+**Last Updated:** 2026-01-24
 
 ## Project Reference
 
@@ -13,28 +13,28 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 1 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 2 of 5 in current phase
-Status: In progress
-Last activity: 2026-01-23 — Completed 03.1-02: Onboarding Widgets (Screens 3-4)
+Plan: 3 of 3 in current phase
+Status: Wave 2 complete, awaiting human verification
+Last activity: 2026-01-24 — Completed 03.1-03: PersonalizedOnboardingScreen Integration
 
-Progress: ███░░░░░░░ 40%
+Progress: ████████░ 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: ~11 min
-- Total execution time: 0.35 hours
+- Total plans completed: 3
+- Average duration: ~15 min
+- Total execution time: 0.75 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 03.1  | 2     | 5     | ~11 min  |
+| 03.1  | 3     | 3     | ~15 min  |
 
 **Recent Trend:**
-- Last 5 plans: 03.1-01 (9 min), 03.1-02 (12 min)
-- Trend: Steady progress on widget creation
+- Last 3 plans: 03.1-01 (9 min), 03.1-02 (12 min), 03.1-03 (30 min + testing)
+- Trend: Phase complete, pending verification
 
 *Updated after each plan completion*
 
@@ -62,6 +62,12 @@ Recent decisions affecting current work:
 - **Preset Daily Goal Values**: Limited to 7 discrete values [20, 30, 40, 50, 60, 75, 100] to guide users toward realistic goals
 - **Progress Preview Calculation**: Shows months/years to reach 5050 based on selected daily goal
 
+**From 03.1-03:**
+- **PageView for Onboarding**: Single StatefulWidget with PageView used instead of separate screens - simpler state management
+- **Dot Indicator Pattern**: 4 dots with AnimatedContainer for smooth transitions (active: 24px, inactive: 8px)
+- **Settings Restart Button**: Reused existing "Restart Tutorial" button in settings to launch new onboarding for easy testing
+- **Old Onboarding Removed**: Deleted onboarding_screen.dart to avoid confusion and ensure new flow is used
+
 ### Pending Todos
 
 None.
@@ -72,8 +78,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-23
-Stopped at: Completed 03.1-02-SUMMARY.md
+Last session: 2026-01-24
+Stopped at: All 3 plans of Phase 03.1 complete, awaiting human verification checkpoint
 Resume file: None
 
 ## Onboarding Widget Status
@@ -91,6 +97,4 @@ Resume file: None
 |------|------|--------|
 | 03.1-01 | Onboarding Data Model & Widgets (Screens 1-2) | Complete |
 | 03.1-02 | Onboarding Widgets (Screens 3-4) | Complete |
-| 03.1-03 | Main Onboarding Flow Integration | Pending |
-| 03.1-04 | Onboarding Persistence | Pending |
-| 03.1-05 | Onboarding Testing | Pending |
+| 03.1-03 | Main Onboarding Flow Integration | Complete |

@@ -445,4 +445,72 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get settingsRestartTutorialDesc => 'Ripeti il flusso di onboarding';
+
+  @override
+  String get onboardingActivityLevel => 'Quanto sei attivo?';
+
+  @override
+  String get onboardingActivityLevelDesc =>
+      'Questo ci aiuta a personalizzare il tuo piano';
+
+  @override
+  String get onboardingSedentary => 'Sedentario';
+
+  @override
+  String get onboardingSedentaryDesc => 'Poca o nessuna attività fisica';
+
+  @override
+  String get onboardingLightlyActive => 'Leggermente Attivo';
+
+  @override
+  String get onboardingLightlyActiveDesc =>
+      'Attività fisica 1-3 giorni a settimana';
+
+  @override
+  String get onboardingActive => 'Attivo';
+
+  @override
+  String get onboardingActiveDesc => 'Attività fisica 3-5 giorni a settimana';
+
+  @override
+  String get onboardingVeryActive => 'Molto Attivo';
+
+  @override
+  String get onboardingVeryActiveDesc =>
+      'Attività fisica 6-7 giorni a settimana';
+
+  @override
+  String get onboardingCapacityTitle => 'Flessioni Massime';
+
+  @override
+  String get onboardingCapacityQuestion =>
+      'Qual è il massimo numero di flessioni che riesci a fare in una sola serie?';
+
+  @override
+  String get onboardingMaxPushups => 'flessioni massime';
+
+  @override
+  String get onboardingFrequencyTitle => 'Frequenza degli Allenamenti';
+
+  @override
+  String get onboardingFrequencyDesc =>
+      'Quanti giorni a settimana pianifichi di allenarti?';
+
+  @override
+  String get onboardingDaysPerWeek => 'giorni a settimana';
+
+  @override
+  String get onboardingDailyGoalSliderTitle => 'Obiettivo Giornaliero';
+
+  @override
+  String get onboardingDailyGoalSliderDesc =>
+      'Imposta un obiettivo giornaliero realistico per mantenere la costanza';
+
+  @override
+  String get onboardingPushupsPerDay => 'flessioni al giorno';
+
+  @override
+  String onboardingPacePreview(String time) {
+    return 'A questo ritmo, raggiungerai 5050 in circa $time';
+  }
 }

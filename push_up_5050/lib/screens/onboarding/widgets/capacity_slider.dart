@@ -279,8 +279,8 @@ class _RoundedRectSliderTrackShape extends SliderTrackShape {
     required TextDirection textDirection,
     required Offset thumbCenter,
     Offset? secondaryOffset,
-    required bool isDiscrete,
-    required bool isEnabled,
+    bool isDiscrete = false,
+    bool isEnabled = false,
     double additionalActiveTrackHeight = 2,
   }) {
     final Canvas canvas = context.canvas;

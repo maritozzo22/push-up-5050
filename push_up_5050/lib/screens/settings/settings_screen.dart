@@ -5,7 +5,7 @@ import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/models/haptic_intensity.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
-import 'package:push_up_5050/screens/onboarding/onboarding_screen.dart';
+import 'package:push_up_5050/screens/onboarding/personalized_onboarding_screen.dart';
 import 'package:push_up_5050/services/app_settings_service.dart';
 import 'package:push_up_5050/services/notification_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
@@ -738,7 +738,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 // Navigate to onboarding
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (_) => const OnboardingScreen(),
+                    builder: (_) => const PersonalizedOnboardingScreen(),
                   ),
                 );
               }
