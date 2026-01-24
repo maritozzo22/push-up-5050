@@ -157,10 +157,10 @@ Milestone v2.5 focuses on increasing user engagement and retention through perso
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ONBD-01 | 03.1 | Pending |
-| ONBD-02 | 03.1 | Pending |
-| ONBD-03 | 03.1 | Pending |
-| ONBD-04 | 03.1 | Pending |
+| ONBD-01 | 03.1 | Complete |
+| ONBD-02 | 03.1 | Complete |
+| ONBD-03 | 03.1 | Complete |
+| ONBD-04 | 03.1 | Complete |
 | POINTS-01 | 03.2 | Pending |
 | POINTS-02 | 03.2 | Pending |
 | POINTS-03 | 03.2 | Pending |
