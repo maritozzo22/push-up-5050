@@ -6,11 +6,14 @@ import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/models/goal.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
+import 'package:push_up_5050/providers/weekly_review_provider.dart';
+import 'package:push_up_5050/repositories/storage_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
 import 'package:push_up_5050/widgets/design_system/mini_stat.dart';
 import 'package:push_up_5050/widgets/design_system/start_button_circle.dart';
 import 'package:push_up_5050/widgets/goals/goal_card.dart';
+import 'package:push_up_5050/widgets/weekly/weekly_review_popup.dart';
 
 /// Home screen - entry point for the app with new dark glass + orange glow design.
 ///
@@ -35,14 +38,83 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool _weeklyReviewChecked = false;
+
   @override
   void initState() {
     super.initState();
     // Load stats on init after first frame
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<UserStatsProvider>().loadStats();
-      context.read<GoalsProvider>().loadGoals();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final statsContext = context;
+      if (statsContext.mounted) {
+        await statsContext.read<UserStatsProvider>().loadStats();
+        await statsContext.read<GoalsProvider>().loadGoals();
+
+        // Check weekly review after stats loaded
+        if (!_weeklyReviewChecked) {
+          _weeklyReviewChecked = true;
+          await _checkAndShowWeeklyReview(statsContext);
+        }
+      }
     });
+  }
+
+  /// Check and show weekly review popup if conditions are met.
+  ///
+  /// Triggers when:
+  /// - It's Sunday (end of week review)
+  /// - Weekly target has been reached (early celebration)
+  ///
+  /// Only shows once per week (tracked by storage flag).
+  Future<void> _checkAndShowWeeklyReview(BuildContext context) async {
+    final storage = context.read<StorageService>();
+    final stats = context.read<UserStatsProvider>();
+    final goals = context.read<GoalsProvider>();
+    final reviewProvider = context.read<WeeklyReviewProvider>();
+
+    final now = DateTime.now();
+    final weekNumber = storage.getWeekNumber(now);
+    final isSunday = now.weekday == 7; // 7 = Sunday
+
+    // Check if review already shown for this week
+    if (await storage.hasWeeklyReviewBeenShown(weekNumber)) {
+      return;
+    }
+
+    // Get weekly progress
+    final weeklyTotal = stats.weekTotal;
+    final weeklyTarget = goals.weeklyGoals.isNotEmpty
+        ? goals.weeklyGoals.first.target
+        : storage.getWeeklyGoal();
+    final targetReached = weeklyTotal >= weeklyTarget;
+
+    // Trigger if Sunday OR target reached early
+    if (isSunday || targetReached) {
+      // Load data into provider
+      await reviewProvider.loadWeeklyData(weeklyTotal, weeklyTarget);
+
+      // Award bonus if target reached and not yet awarded
+      if (targetReached && !(await storage.hasWeeklyBonusBeenAwarded(weekNumber))) {
+        await reviewProvider.awardWeeklyBonus(weekNumber);
+      }
+
+      // Show popup
+      if (context.mounted) {
+        await showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (dialogContext) => ChangeNotifierProvider.value(
+            value: reviewProvider,
+            child: WeeklyReviewPopup(
+              onDismiss: () {
+                // Mark review as shown
+                storage.markWeeklyReviewShown(weekNumber);
+              },
+            ),
+          ),
+        );
+      }
+    }
   }
 
   @override
