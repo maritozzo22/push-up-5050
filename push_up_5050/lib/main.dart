@@ -8,6 +8,7 @@ import 'package:push_up_5050/providers/active_workout_provider.dart';
 import 'package:push_up_5050/providers/achievements_provider.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
+import 'package:push_up_5050/providers/weekly_review_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
 import 'package:push_up_5050/screens/onboarding/personalized_onboarding_screen.dart';
 import 'package:push_up_5050/services/app_settings_service.dart';
@@ -83,6 +84,9 @@ Future<void> main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => GoalsProvider(storage: storageService),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => WeeklyReviewProvider(storage: storageService),
         ),
       ],
       child: const MyApp(),
