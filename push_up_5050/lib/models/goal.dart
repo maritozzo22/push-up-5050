@@ -90,7 +90,7 @@ class Goal {
 
 /// Types of goals available in the app
 enum GoalType {
-  /// Weekly goal (e.g., 350 pushups per week)
+  /// Weekly goal (e.g., 250 pushups per week - 50/day × 5 workout days)
   weekly,
 
   /// Monthly goal (e.g., 1500 pushups per month)
@@ -105,13 +105,13 @@ enum GoalType {
 
 /// Predefined goals for the Push-Up 5050 program
 class PredefinedGoals {
-  /// Weekly goal: 350 pushups (50/day × 7 days)
+  /// Weekly goal: 250 pushups (50/day × 5 workout days)
   static const Goal weekly = Goal(
-    id: 'weekly_350',
+    id: 'weekly_250',
     title: 'SETTIMANALE',
-    description: '350 Push-up a settimana',
+    description: '250 Push-up a settimana',
     type: GoalType.weekly,
-    target: 350,
+    target: 250,
     iconName: 'calendar_week',
   );
 

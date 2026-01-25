@@ -83,7 +83,7 @@ class UserStatsProvider extends ChangeNotifier {
 
   /// Week progress as a fraction (0.0 to 1.0).
   ///
-  /// Based on weekTotal vs weekly goal (350 = 50/day × 7 days).
+  /// Based on weekTotal vs weekly goal (250 = 50/day × 5 workout days).
   double get weekProgress => _computeWeekProgress();
 
   /// Weekly series data for the chart (7 days, Mon-Sun).
@@ -92,8 +92,8 @@ class UserStatsProvider extends ChangeNotifier {
   /// Days in the future return 0.0.
   List<double> get weekSeries => _computeWeekSeries();
 
-  /// Weekly goal in pushups (50 per day × 7 days).
-  static const int weeklyGoal = 350;
+  /// Weekly goal in pushups (50 per day × 5 workout days).
+  static const int weeklyGoal = 250;
 
   /// Daily goal in pushups.
   static const int dailyGoal = 50;

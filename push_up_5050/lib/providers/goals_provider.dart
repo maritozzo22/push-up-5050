@@ -80,6 +80,12 @@ class GoalsProvider extends ChangeNotifier {
     );
   }
 
+  /// Get the weekly target (daily goal × 5 workout days).
+  ///
+  /// This represents the expected push-ups for 5 workout days per week,
+  /// allowing 2 rest days while maintaining consistent progression.
+  int get weeklyTarget => _storage.getWeeklyGoal();
+
   /// Get the primary weekly goal with current progress
   Goal get weeklyGoal {
     final weekly = weeklyGoals.isNotEmpty ? weeklyGoals.first : null;
@@ -121,7 +127,7 @@ class GoalsProvider extends ChangeNotifier {
     // These are set during onboarding and persist across app restarts
     final dailyGoal = _storage.getDailyGoal(); // defaults to 50
     final monthlyGoal = _storage.getMonthlyGoal(); // defaults to 1500
-    final weeklyGoal = dailyGoal * 7; // auto-calculate weekly as daily * 7
+    final weeklyGoal = _storage.getWeeklyGoal(); // auto-calculate as daily * 5
 
     return [
       // Weekly goal with custom target (calculated from daily)
