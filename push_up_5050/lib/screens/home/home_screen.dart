@@ -117,6 +117,34 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  /// Build a small streak badge showing icon, label and value.
+  Widget _buildStreakBadge({
+    required IconData icon,
+    required String label,
+    required String value,
+    required Color color,
+  }) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          icon,
+          color: color,
+          size: 16,
+        ),
+        const SizedBox(width: 6),
+        Text(
+          '$label: $value',
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Colors.white70,
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -204,7 +232,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
+        // Streaks Row - Daily and Weekly streaks
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildStreakBadge(
+              icon: Icons.local_fire_department,
+              label: 'Giorno',
+              value: '${stats.currentStreak}',
+              color: AppColors.primaryOrange,
+            ),
+            const SizedBox(width: 24),
+            _buildStreakBadge(
+              icon: Icons.calendar_today,
+              label: 'Settimana',
+              value: '${stats.weeklyStreak}',
+              color: AppColors.primaryOrange,
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
         // Mini Stats Row - Punti totali e Progresso oggi
         Row(
           children: [
