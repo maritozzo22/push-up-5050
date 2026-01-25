@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 2 of 4 in current phase
+Plan: 3 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-25 — Completed 03.3-02 (Weekly Target Calculation)
+Last activity: 2026-01-25 — Completed 03.3-03 (Weekly Goals Review Popup)
 
-Progress: ████████░░ 70%
+Progress: █████████░ 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: ~12 min
-- Total execution time: 1.92 hours
+- Total execution time: 2.02 hours
 
 **By Phase:**
 
@@ -32,10 +32,10 @@ Progress: ████████░░ 70%
 |-------|-------|-------|----------|
 | 03.1  | 3     | 3     | ~15 min  |
 | 03.2  | 4     | 4     | ~15 min  |
-| 03.3  | 2     | 4     | ~7 min   |
+| 03.3  | 3     | 4     | ~7 min   |
 
 **Recent Trend:**
-- Latest: 03.3-02 (weekly target calculation)
+- Latest: 03.3-03 (weekly review popup)
 - Trend: Phase 03.3 progressing ahead of schedule
 
 *Updated after each plan completion*
@@ -82,6 +82,12 @@ Recent decisions affecting current work:
 - **Auto-Calculated Default**: Weekly goal default uses getDailyGoal() * 5 so it stays synced when daily goal changes
 - **Green Highlight on Completion**: Weekly progress text changes to green (#4CAF50) when target is achieved
 
+**From 03.3-03:**
+- **WillPopScope for Mandatory Dialog**: Used WillPopScope(onWillPop: () async => false) to prevent Android back button dismissal
+- **Split Adjustment Options**: When target reached, show maintain/+10%/+20%; when missed, show -10%/-20%/-30%
+- **Weekly Bonus Formula**: 500 base points for reaching target + 0.5 per excess push-up, capped at 250 excess (max 750 total)
+- **Months-to-Goal Simplified**: Uses 50 / dailyGoal formula (ignores current progress) for clear preview
+
 ### Pending Todos
 
 5 todos captured from user feedback:
@@ -101,7 +107,7 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-25
-Stopped at: Completed 03.3-02 (Weekly Target Calculation)
+Stopped at: Completed 03.3-03 (Weekly Goals Review Popup)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -136,5 +142,5 @@ Resume file: None
 |------|------|--------|
 | 03.3-01 | Weekly State Tracking Infrastructure | Complete |
 | 03.3-02 | Weekly Target Calculation | Complete |
-| 03.3-03 | Weekly Goals Review Popup | Pending |
+| 03.3-03 | Weekly Goals Review Popup | Complete |
 | 03.3-04 | Weekly Bonus Award System | Pending |
