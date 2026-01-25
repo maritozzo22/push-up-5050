@@ -107,7 +107,11 @@ All core functionality has been implemented:
 4. Popup offers goal increase options (maintain, +10%, +20%) when target reached
 5. Streak resets only if user completes 0 workouts in the week (any push-ups preserve streak)
 
-**Plans:** TBD
+**Plans:**
+- [ ] 03.3-01-PLAN.md — Weekly state tracking infrastructure (week utilities, flag tracking, weekly streak)
+- [ ] 03.3-02-PLAN.md — Weekly target calculation (daily goal × 5) with persistence and display
+- [ ] 03.3-03-PLAN.md — Weekly review popup UI with bonus calculation and goal adjustment
+- [ ] 03.3-04-PLAN.md — HomeScreen integration with popup trigger and provider registration
 
 ---
 
@@ -168,8 +172,8 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 03.1 Personalized Onboarding | v2.5 | 3/3 | Complete | 2026-01-24 |
-| 03.2 Enhanced Points & Anti-Cheat | v2.5 | 0/4 | Planning | 2026-01-24 |
-| 03.3 Weekly Goals | v2.5 | 0/TBD | Not started | - |
+| 03.2 Enhanced Points & Anti-Cheat | v2.5 | 4/4 | Complete | 2026-01-24 |
+| 03.3 Weekly Goals | v2.5 | 0/4 | Planning | - |
 | 03.4 Challenges & Streak Freeze | v2.5 | 0/TBD | Not started | - |
 | 03.5 Smart Notifications | v2.5 | 0/TBD | Not started | - |
 
@@ -184,4 +188,4 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 
 ---
 
-*Last updated: 2026-01-24 (Phase 03.2 planning complete)*
+*Last updated: 2026-01-25 (Phase 03.3 planning complete)*
