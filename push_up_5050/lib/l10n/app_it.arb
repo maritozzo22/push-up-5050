@@ -156,6 +156,21 @@
   "achievementsTitle": "Achievements",
   "unlocked": "Sbloccato",
   "pointsLowercase": "punti",
+  "totalPointsLabel": "PUNTI TOTALI",
+  "pointsLabel": "PUNTI",
+  "dailyPointsLabel": "Punti Oggi",
+  "pointsTotal": "totale",
+  "dailyCapReached": "Limite giornaliero raggiunto",
+  "dailyCapReachedMessage": "Hai superato il limite di {cap} flessioni. Le flessioni extra vengono tracciate ma non premiate.",
+  "@dailyCapReachedMessage": {
+    "placeholders": {
+      "cap": {
+        "type": "int",
+        "example": "75"
+      }
+    }
+  },
+  "excessPushupsLabel": "Extra (non premiate)",
 
   "sensors": "Sensori",
   "feedback": "Feedback",

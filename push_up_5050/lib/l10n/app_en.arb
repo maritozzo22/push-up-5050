@@ -156,6 +156,21 @@
   "achievementsTitle": "Achievements",
   "unlocked": "Unlocked",
   "pointsLowercase": "points",
+  "totalPointsLabel": "TOTAL POINTS",
+  "pointsLabel": "POINTS",
+  "dailyPointsLabel": "Today's Points",
+  "pointsTotal": "total",
+  "dailyCapReached": "Daily cap reached",
+  "dailyCapReachedMessage": "You've exceeded your {cap} push-up daily cap. Excess push-ups are tracked but not rewarded.",
+  "@dailyCapReachedMessage": {
+    "placeholders": {
+      "cap": {
+        "type": "int",
+        "example": "75"
+      }
+    }
+  },
+  "excessPushupsLabel": "Excess (not rewarded)",
 
   "sensors": "Sensors",
   "feedback": "Feedback",

@@ -60,6 +60,9 @@ class WidgetData {
   /// Current streak of consecutive days with >=50 push-ups
   final int streakDays;
 
+  /// Total points earned across all workout sessions
+  final int totalPoints;
+
   /// Date of last workout session
   final DateTime? lastWorkoutDate;
 
@@ -83,6 +86,7 @@ class WidgetData {
     this.goalPushups = 5050,
     bool? todayGoalReached,
     this.streakDays = 0,
+    this.totalPoints = 0,
     this.lastWorkoutDate,
     this.calendarDays = const [],
     this.weekDayData = const [],
@@ -99,6 +103,7 @@ class WidgetData {
       goalPushups: 5050,
       todayGoalReached: false,
       streakDays: 0,
+      totalPoints: 0,
       lastWorkoutDate: null,
       calendarDays: [],
       weekDayData: [],
@@ -113,6 +118,7 @@ class WidgetData {
     required int totalPushups,
     int goalPushups = 5050,
     int streakDays = 0,
+    int totalPoints = 0,
     DateTime? lastWorkoutDate,
     List<CalendarDayData> calendarDays = const [],
     List<Map<String, dynamic>> weekDayData = const [],
@@ -124,6 +130,7 @@ class WidgetData {
       totalPushups: totalPushups,
       goalPushups: goalPushups,
       streakDays: streakDays,
+      totalPoints: totalPoints,
       lastWorkoutDate: lastWorkoutDate,
       calendarDays: calendarDays,
       weekDayData: weekDayData,
@@ -138,6 +145,7 @@ class WidgetData {
     required int totalPushups,
     int goalPushups = 5050,
     int streakDays = 0,
+    int totalPoints = 0,
     DateTime? lastWorkoutDate,
     List<CalendarDayData> calendarDays = const [],
     required WeekData weekData,
@@ -148,6 +156,7 @@ class WidgetData {
       totalPushups: totalPushups,
       goalPushups: goalPushups,
       streakDays: streakDays,
+      totalPoints: totalPoints,
       lastWorkoutDate: lastWorkoutDate,
       calendarDays: calendarDays,
       weekDayData: weekData.days.map((d) => d.toJson()).toList(),
@@ -165,6 +174,7 @@ class WidgetData {
       'goalPushups': goalPushups,
       'todayGoalReached': todayGoalReached,
       'streakDays': streakDays,
+      'totalPoints': totalPoints,
       'lastWorkoutDate': lastWorkoutDate != null
           ? '${lastWorkoutDate!.year}-${lastWorkoutDate!.month.toString().padLeft(2, '0')}-${lastWorkoutDate!.day.toString().padLeft(2, '0')}'
           : null,
@@ -209,6 +219,7 @@ class WidgetData {
       goalPushups: json['goalPushups'] as int? ?? 5050,
       todayGoalReached: json['todayGoalReached'] as bool? ?? false,
       streakDays: json['streakDays'] as int? ?? 0,
+      totalPoints: json['totalPoints'] as int? ?? 0, // Backward compatible
       lastWorkoutDate: parseDate(json['lastWorkoutDate'] as String?),
       calendarDays: calendarDays,
       weekDayData: weekDayData,
@@ -234,6 +245,7 @@ class WidgetData {
     int? goalPushups,
     bool? todayGoalReached,
     int? streakDays,
+    int? totalPoints,
     DateTime? lastWorkoutDate,
     List<CalendarDayData>? calendarDays,
     List<Map<String, dynamic>>? weekDayData,
@@ -246,6 +258,7 @@ class WidgetData {
       goalPushups: goalPushups ?? this.goalPushups,
       todayGoalReached: todayGoalReached ?? this.todayGoalReached,
       streakDays: streakDays ?? this.streakDays,
+      totalPoints: totalPoints ?? this.totalPoints,
       lastWorkoutDate: lastWorkoutDate ?? this.lastWorkoutDate,
       calendarDays: calendarDays ?? this.calendarDays,
       weekDayData: weekDayData ?? this.weekDayData,
@@ -262,6 +275,7 @@ class WidgetData {
         'goalPushups: $goalPushups, '
         'todayGoalReached: $todayGoalReached, '
         'streakDays: $streakDays, '
+        'totalPoints: $totalPoints, '
         'lastWorkoutDate: $lastWorkoutDate, '
         'calendarDays: ${calendarDays.length} days, '
         'weekDayData: ${weekDayData.length} days, '

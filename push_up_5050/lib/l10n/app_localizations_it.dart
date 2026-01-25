@@ -309,6 +309,29 @@ class AppLocalizationsIt extends AppLocalizations {
   String get pointsLowercase => 'punti';
 
   @override
+  String get totalPointsLabel => 'PUNTI TOTALI';
+
+  @override
+  String get pointsLabel => 'PUNTI';
+
+  @override
+  String get dailyPointsLabel => 'Punti Oggi';
+
+  @override
+  String get pointsTotal => 'totale';
+
+  @override
+  String get dailyCapReached => 'Limite giornaliero raggiunto';
+
+  @override
+  String dailyCapReachedMessage(int cap) {
+    return 'Hai superato il limite di $cap flessioni. Le flessioni extra vengono tracciate ma non premiate.';
+  }
+
+  @override
+  String get excessPushupsLabel => 'Extra (non premiate)';
+
+  @override
   String get sensors => 'Sensori';
 
   @override

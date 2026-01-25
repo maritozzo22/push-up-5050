@@ -2,7 +2,7 @@ name: push_up_5050
 description: Progressive push-up training app with gamification.
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

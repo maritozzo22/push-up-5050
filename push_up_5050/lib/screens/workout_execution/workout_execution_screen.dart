@@ -329,6 +329,7 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
           consecutiveDays: consecutiveDays,
           completedSeries: completedSeries,
           totalPushups: totalReps,
+          sessionPoints: provider.sessionPoints,
         ),
         const SizedBox(height: AppSizes.m),
 
@@ -456,10 +457,12 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
 class _StatisticsBadge extends StatelessWidget {
   final String label;
   final String value;
+  final bool showOrange;
 
   const _StatisticsBadge({
     required this.label,
     required this.value,
+    this.showOrange = false,
   });
 
   @override
@@ -493,10 +496,10 @@ class _StatisticsBadge extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               '$label $value',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
-                color: Colors.white,
+                color: showOrange ? AppColors.primaryOrange : Colors.white,
               ),
             ),
           ),

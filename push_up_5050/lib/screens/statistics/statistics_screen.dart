@@ -140,7 +140,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
 
         const SizedBox(height: 16),
 
-        // Mini Stats Row: Streak, Daily Avg, Best Day
+        // Mini Stats Row: Streak, Daily Avg, Best Day, Points
         Row(
           children: [
             Expanded(
@@ -164,7 +164,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                 label: 'Record',
                 value: stats.daysCompleted.toString(),
                 icon: Icons.emoji_events_rounded,
-                subtitle: 'pushups',
+                subtitle: 'giorni',
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: _MiniStatCard(
+                label: 'Punti',
+                value: stats.totalPoints.toString(),
+                icon: Icons.stars_rounded,
+                subtitle: 'totale',
               ),
             ),
           ],

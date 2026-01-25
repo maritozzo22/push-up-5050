@@ -662,6 +662,48 @@ abstract class AppLocalizations {
   /// **'punti'**
   String get pointsLowercase;
 
+  /// No description provided for @totalPointsLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'PUNTI TOTALI'**
+  String get totalPointsLabel;
+
+  /// No description provided for @pointsLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'PUNTI'**
+  String get pointsLabel;
+
+  /// No description provided for @dailyPointsLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Punti Oggi'**
+  String get dailyPointsLabel;
+
+  /// No description provided for @pointsTotal.
+  ///
+  /// In it, this message translates to:
+  /// **'totale'**
+  String get pointsTotal;
+
+  /// No description provided for @dailyCapReached.
+  ///
+  /// In it, this message translates to:
+  /// **'Limite giornaliero raggiunto'**
+  String get dailyCapReached;
+
+  /// No description provided for @dailyCapReachedMessage.
+  ///
+  /// In it, this message translates to:
+  /// **'Hai superato il limite di {cap} flessioni. Le flessioni extra vengono tracciate ma non premiate.'**
+  String dailyCapReachedMessage(int cap);
+
+  /// No description provided for @excessPushupsLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Extra (non premiate)'**
+  String get excessPushupsLabel;
+
   /// No description provided for @sensors.
   ///
   /// In it, this message translates to:

@@ -305,6 +305,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pointsLowercase => 'points';
 
   @override
+  String get totalPointsLabel => 'TOTAL POINTS';
+
+  @override
+  String get pointsLabel => 'POINTS';
+
+  @override
+  String get dailyPointsLabel => 'Today\'s Points';
+
+  @override
+  String get pointsTotal => 'total';
+
+  @override
+  String get dailyCapReached => 'Daily cap reached';
+
+  @override
+  String dailyCapReachedMessage(int cap) {
+    return 'You\'ve exceeded your $cap push-up daily cap. Excess push-ups are tracked but not rewarded.';
+  }
+
+  @override
+  String get excessPushupsLabel => 'Excess (not rewarded)';
+
+  @override
   String get sensors => 'Sensors';
 
   @override

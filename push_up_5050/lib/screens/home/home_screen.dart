@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:push_up_5050/core/constants/app_colors.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/models/goal.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
@@ -132,32 +133,32 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         const SizedBox(height: 16),
-        // Mini Stats Row
+        // Mini Stats Row - Punti totali e Progresso oggi
         Row(
           children: [
             Expanded(
               child: FrostCard(
                 height: 120,
                 child: MiniStat(
-                  label: 'SETTIMANA',
-                  value: '${stats.weekTotal}',
-                  showBar: true,
-                  barValue: stats.weekProgress,
+                  label: 'PUNTI',
+                  value: '${stats.totalPoints}',
+                  showBar: false,
+                  icon: Icons.bolt,
+                  iconColor: AppColors.primaryOrange,
                 ),
               ),
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: Consumer<GoalsProvider>(
-                builder: (context, goals, child) {
-                  return FrostCard(
-                    height: 120,
-                    child: MiniStat(
-                      label: 'OBIETTIVO',
-                      value: '${goals.dailyGoal.target}',
-                    ),
-                  );
-                },
+              child: FrostCard(
+                height: 120,
+                child: MiniStat(
+                  label: 'OGGI',
+                  value: '${stats.todayPushups}',
+                  showBar: true,
+                  barValue: (stats.todayPushups / UserStatsProvider.dailyGoal).clamp(0.0, 1.0),
+                  subtitle: '/ ${UserStatsProvider.dailyGoal}',
+                ),
               ),
             ),
           ],

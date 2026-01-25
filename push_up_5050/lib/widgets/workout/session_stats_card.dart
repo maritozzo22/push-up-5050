@@ -4,6 +4,67 @@ import 'package:push_up_5050/core/constants/app_colors.dart';
 import 'package:push_up_5050/core/utils/calculator.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
 
+/// Animated points display widget with scale animation.
+class _AnimatedPointsDisplay extends StatefulWidget {
+  final int points;
+
+  const _AnimatedPointsDisplay({required this.points});
+
+  @override
+  State<_AnimatedPointsDisplay> createState() => _AnimatedPointsDisplayState();
+}
+
+class _AnimatedPointsDisplayState extends State<_AnimatedPointsDisplay>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+  int? _previousPoints;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+    _previousPoints = widget.points;
+  }
+
+  @override
+  void didUpdateWidget(_AnimatedPointsDisplay oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.points != oldWidget.points) {
+      _controller.forward().then((_) {
+        _controller.reverse();
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScaleTransition(
+      scale: _scaleAnimation,
+      child: Text(
+        widget.points.toString(),
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
+          color: AppColors.primaryOrange,
+        ),
+      ),
+    );
+  }
+}
+
 /// Session stats card widget for workout screen.
 ///
 /// Displays live multipliers and points during workout:
@@ -127,14 +188,8 @@ class SessionStatsCard extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                 ),
-                Text(
-                  sessionPoints.toString(),
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.primaryOrange,
-                  ),
-                ),
+                // Animated points display - scales when points change
+                _AnimatedPointsDisplay(points: sessionPoints!),
               ],
             ),
           ],

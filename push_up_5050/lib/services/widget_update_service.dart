@@ -74,12 +74,14 @@ class WidgetUpdateService {
   /// - [totalPushups]: Total push-ups all time
   /// - [goalPushups]: Daily goal (default 5050)
   /// - [streakDays]: Current consecutive days with goal reached
+  /// - [totalPoints]: Total points earned all time (default 0)
   /// - [allDailyRecords]: All daily records for calendar processing (optional, for backward compatibility)
   Future<WidgetData> buildWidgetData({
     required int todayPushups,
     required int totalPushups,
     int goalPushups = 5050,
     int streakDays = 0,
+    int totalPoints = 0,
     DateTime? lastWorkoutDate,
     Map<String, dynamic>? allDailyRecords,
   }) async {
@@ -94,6 +96,7 @@ class WidgetUpdateService {
           totalPushups: totalPushups,
           goalPushups: goalPushups,
           streakDays: streakDays,
+          totalPoints: totalPoints,
           lastWorkoutDate: lastWorkoutDate,
           weekData: weekData,
           threeDayData: threeDayData,
@@ -111,6 +114,7 @@ class WidgetUpdateService {
       totalPushups: totalPushups,
       goalPushups: goalPushups,
       streakDays: streakDays,
+      totalPoints: totalPoints,
       lastWorkoutDate: lastWorkoutDate,
       calendarDays: const [], // Empty for backward compatibility
       weekDayData: const [],

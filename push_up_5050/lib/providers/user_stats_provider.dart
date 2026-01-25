@@ -27,6 +27,7 @@ class UserStatsProvider extends ChangeNotifier {
   DateTime? _programStartDate;
   List<DailyRecord?> _programDayRecords = [];
   int _consecutiveMissedDays = 0;
+  int _totalPoints = 0;
 
   /// Create a new UserStatsProvider.
   ///
@@ -67,6 +68,9 @@ class UserStatsProvider extends ChangeNotifier {
 
   /// Number of consecutive days missed (streak at risk warning).
   int get consecutiveMissedDays => _consecutiveMissedDays;
+
+  /// Total points earned across all workout sessions.
+  int get totalPoints => _totalPoints;
 
   /// Total push-ups for the current week.
   ///
@@ -144,12 +148,14 @@ class UserStatsProvider extends ChangeNotifier {
       _allDailyRecords = allRecords; // Store for monthly calendar
       _totalPushupsAllTime = 0;
       _daysCompleted = 0;
+      _totalPoints = 0;
 
       for (final entry in allRecords.entries) {
         final recordData = entry.value as Map<String, dynamic>;
         final record = DailyRecord.fromJson(recordData);
 
         _totalPushupsAllTime += record.totalPushups;
+        _totalPoints += record.pointsEarned;
         if (record.goalReached) {
           _daysCompleted++;
         }
@@ -216,6 +222,7 @@ class UserStatsProvider extends ChangeNotifier {
         totalPushups: _totalPushupsAllTime,
         goalPushups: 5050,
         streakDays: _currentStreak,
+        totalPoints: _totalPoints,
         lastWorkoutDate: _allDailyRecords.isNotEmpty
             ? _getLastWorkoutDate()
             : null,

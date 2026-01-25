@@ -183,5 +183,160 @@ void main() {
       expect(restored.date, DateTime(2025, 1, 14));
       expect(restored.totalPushups, 75);
     });
+
+    group('Points Tracking - Phase 03.2', () {
+      test('creates record with default points (0) and multiplier (1.0)', () {
+        final record = DailyRecord(date: DateTime(2025, 1, 15));
+        expect(record.pointsEarned, 0);
+        expect(record.multiplier, 1.0);
+      });
+
+      test('creates record with specified points and multiplier', () {
+        final record = DailyRecord(
+          date: DateTime(2025, 1, 15),
+          totalPushups: 50,
+          pointsEarned: 100,
+          multiplier: 1.5,
+        );
+        expect(record.pointsEarned, 100);
+        expect(record.multiplier, 1.5);
+      });
+
+      test('serializes pointsEarned and multiplier to JSON', () {
+        final record = DailyRecord(
+          date: DateTime(2025, 1, 15),
+          totalPushups: 50,
+          pointsEarned: 100,
+          multiplier: 1.5,
+        );
+        final json = record.toJson();
+        expect(json['pointsEarned'], 100);
+        expect(json['multiplier'], 1.5);
+      });
+
+      test('deserializes pointsEarned and multiplier from JSON', () {
+        final json = {
+          'date': '2025-01-15',
+          'totalPushups': 50,
+          'seriesCompleted': 5,
+          'totalKcal': 22.5,
+          'goalReached': true,
+          'pointsEarned': 150,
+          'multiplier': 1.2,
+        };
+        final record = DailyRecord.fromJson(json);
+        expect(record.pointsEarned, 150);
+        expect(record.multiplier, 1.2);
+      });
+
+      test('handles missing pointsEarned and multiplier for backward compatibility', () {
+        final oldJson = {
+          'date': '2025-01-15',
+          'totalPushups': 50,
+          'seriesCompleted': 5,
+          'totalKcal': 22.5,
+          'goalReached': true,
+          // No pointsEarned or multiplier
+        };
+        final record = DailyRecord.fromJson(oldJson);
+        expect(record.pointsEarned, 0); // Default
+        expect(record.multiplier, 1.0); // Default
+      });
+
+      test('copyWith updates pointsEarned and multiplier', () {
+        final record = DailyRecord(
+          date: DateTime(2025, 1, 15),
+          pointsEarned: 100,
+          multiplier: 1.5,
+        );
+        final updated = record.copyWith(
+          pointsEarned: 200,
+          multiplier: 2.0,
+        );
+        expect(updated.pointsEarned, 200);
+        expect(updated.multiplier, 2.0);
+        expect(record.pointsEarned, 100); // Original unchanged
+        expect(record.multiplier, 1.5); // Original unchanged
+      });
+
+      test('copyWith with null values preserves original', () {
+        final record = DailyRecord(
+          date: DateTime(2025, 1, 15),
+          totalPushups: 50,
+          pointsEarned: 100,
+          multiplier: 1.5,
+        );
+        final updated = record.copyWith();
+        expect(updated.pointsEarned, 100);
+        expect(updated.multiplier, 1.5);
+      });
+
+      test('creates record with default excessPushups (0)', () {
+        final record = DailyRecord(date: DateTime(2025, 1, 15));
+        expect(record.excessPushups, 0);
+      });
+
+      test('creates record with specified excessPushups', () {
+        final record = DailyRecord(
+          date: DateTime(2025, 1, 15),
+          totalPushups: 100,
+          excessPushups: 25, // 25 pushups beyond cap
+        );
+        expect(record.excessPushups, 25);
+      });
+
+      test('serializes excessPushups to JSON', () {
+        final record = DailyRecord(
+          date: DateTime(2025, 1, 15),
+          totalPushups: 100,
+          pointsEarned: 100,
+          multiplier: 1.5,
+          excessPushups: 25,
+        );
+        final json = record.toJson();
+        expect(json['excessPushups'], 25);
+      });
+
+      test('deserializes excessPushups from JSON', () {
+        final json = {
+          'date': '2025-01-15',
+          'totalPushups': 100,
+          'seriesCompleted': 10,
+          'totalKcal': 45.0,
+          'goalReached': true,
+          'pointsEarned': 200,
+          'multiplier': 1.2,
+          'excessPushups': 25,
+        };
+        final record = DailyRecord.fromJson(json);
+        expect(record.excessPushups, 25);
+      });
+
+      test('handles missing excessPushups for backward compatibility', () {
+        final oldJson = {
+          'date': '2025-01-15',
+          'totalPushups': 100,
+          'seriesCompleted': 10,
+          'totalKcal': 45.0,
+          'goalReached': true,
+          'pointsEarned': 200,
+          'multiplier': 1.2,
+          // No excessPushups
+        };
+        final record = DailyRecord.fromJson(oldJson);
+        expect(record.excessPushups, 0); // Default
+      });
+
+      test('copyWith updates excessPushups', () {
+        final record = DailyRecord(
+          date: DateTime(2025, 1, 15),
+          totalPushups: 100,
+          excessPushups: 10,
+        );
+        final updated = record.copyWith(excessPushups: 30);
+        expect(updated.excessPushups, 30);
+        expect(record.excessPushups, 10); // Original unchanged
+      });
+    });
   });
 }

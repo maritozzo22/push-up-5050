@@ -179,4 +179,122 @@ class Calculator {
     if (goal == 0) return 1.0;
     return (totalPushups / goal).clamp(0.0, 1.0);
   }
+
+  // ============ AGGRESSIVE POINTS FORMULA - PHASE 03.2 ============
+
+  /// Calculates points for a single rep in a series (real-time feedback).
+  /// Formula derived from calculateSeriesPoints but distributed per rep.
+  ///
+  /// Per-rep formula: BaseRep x (RepMultPerRep + SeriesMultPortion) x StreakMult
+  /// - BaseRep: 3 points (portion of the 10 point series base per rep, scaled)
+  /// - RepMultPerRep: 0.3 (same as series formula, per rep)
+  /// - SeriesMultPortion: (seriesNumber × 0.8) / repNumber (grows as series progresses)
+  /// - StreakMult: from getDayStreakMultiplier (1.0x to 2.0x)
+  ///
+  /// Example: Series 5, rep 3 of 5, 5-day streak (1.2x)
+  /// = 3 x (0.3 + (4.0/3)) x 1.2 = ~17 points per rep
+  ///
+  /// This ensures real-time feedback while maintaining total points
+  /// approximately equal to the series-based formula.
+  static int calculateRepPoints({
+    required int seriesNumber,
+    required int repNumber,
+    required int consecutiveDays,
+  }) {
+    // Base: 3 points per rep (portion of series completion reward)
+    const baseRep = 3;
+
+    // Rep multiplier: 0.3 per rep (same as series formula)
+    const repMultPerRep = 0.3;
+
+    // Series multiplier portion: grows as you progress through the series
+    // Higher reps in the series = more points (rewarding completion)
+    final seriesMultPortion = (seriesNumber * 0.8) / repNumber;
+
+    // Streak multiplier: from existing getDayStreakMultiplier method
+    final streakMult = getDayStreakMultiplier(consecutiveDays);
+
+    // Formula: BaseRep x (RepMultPerRep + SeriesMultPortion) x StreakMult
+    final points = baseRep * (repMultPerRep + seriesMultPortion) * streakMult;
+
+    return points.floor();
+  }
+
+  /// Calculates the rep multiplier for the aggressive points formula.
+  /// RepMult = push-ups in series x 0.3
+  /// This rewards completing more reps in each series.
+  static double getRepMultiplier(int pushupsInSeries) {
+    return pushupsInSeries * 0.3;
+  }
+
+  /// Calculates the series multiplier for the aggressive points formula.
+  /// SeriesMult = series number x 0.8
+  /// This rewards progressing through longer workout sessions.
+  static double getSeriesMultiplier(int seriesNumber) {
+    return seriesNumber * 0.8;
+  }
+
+  /// Calculates points for a single completed series using aggressive formula.
+  /// Formula: Base x (RepMult + SeriesMult) x StreakMult
+  /// - Base: 10 points per series
+  /// - RepMult: push-ups in series x 0.3
+  /// - SeriesMult: series number x 0.8
+  /// - StreakMult: from getDayStreakMultiplier (1.0x to 2.0x)
+  ///
+  /// Example: Series 5, 5 pushups, 5-day streak (1.2x)
+  /// = 10 x (1.5 + 4.0) x 1.2 = 66 points
+  static int calculateSeriesPoints({
+    required int seriesNumber,
+    required int pushupsInSeries,
+    required int consecutiveDays,
+  }) {
+    // Base: 10 points per series
+    const base = 10;
+
+    // Rep multiplier: push-ups in series x 0.3
+    final repMult = getRepMultiplier(pushupsInSeries);
+
+    // Series multiplier: series number x 0.8
+    final seriesMult = getSeriesMultiplier(seriesNumber);
+
+    // Streak multiplier: from existing getDayStreakMultiplier method
+    final streakMult = getDayStreakMultiplier(consecutiveDays);
+
+    // Formula: Base x (RepMult + SeriesMult) x StreakMult
+    final points = base * (repMult + seriesMult) * streakMult;
+
+    return points.floor();
+  }
+
+  // ============ DAILY CAP ANTI-CHEAT - PHASE 03.2 ============
+
+  /// Calculate daily push-up cap based on user level and daily goal.
+  ///
+  /// Cap formula: daily goal x (1 + (level x 0.1))
+  /// - Level 1 (Beginner): 0-999 points → cap = daily goal x 1.5
+  /// - Level 2 (Intermediate): 1000-4999 points → cap = daily goal x 1.5
+  /// - Level 3 (Advanced): 5000-9999 points → cap = daily goal x 1.5
+  /// - Level 4 (Expert): 10000-24999 points → cap = daily goal x 2.0
+  /// - Level 5 (Master): 25000+ points → cap = daily goal x 2.5
+  ///
+  /// This prevents excessive points farming while allowing
+  /// motivated users to continue training beyond the cap.
+  static int calculateDailyCap({
+    required int dailyGoal,
+    required int totalPoints,
+  }) {
+    final level = calculateLevel(totalPoints);
+
+    // Calculate cap multiplier based on level
+    final double capMultiplier;
+    if (level <= 3) {
+      capMultiplier = 1.5;
+    } else if (level == 4) {
+      capMultiplier = 2.0;
+    } else {
+      capMultiplier = 2.5;
+    }
+
+    return (dailyGoal * capMultiplier).floor();
+  }
 }

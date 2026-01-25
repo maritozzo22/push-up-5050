@@ -18,6 +18,15 @@ class DailyRecord {
   /// Whether goal of 50 push-ups was reached
   final bool goalReached;
 
+  /// Points earned for this day
+  final int pointsEarned;
+
+  /// Effective multiplier applied to points calculation
+  final double multiplier;
+
+  /// Push-ups completed beyond daily cap (tracked but not rewarded)
+  final int excessPushups;
+
   /// Create a new daily record
   /// totalKcal is auto-calculated if not provided
   /// goalReached is true if totalPushups >= 50
@@ -26,6 +35,9 @@ class DailyRecord {
     this.totalPushups = 0,
     this.seriesCompleted = 0,
     double? totalKcal,
+    this.pointsEarned = 0,
+    this.multiplier = 1.0,
+    this.excessPushups = 0,
   })  : totalKcal = totalKcal ?? Calculator.calculateKcal(totalPushups),
         goalReached = totalPushups >= 50;
 
@@ -51,6 +63,9 @@ class DailyRecord {
       'seriesCompleted': seriesCompleted,
       'totalKcal': totalKcal,
       'goalReached': goalReached,
+      'pointsEarned': pointsEarned,
+      'multiplier': multiplier,
+      'excessPushups': excessPushups,
     };
   }
 
@@ -68,6 +83,9 @@ class DailyRecord {
       totalPushups: json['totalPushups'] as int,
       seriesCompleted: json['seriesCompleted'] as int,
       totalKcal: json['totalKcal'] as double,
+      pointsEarned: json['pointsEarned'] as int? ?? 0, // Backward compatible
+      multiplier: (json['multiplier'] as num?)?.toDouble() ?? 1.0, // Backward compatible
+      excessPushups: json['excessPushups'] as int? ?? 0, // Backward compatible
     );
   }
 
@@ -78,12 +96,18 @@ class DailyRecord {
     int? totalPushups,
     int? seriesCompleted,
     double? totalKcal,
+    int? pointsEarned,
+    double? multiplier,
+    int? excessPushups,
   }) {
     return DailyRecord(
       date: date ?? this.date,
       totalPushups: totalPushups ?? this.totalPushups,
       seriesCompleted: seriesCompleted ?? this.seriesCompleted,
       totalKcal: totalKcal,
+      pointsEarned: pointsEarned ?? this.pointsEarned,
+      multiplier: multiplier ?? this.multiplier,
+      excessPushups: excessPushups ?? this.excessPushups,
     );
   }
 }

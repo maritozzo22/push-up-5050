@@ -401,4 +401,180 @@ void main() {
       expect(multiplier, greaterThan(1.3));
     });
   });
+
+  group('Aggressive Points Formula - Phase 03.2', () {
+    group('getRepMultiplier', () {
+      test('returns 0.0 for 0 pushups', () {
+        expect(Calculator.getRepMultiplier(0), 0.0);
+      });
+
+      test('returns 1.5 for 5 pushups (5 x 0.3)', () {
+        expect(Calculator.getRepMultiplier(5), 1.5);
+      });
+
+      test('returns 3.0 for 10 pushups (10 x 0.3)', () {
+        expect(Calculator.getRepMultiplier(10), 3.0);
+      });
+
+      test('calculates correctly for any value', () {
+        expect(Calculator.getRepMultiplier(1), 0.3);
+        expect(Calculator.getRepMultiplier(15), 4.5);
+        expect(Calculator.getRepMultiplier(20), 6.0);
+      });
+    });
+
+    group('getSeriesMultiplier', () {
+      test('returns 0.8 for series 1 (1 x 0.8)', () {
+        expect(Calculator.getSeriesMultiplier(1), 0.8);
+      });
+
+      test('returns 4.0 for series 5 (5 x 0.8)', () {
+        expect(Calculator.getSeriesMultiplier(5), 4.0);
+      });
+
+      test('returns 8.0 for series 10 (10 x 0.8)', () {
+        expect(Calculator.getSeriesMultiplier(10), 8.0);
+      });
+
+      test('calculates correctly for any series', () {
+        expect(Calculator.getSeriesMultiplier(2), 1.6);
+        expect(Calculator.getSeriesMultiplier(15), 12.0);
+        expect(Calculator.getSeriesMultiplier(20), 16.0);
+      });
+    });
+
+    group('calculateSeriesPoints', () {
+      test('calculates Series 1, 1 pushup, 0-day streak = 11 points', () {
+        // Base: 10
+        // RepMult: 1 x 0.3 = 0.3
+        // SeriesMult: 1 x 0.8 = 0.8
+        // StreakMult: 1.0 (0 days)
+        // Result: 10 x (0.3 + 0.8) x 1.0 = 11
+        final points = Calculator.calculateSeriesPoints(
+          seriesNumber: 1,
+          pushupsInSeries: 1,
+          consecutiveDays: 0,
+        );
+        expect(points, 11);
+      });
+
+      test('calculates Series 5, 5 pushups, 3-day streak = 55 points', () {
+        // Base: 10
+        // RepMult: 5 x 0.3 = 1.5
+        // SeriesMult: 5 x 0.8 = 4.0
+        // StreakMult: 1.0 (3 days)
+        // Result: 10 x (1.5 + 4.0) x 1.0 = 55
+        final points = Calculator.calculateSeriesPoints(
+          seriesNumber: 5,
+          pushupsInSeries: 5,
+          consecutiveDays: 3,
+        );
+        expect(points, 55);
+      });
+
+      test('calculates Series 10, 10 pushups, 20-day streak (2.0x) = 220 points', () {
+        // Base: 10
+        // RepMult: 10 x 0.3 = 3.0
+        // SeriesMult: 10 x 0.8 = 8.0
+        // StreakMult: 2.0 (20 days)
+        // Result: 10 x (3.0 + 8.0) x 2.0 = 220
+        final points = Calculator.calculateSeriesPoints(
+          seriesNumber: 10,
+          pushupsInSeries: 10,
+          consecutiveDays: 20,
+        );
+        expect(points, 220);
+      });
+
+      test('applies 1.2x multiplier for 5-day streak', () {
+        // Base: 10
+        // RepMult: 5 x 0.3 = 1.5
+        // SeriesMult: 5 x 0.8 = 4.0
+        // StreakMult: 1.2 (5 days)
+        // Result: 10 x (1.5 + 4.0) x 1.2 = 66
+        final points = Calculator.calculateSeriesPoints(
+          seriesNumber: 5,
+          pushupsInSeries: 5,
+          consecutiveDays: 5,
+        );
+        expect(points, 66);
+      });
+
+      test('applies 1.5x multiplier for 10-day streak', () {
+        // Base: 10
+        // RepMult: 10 x 0.3 = 3.0
+        // SeriesMult: 10 x 0.8 = 8.0
+        // StreakMult: 1.5 (10 days)
+        // Result: 10 x (3.0 + 8.0) x 1.5 = 165
+        final points = Calculator.calculateSeriesPoints(
+          seriesNumber: 10,
+          pushupsInSeries: 10,
+          consecutiveDays: 10,
+        );
+        expect(points, 165);
+      });
+
+      test('handles 0 pushups in series', () {
+        // Base: 10
+        // RepMult: 0 x 0.3 = 0.0
+        // SeriesMult: 5 x 0.8 = 4.0
+        // StreakMult: 1.0
+        // Result: 10 x (0.0 + 4.0) x 1.0 = 40
+        final points = Calculator.calculateSeriesPoints(
+          seriesNumber: 5,
+          pushupsInSeries: 0,
+          consecutiveDays: 0,
+        );
+        expect(points, 40);
+      });
+
+      test('rewards longer series significantly more', () {
+        // Series 1, 1 pushup, 0 streak: 10 x (0.3 + 0.8) x 1.0 = 11
+        final points1 = Calculator.calculateSeriesPoints(
+          seriesNumber: 1,
+          pushupsInSeries: 1,
+          consecutiveDays: 0,
+        );
+
+        // Series 20, 20 pushups, 0 streak: 10 x (6.0 + 16.0) x 1.0 = 220
+        final points20 = Calculator.calculateSeriesPoints(
+          seriesNumber: 20,
+          pushupsInSeries: 20,
+          consecutiveDays: 0,
+        );
+
+        expect(points1, 11);
+        expect(points20, 220);
+        expect(points20 / points1, greaterThan(19)); // 20x progression
+      });
+    });
+  });
+
+  group('Daily Cap Calculation - Phase 03.2', () {
+    test('calculates cap for level 1-3 (1.5x daily goal)', () {
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 0), 75); // Level 1
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 500), 75); // Level 1
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 999), 75); // Level 1
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 1000), 75); // Level 2
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 5000), 75); // Level 3
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 9999), 75); // Level 3
+    });
+
+    test('calculates cap for level 4 (2.0x daily goal)', () {
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 10000), 100); // Level 4
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 24999), 100); // Level 4
+    });
+
+    test('calculates cap for level 5 (2.5x daily goal)', () {
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 25000), 125); // Level 5
+      expect(Calculator.calculateDailyCap(dailyGoal: 50, totalPoints: 100000), 125); // Level 5
+    });
+
+    test('handles different daily goals', () {
+      expect(Calculator.calculateDailyCap(dailyGoal: 20, totalPoints: 0), 30); // 20 x 1.5
+      expect(Calculator.calculateDailyCap(dailyGoal: 30, totalPoints: 0), 45); // 30 x 1.5
+      expect(Calculator.calculateDailyCap(dailyGoal: 75, totalPoints: 0), 112); // 75 x 1.5
+      expect(Calculator.calculateDailyCap(dailyGoal: 100, totalPoints: 0), 150); // 100 x 1.5
+    });
+  });
 }

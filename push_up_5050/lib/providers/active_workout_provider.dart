@@ -26,6 +26,9 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   // Achievement tracking nella sessione corrente
   final List<Achievement> _sessionAchievements = [];
 
+  // Points tracking nella sessione corrente (real-time)
+  int _sessionPoints = 0;
+
   /// Create a new ActiveWorkoutProvider.
   ///
   /// Requires a [StorageService] instance for data persistence
@@ -64,6 +67,10 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   double get sessionAchievementMultiplier =>
       Calculator.getAchievementMultiplier(_sessionAchievements.length);
 
+  /// Punti guadagnati nella sessione corrente (real-time).
+  /// Si aggiorna ogni volta che viene completata una serie.
+  int get sessionPoints => _sessionPoints;
+
   // ==================== Workout Preferences ====================
 
   int? _savedStartingSeries;
@@ -83,7 +90,7 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   ///
   /// Creates a new [WorkoutSession] with the given parameters.
   /// Saves to storage automatically.
-  /// Resets session achievement tracking.
+  /// Resets session achievement and points tracking.
   Future<void> startWorkout({
     required int startingSeries,
     required int restTime,
@@ -97,6 +104,7 @@ class ActiveWorkoutProvider extends ChangeNotifier {
     _isRecovery = false;
     _recoverySecondsRemaining = 0;
     _sessionAchievements.clear(); // Reset tracking achievement sessione
+    _sessionPoints = 0; // Reset tracking punti sessione
 
     await _saveSession();
     notifyListeners();
@@ -149,11 +157,16 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   /// - Not in recovery mode
   ///
   /// Automatically saves to storage.
-  void countRep() {
+  /// Also calculates and adds points for this rep (real-time).
+  void countRep() async {
     if (_session == null) return;
     if (_isRecovery) return;
 
     _session!.countRep();
+
+    // Calculate points for this rep immediately (real-time feedback)
+    await _calculateRepPoints();
+
     _saveSession();
     notifyListeners();
   }
@@ -162,14 +175,45 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   ///
   /// Sets recovery state and initializes timer.
   /// User cannot count reps during recovery.
-  void startRecovery() {
+  /// Note: Points are now calculated per rep, not per series.
+  void startRecovery() async {
     if (_session == null) return;
 
     _isRecovery = true;
     _recoverySecondsRemaining = _session!.restTime;
 
+    // Points are now calculated per rep in countRep()
+    // No additional calculation needed here
+
     _saveSession();
     notifyListeners();
+  }
+
+  /// Calculate points for a single rep and add to session total.
+  ///
+  /// Uses a per-rep formula derived from the aggressive series formula.
+  /// Formula: (RepMult per rep + SeriesMult portion) × StreakMult
+  /// Where RepMult per rep = 0.3, SeriesMult portion = (seriesNumber × 0.8) / seriesNumber
+  /// This gives real-time feedback as each rep is completed.
+  Future<void> _calculateRepPoints() async {
+    if (_session == null) return;
+
+    final streak = await _storage.calculateCurrentStreak();
+
+    // Current series info
+    final currentSeriesNumber = _session!.currentSeries;
+    final repsInCurrentSeries = _session!.repsInCurrentSeries;
+
+    if (currentSeriesNumber < _session!.startingSeries) return;
+
+    // Calculate points for this single rep using Calculator method
+    final repPoints = Calculator.calculateRepPoints(
+      seriesNumber: currentSeriesNumber,
+      repNumber: repsInCurrentSeries,
+      consecutiveDays: streak,
+    );
+
+    _sessionPoints += repPoints;
   }
 
   /// Advance to next series.
@@ -209,28 +253,89 @@ class ActiveWorkoutProvider extends ChangeNotifier {
     _isRecovery = false;
     _recoverySecondsRemaining = 0;
 
-    // Calculate series completed from totalReps and startingSeries
-    // Progressive series: startingSeries, startingSeries+1, startingSeries+2, ...
-    // Example: startingSeries=5 means series 5, 6, 7, ... (not 1, 2, 3, ...)
-    // A series is only counted as complete if totalReps covers it fully
+    // Calculate points for this workout using aggressive formula
+    // Load streak for multiplier
+    final streak = await _storage.calculateCurrentStreak();
+
+    // Get today's existing record to check cap
+    final today = DateTime.now();
+    final existingRecord = await _storage.getDailyRecord(today);
+    final dailyGoal = _storage.getDailyGoal();
+
+    // Calculate daily cap based on total points
+    // Note: TotalPoints from all records (before this workout)
+    final allRecords = await _storage.loadDailyRecords();
+    int totalPointsBefore = 0;
+    for (final entry in allRecords.entries) {
+      final recordData = entry.value as Map<String, dynamic>;
+      final record = DailyRecord.fromJson(recordData);
+      totalPointsBefore += record.pointsEarned;
+    }
+
+    final dailyCap = Calculator.calculateDailyCap(
+      dailyGoal: dailyGoal,
+      totalPoints: totalPointsBefore,
+    );
+
+    // Calculate pushups already done today
+    final pushupsAlreadyDone = existingRecord?.totalPushups ?? 0;
+
+    // Calculate series completed and points with cap enforcement in one loop
     int seriesCompleted = 0;
+    int earnedPoints = 0;
+    double lastMultiplier = 1.0;
+    int seriesIndex = 0;
     int repsCount = 0;
     int seriesNum = startingSeries;
+    int rewardedPushups = 0;
+    int excessPushups = 0;
 
     while (repsCount + seriesNum <= totalReps) {
+      final pushupsInSeries = seriesNum;
+      final pushupsAfterThis = pushupsAlreadyDone + repsCount + pushupsInSeries;
+
+      // Check if this series would exceed cap
+      if (pushupsAfterThis <= dailyCap) {
+        // Within cap - calculate full points
+        final seriesPoints = Calculator.calculateSeriesPoints(
+          seriesNumber: seriesNum,
+          pushupsInSeries: pushupsInSeries,
+          consecutiveDays: streak,
+        );
+        earnedPoints += seriesPoints;
+        rewardedPushups += pushupsInSeries;
+      } else if (pushupsAlreadyDone + repsCount < dailyCap) {
+        // Partial series - calculate points only up to cap
+        final remainingToCap = dailyCap - (pushupsAlreadyDone + repsCount);
+        final partialPoints = Calculator.calculateSeriesPoints(
+          seriesNumber: seriesNum,
+          pushupsInSeries: remainingToCap,
+          consecutiveDays: streak,
+        );
+        earnedPoints += ((partialPoints / pushupsInSeries) * remainingToCap).floor();
+        rewardedPushups += remainingToCap;
+        excessPushups += (pushupsInSeries - remainingToCap);
+      } else {
+        // Beyond cap - no points
+        excessPushups += pushupsInSeries;
+      }
+
       repsCount += seriesNum;
-      seriesCompleted++;
+      seriesIndex++;
       seriesNum++;
     }
 
-    // Create and save daily record for today
-    final today = DateTime.now();
-    final existingRecord = await _storage.getDailyRecord(today);
+    // Update streak multiplier for display
+    lastMultiplier = Calculator.getDayStreakMultiplier(streak);
 
-    final record = DailyRecord.fromSession(
-      today,
-      totalReps,
-      seriesCompleted,
+    // Create and save daily record for today
+    final record = DailyRecord(
+      date: today,
+      totalPushups: totalReps,
+      seriesCompleted: seriesCompleted,
+      pointsEarned: earnedPoints,
+      multiplier: lastMultiplier,
+      excessPushups: (existingRecord?.excessPushups ?? 0) + excessPushups,
     );
 
     if (existingRecord != null) {
@@ -239,6 +344,9 @@ class ActiveWorkoutProvider extends ChangeNotifier {
         date: today,
         totalPushups: existingRecord.totalPushups + record.totalPushups,
         seriesCompleted: existingRecord.seriesCompleted + record.seriesCompleted,
+        pointsEarned: existingRecord.pointsEarned + record.pointsEarned,
+        multiplier: record.multiplier,
+        excessPushups: existingRecord.excessPushups + record.excessPushups,
       );
       await _storage.saveDailyRecord(mergedRecord);
     } else {
