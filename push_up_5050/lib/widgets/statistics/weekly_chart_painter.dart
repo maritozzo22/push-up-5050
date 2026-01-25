@@ -7,15 +7,17 @@ import 'package:push_up_5050/widgets/design_system/frost_card.dart';
 /// - Title "PROGRESSI SETTIMANALI"
 /// - Area chart with 7 days (Mon-Sun)
 /// - Orange gradient fill under the line
-///
-/// TODO: Connect to actual weekly data (weeklySeries from UserStatsProvider).
-/// Currently displays placeholder data for visual demonstration.
+/// - Weekly progress summary (total / target)
 class WeeklyChartCard extends StatelessWidget {
   final List<double>? weeklySeries;
+  final int weekTotal;
+  final int weeklyTarget;
 
   const WeeklyChartCard({
     super.key,
     this.weeklySeries,
+    this.weekTotal = 0,
+    this.weeklyTarget = 250,
   });
 
   @override
@@ -28,14 +30,29 @@ class WeeklyChartCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'PROGRESSI SETTIMANALI',
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 0.6,
-              color: Colors.white.withOpacity(0.70),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'PROGRESSI SETTIMANALI',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 0.6,
+                  color: Colors.white.withOpacity(0.70),
+                ),
+              ),
+              Text(
+                '$weekTotal / $weeklyTarget',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: weekTotal >= weeklyTarget
+                      ? const Color(0xFF4CAF50) // Green when complete
+                      : Colors.white.withOpacity(0.70),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 16),
           Expanded(
@@ -47,7 +64,6 @@ class WeeklyChartCard extends StatelessWidget {
   }
 
   /// Placeholder data for visual demonstration.
-  /// TODO: Remove when real weekly data is available.
   static const List<double> _placeholderData = [0.3, 0.5, 0.4, 0.7, 0.6, 0.8, 0.65];
 }
 

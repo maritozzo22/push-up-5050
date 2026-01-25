@@ -135,7 +135,9 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
 
         // Weekly Progress Chart
         WeeklyChartCard(
-          weeklySeries: stats.weekSeries, // TODO: Implement in provider
+          weeklySeries: stats.weekSeries,
+          weekTotal: stats.weekTotal,
+          weeklyTarget: goals.weeklyTarget,
         ),
 
         const SizedBox(height: 16),
