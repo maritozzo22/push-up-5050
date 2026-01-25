@@ -1,29 +1,29 @@
 # STATE.md
 
 **Project:** Push-Up 5050 - Engagement & Retention
-**Last Updated:** 2026-01-24
+**Last Updated:** 2026-01-25
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-01-23)
 
 **Core value:** Progressive push-up training app with gamification
-**Current focus:** Phase 03.2 - Enhanced Points & Anti-Cheat
+**Current focus:** Phase 03.3 - Weekly Goals System
 
 ## Current Position
 
-Phase: 2 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 4 of 4 in current phase
-Status: Phase complete, verified ✓
-Last activity: 2026-01-24 — Phase 03.2 complete, all tests passing
+Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-25 — Completed 03.3-01 (Weekly State Tracking Infrastructure)
 
-Progress: ██████████ 100%
+Progress: ██████░░░░ 60%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: ~15 min
+- Total plans completed: 8
+- Average duration: ~13 min
 - Total execution time: 1.75 hours
 
 **By Phase:**
@@ -32,10 +32,11 @@ Progress: ██████████ 100%
 |-------|-------|-------|----------|
 | 03.1  | 3     | 3     | ~15 min  |
 | 03.2  | 4     | 4     | ~15 min  |
+| 03.3  | 1     | 4     | ~6 min   |
 
 **Recent Trend:**
-- Last 4 plans: 03.2-01 (formula), 03.2-02 (model), 03.2-03 (integration), 03.2-04 (anti-cheat)
-- Trend: Phase 03.2 complete, all implementations already existed
+- Latest: 03.3-01 (weekly state tracking)
+- Trend: Phase 03.3 started, foundational infrastructure complete
 
 *Updated after each plan completion*
 
@@ -69,6 +70,13 @@ Recent decisions affecting current work:
 - **Settings Restart Button**: Reused existing "Restart Tutorial" button in settings to launch new onboarding for easy testing
 - **Old Onboarding Removed**: Deleted onboarding_screen.dart to avoid confusion and ensure new flow is used
 
+**From 03.3-01:**
+- **Monday Week Boundaries**: Used DateTime.weekday (1=Mon, 7=Sun) for ISO week calculation - getWeekStart() returns Monday 00:00:00
+- **Week Number Format**: "YYYY-WW" format (e.g., "2026-04") for unique storage keys across year boundaries
+- **Separate Flags for Review vs Bonus**: Review popup status and bonus award status tracked independently - user may see review but not earn bonus
+- **Weekly Streak Logic**: Any push-ups (>0) in a week preserves streak (less strict than daily 50+ requirement)
+- **No intl Package**: Week calculation uses built-in DateTime APIs only (no external dependencies)
+
 ### Pending Todos
 
 5 todos captured from user feedback:
@@ -87,8 +95,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-24
-Stopped at: All 3 plans of Phase 03.1 complete, awaiting human verification checkpoint
+Last session: 2026-01-25
+Stopped at: Completed 03.3-01 (Weekly State Tracking Infrastructure)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -116,3 +124,12 @@ Resume file: None
 | 03.2-02 | DailyRecord Points Tracking Fields | Complete |
 | 03.2-03 | Points Integration (Providers & UI) | Complete |
 | 03.2-04 | Daily Cap Anti-Cheat System | Complete |
+
+## Phase 03.3 Plans
+
+| Plan | Name | Status |
+|------|------|--------|
+| 03.3-01 | Weekly State Tracking Infrastructure | Complete |
+| 03.3-02 | Weekly Goals Review Popup | Pending |
+| 03.3-03 | Weekly Bonus Award System | Pending |
+| 03.3-04 | Weekly Goals UI Integration | Pending |
