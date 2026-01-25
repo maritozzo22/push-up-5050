@@ -33,6 +33,7 @@ class StorageService {
   static const String _keyProgramStartDate = 'program_start_date';
   static const String _keyDailyGoal = 'daily_goal';
   static const String _keyMonthlyGoal = 'monthly_goal';
+  static const String _keyWeeklyGoal = 'weekly_goal';
   static const String _keyOnboardingCompleted = 'onboarding_completed';
   static const String _keyWeeklyReviewShown = 'weekly_review_shown_';
   static const String _keyWeeklyBonusAwarded = 'weekly_bonus_awarded_';
@@ -329,6 +330,18 @@ class StorageService {
   /// Returns 1500 (50 * 30) as default if not set.
   int getMonthlyGoal() {
     return _prefs.getInt(_keyMonthlyGoal) ?? 1500;
+  }
+
+  /// Save weekly goal to storage.
+  Future<void> setWeeklyGoal(int goal) async {
+    await _prefs.setInt(_keyWeeklyGoal, goal);
+  }
+
+  /// Get weekly goal from storage.
+  /// Returns daily goal × 5 as default if not set.
+  /// This ensures weekly goal stays synced with daily goal changes.
+  int getWeeklyGoal() {
+    return _prefs.getInt(_keyWeeklyGoal) ?? getDailyGoal() * 5;
   }
 
   /// Save onboarding completion status.
