@@ -13,30 +13,30 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-01-25 — Completed 03.3-03 (Weekly Goals Review Popup)
+Plan: 4 of 4 in current phase
+Status: Phase complete
+Last activity: 2026-01-25 — Completed 03.3-04 (Weekly Bonus Award System Integration)
 
-Progress: █████████░ 75%
+Progress: ██████████ 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: ~12 min
-- Total execution time: 2.02 hours
+- Total execution time: 2.12 hours
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 03.1  | 3     | 3     | ~15 min  |
-| 03.2  | 4     | 4     | ~15 min  |
-| 03.3  | 3     | 4     | ~7 min   |
+| Phase | Plans | Complete | Avg/Plan |
+|-------|-------|----------|----------|
+| 03.1  | 3     | 3        | ~15 min  |
+| 03.2  | 4     | 4        | ~15 min  |
+| 03.3  | 4     | 4        | ~8 min   |
 
 **Recent Trend:**
-- Latest: 03.3-03 (weekly review popup)
-- Trend: Phase 03.3 progressing ahead of schedule
+- Latest: 03.3-04 (weekly bonus award integration)
+- Phase 03.3 complete in ~32 min total
 
 *Updated after each plan completion*
 
@@ -88,6 +88,12 @@ Recent decisions affecting current work:
 - **Weekly Bonus Formula**: 500 base points for reaching target + 0.5 per excess push-up, capped at 250 excess (max 750 total)
 - **Months-to-Goal Simplified**: Uses 50 / dailyGoal formula (ignores current progress) for clear preview
 
+**From 03.3-04:**
+- **Sunday OR Target Reached Trigger**: Popup shows on Sunday (end of week) OR immediately when target reached (early celebration)
+- **Dual Streak Display**: Both daily (Giorno) and weekly (Settimana) streak badges displayed on home screen
+- **One-Time Check Flag**: _weeklyReviewChecked prevents duplicate popup checks per session
+- **Bonus Award Timing**: Awarded immediately when popup shows for achieved targets, stored in today's record
+
 ### Pending Todos
 
 5 todos captured from user feedback:
@@ -107,7 +113,7 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-25
-Stopped at: Completed 03.3-03 (Weekly Goals Review Popup)
+Stopped at: Completed 03.3-04 (Weekly Bonus Award System Integration)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -143,4 +149,4 @@ Resume file: None
 | 03.3-01 | Weekly State Tracking Infrastructure | Complete |
 | 03.3-02 | Weekly Target Calculation | Complete |
 | 03.3-03 | Weekly Goals Review Popup | Complete |
-| 03.3-04 | Weekly Bonus Award System | Pending |
+| 03.3-04 | Weekly Bonus Award System | Complete |
