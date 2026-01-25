@@ -168,11 +168,11 @@ Milestone v2.5 focuses on increasing user engagement and retention through perso
 | POINTS-05 | 03.2 | Pending |
 | ANTCHEAT-01 | 03.2 | Pending |
 | ANTCHEAT-02 | 03.2 | Pending |
-| WEEKLY-01 | 03.3 | Pending |
-| WEEKLY-02 | 03.3 | Pending |
-| WEEKLY-03 | 03.3 | Pending |
-| WEEKLY-04 | 03.3 | Pending |
-| WEEKLY-05 | 03.3 | Pending |
+| WEEKLY-01 | 03.3 | Complete |
+| WEEKLY-02 | 03.3 | Complete |
+| WEEKLY-03 | 03.3 | Complete |
+| WEEKLY-04 | 03.3 | Complete |
+| WEEKLY-05 | 03.3 | Complete |
 | CHAL-01 | 03.4 | Pending |
 | CHAL-02 | 03.4 | Pending |
 | CHAL-03 | 03.4 | Pending |
