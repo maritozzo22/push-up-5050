@@ -305,5 +305,29 @@
         "example": "3 mesi"
       }
     }
+  },
+
+  "weeklyReviewTitle": "Revisione Settimanale",
+  "weeklyTargetAchieved": "Obiettivo Settimanale Raggiunto!",
+  "weeklyProgressLabel": "Progresso Settimanale",
+  "weeklyBonusAwarded": "+{bonus} punti bonus",
+  "@weeklyBonusAwarded": {
+    "placeholders": {
+      "bonus": {"type": "int", "example": "500"}
+    }
+  },
+  "weeklyBonusMessage": "Hai raggiunto il tuo obiettivo settimanale!",
+  "weeklyMissedMessage": "Non hai raggiunto il tuo obiettivo questa settimana.",
+  "weeklyGoalMaintain": "Mantieni obiettivo",
+  "weeklyGoalIncrease10": "Aumenta del 10%",
+  "weeklyGoalIncrease20": "Aumenta del 20%",
+  "weeklyGoalDecrease10": "Riduci del 10%",
+  "weeklyGoalDecrease20": "Riduci del 20%",
+  "weeklyGoalDecrease30": "Riduci del 30%",
+  "monthlyToGoal": "{months} mesi per 50 push-up",
+  "@monthlyToGoal": {
+    "placeholders": {
+      "months": {"type": "int", "example": "3"}
+    }
   }
 }

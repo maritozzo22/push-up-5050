@@ -305,5 +305,29 @@
         "example": "3 months"
       }
     }
+  },
+
+  "weeklyReviewTitle": "Weekly Review",
+  "weeklyTargetAchieved": "Weekly Target Achieved!",
+  "weeklyProgressLabel": "Weekly Progress",
+  "weeklyBonusAwarded": "+{bonus} bonus points",
+  "@weeklyBonusAwarded": {
+    "placeholders": {
+      "bonus": {"type": "int", "example": "500"}
+    }
+  },
+  "weeklyBonusMessage": "You've reached your weekly target!",
+  "weeklyMissedMessage": "You didn't reach your target this week.",
+  "weeklyGoalMaintain": "Maintain goal",
+  "weeklyGoalIncrease10": "Increase by 10%",
+  "weeklyGoalIncrease20": "Increase by 20%",
+  "weeklyGoalDecrease10": "Decrease by 10%",
+  "weeklyGoalDecrease20": "Decrease by 20%",
+  "weeklyGoalDecrease30": "Decrease by 30%",
+  "monthlyToGoal": "{months} months to 50 push-ups",
+  "@monthlyToGoal": {
+    "placeholders": {
+      "months": {"type": "int", "example": "3"}
+    }
   }
 }
