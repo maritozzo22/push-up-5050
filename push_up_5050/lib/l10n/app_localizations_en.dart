@@ -530,4 +530,47 @@ class AppLocalizationsEn extends AppLocalizations {
   String onboardingPacePreview(String time) {
     return 'At this pace, you\'ll reach 5050 in about $time';
   }
+
+  @override
+  String get weeklyReviewTitle => 'Weekly Review';
+
+  @override
+  String get weeklyTargetAchieved => 'Weekly Target Achieved!';
+
+  @override
+  String get weeklyProgressLabel => 'Weekly Progress';
+
+  @override
+  String weeklyBonusAwarded(int bonus) {
+    return '+$bonus bonus points';
+  }
+
+  @override
+  String get weeklyBonusMessage => 'You\'ve reached your weekly target!';
+
+  @override
+  String get weeklyMissedMessage => 'You didn\'t reach your target this week.';
+
+  @override
+  String get weeklyGoalMaintain => 'Maintain goal';
+
+  @override
+  String get weeklyGoalIncrease10 => 'Increase by 10%';
+
+  @override
+  String get weeklyGoalIncrease20 => 'Increase by 20%';
+
+  @override
+  String get weeklyGoalDecrease10 => 'Decrease by 10%';
+
+  @override
+  String get weeklyGoalDecrease20 => 'Decrease by 20%';
+
+  @override
+  String get weeklyGoalDecrease30 => 'Decrease by 30%';
+
+  @override
+  String monthlyToGoal(int months) {
+    return '$months months to 50 push-ups';
+  }
 }

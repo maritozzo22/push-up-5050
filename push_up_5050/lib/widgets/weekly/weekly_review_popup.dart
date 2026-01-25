@@ -26,7 +26,7 @@ class WeeklyReviewPopup extends StatelessWidget {
         backgroundColor: const Color(0xFF1A1F28),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.primaryOrange, width: 2),
+          side: BorderSide(color: AppColors.primaryOrange, width: 2),
         ),
         contentPadding: const EdgeInsets.all(24),
         content: SingleChildScrollView(

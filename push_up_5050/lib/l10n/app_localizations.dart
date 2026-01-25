@@ -1063,6 +1063,84 @@ abstract class AppLocalizations {
   /// In it, this message translates to:
   /// **'A questo ritmo, raggiungerai 5050 in circa {time}'**
   String onboardingPacePreview(String time);
+
+  /// No description provided for @weeklyReviewTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Revisione Settimanale'**
+  String get weeklyReviewTitle;
+
+  /// No description provided for @weeklyTargetAchieved.
+  ///
+  /// In it, this message translates to:
+  /// **'Obiettivo Settimanale Raggiunto!'**
+  String get weeklyTargetAchieved;
+
+  /// No description provided for @weeklyProgressLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Progresso Settimanale'**
+  String get weeklyProgressLabel;
+
+  /// No description provided for @weeklyBonusAwarded.
+  ///
+  /// In it, this message translates to:
+  /// **'+{bonus} punti bonus'**
+  String weeklyBonusAwarded(int bonus);
+
+  /// No description provided for @weeklyBonusMessage.
+  ///
+  /// In it, this message translates to:
+  /// **'Hai raggiunto il tuo obiettivo settimanale!'**
+  String get weeklyBonusMessage;
+
+  /// No description provided for @weeklyMissedMessage.
+  ///
+  /// In it, this message translates to:
+  /// **'Non hai raggiunto il tuo obiettivo questa settimana.'**
+  String get weeklyMissedMessage;
+
+  /// No description provided for @weeklyGoalMaintain.
+  ///
+  /// In it, this message translates to:
+  /// **'Mantieni obiettivo'**
+  String get weeklyGoalMaintain;
+
+  /// No description provided for @weeklyGoalIncrease10.
+  ///
+  /// In it, this message translates to:
+  /// **'Aumenta del 10%'**
+  String get weeklyGoalIncrease10;
+
+  /// No description provided for @weeklyGoalIncrease20.
+  ///
+  /// In it, this message translates to:
+  /// **'Aumenta del 20%'**
+  String get weeklyGoalIncrease20;
+
+  /// No description provided for @weeklyGoalDecrease10.
+  ///
+  /// In it, this message translates to:
+  /// **'Riduci del 10%'**
+  String get weeklyGoalDecrease10;
+
+  /// No description provided for @weeklyGoalDecrease20.
+  ///
+  /// In it, this message translates to:
+  /// **'Riduci del 20%'**
+  String get weeklyGoalDecrease20;
+
+  /// No description provided for @weeklyGoalDecrease30.
+  ///
+  /// In it, this message translates to:
+  /// **'Riduci del 30%'**
+  String get weeklyGoalDecrease30;
+
+  /// No description provided for @monthlyToGoal.
+  ///
+  /// In it, this message translates to:
+  /// **'{months} mesi per 50 push-up'**
+  String monthlyToGoal(int months);
 }
 
 class _AppLocalizationsDelegate

@@ -116,7 +116,7 @@ class WeeklyReviewProvider extends ChangeNotifier {
   }
 
   /// Award weekly bonus points to today's record
-  Future<void> awardWeeklyBonus(int weekNumber) async {
+  Future<void> awardWeeklyBonus(String weekNumber) async {
     if (_weeklyBonus == 0) return;
 
     final today = DateTime.now();
