@@ -28,6 +28,7 @@ class UserStatsProvider extends ChangeNotifier {
   List<DailyRecord?> _programDayRecords = [];
   int _consecutiveMissedDays = 0;
   int _totalPoints = 0;
+  int _weeklyStreak = 0;
 
   /// Create a new UserStatsProvider.
   ///
@@ -71,6 +72,9 @@ class UserStatsProvider extends ChangeNotifier {
 
   /// Total points earned across all workout sessions.
   int get totalPoints => _totalPoints;
+
+  /// Weekly streak of consecutive weeks with any push-ups (> 0).
+  int get weeklyStreak => _weeklyStreak;
 
   /// Total push-ups for the current week.
   ///
@@ -163,6 +167,7 @@ class UserStatsProvider extends ChangeNotifier {
 
       // Get streak from storage
       _currentStreak = await _storage.calculateCurrentStreak();
+      _weeklyStreak = await _storage.calculateWeeklyStreak();
 
       // Load program start date
       _programStartDate = await _storage.getProgramStartDate();
