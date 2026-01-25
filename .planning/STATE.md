@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-25 — Completed 03.3-01 (Weekly State Tracking Infrastructure)
+Last activity: 2026-01-25 — Completed 03.3-02 (Weekly Target Calculation)
 
-Progress: ██████░░░░ 60%
+Progress: ████████░░ 70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: ~13 min
-- Total execution time: 1.75 hours
+- Total plans completed: 9
+- Average duration: ~12 min
+- Total execution time: 1.92 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: ██████░░░░ 60%
 |-------|-------|-------|----------|
 | 03.1  | 3     | 3     | ~15 min  |
 | 03.2  | 4     | 4     | ~15 min  |
-| 03.3  | 1     | 4     | ~6 min   |
+| 03.3  | 2     | 4     | ~7 min   |
 
 **Recent Trend:**
-- Latest: 03.3-01 (weekly state tracking)
-- Trend: Phase 03.3 started, foundational infrastructure complete
+- Latest: 03.3-02 (weekly target calculation)
+- Trend: Phase 03.3 progressing ahead of schedule
 
 *Updated after each plan completion*
 
@@ -77,6 +77,11 @@ Recent decisions affecting current work:
 - **Weekly Streak Logic**: Any push-ups (>0) in a week preserves streak (less strict than daily 50+ requirement)
 - **No intl Package**: Week calculation uses built-in DateTime APIs only (no external dependencies)
 
+**From 03.3-02:**
+- **5 Workout Days Per Week**: Weekly target = daily goal × 5 (not × 7) to allow for 2 rest days while maintaining progression
+- **Auto-Calculated Default**: Weekly goal default uses getDailyGoal() * 5 so it stays synced when daily goal changes
+- **Green Highlight on Completion**: Weekly progress text changes to green (#4CAF50) when target is achieved
+
 ### Pending Todos
 
 5 todos captured from user feedback:
@@ -96,7 +101,7 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-25
-Stopped at: Completed 03.3-01 (Weekly State Tracking Infrastructure)
+Stopped at: Completed 03.3-02 (Weekly Target Calculation)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -130,6 +135,6 @@ Resume file: None
 | Plan | Name | Status |
 |------|------|--------|
 | 03.3-01 | Weekly State Tracking Infrastructure | Complete |
-| 03.3-02 | Weekly Goals Review Popup | Pending |
-| 03.3-03 | Weekly Bonus Award System | Pending |
-| 03.3-04 | Weekly Goals UI Integration | Pending |
+| 03.3-02 | Weekly Target Calculation | Complete |
+| 03.3-03 | Weekly Goals Review Popup | Pending |
+| 03.3-04 | Weekly Bonus Award System | Pending |
