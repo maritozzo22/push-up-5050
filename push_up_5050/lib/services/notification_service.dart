@@ -4,6 +4,21 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
 
+/// Unique notification IDs to prevent overwriting.
+class NotificationIds {
+  static const int dailyReminder = 0;        // Existing - Daily workout reminder
+  static const int streakAtRisk = 1;         // NEW - Streak at risk warning
+  static const int progressEncouragement = 2; // NEW - Progress encouragement
+  static const int weeklyChallenge = 3;      // NEW - Sunday challenge announcement
+}
+
+/// Notification channel IDs for Android system settings.
+class NotificationChannels {
+  static const String streak = 'streak_channel';
+  static const String progress = 'progress_channel';
+  static const String challenge = 'challenge_channel';
+}
+
 /// Service for managing local notifications.
 ///
 /// Handles:
