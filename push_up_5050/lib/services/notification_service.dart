@@ -359,6 +359,77 @@ class NotificationService {
     }
   }
 
+  /// Schedule weekly challenge announcement notification.
+  ///
+  /// Sends notification on Sunday at 8:00 AM announcing new weekly challenge.
+  /// Not personalized - always fires at 8:00 AM Sunday.
+  /// All strings are localized by caller via AppLocalizations.
+  ///
+  /// Returns true if scheduled successfully.
+  Future<bool> scheduleWeeklyChallengeNotification({
+    required String title,
+    required String body,
+    required String channelName,
+    required String channelDescription,
+  }) async {
+    if (!_initialized) {
+      await initialize();
+    }
+
+    final hasPermission = await requestPermissions();
+    if (!hasPermission) {
+      debugPrint('NotificationService: POST_NOTIFICATIONS permission not granted');
+      return false;
+    }
+
+    // Cancel existing challenge notification
+    await cancel(NotificationIds.weeklyChallenge);
+
+    // Calculate next Sunday 8:00 AM
+    final now = tz.TZDateTime.now(tz.local);
+    var scheduled = tz.TZDateTime(tz.local, now.year, now.month, now.day, 8, 0);
+
+    // Find next Sunday (weekday 7)
+    while (scheduled.weekday != 7) {
+      scheduled = scheduled.add(const Duration(days: 1));
+    }
+
+    // If Sunday 8AM has passed today, schedule for next Sunday
+    if (scheduled.isBefore(now)) {
+      scheduled = scheduled.add(const Duration(days: 7));
+    }
+
+    final androidDetails = AndroidNotificationDetails(
+      NotificationChannels.challenge,
+      channelName,
+      channelDescription: channelDescription,
+      importance: Importance.high,
+      priority: Priority.high,
+    );
+
+    const platformDetails = NotificationDetails(
+      android: androidDetails,
+    );
+
+    try {
+      await _plugin.zonedSchedule(
+        NotificationIds.weeklyChallenge,
+        title,
+        body,
+        scheduled,
+        platformDetails,
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
+        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+      );
+      debugPrint('NotificationService: Weekly challenge notification scheduled for Sunday 8:00 AM');
+      return true;
+    } catch (e) {
+      debugPrint('NotificationService: Failed to schedule weekly challenge: $e');
+      return false;
+    }
+  }
+
   /// Test immediato notifica (per debug).
   ///
   /// Mostra una notifica di test immediata per verificare che le notifiche funzionino.
