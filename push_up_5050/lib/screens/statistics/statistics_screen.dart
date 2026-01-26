@@ -58,6 +58,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<UserStatsProvider>().loadStats();
       _checkChallengeCompletion();
+      _checkStreakFreezeAutoActivation();
     });
   }
 
@@ -278,14 +279,44 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
       final alreadyCompleted = await storage.hasWeeklyChallengeBeenCompleted(weekNumber);
 
       if (!alreadyCompleted) {
-        // Award bonus and show popup
+        // Award bonus first
         await storage.awardWeeklyChallengeBonus(weekNumber);
-        await stats.loadStats(); // Refresh to show new points
 
+        // Refresh stats to load the new points total
+        await stats.loadStats();
+
+        // Force UI rebuild to show updated points immediately
         if (mounted) {
+          setState(() {}); // TRIGGER: Forces StatefulWidget rebuild, Consumer gets fresh totalPoints
           _showChallengeCompletionPopup(challengeTarget);
         }
       }
+    }
+  }
+
+  /// Check if streak freeze should auto-activate and refresh state.
+  ///
+  /// Calls StorageService.autoActivateStreakFreezeIfNeeded() which checks:
+  /// - Weekly total > 0 (user did some push-ups)
+  /// - Weekly total < weekly goal (user missed their goal)
+  /// - Freeze is available (remaining > 0)
+  /// - Freeze is not already active
+  ///
+  /// If activated, refreshes stats to show the freeze state and snowflake.
+  Future<void> _checkStreakFreezeAutoActivation() async {
+    final stats = context.read<UserStatsProvider>();
+    final goals = context.read<GoalsProvider>();
+    final storage = context.read<StorageService>();
+
+    final weeklyGoal = goals.weeklyTarget;
+    final activated = await storage.autoActivateStreakFreezeIfNeeded(
+      stats.weekTotal,
+      weeklyGoal,
+    );
+
+    if (activated) {
+      // Refresh stats to show the freeze state (snowflake icon, remaining count)
+      await stats.loadStats();
     }
   }
 
