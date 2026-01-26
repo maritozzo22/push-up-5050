@@ -37,6 +37,7 @@ class StorageService {
   static const String _keyOnboardingCompleted = 'onboarding_completed';
   static const String _keyWeeklyReviewShown = 'weekly_review_shown_';
   static const String _keyWeeklyBonusAwarded = 'weekly_bonus_awarded_';
+  static const String _keyWeeklyChallengeCompleted = 'weekly_challenge_completed_';
 
   // ==================== Active Session ====================
 
@@ -342,6 +343,14 @@ class StorageService {
   /// This ensures weekly goal stays synced with daily goal changes.
   int getWeeklyGoal() {
     return _prefs.getInt(_keyWeeklyGoal) ?? getDailyGoal() * 5;
+  }
+
+  /// Calculate the weekly challenge target based on daily goal.
+  ///
+  /// The challenge is harder than the weekly goal (7 days vs 5 days).
+  /// Users must complete daily goal × 7 push-ups to complete the challenge.
+  int calculateWeeklyChallengeTarget(int dailyGoal) {
+    return dailyGoal * 7;
   }
 
   /// Save onboarding completion status.
