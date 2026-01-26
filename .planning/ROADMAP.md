@@ -132,8 +132,8 @@ All core functionality has been implemented:
 - [x] 03.4-01-PLAN.md — Weekly challenge tracking infrastructure (completion flags, target calculation, bonus award)
 - [x] 03.4-02-PLAN.md — Weekly challenge UI (WeeklyChallengeCard widget, localization, popup notification)
 - [x] 03.4-03-PLAN.md — Streak freeze system (1 per month, auto-activation, snowflake indicator)
-- [ ] 03.4-04-PLAN.md — Wire autoActivateStreakFreezeIfNeeded() into StatisticsScreen initialization
-- [ ] 03.4-05-PLAN.md — Ensure bonus points display refreshes immediately after award
+- [x] 03.4-04-PLAN.md — Wire autoActivateStreakFreezeIfNeeded() into StatisticsScreen initialization
+- [x] 03.4-05-PLAN.md — Ensure bonus points display refreshes immediately after award
 
 ---
 
@@ -179,7 +179,7 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 | 03.1 Personalized Onboarding | v2.5 | 3/3 | Complete | 2026-01-24 |
 | 03.2 Enhanced Points & Anti-Cheat | v2.5 | 4/4 | Complete | 2026-01-24 |
 | 03.3 Weekly Goals | v2.5 | 4/4 | Complete | 2026-01-25 |
-| 03.4 Challenges & Streak Freeze | v2.5 | 3/5 | Planned (Gap Closure) | - |
+| 03.4 Challenges & Streak Freeze | v2.5 | 5/5 | Complete | 2026-01-26 |
 | 03.5 Smart Notifications | v2.5 | 0/TBD | Not started | - |
 
 ---
@@ -193,4 +193,4 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 
 ---
 
-*Last updated: 2026-01-26 (Phase 03.4 gap closure plans created)*
+*Last updated: 2026-01-26 (Phase 03.4 complete, verification passed)*
