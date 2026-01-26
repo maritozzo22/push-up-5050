@@ -4,6 +4,11 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
 
+/// Callback type for notification tap events.
+///
+/// Called when user taps a notification. Payload contains notification type.
+typedef NotificationTapCallback = void Function(String? payload);
+
 /// Unique notification IDs to prevent overwriting.
 class NotificationIds {
   static const int dailyReminder = 0;        // Existing - Daily workout reminder
@@ -25,11 +30,14 @@ class NotificationChannels {
 /// - Daily reminder scheduling
 /// - Permission requests
 /// - Notification initialization
+/// - Smart notifications (streak at risk, progress, weekly challenge)
+/// - Notification tap handling with deep link support
 ///
 /// Gracefully degrades on platforms without notification support.
 class NotificationService {
   final FlutterLocalNotificationsPlugin _plugin;
   bool _initialized = false;
+  NotificationTapCallback? _onNotificationTapCallback;
 
   NotificationService() : _plugin = FlutterLocalNotificationsPlugin();
 
@@ -235,6 +243,13 @@ class NotificationService {
     }
   }
 
+  /// Register callback for notification tap events.
+  ///
+  /// Called when user taps a notification. Payload contains notification type.
+  void setOnNotificationTapCallback(NotificationTapCallback callback) {
+    _onNotificationTapCallback = callback;
+  }
+
   /// Schedule streak at risk notification.
   ///
   /// Sends daily reminder if user hasn't worked out in 2+ days.
@@ -285,6 +300,7 @@ class NotificationService {
         body,
         scheduledTime,
         platformDetails,
+        payload: 'streak_at_risk',
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.time,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
@@ -347,6 +363,7 @@ class NotificationService {
         body,
         scheduledTime,
         platformDetails,
+        payload: 'progress',
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.time,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
@@ -418,6 +435,7 @@ class NotificationService {
         body,
         scheduled,
         platformDetails,
+        payload: 'weekly_challenge',
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
@@ -543,9 +561,10 @@ class NotificationService {
 
   /// Handle notification tap.
   void _onNotificationTap(NotificationResponse response) {
-    // Handle navigation to workout screen
-    // This will be connected to the app's navigation
     debugPrint('Notification tapped: ${response.payload}');
+
+    // Notify registered callback for deep link navigation
+    _onNotificationTapCallback?.call(response.payload);
   }
 
   /// Calculate next occurrence of given time.
