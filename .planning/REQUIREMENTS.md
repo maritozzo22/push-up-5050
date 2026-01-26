@@ -173,9 +173,9 @@ Milestone v2.5 focuses on increasing user engagement and retention through perso
 | WEEKLY-03 | 03.3 | Complete |
 | WEEKLY-04 | 03.3 | Complete |
 | WEEKLY-05 | 03.3 | Complete |
-| CHAL-01 | 03.4 | Pending |
-| CHAL-02 | 03.4 | Pending |
-| CHAL-03 | 03.4 | Pending |
+| CHAL-01 | 03.4 | Complete |
+| CHAL-02 | 03.4 | Complete |
+| CHAL-03 | 03.4 | Complete |
 | NOTIF-01 | 03.5 | Pending |
 | NOTIF-02 | 03.5 | Pending |
 | NOTIF-03 | 03.5 | Pending |
