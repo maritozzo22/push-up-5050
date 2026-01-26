@@ -220,9 +220,80 @@ class NotificationService {
   /// Cancel daily reminder notification.
   Future<void> cancelDailyReminder() async {
     try {
-      await _plugin.cancel(0);
+      await _plugin.cancel(NotificationIds.dailyReminder);
     } catch (e) {
       // Ignore cancel errors
+    }
+  }
+
+  /// Cancel a specific notification by ID.
+  Future<void> cancel(int id) async {
+    try {
+      await _plugin.cancel(id);
+    } catch (e) {
+      // Ignore cancel errors
+    }
+  }
+
+  /// Schedule streak at risk notification.
+  ///
+  /// Sends daily reminder if user hasn't worked out in 2+ days.
+  /// Uses [hour] and [minute] for personalized scheduling time.
+  /// Message varies by day count (motivational on day 3, urgent on day 4+).
+  /// All strings are localized by caller via AppLocalizations.
+  ///
+  /// Returns true if scheduled successfully.
+  Future<bool> scheduleStreakAtRiskNotification({
+    required String title,
+    required String body,
+    required String channelName,
+    required String channelDescription,
+    required int hour,
+    required int minute,
+  }) async {
+    if (!_initialized) {
+      await initialize();
+    }
+
+    final hasPermission = await requestPermissions();
+    if (!hasPermission) {
+      debugPrint('NotificationService: POST_NOTIFICATIONS permission not granted');
+      return false;
+    }
+
+    // Cancel existing streak notification
+    await cancel(NotificationIds.streakAtRisk);
+
+    final scheduledTime = _nextInstanceOfTime(hour, minute);
+
+    final androidDetails = AndroidNotificationDetails(
+      NotificationChannels.streak,
+      channelName,
+      channelDescription: channelDescription,
+      importance: Importance.high,
+      priority: Priority.high,
+    );
+
+    const platformDetails = NotificationDetails(
+      android: androidDetails,
+    );
+
+    try {
+      await _plugin.zonedSchedule(
+        NotificationIds.streakAtRisk,
+        title,
+        body,
+        scheduledTime,
+        platformDetails,
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        matchDateTimeComponents: DateTimeComponents.time,
+        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+      );
+      debugPrint('NotificationService: Streak at risk notification scheduled for $hour:$minute');
+      return true;
+    } catch (e) {
+      debugPrint('NotificationService: Failed to schedule streak at risk: $e');
+      return false;
     }
   }
 
