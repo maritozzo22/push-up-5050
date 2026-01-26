@@ -1,7 +1,7 @@
 # STATE.md
 
 **Project:** Push-Up 5050 - Engagement & Retention
-**Last Updated:** 2026-01-25
+**Last Updated:** 2026-01-26
 
 ## Project Reference
 
@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 4 of 4 in current phase
-Status: Phase complete, verified ✓
-Last activity: 2026-01-25 — Phase 03.3 complete, verified, all 5 must-haves passing
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-01-26 — Completed 03.4-01 (Weekly Challenge Tracking Infrastructure)
 
-Progress: ████████░░ 60% (3 of 5 phases complete)
+Progress: ████████░░ 62% (12 of 19 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: ~12 min
-- Total execution time: 2.12 hours
+- Total plans completed: 12
+- Average duration: ~13 min
+- Total execution time: 2.5 hours
 
 **By Phase:**
 
@@ -33,10 +33,11 @@ Progress: ████████░░ 60% (3 of 5 phases complete)
 | 03.1  | 3     | 3        | ~15 min  |
 | 03.2  | 4     | 4        | ~15 min  |
 | 03.3  | 4     | 4        | ~8 min   |
+| 03.4  | 1     | 1        | ~18 min  |
 
 **Recent Trend:**
-- Latest: 03.3-04 (weekly bonus award integration)
-- Phase 03.3 complete in ~32 min total
+- Latest: 03.4-01 (weekly challenge tracking infrastructure)
+- Phase 03.4 in progress
 
 *Updated after each plan completion*
 
@@ -94,6 +95,12 @@ Recent decisions affecting current work:
 - **One-Time Check Flag**: _weeklyReviewChecked prevents duplicate popup checks per session
 - **Bonus Award Timing**: Awarded immediately when popup shows for achieved targets, stored in today's record
 
+**From 03.4-01:**
+- **Fixed 200-Point Challenge Bonus**: Weekly challenge awards fixed 200 points (unlike variable weekly bonus 500-750)
+- **Challenge Target Formula**: dailyGoal × 7 (harder than weekly goal which is × 5, requires hitting daily goal every day)
+- **Separate Challenge Tracking**: Weekly challenge completion tracked independently from weekly bonus - users can earn both
+- **Bonus to Today's Record**: Challenge bonus added to current day's DailyRecord.pointsEarned
+
 ### Pending Todos
 
 5 todos captured from user feedback:
@@ -112,8 +119,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-25
-Stopped at: Completed 03.3-04 (Weekly Bonus Award System Integration)
+Last session: 2026-01-26
+Stopped at: Completed 03.4-01 (Weekly Challenge Tracking Infrastructure)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -150,3 +157,11 @@ Resume file: None
 | 03.3-02 | Weekly Target Calculation | Complete |
 | 03.3-03 | Weekly Goals Review Popup | Complete |
 | 03.3-04 | Weekly Bonus Award System | Complete |
+
+## Phase 03.4 Plans
+
+| Plan | Name | Status |
+|------|------|--------|
+| 03.4-01 | Weekly Challenge Tracking Infrastructure | Complete |
+| 03.4-02 | Weekly Challenge UI Integration | Pending |
+| 03.4-03 | Streak Freeze System | Pending |
