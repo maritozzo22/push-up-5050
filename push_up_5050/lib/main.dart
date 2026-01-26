@@ -7,6 +7,7 @@ import 'package:push_up_5050/main_navigation_wrapper.dart';
 import 'package:push_up_5050/providers/active_workout_provider.dart';
 import 'package:push_up_5050/providers/achievements_provider.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
+import 'package:push_up_5050/providers/notification_preferences_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/providers/weekly_review_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
@@ -15,6 +16,7 @@ import 'package:push_up_5050/services/app_settings_service.dart';
 import 'package:push_up_5050/services/audio_service.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
 import 'package:push_up_5050/services/notification_service.dart';
+import 'package:push_up_5050/services/notification_scheduler.dart';
 import 'package:push_up_5050/services/proximity_sensor_service.dart';
 import 'package:push_up_5050/services/widget_update_service.dart';
 import 'package:push_up_5050/services/deep_link_service.dart';
@@ -88,6 +90,20 @@ Future<void> main() async {
         ChangeNotifierProvider(
           create: (_) => WeeklyReviewProvider(storage: storageService),
         ),
+        // Notification preferences provider (tracks personalized notification time)
+        ChangeNotifierProvider(
+          create: (_) => NotificationPreferencesProvider(
+            storage: storageService,
+          ),
+        ),
+        // Notification scheduler (smart notification condition checking)
+        Provider(
+          create: (context) => NotificationScheduler(
+            notificationService: notificationService,
+            preferencesProvider: context.read<NotificationPreferencesProvider>(),
+            storage: storageService,
+          ),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -127,6 +143,30 @@ class _MyAppState extends State<MyApp> {
     // Initialize deep link service after first frame
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _deepLinkService.initialize();
+      // Set up notification tap handling after providers are available
+      _setupNotificationTapHandling();
+    });
+  }
+
+  /// Set up notification tap callback for deep link navigation.
+  ///
+  /// When user taps a notification, navigate to appropriate screen:
+  /// - streak_at_risk -> Home screen
+  /// - progress -> Home screen
+  /// - weekly_challenge -> Statistics screen
+  void _setupNotificationTapHandling() {
+    final notificationService = context.read<NotificationService>();
+    notificationService.setOnNotificationTapCallback((payload) {
+      // Navigate based on notification type
+      switch (payload) {
+        case 'streak_at_risk':
+        case 'progress':
+          _navigatorKey.currentState?.pushNamed('/');
+          break;
+        case 'weekly_challenge':
+          _navigatorKey.currentState?.pushNamed('/statistics');
+          break;
+      }
     });
   }
 
