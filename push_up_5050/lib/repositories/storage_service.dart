@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:push_up_5050/models/workout_session.dart';
 import 'package:push_up_5050/models/daily_record.dart';
 import 'package:push_up_5050/models/achievement.dart';
+import 'package:push_up_5050/models/notification_time_slot.dart';
+import 'package:push_up_5050/utils/workout_time_analyzer.dart';
 
 /// Storage service for persisting app data using SharedPreferences.
 ///
@@ -43,6 +45,11 @@ class StorageService {
   static const String _keyStreakFreezeRemaining = 'streak_freeze_remaining';
   static const String _keyStreakFreezeActiveWeek = 'streak_freeze_active_week';
   static const String _keyStreakFreezeLastMonth = 'streak_freeze_last_month';
+
+  // Notification time tracking keys - Phase 03.5
+  static const String _keyWorkoutCompletionTimes = 'workout_completion_times';
+  static const String _keyPersonalizedNotificationHour = 'personalized_notification_hour';
+  static const String _keyPersonalizedNotificationMinute = 'personalized_notification_minute';
 
   // ==================== Active Session ====================
 
@@ -713,5 +720,79 @@ class StorageService {
 
     // All conditions met, activate freeze
     return await useStreakFreeze();
+  }
+
+  // ==================== Notification Time Tracking - Phase 03.5 ====================
+
+  /// Save workout completion time for personalized notification calculation.
+  ///
+  /// Stores the timestamp as a [NotificationTimeSlot] in a JSON array.
+  /// Maintains the last 90 entries (~3 months of data) to prevent unbounded growth.
+  /// Older entries are automatically removed when the limit is exceeded.
+  Future<void> saveWorkoutCompletionTime(DateTime timestamp) async {
+    final times = await getWorkoutCompletionTimes();
+
+    // Create new slot from timestamp
+    final newSlot = NotificationTimeSlot.fromTimestamp(timestamp);
+
+    // Add to list and keep only the last 90 entries
+    times.add(newSlot);
+    if (times.length > 90) {
+      times.removeRange(0, times.length - 90);
+    }
+
+    // Serialize to JSON array
+    final jsonArray = times.map((slot) => slot.toJson()).toList();
+    await _prefs.setString(_keyWorkoutCompletionTimes, jsonEncode(jsonArray));
+  }
+
+  /// Get all stored workout completion times.
+  ///
+  /// Returns a list of [NotificationTimeSlot] objects representing when workouts
+  /// were completed. Returns an empty list if no data exists or data is corrupted.
+  Future<List<NotificationTimeSlot>> getWorkoutCompletionTimes() async {
+    final jsonString = _prefs.getString(_keyWorkoutCompletionTimes);
+    if (jsonString == null) return [];
+
+    try {
+      final List<dynamic> jsonArray = jsonDecode(jsonString) as List<dynamic>;
+      return jsonArray
+          .map((json) => NotificationTimeSlot.fromJson(json as Map<String, dynamic>))
+          .toList();
+    } catch (e) {
+      // Corrupted data, return empty list
+      return [];
+    }
+  }
+
+  /// Get the personalized notification time.
+  ///
+  /// Returns a tuple `(hour, minute)` representing when notifications should be sent.
+  /// - If sufficient workout data exists (>=7 workout days), returns the calculated
+  ///   personalized time based on the most frequent 2-hour workout window.
+  /// - If insufficient data, returns the default (9, 0) for 9:00 AM.
+  Future<(int hour, int minute)> getPersonalizedNotificationTime() async {
+    final workoutTimes = await getWorkoutCompletionTimes();
+
+    final personalized = WorkoutTimeAnalyzer.calculatePersonalizedTime(workoutTimes);
+
+    if (personalized != null) {
+      return personalized;
+    }
+
+    // Return default when insufficient data
+    return (WorkoutTimeAnalyzer.defaultHour, WorkoutTimeAnalyzer.defaultMinute);
+  }
+
+  /// Manually set the personalized notification time.
+  ///
+  /// Allows users to override the calculated personalized time with a manual preference.
+  /// This is useful for users who want notifications at a specific time regardless
+  /// of their workout patterns.
+  ///
+  /// Use case: Settings screen time picker.
+  Future<void> setPersonalizedNotificationTime(int hour, int minute) async {
+    await _prefs.setInt(_keyPersonalizedNotificationHour, hour);
+    await _prefs.setInt(_keyPersonalizedNotificationMinute, minute);
   }
 }
