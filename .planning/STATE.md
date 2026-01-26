@@ -8,23 +8,23 @@
 See: .planning/PROJECT.md (updated 2026-01-23)
 
 **Core value:** Progressive push-up training app with gamification
-**Current focus:** Phase 03.5 - Smart Notifications (next phase)
+**Current focus:** Phase 03.5 - Smart Notifications (in progress)
 
 ## Current Position
 
 Phase: 4 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: Next phase (03.5 Smart Notifications) not started
-Status: Phase 03.4 complete and verified (9/9 must-haves)
-Last activity: 2026-01-26 — Phase 03.4 verification passed
+Plan: 03.5-02 of 5 (Smart Notifications - Extend Service Methods)
+Status: Plan 03.5-02 complete, 2 more plans in phase
+Last activity: 2026-01-26 — Completed 03.5-02 (Extend NotificationService with Smart Notification Methods)
 
-Progress: █████████░ 84% (16 of 19 plans complete, 4 phases done)
+Progress: ██████████ 89% (17 of 19 plans complete, 4 phases done)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
-- Average duration: ~13 min
-- Total execution time: 3.22 hours
+- Total plans completed: 17
+- Average duration: ~12 min
+- Total execution time: 3.37 hours
 
 **By Phase:**
 
@@ -34,10 +34,11 @@ Progress: █████████░ 84% (16 of 19 plans complete, 4 phases 
 | 03.2  | 4     | 4        | ~15 min  |
 | 03.3  | 4     | 4        | ~8 min   |
 | 03.4  | 5     | 5        | ~13 min  |
+| 03.5  | 1     | 1        | ~3 min   |
 
 **Recent Trend:**
-- Latest: 03.4-05 (Fix Bonus Points Display Refresh)
-- Phase 03.4 complete, ready for next milestone phase
+- Latest: 03.5-02 (Extend NotificationService with Smart Notification Methods)
+- Phase 03.5 in progress (2 of 5 plans complete)
 
 *Updated after each plan completion*
 
@@ -101,6 +102,13 @@ Recent decisions affecting current work:
 - **Separate Challenge Tracking**: Weekly challenge completion tracked independently from weekly bonus - users can earn both
 - **Bonus to Today's Record**: Challenge bonus added to current day's DailyRecord.pointsEarned
 
+**From 03.5-02:**
+- **Locale-Agnostic Notification Methods**: All scheduling methods accept localized strings as parameters (title, body, channelName, channelDescription). Caller provides translations via AppLocalizations.
+- **Unique Notification IDs**: Each notification type has unique ID (0-3) to prevent overwriting (dailyReminder: 0, streakAtRisk: 1, progressEncouragement: 2, weeklyChallenge: 3)
+- **Separate Android Channels**: Each notification type uses distinct channel ID (streak_channel, progress_channel, challenge_channel) for user control in system settings
+- **Priority Differentiation**: Streak/challenge use Importance.high; progress uses Importance.defaultImportance (less intrusive)
+- **Weekly Challenge Timing**: Fixed to Sunday 8:00 AM with dayOfWeekAndTime repeat pattern (not personalized)
+
 ### Pending Todos
 
 5 todos captured from user feedback:
@@ -120,8 +128,18 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 03.4-05 (Fix Bonus Points Display Refresh)
+Stopped at: Completed 03.5-02 (Extend NotificationService with Smart Notification Methods)
 Resume file: None
+
+## Phase 03.5 Plans
+
+| Plan | Name | Status |
+|------|------|--------|
+| 03.5-01 | Notification Service Infrastructure | Complete |
+| 03.5-02 | Extend NotificationService with Smart Notification Methods | Complete |
+| 03.5-03 | NotificationScheduler with Smart Logic | Pending |
+| 03.5-04 | Notification Scheduling UI Settings | Pending |
+| 03.5-05 | Integration & Verification | Pending |
 
 ## Onboarding Widget Status
 
