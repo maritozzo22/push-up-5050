@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-01-26 — Completed 03.4-01 (Weekly Challenge Tracking Infrastructure)
+Last activity: 2026-01-26 — Completed 03.4-02 (Weekly Challenge Card)
 
-Progress: ████████░░ 62% (12 of 19 plans complete)
+Progress: ████████░░ 65% (13 of 19 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
+- Total plans completed: 13
 - Average duration: ~13 min
-- Total execution time: 2.5 hours
+- Total execution time: 2.75 hours
 
 **By Phase:**
 
@@ -33,10 +33,10 @@ Progress: ████████░░ 62% (12 of 19 plans complete)
 | 03.1  | 3     | 3        | ~15 min  |
 | 03.2  | 4     | 4        | ~15 min  |
 | 03.3  | 4     | 4        | ~8 min   |
-| 03.4  | 1     | 1        | ~18 min  |
+| 03.4  | 2     | 2        | ~17 min  |
 
 **Recent Trend:**
-- Latest: 03.4-01 (weekly challenge tracking infrastructure)
+- Latest: 03.4-02 (weekly challenge card)
 - Phase 03.4 in progress
 
 *Updated after each plan completion*
@@ -120,7 +120,7 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 03.4-01 (Weekly Challenge Tracking Infrastructure)
+Stopped at: Completed 03.4-02 (Weekly Challenge Card)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -163,5 +163,11 @@ Resume file: None
 | Plan | Name | Status |
 |------|------|--------|
 | 03.4-01 | Weekly Challenge Tracking Infrastructure | Complete |
-| 03.4-02 | Weekly Challenge UI Integration | Pending |
+| 03.4-02 | Weekly Challenge UI Integration | Complete |
 | 03.4-03 | Streak Freeze System | Pending |
+
+**From 03.4-02:**
+- **Weekly Challenge Card UI**: Trophy icon (🏆), progress bar, completion badge, bonus text
+- **Challenge Completion Check**: Runs once per session via `_hasCheckedCompletion` flag
+- **AchievementPopup Overlay**: Displays in Stack, auto-dismisses after 4s, cleared from state after 4.5s via Timer
+- **Localization Keys**: 5 new keys (weeklyChallenge, weeklyChallengeTarget, weeklyChallengeCompleted, weeklyChallengeProgress, weeklyChallengeBonus)
