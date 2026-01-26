@@ -186,7 +186,13 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               child: _MiniStatCard(
                 label: 'Streak',
                 value: stats.currentStreak.toString(),
-                icon: Icons.calendar_today_rounded,
+                icon: stats.streakFreezeActive
+                    ? Icons.ac_unit_rounded
+                    : Icons.calendar_today_rounded,
+                iconColor: stats.streakFreezeActive
+                    ? const Color(0xFF64B5F6)
+                    : const Color(0xFFFF7A18),
+                subtitle: stats.streakFreezeActive ? '' : null,
               ),
             ),
             const SizedBox(width: 8),
@@ -322,12 +328,14 @@ class _MiniStatCard extends StatelessWidget {
   final String value;
   final IconData icon;
   final String? subtitle;
+  final Color? iconColor;
 
   const _MiniStatCard({
     required this.label,
     required this.value,
     required this.icon,
     this.subtitle,
+    this.iconColor,
   });
 
   @override
@@ -343,7 +351,7 @@ class _MiniStatCard extends StatelessWidget {
           Icon(
             icon,
             size: 12,
-            color: const Color(0xFFFF7A18),
+            color: iconColor ?? const Color(0xFFFF7A18),
           ),
           const SizedBox(height: 1),
           Text(
