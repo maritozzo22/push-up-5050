@@ -345,5 +345,16 @@
       "target": {"type": "int", "example": "350"}
     }
   },
-  "weeklyChallengeBonus": "+200 punti bonus"
+  "weeklyChallengeBonus": "+200 punti bonus",
+  "streakFreeze": "Protezione Streak",
+  "streakFreezeActive": "Protezione Attiva",
+  "streakFreezeRemaining": "Protezioni Rimaste: {count}",
+  "@streakFreezeRemaining": {
+    "placeholders": {
+      "count": {"type": "int", "example": "1"}
+    }
+  },
+  "streakFreezeUsed": "Nessuna protezione rimasta",
+  "streakFreezeDescription": "Proteggi la tua streak per una settimana",
+  "streakFreezeActivate": "Attiva Protezione"
 }
