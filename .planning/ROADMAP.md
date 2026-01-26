@@ -151,7 +151,10 @@ All core functionality has been implemented:
 3. Notification time personalized to user's workout patterns (median completion time)
 4. User receives new challenge notification on Sunday at 8:00 AM
 
-**Plans:** TBD
+**Plans:**
+- [ ] 03.5-01-PLAN.md — Workout time tracking and personalization infrastructure (NotificationTimeSlot, WorkoutTimeAnalyzer, StorageService methods, NotificationPreferencesProvider)
+- [ ] 03.5-02-PLAN.md — NotificationService smart notification methods and localization (scheduleStreakAtRiskNotification, scheduleProgressNotification, scheduleWeeklyChallengeNotification, IT/EN strings)
+- [ ] 03.5-03-PLAN.md — NotificationScheduler and wiring (condition checking, scheduling logic, deep link navigation, provider registration, HomeScreen triggers)
 
 ---
 
@@ -180,7 +183,7 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 | 03.2 Enhanced Points & Anti-Cheat | v2.5 | 4/4 | Complete | 2026-01-24 |
 | 03.3 Weekly Goals | v2.5 | 4/4 | Complete | 2026-01-25 |
 | 03.4 Challenges & Streak Freeze | v2.5 | 5/5 | Complete | 2026-01-26 |
-| 03.5 Smart Notifications | v2.5 | 0/TBD | Not started | - |
+| 03.5 Smart Notifications | v2.5 | 0/3 | Planning | - |
 
 ---
 
@@ -193,4 +196,4 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 
 ---
 
-*Last updated: 2026-01-26 (Phase 03.4 complete, verification passed)*
+*Last updated: 2026-01-26 (Phase 03.5 planning complete)*
