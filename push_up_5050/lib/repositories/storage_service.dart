@@ -358,6 +358,21 @@ class StorageService {
     return dailyGoal * 7;
   }
 
+  /// Check if the weekly challenge has been completed for a given week.
+  ///
+  /// [weekNumber] should be in "YYYY-WW" format from [getWeekNumber].
+  /// Returns false if not set (first time checking the week).
+  Future<bool> hasWeeklyChallengeBeenCompleted(String weekNumber) async {
+    return _prefs.getBool('$_keyWeeklyChallengeCompleted$weekNumber') ?? false;
+  }
+
+  /// Mark the weekly challenge as completed for a given week.
+  ///
+  /// Prevents duplicate challenge completion for the same week.
+  Future<void> markWeeklyChallengeCompleted(String weekNumber) async {
+    await _prefs.setBool('$_keyWeeklyChallengeCompleted$weekNumber', true);
+  }
+
   /// Save onboarding completion status.
   Future<void> setOnboardingCompleted(bool completed) async {
     await _prefs.setBool(_keyOnboardingCompleted, completed);
