@@ -329,5 +329,21 @@
     "placeholders": {
       "months": {"type": "int", "example": "3"}
     }
-  }
+  },
+  "weeklyChallenge": "Weekly Challenge",
+  "weeklyChallengeTarget": "Complete {target} push-ups this week",
+  "@weeklyChallengeTarget": {
+    "placeholders": {
+      "target": {"type": "int", "example": "350"}
+    }
+  },
+  "weeklyChallengeCompleted": "Challenge Completed!",
+  "weeklyChallengeProgress": "{current} / {target}",
+  "@weeklyChallengeProgress": {
+    "placeholders": {
+      "current": {"type": "int", "example": "150"},
+      "target": {"type": "int", "example": "350"}
+    }
+  },
+  "weeklyChallengeBonus": "+200 bonus points"
 }

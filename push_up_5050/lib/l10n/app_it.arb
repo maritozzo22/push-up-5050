@@ -329,5 +329,21 @@
     "placeholders": {
       "months": {"type": "int", "example": "3"}
     }
-  }
+  },
+  "weeklyChallenge": "Sfida Settimanale",
+  "weeklyChallengeTarget": "Completa {target} flessioni questa settimana",
+  "@weeklyChallengeTarget": {
+    "placeholders": {
+      "target": {"type": "int", "example": "350"}
+    }
+  },
+  "weeklyChallengeCompleted": "Sfida Completata!",
+  "weeklyChallengeProgress": "{current} / {target}",
+  "@weeklyChallengeProgress": {
+    "placeholders": {
+      "current": {"type": "int", "example": "150"},
+      "target": {"type": "int", "example": "350"}
+    }
+  },
+  "weeklyChallengeBonus": "+200 punti bonus"
 }
