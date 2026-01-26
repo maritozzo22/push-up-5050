@@ -29,6 +29,8 @@ class UserStatsProvider extends ChangeNotifier {
   int _consecutiveMissedDays = 0;
   int _totalPoints = 0;
   int _weeklyStreak = 0;
+  bool _streakFreezeActive = false;
+  int _remainingStreakFreezes = 1;
 
   /// Create a new UserStatsProvider.
   ///
@@ -75,6 +77,12 @@ class UserStatsProvider extends ChangeNotifier {
 
   /// Weekly streak of consecutive weeks with any push-ups (> 0).
   int get weeklyStreak => _weeklyStreak;
+
+  /// Whether streak freeze is currently active for this week.
+  bool get streakFreezeActive => _streakFreezeActive;
+
+  /// Remaining streak freezes for the current month (0 or 1).
+  int get remainingStreakFreezes => _remainingStreakFreezes;
 
   /// Total push-ups for the current week.
   ///
@@ -168,6 +176,10 @@ class UserStatsProvider extends ChangeNotifier {
       // Get streak from storage
       _currentStreak = await _storage.calculateCurrentStreak();
       _weeklyStreak = await _storage.calculateWeeklyStreak();
+
+      // Load streak freeze state
+      _streakFreezeActive = await _storage.isStreakFreezeActive();
+      _remainingStreakFreezes = await _storage.getStreakFreezeAllowance();
 
       // Load program start date
       _programStartDate = await _storage.getProgramStartDate();
@@ -420,6 +432,23 @@ class UserStatsProvider extends ChangeNotifier {
   /// Same as [loadStats] but can be called after initial load.
   Future<void> refreshStats() async {
     await loadStats();
+  }
+
+  /// Manually activate streak freeze for the current week.
+  ///
+  /// Checks if user has remaining freezes (> 0).
+  /// If successful, updates state and notifies listeners.
+  /// Returns true if activation succeeded, false if no freezes available.
+  Future<bool> activateStreakFreeze() async {
+    if (_remainingStreakFreezes <= 0) return false;
+
+    final activated = await _storage.useStreakFreeze();
+    if (activated) {
+      _streakFreezeActive = true;
+      _remainingStreakFreezes = await _storage.getStreakFreezeAllowance();
+      notifyListeners();
+    }
+    return activated;
   }
 
   /// Compute completed days for the current month.
