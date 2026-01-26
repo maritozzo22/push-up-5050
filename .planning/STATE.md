@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 4 of 5 in current phase (gap closure)
-Status: Gap closure execution in progress
-Last activity: 2026-01-26 — Completed 03.4-04 (Wire Streak Freeze Auto-Activation)
+Plan: 5 of 5 in current phase (gap closure)
+Status: Phase 03.4 complete
+Last activity: 2026-01-26 — Completed 03.4-05 (Fix Bonus Points Display Refresh)
 
-Progress: ████████░░ 74% (15 of 19 plans complete, 1 gap closure plan pending)
+Progress: █████████░ 79% (16 of 19 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: ~13 min
-- Total execution time: 3.12 hours
+- Total execution time: 3.22 hours
 
 **By Phase:**
 
@@ -33,11 +33,11 @@ Progress: ████████░░ 74% (15 of 19 plans complete, 1 gap clo
 | 03.1  | 3     | 3        | ~15 min  |
 | 03.2  | 4     | 4        | ~15 min  |
 | 03.3  | 4     | 4        | ~8 min   |
-| 03.4  | 5     | 4        | ~13 min  |
+| 03.4  | 5     | 5        | ~13 min  |
 
 **Recent Trend:**
-- Latest: 03.4-04 (Wire Streak Freeze Auto-Activation)
-- Phase 03.4 has 1 gap closure plan pending (03.4-05)
+- Latest: 03.4-05 (Fix Bonus Points Display Refresh)
+- Phase 03.4 complete, ready for next milestone phase
 
 *Updated after each plan completion*
 
@@ -120,7 +120,7 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 03.4-04 (Wire Streak Freeze Auto-Activation)
+Stopped at: Completed 03.4-05 (Fix Bonus Points Display Refresh)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -166,7 +166,7 @@ Resume file: None
 | 03.4-02 | Weekly Challenge UI Integration | Complete |
 | 03.4-03 | Streak Freeze System | Complete |
 | 03.4-04 | Wire Streak Freeze Auto-Activation | Complete |
-| 03.4-05 | Fix Bonus Points Display Refresh | Pending |
+| 03.4-05 | Fix Bonus Points Display Refresh | Complete |
 
 **From 03.4-02:**
 - **Weekly Challenge Card UI**: Trophy icon (🏆), progress bar, completion badge, bonus text
@@ -185,3 +185,8 @@ Resume file: None
 - **Auto-Activation in initState**: StatisticsScreen calls _checkStreakFreezeAutoActivation() after loadStats() and challenge check
 - **Silent Activation**: No user-facing notification; snowflake icon appears automatically when freeze activates
 - **State Refresh on Activation**: loadStats() called after successful activation to show updated freeze state immediately
+
+**From 03.4-05:**
+- **setState() After loadStats()**: Added setState(() {}) after await stats.loadStats() to force immediate StatefulWidget rebuild
+- **Immediate Points Refresh**: Consumer<UserStatsProvider> rebuilds with fresh totalPoints when challenge bonus is awarded
+- **No App Restart Required**: Points display shows +200 bonus immediately when popup appears
