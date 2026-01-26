@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 4 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 03.5-02 of 5 (Smart Notifications - Extend Service Methods)
-Status: Plan 03.5-02 complete, 2 more plans in phase
-Last activity: 2026-01-26 — Completed 03.5-02 (Extend NotificationService with Smart Notification Methods)
+Plan: 03.5-01 of 5 (Smart Notifications - Workout Time Tracking)
+Status: Plan 03.5-01 complete, 4 more plans in phase
+Last activity: 2026-01-26 — Completed 03.5-01 (Workout Time Tracking and Personalization)
 
-Progress: ██████████ 89% (17 of 19 plans complete, 4 phases done)
+Progress: █████████░ 84% (16 of 19 plans complete, 4 phases done)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
-- Average duration: ~12 min
-- Total execution time: 3.37 hours
+- Total plans completed: 16
+- Average duration: ~13 min
+- Total execution time: 3.40 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: ██████████ 89% (17 of 19 plans complete, 4 phases 
 | 03.2  | 4     | 4        | ~15 min  |
 | 03.3  | 4     | 4        | ~8 min   |
 | 03.4  | 5     | 5        | ~13 min  |
-| 03.5  | 1     | 1        | ~3 min   |
+| 03.5  | 1     | 1        | ~18 min  |
 
 **Recent Trend:**
-- Latest: 03.5-02 (Extend NotificationService with Smart Notification Methods)
-- Phase 03.5 in progress (2 of 5 plans complete)
+- Latest: 03.5-01 (Workout Time Tracking and Personalization)
+- Phase 03.5 in progress (1 of 5 plans complete)
 
 *Updated after each plan completion*
 
@@ -102,12 +102,11 @@ Recent decisions affecting current work:
 - **Separate Challenge Tracking**: Weekly challenge completion tracked independently from weekly bonus - users can earn both
 - **Bonus to Today's Record**: Challenge bonus added to current day's DailyRecord.pointsEarned
 
-**From 03.5-02:**
-- **Locale-Agnostic Notification Methods**: All scheduling methods accept localized strings as parameters (title, body, channelName, channelDescription). Caller provides translations via AppLocalizations.
-- **Unique Notification IDs**: Each notification type has unique ID (0-3) to prevent overwriting (dailyReminder: 0, streakAtRisk: 1, progressEncouragement: 2, weeklyChallenge: 3)
-- **Separate Android Channels**: Each notification type uses distinct channel ID (streak_channel, progress_channel, challenge_channel) for user control in system settings
-- **Priority Differentiation**: Streak/challenge use Importance.high; progress uses Importance.defaultImportance (less intrusive)
-- **Weekly Challenge Timing**: Fixed to Sunday 8:00 AM with dayOfWeekAndTime repeat pattern (not personalized)
+**From 03.5-01:**
+- **2-Hour Window Binning**: Workout times grouped into 2-hour windows (0-1, 2-3, ..., 22-23) for pattern analysis
+- **90-Day Retention Limit**: Only last 90 workout completion times kept (~3 months) to prevent unbounded storage growth
+- **7-Day Minimum for Personalization**: Requires 7 workout days before switching from default 9:00 AM to personalized time
+- **Minutes Always Zero**: Personalized notification times always return (hour, 0) for consistency
 
 ### Pending Todos
 
@@ -128,17 +127,17 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 03.5-02 (Extend NotificationService with Smart Notification Methods)
+Stopped at: Completed 03.5-01 (Workout Time Tracking and Personalization)
 Resume file: None
 
 ## Phase 03.5 Plans
 
 | Plan | Name | Status |
 |------|------|--------|
-| 03.5-01 | Notification Service Infrastructure | Complete |
-| 03.5-02 | Extend NotificationService with Smart Notification Methods | Complete |
-| 03.5-03 | NotificationScheduler with Smart Logic | Pending |
-| 03.5-04 | Notification Scheduling UI Settings | Pending |
+| 03.5-01 | Workout Time Tracking and Personalization | Complete |
+| 03.5-02 | Notification Scheduling with Smart Triggers | Pending |
+| 03.5-03 | Notification Content & Localization | Pending |
+| 03.5-04 | Notification Settings UI | Pending |
 | 03.5-05 | Integration & Verification | Pending |
 
 ## Onboarding Widget Status
