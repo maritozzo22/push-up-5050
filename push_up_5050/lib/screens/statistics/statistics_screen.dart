@@ -9,6 +9,7 @@ import 'package:push_up_5050/widgets/statistics/calorie_card.dart';
 import 'package:push_up_5050/widgets/statistics/monthly_calendar.dart';
 import 'package:push_up_5050/widgets/statistics/total_pushups_card.dart';
 import 'package:push_up_5050/widgets/statistics/weekly_chart_painter.dart';
+import 'package:push_up_5050/widgets/statistics/weekly_challenge_card.dart';
 
 /// Statistics Screen - Redesigned with dark glass + orange glow style.
 ///
@@ -142,6 +143,15 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
 
         const SizedBox(height: 16),
 
+        // Weekly Challenge Card
+        WeeklyChallengeCard(
+          weekTotal: stats.weekTotal,
+          dailyGoal: goals.dailyGoal.target,
+          isCompleted: _isChallengeCompleted(stats, goals),
+        ),
+
+        const SizedBox(height: 16),
+
         // Mini Stats Row: Streak, Daily Avg, Best Day, Points
         Row(
           children: [
@@ -201,6 +211,15 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
   int _calculateDailyAvg(UserStatsProvider stats) {
     if (stats.daysCompleted == 0) return 0;
     return (stats.totalPushupsAllTime / stats.daysCompleted).round();
+  }
+
+  /// Check if the weekly challenge has been completed.
+  ///
+  /// The challenge target is daily goal x 7 (full 7-day week).
+  /// Returns true if weekly total meets or exceeds the target.
+  bool _isChallengeCompleted(UserStatsProvider stats, GoalsProvider goals) {
+    final challengeTarget = goals.dailyGoal.target * 7;
+    return stats.weekTotal >= challengeTarget;
   }
 }
 
