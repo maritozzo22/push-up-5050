@@ -408,6 +408,32 @@ class StorageService {
     return 200;
   }
 
+  /// Check and award weekly challenge completion based on weekly total.
+  ///
+  /// Returns the points awarded (200) or 0 if target not reached or already awarded.
+  ///
+  /// [weeklyTotal] - Total push-ups completed in the current week
+  /// [dailyGoal] - User's daily goal (used to calculate challenge target)
+  ///
+  /// Challenge target = daily goal × 7 (harder than weekly goal which is × 5).
+  /// This should be called after each workout or when weekly stats are refreshed.
+  Future<int> checkWeeklyChallengeCompletion(int weeklyTotal, int dailyGoal) async {
+    // Calculate challenge target (harder than weekly goal)
+    final challengeTarget = calculateWeeklyChallengeTarget(dailyGoal);
+
+    // Check if target reached
+    if (weeklyTotal >= challengeTarget) {
+      // Get current week number
+      final currentWeek = getWeekNumber(DateTime.now());
+
+      // Award bonus (will return 0 if already completed)
+      return await awardWeeklyChallengeBonus(currentWeek);
+    }
+
+    // Target not reached
+    return 0;
+  }
+
   /// Save onboarding completion status.
   Future<void> setOnboardingCompleted(bool completed) async {
     await _prefs.setBool(_keyOnboardingCompleted, completed);
