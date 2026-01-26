@@ -648,4 +648,44 @@ class StorageService {
 
     return true;
   }
+
+  /// Auto-activate streak freeze if user missed weekly goal but had some activity.
+  ///
+  /// Conditions for auto-activation:
+  /// - Weekly total > 0 (user did some push-ups)
+  /// - Weekly total < weekly goal (user missed their goal)
+  /// - Freeze is available (remaining > 0)
+  /// - Freeze is not already active for this week
+  ///
+  /// Returns true if freeze was activated, false otherwise.
+  ///
+  /// This should be called during Sunday weekly review or streak calculation.
+  Future<bool> autoActivateStreakFreezeIfNeeded(
+    int weeklyTotal,
+    int weeklyGoal,
+  ) async {
+    // Condition 1: User did some push-ups
+    if (weeklyTotal <= 0) {
+      return false;
+    }
+
+    // Condition 2: User missed their goal
+    if (weeklyTotal >= weeklyGoal) {
+      return false;
+    }
+
+    // Condition 3: Freeze is available
+    final allowance = await getStreakFreezeAllowance();
+    if (allowance <= 0) {
+      return false;
+    }
+
+    // Condition 4: Not already active
+    if (await isStreakFreezeActive()) {
+      return false;
+    }
+
+    // All conditions met, activate freeze
+    return await useStreakFreeze();
+  }
 }
