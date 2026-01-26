@@ -356,5 +356,24 @@
   },
   "streakFreezeUsed": "No freezes remaining",
   "streakFreezeDescription": "Protect your streak for one week",
-  "streakFreezeActivate": "Activate Streak Freeze"
+  "streakFreezeActivate": "Activate Streak Freeze",
+
+  "notificationStreakAtRiskTitle": "Don't lose your streak! 🔥",
+  "notificationStreakAtRiskBodyDay3": "You've built something great — keep it going with just 5 push-ups!",
+  "notificationStreakAtRiskBodyDay4": "You have {streak} days on the line — don't let it disappear!",
+  "@notificationStreakAtRiskBodyDay4": {
+    "placeholders": {
+      "streak": {"type": "int", "example": "10"}
+    }
+  },
+  "notificationProgressTitle": "Almost there! 💪",
+  "notificationProgressBody": "Just 5 more push-ups to reach your daily goal.",
+  "notificationChallengeTitle": "New weekly challenge available! 🏆",
+  "notificationChallengeBody": "Check your progress and discover this week's challenge.",
+  "notificationStreakChannel": "Streak Reminders",
+  "notificationStreakChannelDesc": "Notifications when your streak is at risk",
+  "notificationProgressChannel": "Progress Reminders",
+  "notificationProgressChannelDesc": "Encouragement when you're close to your goal",
+  "notificationChallengeChannel": "Weekly Challenge",
+  "notificationChallengeChannelDesc": "Announces new weekly challenge available"
 }

@@ -356,5 +356,24 @@
   },
   "streakFreezeUsed": "Nessuna protezione rimasta",
   "streakFreezeDescription": "Proteggi la tua streak per una settimana",
-  "streakFreezeActivate": "Attiva Protezione"
+  "streakFreezeActivate": "Attiva Protezione",
+
+  "notificationStreakAtRiskTitle": "Non perdere la tua serie! 🔥",
+  "notificationStreakAtRiskBodyDay3": "Hai costruito qualcosa di grande — continua con solo 5 flessioni!",
+  "notificationStreakAtRiskBodyDay4": "Hai {streak} giorni sulla linea — non lasciarli sparire!",
+  "@notificationStreakAtRiskBodyDay4": {
+    "placeholders": {
+      "streak": {"type": "int", "example": "10"}
+    }
+  },
+  "notificationProgressTitle": "Ci sei quasi! 💪",
+  "notificationProgressBody": "Mancano solo 5 flessioni per raggiungere il tuo obiettivo giornaliero.",
+  "notificationChallengeTitle": "Nuova sfida disponibile! 🏆",
+  "notificationChallengeBody": "Controlla i tuoi progressi e scopri la sfida di questa settimana.",
+  "notificationStreakChannel": "Promemoria Streak",
+  "notificationStreakChannelDesc": "Avvisi quando la tua streak è a rischio",
+  "notificationProgressChannel": "Promemoria Progresso",
+  "notificationProgressChannelDesc": "Incoraggiamenti quando sei vicino all'obiettivo",
+  "notificationChallengeChannel": "Sfida Settimanale",
+  "notificationChallengeChannelDesc": "Annuncia nuova sfida disponibile"
 }
