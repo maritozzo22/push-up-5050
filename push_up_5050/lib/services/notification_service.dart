@@ -297,6 +297,68 @@ class NotificationService {
     }
   }
 
+  /// Schedule progress encouragement notification.
+  ///
+  /// Sends notification when user is within 5 push-ups of daily goal
+  /// AND has completed at least 50% of goal.
+  /// Only fires once per day at the scheduled time.
+  /// All strings are localized by caller via AppLocalizations.
+  ///
+  /// Returns true if scheduled successfully.
+  Future<bool> scheduleProgressNotification({
+    required String title,
+    required String body,
+    required String channelName,
+    required String channelDescription,
+    required int hour,
+    required int minute,
+  }) async {
+    if (!_initialized) {
+      await initialize();
+    }
+
+    final hasPermission = await requestPermissions();
+    if (!hasPermission) {
+      debugPrint('NotificationService: POST_NOTIFICATIONS permission not granted');
+      return false;
+    }
+
+    // Cancel existing progress notification
+    await cancel(NotificationIds.progressEncouragement);
+
+    final scheduledTime = _nextInstanceOfTime(hour, minute);
+
+    final androidDetails = AndroidNotificationDetails(
+      NotificationChannels.progress,
+      channelName,
+      channelDescription: channelDescription,
+      importance: Importance.defaultImportance,
+      priority: Priority.defaultPriority,
+    );
+
+    const platformDetails = NotificationDetails(
+      android: androidDetails,
+    );
+
+    try {
+      await _plugin.zonedSchedule(
+        NotificationIds.progressEncouragement,
+        title,
+        body,
+        scheduledTime,
+        platformDetails,
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        matchDateTimeComponents: DateTimeComponents.time,
+        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+      );
+      debugPrint('NotificationService: Progress notification scheduled for $hour:$minute');
+      return true;
+    } catch (e) {
+      debugPrint('NotificationService: Failed to schedule progress: $e');
+      return false;
+    }
+  }
+
   /// Test immediato notifica (per debug).
   ///
   /// Mostra una notifica di test immediata per verificare che le notifiche funzionino.
