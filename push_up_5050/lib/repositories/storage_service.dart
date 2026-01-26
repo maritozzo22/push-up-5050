@@ -39,6 +39,11 @@ class StorageService {
   static const String _keyWeeklyBonusAwarded = 'weekly_bonus_awarded_';
   static const String _keyWeeklyChallengeCompleted = 'weekly_challenge_completed_';
 
+  // Streak freeze keys
+  static const String _keyStreakFreezeRemaining = 'streak_freeze_remaining';
+  static const String _keyStreakFreezeActiveWeek = 'streak_freeze_active_week';
+  static const String _keyStreakFreezeLastMonth = 'streak_freeze_last_month';
+
   // ==================== Active Session ====================
 
   /// Save active workout session to storage.
@@ -510,5 +515,41 @@ class StorageService {
     }
 
     return streak;
+  }
+
+  // ==================== Streak Freeze ====================
+
+  /// Get the current month in "YYYY-MM" format for freeze allowance tracking.
+  String _getCurrentMonth() {
+    final now = DateTime.now();
+    return '${now.year}-${now.month.toString().padLeft(2, '0')}';
+  }
+
+  /// Reset monthly streak freeze allowance on the 1st of a new month.
+  ///
+  /// Sets the freeze allowance back to 1 and clears the active week flag.
+  /// Called automatically when checking allowance if month has changed.
+  Future<void> resetMonthlyStreakFreeze() async {
+    await _prefs.setInt(_keyStreakFreezeRemaining, 1);
+    await _prefs.setString(_keyStreakFreezeLastMonth, _getCurrentMonth());
+    await _prefs.remove(_keyStreakFreezeActiveWeek);
+  }
+
+  /// Get remaining streak freeze allowance for the current month.
+  ///
+  /// Users get 1 streak freeze per month that resets on the 1st.
+  /// Returns 0 or 1 (stored as int for future flexibility).
+  /// Defaults to 1 if not set (new user gets first freeze).
+  Future<int> getStreakFreezeAllowance() async {
+    // Check if month has changed and reset if needed
+    final lastMonth = _prefs.getString(_keyStreakFreezeLastMonth);
+    final currentMonth = _getCurrentMonth();
+
+    if (lastMonth != currentMonth) {
+      await resetMonthlyStreakFreeze();
+      return 1;
+    }
+
+    return _prefs.getInt(_keyStreakFreezeRemaining) ?? 1;
   }
 }
