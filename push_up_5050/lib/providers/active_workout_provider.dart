@@ -357,6 +357,9 @@ class ActiveWorkoutProvider extends ChangeNotifier {
     // Update widgets with new workout data
     await _updateWidgetsAfterWorkout();
 
+    // Save workout completion time for personalized notification calculation
+    await _storage.saveWorkoutCompletionTime(today);
+
     notifyListeners();
   }
 
