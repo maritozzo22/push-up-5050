@@ -8,6 +8,7 @@ import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/providers/weekly_review_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
+import 'package:push_up_5050/services/notification_scheduler.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
 import 'package:push_up_5050/widgets/design_system/mini_stat.dart';
@@ -50,6 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
         await statsContext.read<UserStatsProvider>().loadStats();
         await statsContext.read<GoalsProvider>().loadGoals();
 
+        // Schedule notifications after stats load
+        await _scheduleNotificationsIfNeeded();
+
         // Check weekly review after stats loaded
         if (!_weeklyReviewChecked) {
           _weeklyReviewChecked = true;
@@ -57,6 +61,21 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       }
     });
+  }
+
+  /// Schedule smart notifications based on current state.
+  ///
+  /// Called on app start to evaluate and schedule:
+  /// - Streak at risk notifications
+  /// - Progress notifications
+  /// - Weekly challenge notifications
+  Future<void> _scheduleNotificationsIfNeeded() async {
+    try {
+      final scheduler = context.read<NotificationScheduler>();
+      await scheduler.scheduleAllSmartNotifications(context);
+    } catch (e) {
+      debugPrint('HomeScreen: Failed to schedule notifications: $e');
+    }
   }
 
   /// Check and show weekly review popup if conditions are met.
