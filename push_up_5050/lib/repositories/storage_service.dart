@@ -373,6 +373,41 @@ class StorageService {
     await _prefs.setBool('$_keyWeeklyChallengeCompleted$weekNumber', true);
   }
 
+  /// Award weekly challenge bonus points for completing the challenge.
+  ///
+  /// Returns the points awarded (200) or 0 if already completed.
+  /// Bonus is added to today's daily record and challenge is marked complete.
+  Future<int> awardWeeklyChallengeBonus(String weekNumber) async {
+    // Check if already completed
+    if (await hasWeeklyChallengeBeenCompleted(weekNumber)) {
+      return 0;
+    }
+
+    // Get today's record
+    final today = DateTime.now();
+    final record = await getDailyRecord(today);
+
+    if (record == null) {
+      // No record for today, cannot award
+      return 0;
+    }
+
+    // Add 200 bonus points
+    final updatedRecord = DailyRecord(
+      date: record.date,
+      totalPushups: record.totalPushups,
+      goalReached: record.goalReached,
+      pointsEarned: record.pointsEarned + 200,
+      durationSeconds: record.durationSeconds,
+      seriesCompleted: record.seriesCompleted,
+    );
+
+    await saveDailyRecord(updatedRecord);
+    await markWeeklyChallengeCompleted(weekNumber);
+
+    return 200;
+  }
+
   /// Save onboarding completion status.
   Future<void> setOnboardingCompleted(bool completed) async {
     await _prefs.setBool(_keyOnboardingCompleted, completed);
@@ -566,5 +601,51 @@ class StorageService {
     }
 
     return _prefs.getInt(_keyStreakFreezeRemaining) ?? 1;
+  }
+
+  /// Check if streak freeze is currently active for this week.
+  ///
+  /// Compares the stored active week with the current week number.
+  /// Returns true if they match (freeze is protecting this week's streak).
+  Future<bool> isStreakFreezeActive() async {
+    final activeWeek = _prefs.getString(_keyStreakFreezeActiveWeek);
+    if (activeWeek == null) return false;
+
+    final currentWeek = getWeekNumber(DateTime.now());
+    return activeWeek == currentWeek;
+  }
+
+  /// Get the week number when streak freeze was activated.
+  ///
+  /// Returns the week number in "YYYY-WW" format or empty string if never activated.
+  String getStreakFreezeActiveWeek() {
+    return _prefs.getString(_keyStreakFreezeActiveWeek) ?? '';
+  }
+
+  /// Activate streak freeze for the current week.
+  ///
+  /// Checks if user has remaining allowance (> 0).
+  /// Decrements remaining count and sets active week to current week.
+  /// Returns true if activation succeeded, false if no allowance available.
+  ///
+  /// Prevents duplicate activation for the same week.
+  Future<bool> useStreakFreeze() async {
+    // Check if already active for this week
+    if (await isStreakFreezeActive()) {
+      return false; // Already active
+    }
+
+    // Check allowance
+    final allowance = await getStreakFreezeAllowance();
+    if (allowance <= 0) {
+      return false; // No freeze available
+    }
+
+    // Activate: decrement and set active week
+    final newAllowance = allowance - 1;
+    await _prefs.setInt(_keyStreakFreezeRemaining, newAllowance);
+    await _prefs.setString(_keyStreakFreezeActiveWeek, getWeekNumber(DateTime.now()));
+
+    return true;
   }
 }
