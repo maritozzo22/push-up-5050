@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 3 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 2 of 3 in current phase
-Status: In progress
-Last activity: 2026-01-26 — Completed 03.4-02 (Weekly Challenge Card)
+Plan: 3 of 3 in current phase
+Status: Phase complete
+Last activity: 2026-01-26 — Completed 03.4-03 (Streak Freeze System)
 
-Progress: ████████░░ 65% (13 of 19 plans complete)
+Progress: ████████░░ 68% (14 of 19 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
+- Total plans completed: 14
 - Average duration: ~13 min
-- Total execution time: 2.75 hours
+- Total execution time: 2.97 hours
 
 **By Phase:**
 
@@ -33,11 +33,11 @@ Progress: ████████░░ 65% (13 of 19 plans complete)
 | 03.1  | 3     | 3        | ~15 min  |
 | 03.2  | 4     | 4        | ~15 min  |
 | 03.3  | 4     | 4        | ~8 min   |
-| 03.4  | 2     | 2        | ~17 min  |
+| 03.4  | 3     | 3        | ~14 min  |
 
 **Recent Trend:**
-- Latest: 03.4-02 (weekly challenge card)
-- Phase 03.4 in progress
+- Latest: 03.4-03 (streak freeze system)
+- Phase 03.4 complete
 
 *Updated after each plan completion*
 
@@ -120,7 +120,7 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 03.4-02 (Weekly Challenge Card)
+Stopped at: Completed 03.4-03 (Streak Freeze System)
 Resume file: None
 
 ## Onboarding Widget Status
@@ -164,10 +164,17 @@ Resume file: None
 |------|------|--------|
 | 03.4-01 | Weekly Challenge Tracking Infrastructure | Complete |
 | 03.4-02 | Weekly Challenge UI Integration | Complete |
-| 03.4-03 | Streak Freeze System | Pending |
+| 03.4-03 | Streak Freeze System | Complete |
 
 **From 03.4-02:**
 - **Weekly Challenge Card UI**: Trophy icon (🏆), progress bar, completion badge, bonus text
 - **Challenge Completion Check**: Runs once per session via `_hasCheckedCompletion` flag
 - **AchievementPopup Overlay**: Displays in Stack, auto-dismisses after 4s, cleared from state after 4.5s via Timer
 - **Localization Keys**: 5 new keys (weeklyChallenge, weeklyChallengeTarget, weeklyChallengeCompleted, weeklyChallengeProgress, weeklyChallengeBonus)
+
+**From 03.4-03:**
+- **Monthly Freeze Allowance**: 1 streak freeze per month, resets on 1st using YYYY-MM format comparison
+- **Week-Based Activation**: Streak freeze protects the entire week (Mon-Sun) when active
+- **Auto-Activation Conditions**: Only triggers when weeklyTotal > 0 (user worked out) AND weeklyTotal < weeklyGoal (missed goal)
+- **Snowflake Visual Indicator**: Icons.ac_unit_rounded with blue color (0xFF64B5F6) when active, orange calendar icon when inactive
+- **No Freeze for Inactive Users**: Users with weeklyTotal = 0 don't get auto-activation (must work out to deserve protection)
