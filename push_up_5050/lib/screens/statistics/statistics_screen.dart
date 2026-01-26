@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:push_up_5050/models/achievement.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
+import 'package:push_up_5050/repositories/storage_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
 import 'package:push_up_5050/widgets/design_system/orange_circle_icon_button.dart';
@@ -10,6 +14,7 @@ import 'package:push_up_5050/widgets/statistics/monthly_calendar.dart';
 import 'package:push_up_5050/widgets/statistics/total_pushups_card.dart';
 import 'package:push_up_5050/widgets/statistics/weekly_chart_painter.dart';
 import 'package:push_up_5050/widgets/statistics/weekly_challenge_card.dart';
+import 'package:push_up_5050/widgets/workout/achievement_popup.dart';
 
 /// Statistics Screen - Redesigned with dark glass + orange glow style.
 ///
@@ -37,13 +42,29 @@ class StatisticsScreen extends StatefulWidget {
 }
 
 class _StatisticsScreenState extends State<StatisticsScreen> {
+  /// Achievement to show in popup (null = no popup).
+  Achievement? _challengeAchievement;
+
+  /// Flag to ensure we only check completion once per session.
+  bool _hasCheckedCompletion = false;
+
+  /// Timer to clear the popup after auto-dismiss animation.
+  Timer? _popupClearTimer;
+
   @override
   void initState() {
     super.initState();
     // Load stats on init after first frame
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<UserStatsProvider>().loadStats();
+      _checkChallengeCompletion();
     });
+  }
+
+  @override
+  void dispose() {
+    _popupClearTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -72,6 +93,12 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               ),
             ),
           ),
+          // Challenge completion popup overlay
+          if (_challengeAchievement != null)
+            AchievementPopup(
+              key: ValueKey('challenge_popup_${_challengeAchievement!.id}'),
+              achievement: _challengeAchievement!,
+            ),
         ],
       ),
     );
@@ -220,6 +247,72 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
   bool _isChallengeCompleted(UserStatsProvider stats, GoalsProvider goals) {
     final challengeTarget = goals.dailyGoal.target * 7;
     return stats.weekTotal >= challengeTarget;
+  }
+
+  /// Check for weekly challenge completion and award bonus if newly completed.
+  ///
+  /// This method:
+  /// 1. Checks if the weekly total meets the challenge target (daily goal x 7)
+  /// 2. Verifies the challenge hasn't been awarded yet this week
+  /// 3. Awards 200 bonus points to today's record
+  /// 4. Shows the achievement popup with the challenge badge
+  ///
+  /// Only runs once per session (controlled by _hasCheckedCompletion flag).
+  Future<void> _checkChallengeCompletion() async {
+    if (_hasCheckedCompletion) return;
+    _hasCheckedCompletion = true;
+
+    final stats = context.read<UserStatsProvider>();
+    final goals = context.read<GoalsProvider>();
+    final storage = context.read<StorageService>();
+
+    final challengeTarget = goals.dailyGoal.target * 7;
+    if (stats.weekTotal >= challengeTarget) {
+      final weekNumber = storage.getWeekNumber(DateTime.now());
+      final alreadyCompleted = await storage.hasWeeklyChallengeBeenCompleted(weekNumber);
+
+      if (!alreadyCompleted) {
+        // Award bonus and show popup
+        await storage.awardWeeklyChallengeBonus(weekNumber);
+        await stats.loadStats(); // Refresh to show new points
+
+        if (mounted) {
+          _showChallengeCompletionPopup(challengeTarget);
+        }
+      }
+    }
+  }
+
+  /// Show the challenge completion popup with trophy badge.
+  ///
+  /// Creates a temporary Achievement object for display purposes
+  /// and sets it to trigger the popup overlay in the build method.
+  /// Clears the popup after the auto-dismiss animation completes (4.5s).
+  void _showChallengeCompletionPopup(int challengeTarget) {
+    // Get week number for display
+    final storage = context.read<StorageService>();
+    final weekNumber = storage.getWeekNumber(DateTime.now());
+
+    setState(() {
+      _challengeAchievement = Achievement(
+        id: 'weekly_challenge_$weekNumber',
+        name: 'Weekly Challenge $weekNumber',
+        description: 'Complete $challengeTarget push-ups in a week',
+        icon: '🏆',
+        points: 200,
+        isUnlocked: true,
+      );
+    });
+
+    // Clear popup after auto-dismiss (4s display + 300ms slide-out + buffer)
+    _popupClearTimer?.cancel();
+    _popupClearTimer = Timer(const Duration(milliseconds: 4500), () {
+      if (mounted) {
+        setState(() {
+          _challengeAchievement = null;
+        });
+      }
+    });
   }
 }
 
