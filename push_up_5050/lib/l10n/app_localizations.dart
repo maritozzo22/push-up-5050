@@ -1141,6 +1141,150 @@ abstract class AppLocalizations {
   /// In it, this message translates to:
   /// **'{months} mesi per 50 push-up'**
   String monthlyToGoal(int months);
+
+  /// No description provided for @weeklyChallenge.
+  ///
+  /// In it, this message translates to:
+  /// **'Sfida Settimanale'**
+  String get weeklyChallenge;
+
+  /// No description provided for @weeklyChallengeTarget.
+  ///
+  /// In it, this message translates to:
+  /// **'Completa {target} flessioni questa settimana'**
+  String weeklyChallengeTarget(int target);
+
+  /// No description provided for @weeklyChallengeCompleted.
+  ///
+  /// In it, this message translates to:
+  /// **'Sfida Completata!'**
+  String get weeklyChallengeCompleted;
+
+  /// No description provided for @weeklyChallengeProgress.
+  ///
+  /// In it, this message translates to:
+  /// **'{current} / {target}'**
+  String weeklyChallengeProgress(int current, int target);
+
+  /// No description provided for @weeklyChallengeBonus.
+  ///
+  /// In it, this message translates to:
+  /// **'+200 punti bonus'**
+  String get weeklyChallengeBonus;
+
+  /// No description provided for @streakFreeze.
+  ///
+  /// In it, this message translates to:
+  /// **'Protezione Streak'**
+  String get streakFreeze;
+
+  /// No description provided for @streakFreezeActive.
+  ///
+  /// In it, this message translates to:
+  /// **'Protezione Attiva'**
+  String get streakFreezeActive;
+
+  /// No description provided for @streakFreezeRemaining.
+  ///
+  /// In it, this message translates to:
+  /// **'Protezioni Rimaste: {count}'**
+  String streakFreezeRemaining(int count);
+
+  /// No description provided for @streakFreezeUsed.
+  ///
+  /// In it, this message translates to:
+  /// **'Nessuna protezione rimasta'**
+  String get streakFreezeUsed;
+
+  /// No description provided for @streakFreezeDescription.
+  ///
+  /// In it, this message translates to:
+  /// **'Proteggi la tua streak per una settimana'**
+  String get streakFreezeDescription;
+
+  /// No description provided for @streakFreezeActivate.
+  ///
+  /// In it, this message translates to:
+  /// **'Attiva Protezione'**
+  String get streakFreezeActivate;
+
+  /// No description provided for @notificationStreakAtRiskTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Non perdere la tua serie! 🔥'**
+  String get notificationStreakAtRiskTitle;
+
+  /// No description provided for @notificationStreakAtRiskBodyDay3.
+  ///
+  /// In it, this message translates to:
+  /// **'Hai costruito qualcosa di grande — continua con solo 5 flessioni!'**
+  String get notificationStreakAtRiskBodyDay3;
+
+  /// No description provided for @notificationStreakAtRiskBodyDay4.
+  ///
+  /// In it, this message translates to:
+  /// **'Hai {streak} giorni sulla linea — non lasciarli sparire!'**
+  String notificationStreakAtRiskBodyDay4(int streak);
+
+  /// No description provided for @notificationProgressTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Ci sei quasi! 💪'**
+  String get notificationProgressTitle;
+
+  /// No description provided for @notificationProgressBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Mancano solo 5 flessioni per raggiungere il tuo obiettivo giornaliero.'**
+  String get notificationProgressBody;
+
+  /// No description provided for @notificationChallengeTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Nuova sfida disponibile! 🏆'**
+  String get notificationChallengeTitle;
+
+  /// No description provided for @notificationChallengeBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Controlla i tuoi progressi e scopri la sfida di questa settimana.'**
+  String get notificationChallengeBody;
+
+  /// No description provided for @notificationStreakChannel.
+  ///
+  /// In it, this message translates to:
+  /// **'Promemoria Streak'**
+  String get notificationStreakChannel;
+
+  /// No description provided for @notificationStreakChannelDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Avvisi quando la tua streak è a rischio'**
+  String get notificationStreakChannelDesc;
+
+  /// No description provided for @notificationProgressChannel.
+  ///
+  /// In it, this message translates to:
+  /// **'Promemoria Progresso'**
+  String get notificationProgressChannel;
+
+  /// No description provided for @notificationProgressChannelDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Incoraggiamenti quando sei vicino all\'obiettivo'**
+  String get notificationProgressChannelDesc;
+
+  /// No description provided for @notificationChallengeChannel.
+  ///
+  /// In it, this message translates to:
+  /// **'Sfida Settimanale'**
+  String get notificationChallengeChannel;
+
+  /// No description provided for @notificationChallengeChannelDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Annuncia nuova sfida disponibile'**
+  String get notificationChallengeChannelDesc;
 }
 
 class _AppLocalizationsDelegate

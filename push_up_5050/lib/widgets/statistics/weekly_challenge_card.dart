@@ -81,7 +81,7 @@ class WeeklyChallengeCard extends StatelessWidget {
 
           // Target text
           Text(
-            loc.weeklyChallengeTarget(challengeTarget.toString()),
+            loc.weeklyChallengeTarget(challengeTarget),
             style: TextStyle(
               fontSize: 12,
               color: Colors.white.withOpacity(0.70),
@@ -109,8 +109,8 @@ class WeeklyChallengeCard extends StatelessWidget {
             children: [
               Text(
                 loc.weeklyChallengeProgress(
-                  weekTotal.toString(),
-                  challengeTarget.toString(),
+                  weekTotal,
+                  challengeTarget,
                 ),
                 style: const TextStyle(
                   fontSize: 14,

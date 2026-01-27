@@ -403,9 +403,7 @@ class StorageService {
     final updatedRecord = DailyRecord(
       date: record.date,
       totalPushups: record.totalPushups,
-      goalReached: record.goalReached,
       pointsEarned: record.pointsEarned + 200,
-      durationSeconds: record.durationSeconds,
       seriesCompleted: record.seriesCompleted,
     );
 

@@ -581,4 +581,91 @@ class AppLocalizationsIt extends AppLocalizations {
   String monthlyToGoal(int months) {
     return '$months mesi per 50 push-up';
   }
+
+  @override
+  String get weeklyChallenge => 'Sfida Settimanale';
+
+  @override
+  String weeklyChallengeTarget(int target) {
+    return 'Completa $target flessioni questa settimana';
+  }
+
+  @override
+  String get weeklyChallengeCompleted => 'Sfida Completata!';
+
+  @override
+  String weeklyChallengeProgress(int current, int target) {
+    return '$current / $target';
+  }
+
+  @override
+  String get weeklyChallengeBonus => '+200 punti bonus';
+
+  @override
+  String get streakFreeze => 'Protezione Streak';
+
+  @override
+  String get streakFreezeActive => 'Protezione Attiva';
+
+  @override
+  String streakFreezeRemaining(int count) {
+    return 'Protezioni Rimaste: $count';
+  }
+
+  @override
+  String get streakFreezeUsed => 'Nessuna protezione rimasta';
+
+  @override
+  String get streakFreezeDescription =>
+      'Proteggi la tua streak per una settimana';
+
+  @override
+  String get streakFreezeActivate => 'Attiva Protezione';
+
+  @override
+  String get notificationStreakAtRiskTitle => 'Non perdere la tua serie! 🔥';
+
+  @override
+  String get notificationStreakAtRiskBodyDay3 =>
+      'Hai costruito qualcosa di grande — continua con solo 5 flessioni!';
+
+  @override
+  String notificationStreakAtRiskBodyDay4(int streak) {
+    return 'Hai $streak giorni sulla linea — non lasciarli sparire!';
+  }
+
+  @override
+  String get notificationProgressTitle => 'Ci sei quasi! 💪';
+
+  @override
+  String get notificationProgressBody =>
+      'Mancano solo 5 flessioni per raggiungere il tuo obiettivo giornaliero.';
+
+  @override
+  String get notificationChallengeTitle => 'Nuova sfida disponibile! 🏆';
+
+  @override
+  String get notificationChallengeBody =>
+      'Controlla i tuoi progressi e scopri la sfida di questa settimana.';
+
+  @override
+  String get notificationStreakChannel => 'Promemoria Streak';
+
+  @override
+  String get notificationStreakChannelDesc =>
+      'Avvisi quando la tua streak è a rischio';
+
+  @override
+  String get notificationProgressChannel => 'Promemoria Progresso';
+
+  @override
+  String get notificationProgressChannelDesc =>
+      'Incoraggiamenti quando sei vicino all\'obiettivo';
+
+  @override
+  String get notificationChallengeChannel => 'Sfida Settimanale';
+
+  @override
+  String get notificationChallengeChannelDesc =>
+      'Annuncia nuova sfida disponibile';
 }

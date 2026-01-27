@@ -289,7 +289,7 @@ class NotificationService {
       priority: Priority.high,
     );
 
-    const platformDetails = NotificationDetails(
+    final platformDetails = NotificationDetails(
       android: androidDetails,
     );
 
@@ -352,7 +352,7 @@ class NotificationService {
       priority: Priority.defaultPriority,
     );
 
-    const platformDetails = NotificationDetails(
+    final platformDetails = NotificationDetails(
       android: androidDetails,
     );
 
@@ -424,7 +424,7 @@ class NotificationService {
       priority: Priority.high,
     );
 
-    const platformDetails = NotificationDetails(
+    final platformDetails = NotificationDetails(
       android: androidDetails,
     );
 
@@ -476,7 +476,7 @@ class NotificationService {
       priority: Priority.high,
     );
 
-    const platformDetails = NotificationDetails(
+    final platformDetails = NotificationDetails(
       android: androidDetails,
     );
 
