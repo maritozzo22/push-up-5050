@@ -1,7 +1,7 @@
 # STATE.md
 
 **Project:** Push-Up 5050 - Engagement & Retention
-**Last Updated:** 2026-01-26
+**Last Updated:** 2026-01-27
 
 ## Project Reference
 
@@ -13,18 +13,18 @@ See: .planning/PROJECT.md (updated 2026-01-23)
 ## Current Position
 
 Phase: 4 of 5 (Milestone v2.5: Engagement & Retention)
-Plan: 03.5-01 of 5 (Smart Notifications - Workout Time Tracking)
-Status: Plan 03.5-01 complete, 4 more plans in phase
-Last activity: 2026-01-26 — Completed 03.5-01 (Workout Time Tracking and Personalization)
+Plan: 03.5-03 of 5 (Smart Notifications - Scheduler and Wiring)
+Status: Plan 03.5-03 complete, 2 more plans in phase
+Last activity: 2026-01-27 — Completed 03.5-03 (NotificationScheduler and Wiring)
 
-Progress: █████████░ 84% (16 of 19 plans complete, 4 phases done)
+Progress: ██████████ 89% (17 of 19 plans complete, 4 phases done)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
-- Average duration: ~13 min
-- Total execution time: 3.40 hours
+- Total plans completed: 17
+- Average duration: ~14 min
+- Total execution time: 3.90 hours
 
 **By Phase:**
 
@@ -34,11 +34,11 @@ Progress: █████████░ 84% (16 of 19 plans complete, 4 phases 
 | 03.2  | 4     | 4        | ~15 min  |
 | 03.3  | 4     | 4        | ~8 min   |
 | 03.4  | 5     | 5        | ~13 min  |
-| 03.5  | 1     | 1        | ~18 min  |
+| 03.5  | 3     | 3        | ~24 min  |
 
 **Recent Trend:**
-- Latest: 03.5-01 (Workout Time Tracking and Personalization)
-- Phase 03.5 in progress (1 of 5 plans complete)
+- Latest: 03.5-03 (NotificationScheduler and Wiring)
+- Phase 03.5 in progress (3 of 5 plans complete)
 
 *Updated after each plan completion*
 
@@ -108,6 +108,21 @@ Recent decisions affecting current work:
 - **7-Day Minimum for Personalization**: Requires 7 workout days before switching from default 9:00 AM to personalized time
 - **Minutes Always Zero**: Personalized notification times always return (hour, 0) for consistency
 
+**From 03.5-02:**
+- **Locale-Agnostic Notification Methods**: All scheduling methods accept localized strings as parameters (title, body, channelName, channelDescription) - caller provides translations via AppLocalizations
+- **Unique Notification IDs**: Each notification type has unique ID (0-3) to prevent overwriting: dailyReminder=0, streakAtRisk=1, progressEncouragement=2, weeklyChallenge=3
+- **Separate Android Channels**: Each notification type uses distinct channel ID (streak_channel, progress_channel, challenge_channel) for user control in system settings
+- **Priority Differentiation**: Streak/challenge use Importance.high (urgent), progress uses Importance.defaultImportance (less intrusive)
+- **Sunday 8:00 AM Fixed Time**: Weekly challenge notification always fires Sunday 8:00 AM (not personalized) with dayOfWeekAndTime repeat
+
+**From 03.5-03:**
+- **BuildContext for Localization**: NotificationScheduler receives BuildContext parameter to access AppLocalizations - necessary because service layer has no other way to get translations without coupling
+- **Direct StorageService Access**: Missed days calculated directly from StorageService.loadDailyRecords() instead of UserStatsProvider - avoids circular dependencies
+- **Explicit 50% Threshold**: Progress notification checkAndScheduleProgress() documents halfGoal as `(dailyGoal * 0.5).floor()` per NOTIF-02 requirement
+- **Deep Link Routing**: Notification tap callback routes by payload - 'streak_at_risk'/'progress' -> Home, 'weekly_challenge' -> Statistics
+- **Cancel When Conditions Not Met**: All notification types cancel existing notifications when conditions no longer apply (prevents stale notifications)
+- **PostFrameCallback for Scheduling**: HomeScreen uses WidgetsBinding.instance.addPostFrameCallback() for one-time notification scheduling after first frame renders
+
 ### Pending Todos
 
 5 todos captured from user feedback:
@@ -126,8 +141,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-26
-Stopped at: Completed 03.5-01 (Workout Time Tracking and Personalization)
+Last session: 2026-01-27
+Stopped at: Completed 03.5-03 (NotificationScheduler and Wiring)
 Resume file: None
 
 ## Phase 03.5 Plans
@@ -135,8 +150,8 @@ Resume file: None
 | Plan | Name | Status |
 |------|------|--------|
 | 03.5-01 | Workout Time Tracking and Personalization | Complete |
-| 03.5-02 | Notification Scheduling with Smart Triggers | Pending |
-| 03.5-03 | Notification Content & Localization | Pending |
+| 03.5-02 | Notification Scheduling with Smart Triggers | Complete |
+| 03.5-03 | NotificationScheduler and Wiring | Complete |
 | 03.5-04 | Notification Settings UI | Pending |
 | 03.5-05 | Integration & Verification | Pending |
 
