@@ -5,28 +5,29 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-23)
+See: .planning/PROJECT.md (updated 2026-01-27)
 
-**Core value:** Progressive push-up training app with gamification
-**Current focus:** Milestone v2.5 Complete - Ready for next milestone
+**Core value:** Progressive push-up training app with gamification and engagement features
+**Current focus:** Milestone v2.5 complete - Ready for next milestone planning
 
 ## Current Position
 
-Phase: 5 of 5 (Milestone v2.5: Engagement & Retention) - COMPLETE
+Phase: Milestone v2.5 Complete - Engagement & Retention features shipped
 Plan: All 19 plans complete
-Status: Milestone v2.5 verified and complete
-Last activity: 2026-01-27 — Phase 03.5 complete, Milestone v2.5 verified (4/4 must-haves)
+Status: Ready for next milestone (/gsd:new-milestone)
+Last activity: 2026-01-27 — v2.5 milestone archived and tagged
 
-Progress: ██████████ 100% (19 of 19 plans complete, 5 phases done)
+Progress: ██████████ 100% (19 of 19 plans complete, 5 phases done, Milestone v2.5 shipped)
 
 ## Performance Metrics
 
-**Velocity:**
+**Milestone v2.5 Velocity:**
 - Total plans completed: 19
 - Average duration: ~15 min
 - Total execution time: 4.73 hours
+- Timeline: 4 days (2026-01-23 → 2026-01-27)
 
-**By Phase:**
+**By Phase (v2.5):**
 
 | Phase | Plans | Complete | Avg/Plan |
 |-------|-------|----------|----------|
@@ -36,92 +37,21 @@ Progress: ██████████ 100% (19 of 19 plans complete, 5 phases
 | 03.4  | 5     | 5        | ~13 min  |
 | 03.5  | 3     | 3        | ~22 min  |
 
-**Recent Trend:**
-- Latest: 03.5-03 (NotificationScheduler and Wiring)
-- Phase 03.5 complete, Milestone v2.5 complete
-
-*Updated after each plan completion*
+*Updated after milestone completion*
 
 ## Accumulated Context
 
-### Decisions
+### Decisions Logged in PROJECT.md
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+Recent decisions affecting v2.5:
 
-- **Milestone v2.5 Scope**: Focus on engagement/retention features (onboarding, points, weekly goals, challenges, notifications, anti-cheat)
-- **Phase Structure**: 5 phases derived from 19 requirements across 6 categories
-- **Dependencies**: Points system is foundational (Phase 03.2), must complete before weekly goals (03.3) and challenges (03.4)
-- **Onboarding First**: Phase 03.1 prioritized because it affects first-launch user experience
-- **Anti-Cheat with Points**: Combined into Phase 03.2 to ensure points system ships with protection from day one
-
-**From 03.1-01:**
-- **Preset Slider Values**: Used discrete values [5, 10, 20, 30, 40, 50] instead of free-form input for better onboarding UX
-- **startingSeries Calculation**: Tiered thresholds based on maxCapacity (<=10:1, <=20:2, <=30:5, >30:10)
-- **recoveryTime Calculation**: Based on activity level (sedentary:60s, lightlyActive:45s, active/veryActive:30s)
-- **Graceful i18n Fallback**: Try/catch pattern prevents crashes during development when keys are missing
-
-**From 03.1-02:**
-- **Simple Counter for Frequency**: Used 1-7 counter instead of day toggle (M T W T F S S) for cleaner, more intuitive UX
-- **Preset Daily Goal Values**: Limited to 7 discrete values [20, 30, 40, 50, 60, 75, 100] to guide users toward realistic goals
-- **Progress Preview Calculation**: Shows months/years to reach 5050 based on selected daily goal
-
-**From 03.1-03:**
-- **PageView for Onboarding**: Single StatefulWidget with PageView used instead of separate screens - simpler state management
-- **Dot Indicator Pattern**: 4 dots with AnimatedContainer for smooth transitions (active: 24px, inactive: 8px)
-- **Settings Restart Button**: Reused existing "Restart Tutorial" button in settings to launch new onboarding for easy testing
-- **Old Onboarding Removed**: Deleted onboarding_screen.dart to avoid confusion and ensure new flow is used
-
-**From 03.3-01:**
-- **Monday Week Boundaries**: Used DateTime.weekday (1=Mon, 7=Sun) for ISO week calculation - getWeekStart() returns Monday 00:00:00
-- **Week Number Format**: "YYYY-WW" format (e.g., "2026-04") for unique storage keys across year boundaries
-- **Separate Flags for Review vs Bonus**: Review popup status and bonus award status tracked independently - user may see review but not earn bonus
-- **Weekly Streak Logic**: Any push-ups (>0) in a week preserves streak (less strict than daily 50+ requirement)
-- **No intl Package**: Week calculation uses built-in DateTime APIs only (no external dependencies)
-
-**From 03.3-02:**
-- **5 Workout Days Per Week**: Weekly target = daily goal × 5 (not × 7) to allow for 2 rest days while maintaining progression
-- **Auto-Calculated Default**: Weekly goal default uses getDailyGoal() * 5 so it stays synced when daily goal changes
-- **Green Highlight on Completion**: Weekly progress text changes to green (#4CAF50) when target is achieved
-
-**From 03.3-03:**
-- **WillPopScope for Mandatory Dialog**: Used WillPopScope(onWillPop: () async => false) to prevent Android back button dismissal
-- **Split Adjustment Options**: When target reached, show maintain/+10%/+20%; when missed, show -10%/-20%/-30%
-- **Weekly Bonus Formula**: 500 base points for reaching target + 0.5 per excess push-up, capped at 250 excess (max 750 total)
-- **Months-to-Goal Simplified**: Uses 50 / dailyGoal formula (ignores current progress) for clear preview
-
-**From 03.3-04:**
-- **Sunday OR Target Reached Trigger**: Popup shows on Sunday (end of week) OR immediately when target reached (early celebration)
-- **Dual Streak Display**: Both daily (Giorno) and weekly (Settimana) streak badges displayed on home screen
-- **One-Time Check Flag**: _weeklyReviewChecked prevents duplicate popup checks per session
-- **Bonus Award Timing**: Awarded immediately when popup shows for achieved targets, stored in today's record
-
-**From 03.4-01:**
-- **Fixed 200-Point Challenge Bonus**: Weekly challenge awards fixed 200 points (unlike variable weekly bonus 500-750)
-- **Challenge Target Formula**: dailyGoal × 7 (harder than weekly goal which is × 5, requires hitting daily goal every day)
-- **Separate Challenge Tracking**: Weekly challenge completion tracked independently from weekly bonus - users can earn both
-- **Bonus to Today's Record**: Challenge bonus added to current day's DailyRecord.pointsEarned
-
-**From 03.5-01:**
-- **2-Hour Window Binning**: Workout times grouped into 2-hour windows (0-1, 2-3, ..., 22-23) for pattern analysis
-- **90-Day Retention Limit**: Only last 90 workout completion times kept (~3 months) to prevent unbounded storage growth
-- **7-Day Minimum for Personalization**: Requires 7 workout days before switching from default 9:00 AM to personalized time
-- **Minutes Always Zero**: Personalized notification times always return (hour, 0) for consistency
-
-**From 03.5-02:**
-- **Locale-Agnostic Notification Methods**: All scheduling methods accept localized strings as parameters (title, body, channelName, channelDescription) - caller provides translations via AppLocalizations
-- **Unique Notification IDs**: Each notification type has unique ID (0-3) to prevent overwriting: dailyReminder=0, streakAtRisk=1, progressEncouragement=2, weeklyChallenge=3
-- **Separate Android Channels**: Each notification type uses distinct channel ID (streak_channel, progress_channel, challenge_channel) for user control in system settings
-- **Priority Differentiation**: Streak/challenge use Importance.high (urgent), progress uses Importance.defaultImportance (less intrusive)
-- **Sunday 8:00 AM Fixed Time**: Weekly challenge notification always fires Sunday 8:00 AM (not personalized) with dayOfWeekAndTime repeat
-
-**From 03.5-03:**
-- **BuildContext for Localization**: NotificationScheduler receives BuildContext parameter to access AppLocalizations - necessary because service layer has no other way to get translations without coupling
-- **Direct StorageService Access**: Missed days calculated directly from StorageService.loadDailyRecords() instead of UserStatsProvider - avoids circular dependencies
-- **Explicit 50% Threshold**: Progress notification checkAndScheduleProgress() documents halfGoal as `(dailyGoal * 0.5).floor()` per NOTIF-02 requirement
-- **Deep Link Routing**: Notification tap callback routes by payload - 'streak_at_risk'/'progress' -> Home, 'weekly_challenge' -> Statistics
-- **Cancel When Conditions Not Met**: All notification types cancel existing notifications when conditions no longer apply (prevents stale notifications)
-- **PostFrameCallback for Scheduling**: HomeScreen uses WidgetsBinding.instance.addPostFrameCallback() for one-time notification scheduling after first frame renders
+- **Onboarding First:** Phase 03.1 prioritized for first-launch user experience
+- **PageView Pattern:** Single-screen state management for onboarding flow
+- **5 Workout Days Per Week:** Weekly target uses ×5 multiplier (allows 2 rest days)
+- **Sunday OR Early Achievement:** Popup triggers immediately when target reached
+- **Dual Streak Display:** Both daily and weekly streaks on home screen
+- **BuildContext for Localization:** Service layer receives context for translations
+- **Direct StorageService Access:** Avoids circular dependencies in notification scheduler
 
 ### Pending Todos
 
@@ -137,86 +67,39 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-None.
+None. Milestone v2.5 complete and verified.
 
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 03.5-03 (NotificationScheduler and Wiring)
-Resume file: None
+Stopped at: Milestone v2.5 complete, archived, and tagged
+Resume file: None (milestone complete)
 
-## Phase 03.5 Plans
+## Milestone Archives
 
-| Plan | Name | Status |
-|------|------|--------|
-| 03.5-01 | Workout Time Tracking and Personalization | Complete |
-| 03.5-02 | Notification Scheduling with Smart Triggers | Complete |
-| 03.5-03 | NotificationScheduler and Wiring | Complete |
+**v2.5 - Engagement & Retention** (SHIPPED 2026-01-27)
+- Archive: `.planning/milestones/v2.5-ROADMAP.md`
+- Requirements: `.planning/milestones/v2.5-REQUIREMENTS.md`
+- Audit: `.planning/milestones/v2.5-MILESTONE-AUDIT.md`
+- Git tag: v2.5
 
-## Onboarding Widget Status
+**v2.0 - Android Widgets & App Polish** (SHIPPED 2026-01-23)
+- Archive: `.planning/milestones/v2.0-ROADMAP.md`
+- Git tag: v2.0
 
-| Screen | Widget | Status | Commit |
-|--------|--------|--------|--------|
-| 1 | ActivityLevelSelection | Complete | 72a10b7 |
-| 2 | CapacitySlider | Complete | 2465e0a |
-| 3 | FrequencySelector | Complete | 76b5bac |
-| 4 | DailyGoalSlider | Complete | 1accf84 |
+## Next Steps
 
-## Phase 03.1 Plans
+**Start Next Milestone** — Use `/gsd:new-milestone` to begin:
 
-| Plan | Name | Status |
-|------|------|--------|
-| 03.1-01 | Onboarding Data Model & Widgets (Screens 1-2) | Complete |
-| 03.1-02 | Onboarding Widgets (Screens 3-4) | Complete |
-| 03.1-03 | Main Onboarding Flow Integration | Complete |
+1. Questioning phase — What should the next milestone focus on?
+2. Research phase — Investigate implementation options
+3. Requirements — Define specific requirements
+4. Roadmap — Break down into phases
 
-## Phase 03.2 Plans
+**Possible Next Milestones:**
+- **v3.0 Social Features** — Instagram sharing, multiplayer challenges, challenge links
+- **v3.0 Monetization** — Ad integration, shop themes, premium features
 
-| Plan | Name | Status |
-|------|------|--------|
-| 03.2-01 | Aggressive Points Formula (Calculator) | Complete |
-| 03.2-02 | DailyRecord Points Tracking Fields | Complete |
-| 03.2-03 | Points Integration (Providers & UI) | Complete |
-| 03.2-04 | Daily Cap Anti-Cheat System | Complete |
+---
 
-## Phase 03.3 Plans
-
-| Plan | Name | Status |
-|------|------|--------|
-| 03.3-01 | Weekly State Tracking Infrastructure | Complete |
-| 03.3-02 | Weekly Target Calculation | Complete |
-| 03.3-03 | Weekly Goals Review Popup | Complete |
-| 03.3-04 | Weekly Bonus Award System | Complete |
-
-## Phase 03.4 Plans
-
-| Plan | Name | Status |
-|------|------|--------|
-| 03.4-01 | Weekly Challenge Tracking Infrastructure | Complete |
-| 03.4-02 | Weekly Challenge UI Integration | Complete |
-| 03.4-03 | Streak Freeze System | Complete |
-| 03.4-04 | Wire Streak Freeze Auto-Activation | Complete |
-| 03.4-05 | Fix Bonus Points Display Refresh | Complete |
-
-**From 03.4-02:**
-- **Weekly Challenge Card UI**: Trophy icon (🏆), progress bar, completion badge, bonus text
-- **Challenge Completion Check**: Runs once per session via `_hasCheckedCompletion` flag
-- **AchievementPopup Overlay**: Displays in Stack, auto-dismisses after 4s, cleared from state after 4.5s via Timer
-- **Localization Keys**: 5 new keys (weeklyChallenge, weeklyChallengeTarget, weeklyChallengeCompleted, weeklyChallengeProgress, weeklyChallengeBonus)
-
-**From 03.4-03:**
-- **Monthly Freeze Allowance**: 1 streak freeze per month, resets on 1st using YYYY-MM format comparison
-- **Week-Based Activation**: Streak freeze protects the entire week (Mon-Sun) when active
-- **Auto-Activation Conditions**: Only triggers when weeklyTotal > 0 (user worked out) AND weeklyTotal < weeklyGoal (missed goal)
-- **Snowflake Visual Indicator**: Icons.ac_unit_rounded with blue color (0xFF64B5F6) when active, orange calendar icon when inactive
-- **No Freeze for Inactive Users**: Users with weeklyTotal = 0 don't get auto-activation (must work out to deserve protection)
-
-**From 03.4-04:**
-- **Auto-Activation in initState**: StatisticsScreen calls _checkStreakFreezeAutoActivation() after loadStats() and challenge check
-- **Silent Activation**: No user-facing notification; snowflake icon appears automatically when freeze activates
-- **State Refresh on Activation**: loadStats() called after successful activation to show updated freeze state immediately
-
-**From 03.4-05:**
-- **setState() After loadStats()**: Added setState(() {}) after await stats.loadStats() to force immediate StatefulWidget rebuild
-- **Immediate Points Refresh**: Consumer<UserStatsProvider> rebuilds with fresh totalPoints when challenge bonus is awarded
-- **No App Restart Required**: Points display shows +200 bonus immediately when popup appears
+*Updated: 2026-01-27 after v2.5 milestone completion*
