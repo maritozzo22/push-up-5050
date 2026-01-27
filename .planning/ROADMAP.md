@@ -11,7 +11,7 @@ This roadmap defines the phases for implementing Milestone v2.5: Engagement & Re
 
 - ✅ **v1.0 Core App** - Progressive workout system (SHIPPED)
 - ✅ **v2.0 Android Widgets** - Widget infrastructure & app polish (SHIPPED 2026-01-23)
-- 📋 **v2.5 Engagement & Retention** - Phases 03.1-03.5 (PLANNED)
+- ✅ **v2.5 Engagement & Retention** - Phases 03.1-03.5 (SHIPPED 2026-01-26)
 
 ---
 
@@ -43,7 +43,7 @@ All core functionality has been implemented:
 
 </details>
 
-## 📋 Milestone 3: Engagement & Retention (Planned)
+## ✅ Milestone 3: Engagement & Retention (SHIPPED 2026-01-26)
 
 **Milestone Goal:** Increase user engagement and retention through personalized experiences, enhanced gamification, weekly goals, challenges, and smart notifications.
 
@@ -152,9 +152,9 @@ All core functionality has been implemented:
 4. User receives new challenge notification on Sunday at 8:00 AM
 
 **Plans:**
-- [ ] 03.5-01-PLAN.md — Workout time tracking and personalization infrastructure (NotificationTimeSlot, WorkoutTimeAnalyzer, StorageService methods, NotificationPreferencesProvider)
-- [ ] 03.5-02-PLAN.md — NotificationService smart notification methods and localization (scheduleStreakAtRiskNotification, scheduleProgressNotification, scheduleWeeklyChallengeNotification, IT/EN strings)
-- [ ] 03.5-03-PLAN.md — NotificationScheduler and wiring (condition checking, scheduling logic, deep link navigation, provider registration, HomeScreen triggers)
+- [x] 03.5-01-PLAN.md — Workout time tracking and personalization infrastructure (NotificationTimeSlot, WorkoutTimeAnalyzer, StorageService methods, NotificationPreferencesProvider)
+- [x] 03.5-02-PLAN.md — NotificationService smart notification methods and localization (scheduleStreakAtRiskNotification, scheduleProgressNotification, scheduleWeeklyChallengeNotification, IT/EN strings)
+- [x] 03.5-03-PLAN.md — NotificationScheduler and wiring (condition checking, scheduling logic, deep link navigation, provider registration, HomeScreen triggers)
 
 ---
 
@@ -183,7 +183,7 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 | 03.2 Enhanced Points & Anti-Cheat | v2.5 | 4/4 | Complete | 2026-01-24 |
 | 03.3 Weekly Goals | v2.5 | 4/4 | Complete | 2026-01-25 |
 | 03.4 Challenges & Streak Freeze | v2.5 | 5/5 | Complete | 2026-01-26 |
-| 03.5 Smart Notifications | v2.5 | 0/3 | Planning | - |
+| 03.5 Smart Notifications | v2.5 | 3/3 | Complete | 2026-01-26 |
 
 ---
 
@@ -196,4 +196,4 @@ Phases execute in numeric order: 03.1 → 03.2 → 03.3 → 03.4 → 03.5
 
 ---
 
-*Last updated: 2026-01-26 (Phase 03.5 planning complete)*
+*Last updated: 2026-01-26 (Phase 03.5 complete - Milestone v2.5 complete)*

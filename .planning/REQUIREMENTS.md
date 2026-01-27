@@ -161,13 +161,13 @@ Milestone v2.5 focuses on increasing user engagement and retention through perso
 | ONBD-02 | 03.1 | Complete |
 | ONBD-03 | 03.1 | Complete |
 | ONBD-04 | 03.1 | Complete |
-| POINTS-01 | 03.2 | Pending |
-| POINTS-02 | 03.2 | Pending |
-| POINTS-03 | 03.2 | Pending |
-| POINTS-04 | 03.2 | Pending |
-| POINTS-05 | 03.2 | Pending |
-| ANTCHEAT-01 | 03.2 | Pending |
-| ANTCHEAT-02 | 03.2 | Pending |
+| POINTS-01 | 03.2 | Complete |
+| POINTS-02 | 03.2 | Complete |
+| POINTS-03 | 03.2 | Complete |
+| POINTS-04 | 03.2 | Complete |
+| POINTS-05 | 03.2 | Complete |
+| ANTCHEAT-01 | 03.2 | Complete |
+| ANTCHEAT-02 | 03.2 | Complete |
 | WEEKLY-01 | 03.3 | Complete |
 | WEEKLY-02 | 03.3 | Complete |
 | WEEKLY-03 | 03.3 | Complete |
@@ -176,10 +176,10 @@ Milestone v2.5 focuses on increasing user engagement and retention through perso
 | CHAL-01 | 03.4 | Complete |
 | CHAL-02 | 03.4 | Complete |
 | CHAL-03 | 03.4 | Complete |
-| NOTIF-01 | 03.5 | Pending |
-| NOTIF-02 | 03.5 | Pending |
-| NOTIF-03 | 03.5 | Pending |
-| NOTIF-04 | 03.5 | Pending |
+| NOTIF-01 | 03.5 | Complete |
+| NOTIF-02 | 03.5 | Complete |
+| NOTIF-03 | 03.5 | Complete |
+| NOTIF-04 | 03.5 | Complete |
 
 ## Out of Scope (Deferred to Future Milestone)
 
