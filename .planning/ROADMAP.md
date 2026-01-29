@@ -81,7 +81,7 @@ Plans:
   1. New users see 10 seconds as default recovery time in series selection
   2. User can adjust recovery time between 5-120 seconds
   3. User's configured recovery time persists across app restarts
-**Plans**: TBD
+**Plans**: 2/2 created
 
 Plans:
 - [ ] 04.1-01: Update default recovery time to 10 seconds
@@ -173,7 +173,7 @@ Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5
 | 03.3 | v2.5 | 4/4 | Complete | 2026-01-26 |
 | 03.4 | v2.5 | 5/5 | Complete | 2026-01-26 |
 | 03.5 | v2.5 | 3/3 | Complete | 2026-01-27 |
-| 04.1 | v2.6 | 0/2 | Not started | - |
+| 04.1 | v2.6 | 2/2 | Planned | 2026-01-29 |
 | 04.2 | v2.6 | 0/4 | Not started | - |
 | 04.3 | v2.6 | 0/4 | Not started | - |
 | 04.4 | v2.6 | 0/3 | Not started | - |
@@ -181,4 +181,4 @@ Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5
 
 ---
 
-*Last updated: 2026-01-29*
+*Last updated: 2026-01-29 (Phase 04.1 planned)*
