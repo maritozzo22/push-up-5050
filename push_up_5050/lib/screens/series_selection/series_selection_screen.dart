@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/providers/active_workout_provider.dart';
+import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/screens/workout_execution/workout_execution_screen.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
@@ -272,6 +273,20 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
   /// Start workout with current settings.
   Future<void> _startWorkout() async {
     if (!mounted) return;
+
+    // Check if goal is already complete before navigating
+    final userStats = context.read<UserStatsProvider>();
+    if (userStats.todayPushups >= UserStatsProvider.dailyGoal) {
+      // Show message and prevent navigation
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Obiettivo completato!'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
     final provider = context.read<ActiveWorkoutProvider?>();
     if (provider == null) return;
     await provider.startWorkout(
