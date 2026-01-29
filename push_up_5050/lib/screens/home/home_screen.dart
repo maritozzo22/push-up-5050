@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:push_up_5050/core/constants/app_colors.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/models/goal.dart';
+import 'package:push_up_5050/providers/active_workout_provider.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/providers/weekly_review_provider.dart';
@@ -231,8 +232,17 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(height: 32),
         // START Button
-        StartButtonCircle(
-          onTap: widget.onStartWorkout ?? () {},
+        Consumer2<UserStatsProvider, ActiveWorkoutProvider>(
+          builder: (context, stats, workoutProvider, child) {
+            // Check if today's goal is already complete
+            final goalComplete = stats.todayPushups >= UserStatsProvider.dailyGoal;
+
+            return StartButtonCircle(
+              onTap: widget.onStartWorkout ?? () {},
+              isDisabled: goalComplete,
+              disabledMessage: 'Obiettivo completato!',
+            );
+          },
         ),
         const SizedBox(height: 24),
         // Today's Pushups Card
