@@ -118,6 +118,16 @@ class StorageService {
     return DailyRecord.fromJson(json as Map<String, dynamic>);
   }
 
+  /// Check if today's daily goal has already been completed.
+  ///
+  /// Returns true if today's record exists and goalReached is true.
+  /// Uses current date (DateTime.now()) for the check.
+  Future<bool> isGoalCompletedToday() async {
+    final today = DateTime.now();
+    final record = await getDailyRecord(today);
+    return record?.goalReached ?? false;
+  }
+
   // ==================== Streak Calculation ====================
 
   /// Calculate current streak of consecutive days with any push-ups (> 0).
