@@ -117,6 +117,13 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
         }
       }
 
+      // Check if goal reached - if so, skip recovery and end workout
+      // This ensures series finishes before checking goal
+      if (session.goalReached) {
+        _handleGoalCompletion(provider, context);
+        return;
+      }
+
       // Start recovery when series is complete
       provider.startRecovery();
       _startRecoveryTimer(provider, context);
