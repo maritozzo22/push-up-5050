@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 2 of 5 (Improvements & Polish)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-01-29 — Completed 04.2-03 (Prevent Workout Start After Goal Completion)
+Plan: 4 of 4 in current phase
+Status: Phase complete
+Last activity: 2026-01-29 — Completed 04.2-04 (Midnight Reset Logic)
 
-Progress: [██░░░░░░░░] 18% (4/22 plans)
+Progress: [██░░░░░░░░] 23% (6/22 plans)
 
 ## Performance Metrics
 
@@ -33,13 +33,13 @@ Progress: [██░░░░░░░░] 18% (4/22 plans)
 | 03.4 | 5 | ~65min | 13min |
 | 03.5 | 3 | ~65min | 22min |
 | 04.1 | 2 | ~15min | 8min |
-| 04.2 | 3 | ~18min | 6min |
+| 04.2 | 4 | ~25min | 6min |
 
 **Recent Trend:**
 - Last 5 plans: ~5-8min each
 - Trend: Stable
 
-*Updated after 04.2-03 completion*
+*Updated after 04.2-04 completion*
 
 ## Accumulated Context
 
@@ -48,6 +48,9 @@ Progress: [██░░░░░░░░] 18% (4/22 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.2-04]: Use session start date for goal completion check (not DateTime.now()) to handle midnight boundary correctly
+- [04.2-04]: DailyRecord goalReached made optional in constructor for proper deserialization with backward compatibility
+- [04.2-04]: Added dual API for goal status: synchronous isTodayGoalComplete for UI, async checkGoalCompletion for refresh+check
 - [04.2-03]: Used Consumer2 (not Consumer) to access both UserStatsProvider and ActiveWorkoutProvider for goal check
 - [04.2-03]: Opacity 0.5 provides clear visual feedback for disabled start button
 - [04.2-03]: Navigation guard placed in _startWorkout to catch all entry points to workout screen
@@ -90,7 +93,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed 04.2-03 (Prevent Workout Start After Goal Completion)
+Stopped at: Completed 04.2-04 (Midnight Reset Logic) - Phase 04.2 complete
 Resume file: None
 
 ## Milestone Archives
