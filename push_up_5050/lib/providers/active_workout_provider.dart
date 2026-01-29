@@ -71,6 +71,18 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   /// Si aggiorna ogni volta che viene completata una serie.
   int get sessionPoints => _sessionPoints;
 
+  /// Check if today's daily goal has already been completed.
+  ///
+  /// Returns true if today's existing record totalPushups >= daily goal.
+  /// Used by HomeScreen to disable start button when goal complete.
+  Future<bool> isDailyGoalComplete() async {
+    final today = DateTime.now();
+    final existingRecord = await _storage.getDailyRecord(today);
+    final todayReps = existingRecord?.totalPushups ?? 0;
+    final goal = _storage.getDailyGoal();
+    return todayReps >= goal;
+  }
+
   // ==================== Workout Preferences ====================
 
   int? _savedStartingSeries;
