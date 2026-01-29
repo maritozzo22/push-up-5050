@@ -216,6 +216,40 @@ class ActiveWorkoutProvider extends ChangeNotifier {
     _sessionPoints += repPoints;
   }
 
+  /// Check if daily goal has been reached during active workout.
+  ///
+  /// Accounts for cumulative progress across all sessions today, not just
+  /// the current session. Fetches existing daily record, adds current session
+  /// reps, and compares to daily goal. Sets session.goalReached when threshold met.
+  ///
+  /// This should be called after each rep to enable real-time goal detection.
+  Future<void> _checkGoalCompletion() async {
+    if (_session == null) return;
+
+    // Get the daily goal (default 50 if not set)
+    final dailyGoal = _storage.getDailyGoal();
+
+    // No goal configured - skip check
+    if (_session!.goalPushups == null && dailyGoal == 50) {
+      // Use default goal
+    }
+
+    final goal = _session!.goalPushups ?? dailyGoal;
+
+    // Get today's existing record to account for cumulative progress
+    final today = DateTime.now();
+    final existingRecord = await _storage.getDailyRecord(today);
+    final todayReps = existingRecord?.totalPushups ?? 0;
+
+    // Calculate cumulative total: existing today reps + current session reps
+    final cumulativeTotal = todayReps + _session!.totalReps;
+
+    // Set goal reached flag when cumulative total meets or exceeds goal
+    if (cumulativeTotal >= goal && !_session!.goalReached) {
+      _session!.goalReached = true;
+    }
+  }
+
   /// Advance to next series.
   ///
   /// Only works if current series is complete.
