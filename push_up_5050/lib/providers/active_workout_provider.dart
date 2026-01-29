@@ -71,6 +71,11 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   /// Si aggiorna ogni volta che viene completata una serie.
   int get sessionPoints => _sessionPoints;
 
+  /// Whether the daily goal has been reached in this session.
+  ///
+  /// Returns the session's goalReached flag, or false if no session.
+  bool get isGoalReached => _session?.goalReached ?? false;
+
   /// Check if today's daily goal has already been completed.
   ///
   /// Returns true if today's existing record totalPushups >= daily goal.
