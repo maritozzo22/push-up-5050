@@ -38,7 +38,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
   static const int _maxGoalPushups = 500;
 
   int _startingSeries = 1;
-  int _restTime = 30;
+  int _restTime = 10;
   int _goalPushups = 0;
 
   // Long-press acceleration state for goal

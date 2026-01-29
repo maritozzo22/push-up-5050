@@ -114,7 +114,7 @@ void main() {
       expect(find.text('1'), findsWidgets);
     });
 
-    testWidgets('rest time default value is 30', (tester) async {
+    testWidgets('rest time default value is 10', (tester) async {
       await tester.pumpWidget(
         ChangeNotifierProvider<ActiveWorkoutProvider>.value(
           value: workoutProvider,
@@ -125,7 +125,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('30'), findsWidgets);
+      expect(find.text('10'), findsWidgets);
     });
 
     testWidgets('INIZIA ALLENAMENTO button is tappable', (tester) async {
@@ -224,7 +224,7 @@ void main() {
 
       // Should display default values
       expect(find.text('1'), findsWidgets);
-      expect(find.text('30'), findsWidgets);
+      expect(find.text('10'), findsWidgets);
     });
 
     testWidgets('startingSeries value updates on increment', (tester) async {
@@ -263,8 +263,8 @@ void main() {
       await tester.tap(plusButtons.at(1));
       await tester.pumpAndSettle();
 
-      // Value should change from 30 to 31
-      expect(find.text('31'), findsOneWidget);
+      // Value should change from 10 to 11
+      expect(find.text('11'), findsOneWidget);
     });
 
     testWidgets('saves preferences when startingSeries changes', (tester) async {
@@ -285,7 +285,7 @@ void main() {
 
       // Preferences should be saved
       expect(workoutProvider.savedStartingSeries, 2);
-      expect(workoutProvider.savedRestTime, 30);
+      expect(workoutProvider.savedRestTime, 10);
     });
 
     testWidgets('saves preferences when restTime changes', (tester) async {
@@ -336,7 +336,7 @@ void main() {
       // Provider should have a session started
       expect(workoutProvider.session, isNotNull);
       expect(workoutProvider.session!.startingSeries, 1);
-      expect(workoutProvider.session!.restTime, 30);
+      expect(workoutProvider.session!.restTime, 10);
       expect(workoutProvider.session!.goalPushups, null); // Default goal is null (no goal)
     });
 
@@ -515,21 +515,21 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica default iniziale
-      expect(find.text('30'), findsWidgets);
+      expect(find.text('10'), findsWidgets);
 
-      // Incrementa il tempo di recupero a 35
+      // Incrementa il tempo di recupero a 15
       final plusButtons = find.byIcon(Icons.add);
       for (int i = 0; i < 5; i++) {
         await tester.tap(plusButtons.at(1));
         await tester.pumpAndSettle();
       }
 
-      expect(find.text('35'), findsOneWidget);
-      expect(workoutProvider.savedRestTime, 35);
+      expect(find.text('15'), findsOneWidget);
+      expect(workoutProvider.savedRestTime, 15);
 
       // Verifica che sia stato salvato nello storage
       final savedPrefs = await fakeStorage.loadWorkoutPreferences();
-      expect(savedPrefs?['restTime'], 35);
+      expect(savedPrefs?['restTime'], 15);
 
       // Simula riavvio app - crea nuovo provider e carica preferenze
       final newProvider = ActiveWorkoutProvider(storage: fakeStorage);
@@ -545,13 +545,13 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Dovrebbe mostrare 35, non 30 (default)
-      expect(find.text('35'), findsWidgets);
-      expect(find.text('30'), findsNothing);
-      expect(newProvider.savedRestTime, 35);
+      // Dovrebbe mostrare 15, non 10 (default)
+      expect(find.text('15'), findsWidgets);
+      expect(find.text('10'), findsNothing);
+      expect(newProvider.savedRestTime, 15);
     });
 
-    testWidgets('restTime defaults to 30 when no saved preferences',
+    testWidgets('restTime defaults to 10 when no saved preferences',
         (tester) async {
       // Nessuna preferenza salvata
       fakeStorage.setWorkoutPreferences(null);
@@ -566,8 +566,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Dovrebbe mostrare il default di 30
-      expect(find.text('30'), findsWidgets);
+      // Dovrebbe mostrare il default di 10
+      expect(find.text('10'), findsWidgets);
     });
   });
 
