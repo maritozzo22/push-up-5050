@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 2 of 5 (Improvements & Polish)
-Plan: 0 of 4 in current phase
-Status: Ready to plan
-Last activity: 2026-01-29 — Phase 04.1 Quick Fixes completed and verified
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-29 — Completed 04.2-01 (Goal Completion Detection)
 
-Progress: [██░░░░░░░░] 9% (2/22 plans)
+Progress: [███░░░░░░░] 14% (3/22 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 21 (19 v2.5 + 2 v2.6)
+- Total plans completed: 22 (19 v2.5 + 3 v2.6)
 - Average duration: ~14 min
-- Total execution time: 4.93 hours (v2.5 + v2.6)
+- Total execution time: 4.98 hours (v2.5 + v2.6)
 
 **By Phase:**
 
@@ -33,12 +33,13 @@ Progress: [██░░░░░░░░] 9% (2/22 plans)
 | 03.4 | 5 | ~65min | 13min |
 | 03.5 | 3 | ~65min | 22min |
 | 04.1 | 2 | ~15min | 8min |
+| 04.2 | 1 | ~4min | 4min |
 
 **Recent Trend:**
 - Last 5 plans: ~5-15min each
 - Trend: Stable
 
-*Updated after 04.1-02 completion*
+*Updated after 04.2-01 completion*
 
 ## Accumulated Context
 
@@ -47,6 +48,8 @@ Progress: [██░░░░░░░░] 9% (2/22 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.2-01]: Goal check happens after each rep (not per series) for immediate feedback; cumulative progress includes reps from all today's sessions
+- [04.2-01]: Stats cap at daily goal using math.min() to handle overshoot in final series
 - [04.1-02]: Test infrastructure updated for v2.5 API compatibility (FakeStorageService now implements all 30+ new methods)
 - [04.1-01]: Default recovery time reduced from 30s to 10s for faster workout flow
 - [03.5]: Smart notifications use personalized timing based on workout patterns
@@ -81,7 +84,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed 04.1-02 (Verify Recovery Time Configuration)
+Stopped at: Completed 04.2-01 (Goal Completion Detection)
 Resume file: None
 
 ## Milestone Archives
