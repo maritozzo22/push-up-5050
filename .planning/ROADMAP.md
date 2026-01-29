@@ -75,17 +75,17 @@ Plans:
 
 ### Phase 04.1: Quick Fixes
 **Goal**: Default recovery time changed from 30 to 10 seconds
-**Depends on**: Phase 03.5
+**Depends on**: Phase 03.5 ✅
 **Requirements**: WRK-01, WRK-02, WRK-03
 **Success Criteria** (what must be TRUE):
-  1. New users see 10 seconds as default recovery time in series selection
-  2. User can adjust recovery time between 5-120 seconds
-  3. User's configured recovery time persists across app restarts
-**Plans**: 2/2 created
+  1. New users see 10 seconds as default recovery time in series selection ✅
+  2. User can adjust recovery time between 5-120 seconds ✅
+  3. User's configured recovery time persists across app restarts ✅
+**Plans**: 2/2 complete
 
 Plans:
-- [ ] 04.1-01: Update default recovery time to 10 seconds
-- [ ] 04.1-02: Verify recovery time configuration and persistence
+- [x] 04.1-01: Update default recovery time to 10 seconds
+- [x] 04.1-02: Verify recovery time configuration and persistence
 
 ### Phase 04.2: Goal-Based Logic
 **Goal**: Workout auto-completes when daily goal is reached
@@ -173,7 +173,7 @@ Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5
 | 03.3 | v2.5 | 4/4 | Complete | 2026-01-26 |
 | 03.4 | v2.5 | 5/5 | Complete | 2026-01-26 |
 | 03.5 | v2.5 | 3/3 | Complete | 2026-01-27 |
-| 04.1 | v2.6 | 2/2 | Planned | 2026-01-29 |
+| 04.1 | v2.6 | 2/2 | Complete | 2026-01-29 |
 | 04.2 | v2.6 | 0/4 | Not started | - |
 | 04.3 | v2.6 | 0/4 | Not started | - |
 | 04.4 | v2.6 | 0/3 | Not started | - |

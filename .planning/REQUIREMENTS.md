@@ -9,9 +9,9 @@ Improvements & Polish milestone - fixing UX issues and platform-specific feature
 
 ### Workout Configuration
 
-- [ ] **WRK-01**: Default recovery time is 10 seconds (changed from 30)
-- [ ] **WRK-02**: User can still configure recovery time between 5-120 seconds
-- [ ] **WRK-03**: User's configured recovery time persists across app restarts
+- [x] **WRK-01**: Default recovery time is 10 seconds (changed from 30)
+- [x] **WRK-02**: User can still configure recovery time between 5-120 seconds
+- [x] **WRK-03**: User's configured recovery time persists across app restarts
 
 ### Goal-Based Logic
 
@@ -69,9 +69,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| WRK-01 | Phase 04.1 | Pending |
-| WRK-02 | Phase 04.1 | Pending |
-| WRK-03 | Phase 04.1 | Pending |
+| WRK-01 | Phase 04.1 | Complete ✅ |
+| WRK-02 | Phase 04.1 | Complete ✅ |
+| WRK-03 | Phase 04.1 | Complete ✅ |
 | GOAL-01 | Phase 04.2 | Pending |
 | GOAL-02 | Phase 04.2 | Pending |
 | GOAL-03 | Phase 04.2 | Pending |
