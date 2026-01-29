@@ -158,6 +158,7 @@ class ActiveWorkoutProvider extends ChangeNotifier {
   ///
   /// Automatically saves to storage.
   /// Also calculates and adds points for this rep (real-time).
+  /// Checks for goal completion after each rep.
   void countRep() async {
     if (_session == null) return;
     if (_isRecovery) return;
@@ -166,6 +167,9 @@ class ActiveWorkoutProvider extends ChangeNotifier {
 
     // Calculate points for this rep immediately (real-time feedback)
     await _calculateRepPoints();
+
+    // Check for goal completion after counting rep
+    await _checkGoalCompletion();
 
     _saveSession();
     notifyListeners();
