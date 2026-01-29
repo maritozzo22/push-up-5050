@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 2 of 5 (Improvements & Polish)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-29 — Completed 04.2-01 (Goal Completion Detection)
+Last activity: 2026-01-29 — Completed 04.2-02 (Auto-Complete Workout at Goal Reached)
 
-Progress: [███░░░░░░░] 14% (3/22 plans)
+Progress: [███░░░░░░░] 18% (4/22 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 22 (19 v2.5 + 3 v2.6)
+- Total plans completed: 23 (19 v2.5 + 4 v2.6)
 - Average duration: ~14 min
-- Total execution time: 4.98 hours (v2.5 + v2.6)
+- Total execution time: 5.08 hours (v2.5 + v2.6)
 
 **By Phase:**
 
@@ -33,13 +33,13 @@ Progress: [███░░░░░░░] 14% (3/22 plans)
 | 03.4 | 5 | ~65min | 13min |
 | 03.5 | 3 | ~65min | 22min |
 | 04.1 | 2 | ~15min | 8min |
-| 04.2 | 1 | ~4min | 4min |
+| 04.2 | 2 | ~10min | 5min |
 
 **Recent Trend:**
 - Last 5 plans: ~5-15min each
 - Trend: Stable
 
-*Updated after 04.2-01 completion*
+*Updated after 04.2-02 completion*
 
 ## Accumulated Context
 
@@ -48,6 +48,9 @@ Progress: [███░░░░░░░] 14% (3/22 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.2-02]: Workout auto-completes when daily goal is reached, skipping recovery period
+- [04.2-02]: Double-completion prevention via _isCompleting flag prevents race conditions
+- [04.2-02]: Navigation goes to Home screen (not results screen) after goal completion
 - [04.2-01]: Goal check happens after each rep (not per series) for immediate feedback; cumulative progress includes reps from all today's sessions
 - [04.2-01]: Stats cap at daily goal using math.min() to handle overshoot in final series
 - [04.1-02]: Test infrastructure updated for v2.5 API compatibility (FakeStorageService now implements all 30+ new methods)
@@ -84,7 +87,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed 04.2-01 (Goal Completion Detection)
+Stopped at: Completed 04.2-02 (Auto-Complete Workout at Goal Reached)
 Resume file: None
 
 ## Milestone Archives
