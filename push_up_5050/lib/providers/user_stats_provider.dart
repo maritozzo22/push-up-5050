@@ -108,6 +108,12 @@ class UserStatsProvider extends ChangeNotifier {
   /// Daily goal in pushups.
   static const int dailyGoal = 50;
 
+  /// Whether today's daily goal has been completed.
+  ///
+  /// Returns true if todayPushups >= dailyGoal.
+  /// Synchronous check for UI consumption.
+  bool get isTodayGoalComplete => _todayPushups >= dailyGoal;
+
   /// Daily records for the last 30 days.
   ///
   /// List of 30 elements where each element is:
@@ -436,6 +442,14 @@ class UserStatsProvider extends ChangeNotifier {
   /// Same as [loadStats] but can be called after initial load.
   Future<void> refreshStats() async {
     await loadStats();
+  }
+
+  /// Refresh stats and return goal completion status.
+  ///
+  /// Useful for checking goal status after app resume or state changes.
+  Future<bool> checkGoalCompletion() async {
+    await refreshStats();
+    return _todayPushups >= dailyGoal;
   }
 
   /// Manually activate streak freeze for the current week.
