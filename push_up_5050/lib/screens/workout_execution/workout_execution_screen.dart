@@ -44,6 +44,7 @@ class WorkoutExecutionScreen extends StatefulWidget {
 class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
   Timer? _recoveryTimer;
   bool _showCelebration = false;
+  bool _isCompleting = false;
 
   AppLocalizations get _l10n => AppLocalizations.of(context)!;
 
@@ -237,6 +238,30 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
           ),
         ),
       );
+    }
+  }
+
+  Future<void> _handleGoalCompletion(
+    ActiveWorkoutProvider provider,
+    BuildContext context,
+  ) async {
+    // Prevent double-completion
+    if (_isCompleting) return;
+    _isCompleting = true;
+
+    // End workout (saves session, clears active session)
+    await provider.endWorkout();
+
+    // Play goal achievement sound
+    final settings = context.read<AppSettingsService>();
+    final audio = context.read<AudioService>();
+    if (settings.soundsEnabled && settings.goalSoundEnabled) {
+      audio.playGoalAchieved();
+    }
+
+    // Navigate back to Home (not results screen)
+    if (mounted) {
+      Navigator.pop(context);
     }
   }
 
