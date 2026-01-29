@@ -240,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return StartButtonCircle(
               onTap: widget.onStartWorkout ?? () {},
               isDisabled: goalComplete,
-              disabledMessage: 'Obiettivo completato!',
+              disabledMessage: l10n.goalCompleted,
             );
           },
         ),

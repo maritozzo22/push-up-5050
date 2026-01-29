@@ -375,5 +375,6 @@
   "notificationProgressChannel": "Promemoria Progresso",
   "notificationProgressChannelDesc": "Incoraggiamenti quando sei vicino all'obiettivo",
   "notificationChallengeChannel": "Sfida Settimanale",
-  "notificationChallengeChannelDesc": "Annuncia nuova sfida disponibile"
+  "notificationChallengeChannelDesc": "Annuncia nuova sfida disponibile",
+  "goalCompleted": "Obiettivo completato!"
 }

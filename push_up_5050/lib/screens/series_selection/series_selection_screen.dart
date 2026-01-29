@@ -279,9 +279,9 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
     if (userStats.todayPushups >= UserStatsProvider.dailyGoal) {
       // Show message and prevent navigation
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Obiettivo completato!'),
-          duration: Duration(seconds: 2),
+        SnackBar(
+          content: Text(_l10n.goalCompleted),
+          duration: const Duration(seconds: 2),
         ),
       );
       return;

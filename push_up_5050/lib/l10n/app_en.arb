@@ -375,5 +375,6 @@
   "notificationProgressChannel": "Progress Reminders",
   "notificationProgressChannelDesc": "Encouragement when you're close to your goal",
   "notificationChallengeChannel": "Weekly Challenge",
-  "notificationChallengeChannelDesc": "Announces new weekly challenge available"
+  "notificationChallengeChannelDesc": "Announces new weekly challenge available",
+  "goalCompleted": "Goal completed!"
 }
