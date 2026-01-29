@@ -96,7 +96,7 @@ Plans:
   2. Series progression stops at goal completion (e.g., goal 10 = series 1+2+3+4)
   3. User cannot start new workout after completing daily goal
   4. Goal completion resets at midnight, allowing new workout
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
 - [ ] 04.2-01: Goal completion detection during workout
@@ -181,4 +181,4 @@ Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5
 
 ---
 
-*Last updated: 2026-01-29 (Phase 04.1 planned)*
+*Last updated: 2026-01-29 (Phase 04.2 planned)*
