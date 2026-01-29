@@ -257,9 +257,10 @@ class ActiveWorkoutProvider extends ChangeNotifier {
 
     final goal = _session!.goalPushups ?? dailyGoal;
 
-    // Get today's existing record to account for cumulative progress
-    final today = DateTime.now();
-    final existingRecord = await _storage.getDailyRecord(today);
+    // CRITICAL: Use session start date, not current time
+    // This handles workouts that span midnight correctly
+    final sessionDate = _session!.startTime;
+    final existingRecord = await _storage.getDailyRecord(sessionDate);
     final todayReps = existingRecord?.totalPushups ?? 0;
 
     // Calculate cumulative total: existing today reps + current session reps
