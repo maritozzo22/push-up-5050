@@ -15,10 +15,10 @@ Improvements & Polish milestone - fixing UX issues and platform-specific feature
 
 ### Goal-Based Logic
 
-- [ ] **GOAL-01**: Workout auto-completes when daily goal is reached
-- [ ] **GOAL-02**: Series progression stops at goal completion (e.g., goal 10 = series 1+2+3+4)
-- [ ] **GOAL-03**: User cannot start new workout after completing daily goal
-- [ ] **GOAL-04**: Goal completion resets at midnight (new day = new workout allowed)
+- [x] **GOAL-01**: Workout auto-completes when daily goal is reached
+- [x] **GOAL-02**: Series progression stops at goal completion (e.g., goal 10 = series 1+2+3+4)
+- [x] **GOAL-03**: User cannot start new workout after completing daily goal
+- [x] **GOAL-04**: Goal completion resets at midnight (new day = new workout allowed)
 
 ### User Experience
 
@@ -72,10 +72,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | WRK-01 | Phase 04.1 | Complete ✅ |
 | WRK-02 | Phase 04.1 | Complete ✅ |
 | WRK-03 | Phase 04.1 | Complete ✅ |
-| GOAL-01 | Phase 04.2 | Pending |
-| GOAL-02 | Phase 04.2 | Pending |
-| GOAL-03 | Phase 04.2 | Pending |
-| GOAL-04 | Phase 04.2 | Pending |
+| GOAL-01 | Phase 04.2 | Complete ✅ |
+| GOAL-02 | Phase 04.2 | Complete ✅ |
+| GOAL-03 | Phase 04.2 | Complete ✅ |
+| GOAL-04 | Phase 04.2 | Complete ✅ |
 | UX-01 | Phase 04.3 | Pending |
 | UX-02 | Phase 04.3 | Pending |
 | UX-03 | Phase 04.3 | Pending |
