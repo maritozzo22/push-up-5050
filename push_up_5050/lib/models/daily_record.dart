@@ -29,7 +29,7 @@ class DailyRecord {
 
   /// Create a new daily record
   /// totalKcal is auto-calculated if not provided
-  /// goalReached is true if totalPushups >= 50
+  /// goalReached is true if totalPushups >= 50 (or use provided value)
   DailyRecord({
     required this.date,
     this.totalPushups = 0,
@@ -38,8 +38,9 @@ class DailyRecord {
     this.pointsEarned = 0,
     this.multiplier = 1.0,
     this.excessPushups = 0,
+    bool? goalReached,
   })  : totalKcal = totalKcal ?? Calculator.calculateKcal(totalPushups),
-        goalReached = totalPushups >= 50;
+        goalReached = goalReached ?? (totalPushups >= 50);
 
   /// Create record from workout session data
   factory DailyRecord.fromSession(
@@ -74,6 +75,7 @@ class DailyRecord {
   factory DailyRecord.fromJson(Map<String, dynamic> json) {
     final dateString = json['date'] as String;
     final parts = dateString.split('-');
+
     return DailyRecord(
       date: DateTime(
         int.parse(parts[0]),
@@ -86,6 +88,7 @@ class DailyRecord {
       pointsEarned: json['pointsEarned'] as int? ?? 0, // Backward compatible
       multiplier: (json['multiplier'] as num?)?.toDouble() ?? 1.0, // Backward compatible
       excessPushups: json['excessPushups'] as int? ?? 0, // Backward compatible
+      goalReached: json['goalReached'] as bool?, // Read from JSON, defaults to calculation if null
     );
   }
 
