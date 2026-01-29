@@ -68,8 +68,14 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
           audio.playBeep();
         }
 
-        // Auto-advance to next series when recovery is complete
-        provider.advanceToNextSeries();
+        // Check if goal was reached - if so, end workout instead of advancing
+        // This is a defensive check in case recovery was already started
+        if (provider.session?.goalReached == true) {
+          _handleGoalCompletion(provider, context);
+        } else {
+          // Auto-advance to next series when recovery is complete
+          provider.advanceToNextSeries();
+        }
       }
     });
   }
