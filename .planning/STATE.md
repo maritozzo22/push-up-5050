@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 4 of 5 (Improvements & Polish)
-Plan: 3 of 6 in current phase
+Plan: 2 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-30 — Completed 04.6-03 (Goal Completion Navigation Fix)
+Last activity: 2026-01-30 — Completed 04.6-02 (Series Selection Cap)
 
-Progress: [█████░░░░░] 44% (11/25 plans)
+Progress: [█████░░░░░] 40% (10/25 plans)
 
 ## Performance Metrics
 
@@ -49,6 +49,8 @@ Progress: [█████░░░░░] 44% (11/25 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.6-02]: Series selection cap calculated dynamically as (dailyGoal + 10).clamp(10, 99) via _getMaxStartingSeries(BuildContext context)
+- [04.6-02]: Removed hardcoded _maxStartingSeries = 99 constant in favor of context-read StorageService.getDailyGoal()
 - [04.6-03]: Goal completion now navigates to Workout Summary with full session stats (replaces /statistics navigation)
 - [04.6-03]: Shared _navigateToWorkoutSummary method handles both normal workout end and goal completion
 - [04.6-03]: Session data captured before endWorkout() call because session becomes null after
@@ -115,7 +117,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-30
-Stopped at: Completed 04.6-03 (Goal Completion Navigation Fix)
+Stopped at: Completed 04.6-02 (Series Selection Cap)
 Resume file: None
 
 ## Roadmap Evolution
