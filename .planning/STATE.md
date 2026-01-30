@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** Progressive push-up training app with gamification and engagement features
-**Current focus:** Phase 04.4 - Adaptive Icons
+**Current focus:** Phase 04.6 - Bug Fixes & Testing
 
 ## Current Position
 
 Phase: 4 of 5 (Improvements & Polish)
-Plan: 2 of 2 in current phase
+Plan: 4 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-30 — Completed 04.4-02 (Generate Adaptive Icons)
+Last activity: 2026-01-30 — Completed 04.6-04 (Remove Gradient Bar from CalorieCard)
 
-Progress: [█████░░░░░] 40% (10/25 plans)
+Progress: [█████░░░░░] 44% (11/25 plans)
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Progress: [█████░░░░░] 40% (10/25 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.6-04]: Simple SizedBox(height: 8) provides sufficient CalorieCard bottom spacing without decorative gradient bar
 - [04.4-02]: Android adaptive icon XML files created manually with Python PIL for PNG generation after flutter_launcher_icons CLI failed silently
 - [04.4-02]: Adaptive icon foreground sized at 108dp base (Android spec) with densities from 108px (mdpi) to 432px (xxxhdpi)
 - [04.4-01]: Adaptive icon foreground layer extracted with transparent background using ImageMagick
@@ -111,8 +112,12 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-30
-Stopped at: Completed 04.4-02 (Generate Adaptive Icons)
+Stopped at: Completed 04.6-04 (Remove Gradient Bar from CalorieCard)
 Resume file: None
+
+## Roadmap Evolution
+
+- Phase 04.6 added: Bug Fixes & Testing (onboarding goal persistence, series selection cap, popup navigation, calorie card fix)
 
 ## Milestone Archives
 
