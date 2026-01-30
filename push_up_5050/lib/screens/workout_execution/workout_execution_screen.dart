@@ -18,6 +18,7 @@ import 'package:push_up_5050/services/audio_service.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
+import 'package:push_up_5050/widgets/goal_completion/goal_completion_dialog.dart';
 import 'package:push_up_5050/widgets/workout/countdown_circle.dart';
 import 'package:push_up_5050/widgets/workout/goal_celebration.dart';
 import 'package:push_up_5050/widgets/workout/recovery_ring_button.dart';
@@ -262,19 +263,33 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
     if (_isCompleting) return;
     _isCompleting = true;
 
-    // End workout (saves session, clears active session)
-    await provider.endWorkout();
-
-    // Play goal achievement sound
-    final settings = context.read<AppSettingsService>();
-    final audio = context.read<AudioService>();
-    if (settings.soundsEnabled && settings.goalSoundEnabled) {
-      audio.playGoalAchieved();
-    }
-
-    // Navigate back to Home (not results screen)
+    // Show goal completion dialog
     if (mounted) {
-      Navigator.pop(context);
+      await showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (context) => GoalCompletionDialog(
+          onDismiss: () async {
+            Navigator.of(context).pop(); // Close dialog
+
+            // End workout (saves session, clears active session)
+            await provider.endWorkout();
+
+            // Play goal achievement sound
+            final settings = context.read<AppSettingsService>();
+            final audio = context.read<AudioService>();
+            if (settings.soundsEnabled && settings.goalSoundEnabled) {
+              audio.playGoalAchieved();
+            }
+
+            // Navigate to statistics after short delay
+            await Future.delayed(const Duration(milliseconds: 500));
+            if (mounted) {
+              Navigator.of(context).pushReplacementNamed('/statistics');
+            }
+          },
+        ),
+      );
     }
   }
 
