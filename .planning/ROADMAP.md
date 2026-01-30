@@ -166,18 +166,18 @@ Plans:
 **Depends on**: Phase 04.5
 **Requirements**: BUG-01, BUG-02, BUG-03, BUG-04
 **Success Criteria** (what must be TRUE):
-  1. Onboarding daily goal value is reflected in Home screen (e.g., 0/20 instead of 0/50)
-  2. Series selection maximum capped at daily goal + 10 (user cannot select more)
-  3. After goal completion popup, navigate to Workout Results screen (not stay on current screen)
-  4. Calorie card in Statistics page displays correctly without unnecessary bar
+  1. Onboarding daily goal value is reflected in Home screen (e.g., 0/20 instead of 0/50) ✅
+  2. Series selection maximum capped at daily goal + 10 (user cannot select more) ✅
+  3. After goal completion popup, navigate to Workout Results screen (not stay on current screen) ✅
+  4. Calorie card in Statistics page displays correctly without unnecessary bar ✅
 **Plans**: 5 plans
 
 Plans:
-- [ ] 04.6-01: Fix onboarding goal persistence to Home screen display
-- [ ] 04.6-02: Cap series selection at daily goal + 10
-- [ ] 04.6-03: Navigate to Workout Results after goal completion popup
-- [ ] 04.6-04: Fix calorie card display in Statistics screen
-- [ ] 04.6-05: Test all fixes via Chrome/web
+- [x] 04.6-01: Fix onboarding goal persistence to Home screen display
+- [x] 04.6-02: Cap series selection at daily goal + 10
+- [x] 04.6-03: Navigate to Workout Results after goal completion popup
+- [x] 04.6-04: Fix calorie card display in Statistics screen
+- [x] 04.6-05: Test all fixes via Chrome/web
 
 ## Progress
 
@@ -196,8 +196,8 @@ Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5 → 04
 | 04.3 | v2.6 | 4/4 | Complete | 2026-01-30 |
 | 04.4 | v2.6 | 0/3 | Not started | - |
 | 04.5 | v2.6 | 0/6 | Not started | - |
-| 04.6 | v2.6 | 0/5 | Not started | - |
+| 04.6 | v2.6 | 5/5 | Complete | 2026-01-30 |
 
 ---
 
-*Last updated: 2026-01-30 (Phase 04.6 plans created)*
+*Last updated: 2026-01-30 (Phase 04.6 complete)*

@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 4 of 5 (Improvements & Polish)
-Plan: 1 of 6 in current phase
-Status: In progress
-Last activity: 2026-01-30 — Completed 04.6-01 (Dynamic Daily Goal)
+Plan: 5 of 5 in current phase
+Status: Complete
+Last activity: 2026-01-30 — Phase 04.6 complete (all 5 plans executed and verified)
 
-Progress: [█████░░░░░] 40% (10/25 plans)
+Progress: [██████████] 60% (15/25 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 26 (19 v2.5 + 7 v2.6)
+- Total plans completed: 31 (19 v2.5 + 12 v2.6)
 - Average duration: ~13 min
-- Total execution time: ~5.6 hours (v2.5 + v2.6)
+- Total execution time: ~6.7 hours (v2.5 + v2.6)
 
 **By Phase:**
 
@@ -35,6 +35,7 @@ Progress: [█████░░░░░] 40% (10/25 plans)
 | 04.1 | 2 | ~15min | 8min |
 | 04.2 | 4 | ~25min | 6min |
 | 04.3 | 4 | ~31min | 8min |
+| 04.6 | 5 | ~20min | 4min |
 
 **Recent Trend:**
 - Last 5 plans: ~4-13min each
@@ -49,6 +50,7 @@ Progress: [█████░░░░░] 40% (10/25 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.6-05]: All four bug fixes verified via Chrome/web testing - Home shows personalized 0/20, Series capped at 30, Calorie card clean
 - [04.6-01]: UserStatsProvider.dailyGoal changed from static const to instance getter reading from StorageService.getDailyGoal()
 - [04.6-01]: Home screen uses Consumer3<UserStatsProvider, ActiveWorkoutProvider, GoalsProvider> for goal completion check
 - [04.6-01]: Daily goal display uses GoalsProvider.dailyGoal.target for personalized value from onboarding
@@ -120,7 +122,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-30
-Stopped at: Completed 04.6-01 (Dynamic Daily Goal)
+Stopped at: Phase 04.6 complete (all 5 plans executed)
 Resume file: None
 
 ## Roadmap Evolution
