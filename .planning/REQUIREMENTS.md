@@ -22,11 +22,11 @@ Improvements & Polish milestone - fixing UX issues and platform-specific feature
 
 ### User Experience
 
-- [ ] **UX-01**: Congratulations popup appears when daily goal is achieved
-- [ ] **UX-02**: Popup displays message: "Complimenti! Hai completato il tuo obiettivo di oggi. Ci vediamo domani!"
-- [ ] **UX-03**: Popup includes button to return to Home screen
-- [ ] **UX-04**: Popup appears immediately when goal is reached OR when app opens after goal completion
-- [ ] **UX-05**: Achievement popup is NOT shown for partial progress (only goal completion)
+- [x] **UX-01**: Congratulations popup appears when daily goal is achieved
+- [x] **UX-02**: Popup displays message: "Complimenti! Hai completato il tuo obiettivo di oggi. Ci vediamo domani!"
+- [x] **UX-03**: Popup includes button to return to Home screen
+- [x] **UX-04**: Popup appears immediately when goal is reached OR when app opens after goal completion
+- [x] **UX-05**: Achievement popup is NOT shown for partial progress (only goal completion)
 
 ### Android Platform
 
@@ -76,11 +76,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GOAL-02 | Phase 04.2 | Complete ✅ |
 | GOAL-03 | Phase 04.2 | Complete ✅ |
 | GOAL-04 | Phase 04.2 | Complete ✅ |
-| UX-01 | Phase 04.3 | Pending |
-| UX-02 | Phase 04.3 | Pending |
-| UX-03 | Phase 04.3 | Pending |
-| UX-04 | Phase 04.3 | Pending |
-| UX-05 | Phase 04.3 | Pending |
+| UX-01 | Phase 04.3 | Complete ✅ |
+| UX-02 | Phase 04.3 | Complete ✅ |
+| UX-03 | Phase 04.3 | Complete ✅ |
+| UX-04 | Phase 04.3 | Complete ✅ |
+| UX-05 | Phase 04.3 | Complete ✅ |
 | AND-01 | Phase 04.4 | Pending |
 | AND-02 | Phase 04.4 | Pending |
 | AND-03 | Phase 04.4 | Pending |
@@ -102,4 +102,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 ---
 
 *Requirements defined: 2026-01-29*
-*Last updated: 2026-01-29 after roadmap creation*
+*Last updated: 2026-01-30 (Phase 04.3 complete)*
