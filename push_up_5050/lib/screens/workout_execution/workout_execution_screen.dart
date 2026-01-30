@@ -137,7 +137,22 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
     }
   }
 
-  Future<void> _handleEndWorkout(ActiveWorkoutProvider provider) async {
+  /// Navigate to workout summary screen with session data.
+  ///
+  /// Captures session data BEFORE calling endWorkout() because
+  /// session becomes null after endWorkout(). Used by both
+  /// normal workout end and goal completion scenarios.
+  ///
+  /// This method handles:
+  /// 1. Data capture before endWorkout (session becomes null after)
+  /// 2. Ending the workout and refreshing user stats
+  /// 3. Points calculation with multipliers (streak, series, achievements)
+  /// 4. Achievement checking and unlocking
+  /// 5. Navigation to WorkoutSummaryScreen
+  Future<void> _navigateToWorkoutSummary({
+    required ActiveWorkoutProvider provider,
+    required BuildContext context,
+  }) async {
     final session = provider.session;
     if (session == null) return;
 
@@ -158,7 +173,7 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
 
     // 4. FIX #4: If no push-ups done, don't assign points - just return to home
     if (totalReps == 0) {
-      if (mounted) {
+      if (context.mounted) {
         Navigator.pop(context);
       }
       return;
@@ -232,7 +247,7 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
     final achievementMultiplier = Calculator.getAchievementMultiplier(newlyUnlocked.length);
 
     // 9. Navigate to summary screen
-    if (mounted) {
+    if (context.mounted) {
       await Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -253,6 +268,10 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
         ),
       );
     }
+  }
+
+  Future<void> _handleEndWorkout(ActiveWorkoutProvider provider) async {
+    await _navigateToWorkoutSummary(provider: provider, context: context);
   }
 
   Future<void> _handleGoalCompletion(
