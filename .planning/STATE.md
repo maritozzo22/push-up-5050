@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 3 of 5 (Improvements & Polish)
-Plan: 2 of 3 in current phase
-Status: In progress
-Last activity: 2026-01-30 — Completed 04.3-02 (Popup Trigger on Goal Reached)
+Plan: 3 of 3 in current phase
+Status: Phase complete
+Last activity: 2026-01-30 — Completed 04.3-03 (Popup Trigger on App Open After Goal Completion)
 
-Progress: [███░░░░░░░] 27% (7/22 plans)
+Progress: [████░░░░░░] 32% (8/22 plans)
 
 ## Performance Metrics
 
@@ -34,13 +34,13 @@ Progress: [███░░░░░░░] 27% (7/22 plans)
 | 03.5 | 3 | ~65min | 22min |
 | 04.1 | 2 | ~15min | 8min |
 | 04.2 | 4 | ~25min | 6min |
-| 04.3 | 1 | ~13min | 13min |
+| 04.3 | 3 | ~20min | 7min |
 
 **Recent Trend:**
-- Last 5 plans: ~5-13min each
+- Last 5 plans: ~4-13min each
 - Trend: Stable
 
-*Updated after 04.3-02 completion*
+*Updated after 04.3-03 completion*
 
 ## Accumulated Context
 
@@ -49,6 +49,10 @@ Progress: [███░░░░░░░] 27% (7/22 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.3-03]: App-open popup uses WidgetsBindingObserver for resume detection and stays on current screen (no navigation)
+- [04.3-03]: StorageService.showAndMarkGoalCompletionPopup as atomic check-and-mark operation for popup display
+- [04.3-03]: Goal popup tracking uses SharedPreferences key 'goal_popup_last_shown' with YYYY-MM-DD date format
+- [04.3-03]: Popup check runs in postFrameCallback to ensure providers are initialized before display check
 - [04.3-02]: Goal completion popup uses showDialog with GoalCompletionDialog widget
 - [04.3-02]: Navigation goes to Statistics screen after goal completion (not Home screen)
 - [04.3-02]: endWorkout() called in dialog's onDismiss callback, not before showing dialog
@@ -100,7 +104,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-30
-Stopped at: Completed 04.3-02 (Popup Trigger on Goal Reached)
+Stopped at: Completed 04.3-03 (Popup Trigger on App Open After Goal Completion)
 Resume file: None
 
 ## Milestone Archives
