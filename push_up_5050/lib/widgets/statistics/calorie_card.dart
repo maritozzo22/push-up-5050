@@ -84,19 +84,7 @@ class CalorieCard extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(),
-          // Small indicator bar at bottom
-          Container(
-            height: 3,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [Color(0xFFFFB347), Color(0xFFFF7A18)],
-              ),
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
+          const SizedBox(height: 8),
         ],
       ),
     );
