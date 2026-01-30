@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-29)
 
 **Core value:** Progressive push-up training app with gamification and engagement features
-**Current focus:** Phase 04.2 - Goal-Based Logic (Workout auto-completes when daily goal reached)
+**Current focus:** Phase 04.3 - Goal Completion Popup
 
 ## Current Position
 
-Phase: 2 of 5 (Improvements & Polish)
-Plan: 4 of 4 in current phase
-Status: Phase complete
-Last activity: 2026-01-29 — Completed 04.2-04 (Midnight Reset Logic)
+Phase: 3 of 5 (Improvements & Polish)
+Plan: 2 of 3 in current phase
+Status: In progress
+Last activity: 2026-01-30 — Completed 04.3-02 (Popup Trigger on Goal Reached)
 
-Progress: [██░░░░░░░░] 23% (6/22 plans)
+Progress: [███░░░░░░░] 27% (7/22 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 24 (19 v2.5 + 5 v2.6)
+- Total plans completed: 25 (19 v2.5 + 6 v2.6)
 - Average duration: ~13 min
-- Total execution time: ~5.2 hours (v2.5 + v2.6)
+- Total execution time: ~5.4 hours (v2.5 + v2.6)
 
 **By Phase:**
 
@@ -34,12 +34,13 @@ Progress: [██░░░░░░░░] 23% (6/22 plans)
 | 03.5 | 3 | ~65min | 22min |
 | 04.1 | 2 | ~15min | 8min |
 | 04.2 | 4 | ~25min | 6min |
+| 04.3 | 1 | ~13min | 13min |
 
 **Recent Trend:**
-- Last 5 plans: ~5-8min each
+- Last 5 plans: ~5-13min each
 - Trend: Stable
 
-*Updated after 04.2-04 completion*
+*Updated after 04.3-02 completion*
 
 ## Accumulated Context
 
@@ -48,6 +49,11 @@ Progress: [██░░░░░░░░] 23% (6/22 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.3-02]: Goal completion popup uses showDialog with GoalCompletionDialog widget
+- [04.3-02]: Navigation goes to Statistics screen after goal completion (not Home screen)
+- [04.3-02]: endWorkout() called in dialog's onDismiss callback, not before showing dialog
+- [04.3-02]: 500ms delay between dialog pop and navigation for smooth visual transition
+- [04.3-02]: Italian message exact: "Complimenti! Hai completato il tuo obiettivo di oggi. Ci vediamo domani!"
 - [04.2-04]: Use session start date for goal completion check (not DateTime.now()) to handle midnight boundary correctly
 - [04.2-04]: DailyRecord goalReached made optional in constructor for proper deserialization with backward compatibility
 - [04.2-04]: Added dual API for goal status: synchronous isTodayGoalComplete for UI, async checkGoalCompletion for refresh+check
@@ -89,11 +95,12 @@ Recent decisions affecting current work:
 - Android adaptive icon verification requires physical device with various launcher shapes
 - Notification permission testing requires Android 13+ physical device
 - 16 human verification items from v2.5 still pending physical device testing
+- Goal completion popup requires physical device for full integration testing
 
 ## Session Continuity
 
-Last session: 2026-01-29
-Stopped at: Completed 04.2-04 (Midnight Reset Logic) - Phase 04.2 complete
+Last session: 2026-01-30
+Stopped at: Completed 04.3-02 (Popup Trigger on Goal Reached)
 Resume file: None
 
 ## Milestone Archives
