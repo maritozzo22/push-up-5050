@@ -9,7 +9,7 @@ Progressive push-up training app with gamification and engagement features. Mile
 - ✅ **v1.0 Core App** - Phases 01-04 (shipped)
 - ✅ **v2.0 Android Widgets & App Polish** - Phases 02.1-02.11 (shipped 2026-01-23)
 - ✅ **v2.5 Engagement & Retention** - Phases 03.1-03.5 (shipped 2026-01-27)
-- 🚧 **v2.6 Improvements & Polish** - Phases 04.1-04.5 (in progress)
+- 🚧 **v2.6 Improvements & Polish** - Phases 04.1-04.6 (in progress)
 
 ## Phases
 
@@ -161,10 +161,28 @@ Plans:
 - [ ] 04.5-05: Notification tap handling and navigation
 - [ ] 04.5-06: Testing on Android 12+
 
+### Phase 04.6: Bug Fixes & Testing
+**Goal**: Fix critical onboarding, series selection, and UI issues
+**Depends on**: Phase 04.5
+**Requirements**: BUG-01, BUG-02, BUG-03, BUG-04
+**Success Criteria** (what must be TRUE):
+  1. Onboarding daily goal value is reflected in Home screen (e.g., 0/20 instead of 0/50)
+  2. Series selection maximum capped at daily goal + 10 (user cannot select more)
+  3. After goal completion popup, navigate to Workout Results screen (not stay on current screen)
+  4. Calorie card in Statistics page displays correctly without unnecessary bar
+**Plans**: 5 plans
+
+Plans:
+- [ ] 04.6-01: Fix onboarding goal persistence to Home screen display
+- [ ] 04.6-02: Cap series selection at daily goal + 10
+- [ ] 04.6-03: Navigate to Workout Results after goal completion popup
+- [ ] 04.6-04: Fix calorie card display in Statistics screen
+- [ ] 04.6-05: Test all fixes via Chrome/web
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5
+Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5 → 04.6
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -178,7 +196,8 @@ Phases execute in numeric order: 04.1 → 04.2 → 04.3 → 04.4 → 04.5
 | 04.3 | v2.6 | 4/4 | Complete | 2026-01-30 |
 | 04.4 | v2.6 | 0/3 | Not started | - |
 | 04.5 | v2.6 | 0/6 | Not started | - |
+| 04.6 | v2.6 | 0/5 | Not started | - |
 
 ---
 
-*Last updated: 2026-01-30 (Phase 04.3 complete)*
+*Last updated: 2026-01-30 (Phase 04.6 plans created)*
