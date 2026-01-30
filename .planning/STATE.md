@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 3 of 5 (Improvements & Polish)
-Plan: 3 of 3 in current phase
+Plan: 4 of 4 in current phase
 Status: Phase complete
-Last activity: 2026-01-30 — Completed 04.3-03 (Popup Trigger on App Open After Goal Completion)
+Last activity: 2026-01-30 — Completed 04.3-04 (Navigation to Statistics After Popup)
 
-Progress: [████░░░░░░] 32% (8/22 plans)
+Progress: [████░░░░░░] 36% (9/25 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 25 (19 v2.5 + 6 v2.6)
+- Total plans completed: 26 (19 v2.5 + 7 v2.6)
 - Average duration: ~13 min
-- Total execution time: ~5.4 hours (v2.5 + v2.6)
+- Total execution time: ~5.6 hours (v2.5 + v2.6)
 
 **By Phase:**
 
@@ -34,13 +34,13 @@ Progress: [████░░░░░░] 32% (8/22 plans)
 | 03.5 | 3 | ~65min | 22min |
 | 04.1 | 2 | ~15min | 8min |
 | 04.2 | 4 | ~25min | 6min |
-| 04.3 | 3 | ~20min | 7min |
+| 04.3 | 4 | ~31min | 8min |
 
 **Recent Trend:**
 - Last 5 plans: ~4-13min each
 - Trend: Stable
 
-*Updated after 04.3-03 completion*
+*Updated after 04.3-04 completion*
 
 ## Accumulated Context
 
@@ -49,6 +49,8 @@ Progress: [████░░░░░░] 32% (8/22 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.3-04]: /statistics route added to main.dart onGenerateRoute using switch statement pattern
+- [04.3-04]: StatisticsScreen has built-in back button for direct navigation access
 - [04.3-03]: App-open popup uses WidgetsBindingObserver for resume detection and stays on current screen (no navigation)
 - [04.3-03]: StorageService.showAndMarkGoalCompletionPopup as atomic check-and-mark operation for popup display
 - [04.3-03]: Goal popup tracking uses SharedPreferences key 'goal_popup_last_shown' with YYYY-MM-DD date format
@@ -93,6 +95,7 @@ Recent decisions affecting current work:
 **Test infrastructure:**
 - 22 SeriesSelectionScreen tests failing due to outdated UI expectations (UI changed since tests written)
 - 33 other widget tests have pre-existing failures unrelated to recovery time changes
+- Integration tests fail on Windows with Provider initialization errors (pre-existing issue)
 - Critical tests for recovery time default value all pass
 
 **Physical device testing required:**
@@ -104,7 +107,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-30
-Stopped at: Completed 04.3-03 (Popup Trigger on App Open After Goal Completion)
+Stopped at: Completed 04.3-04 (Navigation to Statistics After Popup)
 Resume file: None
 
 ## Milestone Archives
