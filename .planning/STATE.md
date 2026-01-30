@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 4 of 5 (Improvements & Polish)
-Plan: 4 of 6 in current phase
+Plan: 3 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-30 — Completed 04.6-04 (Remove Gradient Bar from CalorieCard)
+Last activity: 2026-01-30 — Completed 04.6-03 (Goal Completion Navigation Fix)
 
 Progress: [█████░░░░░] 44% (11/25 plans)
 
@@ -49,6 +49,9 @@ Progress: [█████░░░░░] 44% (11/25 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.6-03]: Goal completion now navigates to Workout Summary with full session stats (replaces /statistics navigation)
+- [04.6-03]: Shared _navigateToWorkoutSummary method handles both normal workout end and goal completion
+- [04.6-03]: Session data captured before endWorkout() call because session becomes null after
 - [04.6-04]: Simple SizedBox(height: 8) provides sufficient CalorieCard bottom spacing without decorative gradient bar
 - [04.4-02]: Android adaptive icon XML files created manually with Python PIL for PNG generation after flutter_launcher_icons CLI failed silently
 - [04.4-02]: Adaptive icon foreground sized at 108dp base (Android spec) with densities from 108px (mdpi) to 432px (xxxhdpi)
@@ -61,7 +64,7 @@ Recent decisions affecting current work:
 - [04.3-03]: Goal popup tracking uses SharedPreferences key 'goal_popup_last_shown' with YYYY-MM-DD date format
 - [04.3-03]: Popup check runs in postFrameCallback to ensure providers are initialized before display check
 - [04.3-02]: Goal completion popup uses showDialog with GoalCompletionDialog widget
-- [04.3-02]: Navigation goes to Statistics screen after goal completion (not Home screen)
+- [04.6-03]: Goal completion navigation updated to go to Workout Summary (not Statistics)
 - [04.3-02]: endWorkout() called in dialog's onDismiss callback, not before showing dialog
 - [04.3-02]: 500ms delay between dialog pop and navigation for smooth visual transition
 - [04.3-02]: Italian message exact: "Complimenti! Hai completato il tuo obiettivo di oggi. Ci vediamo domani!"
@@ -112,7 +115,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-30
-Stopped at: Completed 04.6-04 (Remove Gradient Bar from CalorieCard)
+Stopped at: Completed 04.6-03 (Goal Completion Navigation Fix)
 Resume file: None
 
 ## Roadmap Evolution
