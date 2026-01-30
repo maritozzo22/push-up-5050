@@ -282,17 +282,14 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
     if (_isCompleting) return;
     _isCompleting = true;
 
-    // Show goal completion dialog
+    // Show goal completion dialog first
     if (mounted) {
       await showDialog(
         context: context,
         barrierDismissible: true,
-        builder: (context) => GoalCompletionDialog(
+        builder: (dialogContext) => GoalCompletionDialog(
           onDismiss: () async {
-            Navigator.of(context).pop(); // Close dialog
-
-            // End workout (saves session, clears active session)
-            await provider.endWorkout();
+            Navigator.of(dialogContext).pop(); // Close dialog
 
             // Play goal achievement sound
             final settings = context.read<AppSettingsService>();
@@ -301,10 +298,13 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
               audio.playGoalAchieved();
             }
 
-            // Navigate to statistics after short delay
-            await Future.delayed(const Duration(milliseconds: 500));
-            if (mounted) {
-              Navigator.of(context).pushReplacementNamed('/statistics');
+            // Navigate to workout summary using shared method
+            // This handles endWorkout, points calculation, achievements
+            if (context.mounted) {
+              await _navigateToWorkoutSummary(
+                provider: provider,
+                context: context,
+              );
             }
           },
         ),
