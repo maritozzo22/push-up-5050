@@ -21,6 +21,7 @@ import 'package:push_up_5050/services/proximity_sensor_service.dart';
 import 'package:push_up_5050/services/widget_update_service.dart';
 import 'package:push_up_5050/services/deep_link_service.dart';
 import 'package:push_up_5050/screens/series_selection/series_selection_screen.dart';
+import 'package:push_up_5050/screens/statistics/statistics_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Entry point for Push-Up 5050 app.
@@ -221,16 +222,22 @@ class _MyAppState extends State<MyApp> {
               supportedLocales: AppLocalizations.supportedLocales,
               initialRoute: '/',
               onGenerateRoute: (settings) {
-                // Handle deep link routes
-                if (settings.name == SeriesSelectionScreen.routeName) {
-                  return MaterialPageRoute(
-                    builder: (_) => const SeriesSelectionScreen(),
-                  );
+                // Handle named routes
+                switch (settings.name) {
+                  case '/statistics':
+                    return MaterialPageRoute(
+                      builder: (_) => const StatisticsScreen(),
+                    );
+                  case SeriesSelectionScreen.routeName:
+                    return MaterialPageRoute(
+                      builder: (_) => const SeriesSelectionScreen(),
+                    );
+                  default:
+                    // Default route
+                    return MaterialPageRoute(
+                      builder: (_) => const MainNavigationWrapper(),
+                    );
                 }
-                // Default route
-                return MaterialPageRoute(
-                  builder: (_) => const MainNavigationWrapper(),
-                );
               },
               home: const MainNavigationWrapper(),
             );
