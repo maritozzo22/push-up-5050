@@ -57,8 +57,8 @@ flutter_launcher_icons:
   android: true
   ios: false
   image_path: "assets/launcher/icon.png"  # Cambiato da .svg a .png
-  adaptive_icon_background: "#000000"
-  adaptive_icon_foreground: "assets/launcher/icon.png"
+  adaptive_icon_background: "#FF6B00"
+  adaptive_icon_foreground: "assets/launcher/icon_foreground.png"
   min_sdk_android: 21
 
 # For information on the generic Dart part of this file, see the
