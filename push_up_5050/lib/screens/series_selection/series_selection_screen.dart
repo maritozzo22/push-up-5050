@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/providers/active_workout_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
+import 'package:push_up_5050/repositories/storage_service.dart';
 import 'package:push_up_5050/screens/workout_execution/workout_execution_screen.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
@@ -33,7 +34,6 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
   AppLocalizations get _l10n => AppLocalizations.of(context)!;
 
   static const int _minStartingSeries = 1;
-  static const int _maxStartingSeries = 99;
   static const int _minRestTime = 5;
   static const int _maxRestTime = 120;
   static const int _maxGoalPushups = 500;
@@ -55,6 +55,17 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
   DateTime? _restTimePressStartTime;
 
   int get startingSeries => _startingSeries;
+
+  /// Calculate maximum starting series based on daily goal.
+  ///
+  /// Caps at dailyGoal + 10 with absolute maximum of 99.
+  /// This prevents users from selecting excessively long workouts
+  /// that don't match their fitness level from onboarding.
+  int _getMaxStartingSeries(BuildContext context) {
+    final storage = context.read<StorageService>();
+    final dailyGoal = storage.getDailyGoal();
+    return (dailyGoal + 10).clamp(10, 99);
+  }
 
   @override
   void dispose() {
@@ -248,8 +259,9 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
     await provider.loadWorkoutPreferences();
     if (provider.savedStartingSeries != null) {
       final savedValue = provider.savedStartingSeries!;
+      final maxSeries = _getMaxStartingSeries(context);
       if (savedValue >= _minStartingSeries &&
-          savedValue <= _maxStartingSeries &&
+          savedValue <= maxSeries &&
           mounted) {
         setState(() => _startingSeries = savedValue);
       }
