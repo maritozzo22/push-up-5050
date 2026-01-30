@@ -105,8 +105,10 @@ class UserStatsProvider extends ChangeNotifier {
   /// Weekly goal in pushups (50 per day × 5 workout days).
   static const int weeklyGoal = 250;
 
-  /// Daily goal in pushups.
-  static const int dailyGoal = 50;
+  /// Get the current daily goal from storage.
+  ///
+  /// Returns the user's personalized goal from onboarding (default: 50).
+  int get dailyGoal => _storage.getDailyGoal();
 
   /// Whether today's daily goal has been completed.
   ///

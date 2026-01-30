@@ -281,10 +281,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         ),
         const SizedBox(height: 32),
         // START Button
-        Consumer2<UserStatsProvider, ActiveWorkoutProvider>(
-          builder: (context, stats, workoutProvider, child) {
+        Consumer3<UserStatsProvider, ActiveWorkoutProvider, GoalsProvider>(
+          builder: (context, stats, workoutProvider, goals, child) {
             // Check if today's goal is already complete
-            final goalComplete = stats.todayPushups >= UserStatsProvider.dailyGoal;
+            final goalComplete = stats.todayPushups >= goals.dailyGoal.target;
 
             return StartButtonCircle(
               onTap: widget.onStartWorkout ?? () {},
@@ -348,15 +348,20 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: FrostCard(
-                height: 120,
-                child: MiniStat(
-                  label: 'OGGI',
-                  value: '${stats.todayPushups}',
-                  showBar: true,
-                  barValue: (stats.todayPushups / UserStatsProvider.dailyGoal).clamp(0.0, 1.0),
-                  subtitle: '/ ${UserStatsProvider.dailyGoal}',
-                ),
+              child: Consumer<GoalsProvider>(
+                builder: (context, goals, child) {
+                  final dailyGoal = goals.dailyGoal.target;
+                  return FrostCard(
+                    height: 120,
+                    child: MiniStat(
+                      label: 'OGGI',
+                      value: '${stats.todayPushups}',
+                      showBar: true,
+                      barValue: (stats.todayPushups / dailyGoal).clamp(0.0, 1.0),
+                      subtitle: '/ $dailyGoal',
+                    ),
+                  );
+                },
               ),
             ),
           ],

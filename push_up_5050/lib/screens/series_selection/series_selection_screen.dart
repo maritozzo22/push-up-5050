@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/providers/active_workout_provider.dart';
+import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
 import 'package:push_up_5050/screens/workout_execution/workout_execution_screen.dart';
@@ -78,17 +79,19 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
 
   /// Calculate the next starting series value.
   int _getNextStartingSeries(int current) {
-    if (current < 10) return current + 1;
-    if (current < 95) return current + 5;
-    return 99;
+    final max = _getMaxStartingSeries(context);
+    if (current < 10) return (current + 1).clamp(1, max);
+    if (current < max - 5) return current + 5;
+    return max;
   }
 
   /// Calculate the previous starting series value.
   int _getPreviousStartingSeries(int current) {
-    if (current <= 11) return current - 1;
+    final max = _getMaxStartingSeries(context);
+    if (current <= 11) return (current - 1).clamp(1, max);
     if (current <= 15) return 10;
     if (current % 5 == 0) return current - 5;
-    return current - 5;
+    return (current - 5).clamp(1, max);
   }
 
   /// Handle goal increment with long-press acceleration.
@@ -288,7 +291,8 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
 
     // Check if goal is already complete before navigating
     final userStats = context.read<UserStatsProvider>();
-    if (userStats.todayPushups >= UserStatsProvider.dailyGoal) {
+    final goals = context.read<GoalsProvider>();
+    if (userStats.todayPushups >= goals.dailyGoal.target) {
       // Show message and prevent navigation
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -378,7 +382,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
                               _savePreferences();
                             }
                           : null,
-                      onPlus: _startingSeries < _maxStartingSeries
+                      onPlus: _startingSeries < _getMaxStartingSeries(context)
                           ? () {
                               _triggerStartingSeriesHaptic();
                               setState(() => _startingSeries =
