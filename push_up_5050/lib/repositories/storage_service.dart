@@ -51,6 +51,9 @@ class StorageService {
   static const String _keyPersonalizedNotificationHour = 'personalized_notification_hour';
   static const String _keyPersonalizedNotificationMinute = 'personalized_notification_minute';
 
+  // Goal completion popup tracking keys - Phase 04.3
+  static const String _keyGoalPopupLastShown = 'goal_popup_last_shown';
+
   // ==================== Active Session ====================
 
   /// Save active workout session to storage.
@@ -802,5 +805,72 @@ class StorageService {
   Future<void> setPersonalizedNotificationTime(int hour, int minute) async {
     await _prefs.setInt(_keyPersonalizedNotificationHour, hour);
     await _prefs.setInt(_keyPersonalizedNotificationMinute, minute);
+  }
+
+  // ==================== Goal Completion Popup Tracking - Phase 04.3 ====================
+
+  /// Get the last date (YYYY-MM-DD) when goal completion popup was shown.
+  ///
+  /// Returns null if the popup has never been shown.
+  Future<String?> getGoalPopupLastShown() async {
+    return _prefs.getString(_keyGoalPopupLastShown);
+  }
+
+  /// Mark that goal completion popup was shown today.
+  ///
+  /// Stores today's date in YYYY-MM-DD format to prevent re-showing
+  /// the popup multiple times on the same day.
+  Future<void> setGoalPopupShownToday() async {
+    final today = DateTime.now();
+    final todayStr = _formatDate(today);
+    await _prefs.setString(_keyGoalPopupLastShown, todayStr);
+  }
+
+  /// Check if goal completion popup should be shown today.
+  ///
+  /// Returns true only if:
+  /// - Today's daily goal is complete (totalPushups >= dailyGoal)
+  /// - The popup hasn't been shown yet today
+  ///
+  /// Returns false if:
+  /// - Goal is not yet complete
+  /// - Popup was already shown today
+  Future<bool> shouldShowGoalCompletionPopup() async {
+    // Check if today's goal is complete
+    final today = DateTime.now();
+    final todayRecord = await getDailyRecord(today);
+    final goal = getDailyGoal();
+    if ((todayRecord?.totalPushups ?? 0) < goal) {
+      return false; // Goal not complete
+    }
+
+    // Check if already shown today
+    final lastShown = await getGoalPopupLastShown();
+    final todayStr = _formatDate(today);
+    if (lastShown == todayStr) {
+      return false; // Already shown today
+    }
+
+    return true;
+  }
+
+  /// Show popup and mark as shown for today (convenience method).
+  ///
+  /// Combines the check and mark operations for cleaner caller code.
+  /// Returns true if the popup should be shown (and marks it as shown),
+  /// returns false if the popup should not be shown.
+  ///
+  /// Usage pattern:
+  /// ```dart
+  /// if (await storage.showAndMarkGoalCompletionPopup()) {
+  ///   // Show the dialog
+  /// }
+  /// ```
+  Future<bool> showAndMarkGoalCompletionPopup() async {
+    if (!await shouldShowGoalCompletionPopup()) {
+      return false;
+    }
+    await setGoalPopupShownToday();
+    return true;
   }
 }
