@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 4 of 5 (Improvements & Polish)
-Plan: 2 of 6 in current phase
+Plan: 1 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-30 — Completed 04.6-02 (Series Selection Cap)
+Last activity: 2026-01-30 — Completed 04.6-01 (Dynamic Daily Goal)
 
 Progress: [█████░░░░░] 40% (10/25 plans)
 
@@ -49,6 +49,9 @@ Progress: [█████░░░░░] 40% (10/25 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [04.6-01]: UserStatsProvider.dailyGoal changed from static const to instance getter reading from StorageService.getDailyGoal()
+- [04.6-01]: Home screen uses Consumer3<UserStatsProvider, ActiveWorkoutProvider, GoalsProvider> for goal completion check
+- [04.6-01]: Daily goal display uses GoalsProvider.dailyGoal.target for personalized value from onboarding
 - [04.6-02]: Series selection cap calculated dynamically as (dailyGoal + 10).clamp(10, 99) via _getMaxStartingSeries(BuildContext context)
 - [04.6-02]: Removed hardcoded _maxStartingSeries = 99 constant in favor of context-read StorageService.getDailyGoal()
 - [04.6-03]: Goal completion now navigates to Workout Summary with full session stats (replaces /statistics navigation)
@@ -117,7 +120,7 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-30
-Stopped at: Completed 04.6-02 (Series Selection Cap)
+Stopped at: Completed 04.6-01 (Dynamic Daily Goal)
 Resume file: None
 
 ## Roadmap Evolution
