@@ -9,13 +9,13 @@ Play Store Ready milestone - UI polish, proximity sensor fix, and enhanced achie
 
 ### Icon & Branding
 
-- [ ] **ICON-01**: App uses original icon.png as main launcher icon
-- [ ] **ICON-02**: Icon displays correctly on all Android launchers
+- [x] **ICON-01**: App uses original icon.png as main launcher icon
+- [x] **ICON-02**: Icon displays correctly on all Android launchers
 
 ### Settings
 
-- [ ] **SETT-01**: "Test notifications" section removed from Settings screen
-- [ ] **SETT-02**: Settings screen layout remains consistent after removal
+- [x] **SETT-01**: "Test notifications" section removed from Settings screen
+- [x] **SETT-02**: Settings screen layout remains consistent after removal
 
 ### Statistics UI
 
@@ -79,10 +79,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ICON-01 | Phase 05 | Pending |
-| ICON-02 | Phase 05 | Pending |
-| SETT-01 | Phase 05 | Pending |
-| SETT-02 | Phase 05 | Pending |
+| ICON-01 | Phase 05 | Complete |
+| ICON-02 | Phase 05 | Complete |
+| SETT-01 | Phase 05 | Complete |
+| SETT-02 | Phase 05 | Complete |
 | STAT-01 | Phase 06 | Pending |
 | STAT-02 | Phase 06 | Pending |
 | STAT-03 | Phase 06 | Pending |
