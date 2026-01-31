@@ -109,11 +109,11 @@ Push-Up 5050 is a progressive training app with gamification, currently in v2.7 
   1. App launches with original icon.png as the launcher icon on all Android devices
   2. Settings screen displays without "Test notifications" section
   3. Settings layout remains visually consistent after section removal
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: Restore original icon.png as main launcher icon
-- [ ] 05-02: Remove "Test notifications" from Settings screen
+- [ ] 05-01-PLAN.md — Restore original icon.png as main launcher icon
+- [ ] 05-02-PLAN.md — Remove "Test notifications" from Settings screen
 
 #### Phase 06: Statistics UI Polish
 **Goal**: Improve statistics cards readability and visual hierarchy
