@@ -4,15 +4,24 @@
 **Status:** Active Development
 **Last Updated:** 2026-01-31
 
-## Current Milestone: Planning Next (v2.7)
+## Current Milestone: v2.7 Play Store Ready
 
-**Previous Milestone:** v2.6 Improvements & Polish (Shipped 2026-01-31)
+**Goal:** Polish the app for Play Store release with UI improvements, proximity sensor fix, and enhanced achievements
+
+**Target features:**
+- Restore original icon.png as main launcher icon
+- Remove "Test notifications" section from Settings
+- Improve Statistics cards (remove bar, center and enlarge text)
+- Replace goal popup with top notification (non-blocking, continues workout)
+- Add 9 new achievements (20 total)
+- Fix proximity sensor and move toggle to Workout Setup
+- Improve onboarding tutorial design and content
 
 ## Project Overview
 
 Progressive push-up training mobile app with gamification elements. Users complete incremental push-up series (1, 2, 3, 4, 5...) with recovery intervals, tracking progress toward a personalized daily goal.
 
-**Current Status**: v2.6 shipped with faster workout defaults, goal-based auto-completion, celebration popup, Android adaptive icons, and critical bug fixes.
+**Current Status**: v2.6 shipped with goal-based auto-completion, celebration popup, and adaptive icons. Preparing for Play Store release.
 
 **Target Platforms**: Android (production), Windows (development)
 
@@ -51,6 +60,15 @@ Progressive push-up training mobile app with gamification elements. Users comple
 - Goal completion popup with confetti animation and Italian congratulations message
 - Android adaptive icon with foreground layer and #FF6B00 background
 - Bug fixes: onboarding goal persistence, series selection cap, navigation, calorie card UI
+
+### v2.7 Features (In Progress)
+- Restore original icon.png as main launcher icon
+- Remove "Test notifications" section from Settings
+- Statistics cards improvements (remove progress bar, center and enlarge text)
+- Goal notification from top (non-blocking, continues workout, confetti animation)
+- Expand achievement system to 20 total achievements (+9 new)
+- Fix proximity sensor functionality and move toggle to Workout Setup
+- Improve onboarding tutorial design and content
 
 ## Technical Stack
 
@@ -121,15 +139,7 @@ lib/
 - Streak freeze (1/month with auto-activation, snowflake indicator)
 - Smart notifications (streak at risk, progress alerts, personalized timing)
 
-**Phases completed:**
-- 03.1: Personalized Onboarding (3/3 plans)
-- 03.2: Enhanced Points & Anti-Cheat (4/4 plans)
-- 03.3: Weekly Goals (4/4 plans)
-- 03.4: Challenges & Streak Freeze (5/5 plans)
-- 03.5: Smart Notifications (3/3 plans)
-
-**Total:** 19 plans across 5 phases
-
+**Phases completed:** 19 plans across 5 phases
 **Archive:** `.planning/milestones/v2.5-ROADMAP.md`
 
 ### Milestone v2.6: Improvements & Polish ✅ (SHIPPED 2026-01-31)
@@ -140,16 +150,20 @@ lib/
 - Android adaptive icon with foreground layer and #FF6B00 background
 - Bug fixes: onboarding goal persistence, series selection cap, navigation, calorie card UI
 
-**Phases completed:**
-- 04.1: Quick Fixes (2/2 plans)
-- 04.2: Goal-Based Logic (4/4 plans)
-- 04.3: Goal Completion Popup (3/3 plans)
-- 04.4: Android Adaptive Icon (2/2 plans)
-- 04.6: Bug Fixes & Testing (5/5 plans)
-
-**Total:** 20 plans across 5 phases
-
+**Phases completed:** 20 plans across 5 phases
 **Archive:** `.planning/milestones/v2.6-ROADMAP.md`
+
+### Milestone v2.7: Play Store Ready 🔄 (IN PROGRESS)
+**Target:**
+- Icon restoration (use original icon.png)
+- Settings cleanup (remove test notifications)
+- Statistics cards polish (remove bar, larger centered text)
+- Goal notification system (top banner, non-blocking, confetti)
+- Achievement expansion (11 → 20 total)
+- Proximity sensor fix + UI relocation
+- Onboarding improvements (better design, 4+ screens)
+
+**Phases:** Planning in progress
 
 ## Current State
 
@@ -157,7 +171,7 @@ lib/
 
 **Latest Changes:**
 - Default recovery time is now 10 seconds (was 30)
-- Workouts auto-complete when daily goal is reached
+- Workshops auto-complete when daily goal is reached
 - Goal completion popup with confetti animation
 - Android adaptive icon assets generated
 - Dynamic daily goal reading from storage
@@ -165,7 +179,7 @@ lib/
 - All fixes verified via Chrome/web testing
 
 **Known Issues:**
-- Notification system requires Android 12+ permission updates (deferred to v2.7)
+- Proximity sensor not functional (fix planned in v2.7)
 - Some features require physical Android device for verification
 
 **Technical Debt:**
@@ -189,15 +203,15 @@ lib/
 
 ## Success Criteria
 
-### v2.6 Status ✅ COMPLETE
-- [x] Default recovery time changed to 10 seconds
-- [x] Goal-based workout auto-completion
-- [x] Goal completion popup with celebration
-- [x] Android adaptive icon assets
-- [x] All bug fixes verified
-- [x] All 20 plans complete
-- [x] Git tag created
+### v2.7 Status 🔄 IN PLANNING
+- [ ] Restore original icon.png as main launcher
+- [ ] Remove "Test notifications" from Settings
+- [ ] Statistics cards polished (no bar, centered/larger text)
+- [ ] Goal notification from top (non-blocking)
+- [ ] 20 total achievements (9 new)
+- [ ] Proximity sensor fixed + moved to Workout Setup
+- [ ] Onboarding improved
 
 ---
 
-*Last updated: 2026-01-31 after v2.6 milestone completion*
+*Last updated: 2026-01-31 after v2.7 milestone initiation*
