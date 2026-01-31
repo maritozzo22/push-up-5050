@@ -1,67 +1,77 @@
-# Requirements: Push-Up 5050 v2.6
+# Requirements: Push-Up 5050 v2.7
 
-**Defined:** 2026-01-29
+**Defined:** 2026-01-31
 **Core Value:** Progressive push-up training app with gamification and engagement features
 
-## v2.6 Requirements
+## v2.7 Requirements
 
-Improvements & Polish milestone - fixing UX issues and platform-specific features.
+Play Store Ready milestone - UI polish, proximity sensor fix, and enhanced achievements for Play Store release.
 
-### Workout Configuration
+### Icon & Branding
 
-- [x] **WRK-01**: Default recovery time is 10 seconds (changed from 30)
-- [x] **WRK-02**: User can still configure recovery time between 5-120 seconds
-- [x] **WRK-03**: User's configured recovery time persists across app restarts
+- [ ] **ICON-01**: App uses original icon.png as main launcher icon
+- [ ] **ICON-02**: Icon displays correctly on all Android launchers
 
-### Goal-Based Logic
+### Settings
 
-- [x] **GOAL-01**: Workout auto-completes when daily goal is reached
-- [x] **GOAL-02**: Series progression stops at goal completion (e.g., goal 10 = series 1+2+3+4)
-- [x] **GOAL-03**: User cannot start new workout after completing daily goal
-- [x] **GOAL-04**: Goal completion resets at midnight (new day = new workout allowed)
+- [ ] **SETT-01**: "Test notifications" section removed from Settings screen
+- [ ] **SETT-02**: Settings screen layout remains consistent after removal
 
-### User Experience
+### Statistics UI
 
-- [x] **UX-01**: Congratulations popup appears when daily goal is achieved
-- [x] **UX-02**: Popup displays message: "Complimenti! Hai completato il tuo obiettivo di oggi. Ci vediamo domani!"
-- [x] **UX-03**: Popup includes button to return to Home screen
-- [x] **UX-04**: Popup appears immediately when goal is reached OR when app opens after goal completion
-- [x] **UX-05**: Achievement popup is NOT shown for partial progress (only goal completion)
+- [ ] **STAT-01**: "Totale Pushup" card has no progress bar below
+- [ ] **STAT-02**: "Totale Pushup" card text is centered and enlarged
+- [ ] **STAT-03**: "Calorie Bruciate" card text is centered and enlarged
+- [ ] **STAT-04**: Both cards maintain consistent visual hierarchy
 
-### Android Platform
+### Goal Notification
 
-- [ ] **AND-01**: App icon uses Android Adaptive Icon system
-- [ ] **AND-02**: Adaptive icon supports all launcher shapes (round, square, teardrop, squircle, etc.)
-- [ ] **AND-03**: Icon background uses primary orange (#FF6B00)
-- [ ] **AND-04**: Icon foreground logo is clearly visible on all backgrounds
-- [ ] **AND-05**: Adaptive icons generated for all densities (hdpi, xhdpi, xxhdpi, xxxhdpi)
+- [ ] **GOAL-01**: Goal completion shows top banner notification (not full-screen popup)
+- [ ] **GOAL-02**: Notification displays message: "Complimenti! Hai superato il goal di X pushup!"
+- [ ] **GOAL-03**: Confetti animation falls from notification banner
+- [ ] **GOAL-04**: Workout session continues after goal completion (non-blocking)
+- [ ] **GOAL-05**: User can dismiss notification by tapping
 
-### Notifications
+### Achievements
 
-- [ ] **NOTIF-01**: Daily reminder notification arrives at configured fixed time
-- [ ] **NOTIF-02**: Notifications work correctly on Android 12+ (API 31+)
-- [ ] **NOTIF-03**: App requests POST_NOTIFICATIONS permission on Android 13+
-- [ ] **NOTIF-04**: App requests SCHEDULE_EXACT_ALARM permission for fixed-time reminders
-- [ ] **NOTIF-05**: Notification service initializes correctly on app startup
-- [ ] **NOTIF-06**: Graceful fallback when user denies notification permissions
-- [ ] **NOTIF-07**: Notification tap opens app to correct screen
+- [ ] **ACHV-01**: System supports 20 total achievements (expanded from 11)
+- [ ] **ACHV-02**: 9 new achievements added with appropriate unlock conditions
+- [ ] **ACHV-03**: Achievement UI displays all 20 achievements correctly
+- [ ] **ACHV-04**: Achievement unlock logic works for all new achievements
 
-## v2.7+ Requirements
+### Proximity Sensor
+
+- [ ] **SENS-01**: Proximity sensor correctly counts push-ups (far→near = 1 rep)
+- [ ] **SENS-02**: Proximity sensor toggle moved from Settings to Workout Setup screen
+- [ ] **SENS-03**: User can enable/disable proximity sensor before workout starts
+- [ ] **SENS-04**: Proximity sensor mode works with phone placed on ground
+
+### Onboarding
+
+- [ ] **ONBD-01**: Onboarding has improved visual design with better styling
+- [ ] **ONBD-02**: Onboarding content is more detailed and helpful
+- [ ] **ONBD-03**: Onboarding maintains 4+ screens structure
+- [ ] **ONBD-04**: Onboarding flow is smooth and engaging
+
+## Future Requirements
 
 Deferred to future milestone.
 
-### Android Enhancements
-- **AND-101**: Widget verification on physical Android device
-- **AND-102**: Notification testing and refinement based on real device feedback
+### Notification System (Android 12+)
+
+- **NOTIF-01**: Daily reminder notification arrives at configured fixed time
+- **NOTIF-02**: Notifications work correctly on Android 12+ (API 31+)
+- **NOTIF-03**: App requests POST_NOTIFICATIONS permission on Android 13+
+- **NOTIF-04**: App requests SCHEDULE_EXACT_ALARM permission for fixed-time reminders
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
 | iOS adaptive icon | Android-first milestone, iOS can follow |
-| Notification channels customization | Fixed-time reminder is the only notification needed for v2.6 |
-| Goal override/continue | Core philosophy: daily goal is a hard limit |
-| Editing series mid-workout | Adds complexity, not in scope |
+| Notification channels customization | Only goal notification needed for v2.7 |
+| Reducing onboarding screens | User wants to maintain 4+ screens |
+| Full-screen goal popup | Replaced with top banner notification |
 
 ## Traceability
 
@@ -69,37 +79,38 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| WRK-01 | Phase 04.1 | Complete ✅ |
-| WRK-02 | Phase 04.1 | Complete ✅ |
-| WRK-03 | Phase 04.1 | Complete ✅ |
-| GOAL-01 | Phase 04.2 | Complete ✅ |
-| GOAL-02 | Phase 04.2 | Complete ✅ |
-| GOAL-03 | Phase 04.2 | Complete ✅ |
-| GOAL-04 | Phase 04.2 | Complete ✅ |
-| UX-01 | Phase 04.3 | Complete ✅ |
-| UX-02 | Phase 04.3 | Complete ✅ |
-| UX-03 | Phase 04.3 | Complete ✅ |
-| UX-04 | Phase 04.3 | Complete ✅ |
-| UX-05 | Phase 04.3 | Complete ✅ |
-| AND-01 | Phase 04.4 | Pending |
-| AND-02 | Phase 04.4 | Pending |
-| AND-03 | Phase 04.4 | Pending |
-| AND-04 | Phase 04.4 | Pending |
-| AND-05 | Phase 04.4 | Pending |
-| NOTIF-01 | Phase 04.5 | Pending |
-| NOTIF-02 | Phase 04.5 | Pending |
-| NOTIF-03 | Phase 04.5 | Pending |
-| NOTIF-04 | Phase 04.5 | Pending |
-| NOTIF-05 | Phase 04.5 | Pending |
-| NOTIF-06 | Phase 04.5 | Pending |
-| NOTIF-07 | Phase 04.5 | Pending |
+| ICON-01 | TBD | Pending |
+| ICON-02 | TBD | Pending |
+| SETT-01 | TBD | Pending |
+| SETT-02 | TBD | Pending |
+| STAT-01 | TBD | Pending |
+| STAT-02 | TBD | Pending |
+| STAT-03 | TBD | Pending |
+| STAT-04 | TBD | Pending |
+| GOAL-01 | TBD | Pending |
+| GOAL-02 | TBD | Pending |
+| GOAL-03 | TBD | Pending |
+| GOAL-04 | TBD | Pending |
+| GOAL-05 | TBD | Pending |
+| ACHV-01 | TBD | Pending |
+| ACHV-02 | TBD | Pending |
+| ACHV-03 | TBD | Pending |
+| ACHV-04 | TBD | Pending |
+| SENS-01 | TBD | Pending |
+| SENS-02 | TBD | Pending |
+| SENS-03 | TBD | Pending |
+| SENS-04 | TBD | Pending |
+| ONBD-01 | TBD | Pending |
+| ONBD-02 | TBD | Pending |
+| ONBD-03 | TBD | Pending |
+| ONBD-04 | TBD | Pending |
 
 **Coverage:**
-- v2.6 requirements: 23 total
-- Mapped to phases: 23
+- v2.7 requirements: 22 total
+- Mapped to phases: TBD
 - Unmapped: 0
 
 ---
 
-*Requirements defined: 2026-01-29*
-*Last updated: 2026-01-30 (Phase 04.3 complete)*
+*Requirements defined: 2026-01-31*
+*Last updated: 2026-01-31 after initial definition*
