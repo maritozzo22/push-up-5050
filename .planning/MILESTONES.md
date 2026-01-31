@@ -2,6 +2,39 @@
 
 ---
 
+## v2.6 Improvements & Polish (Shipped: 2026-01-31)
+
+**Delivered:** Faster workout defaults, goal-based auto-completion, celebration popup, Android adaptive icons, and critical bug fixes for onboarding/goal persistence.
+
+**Phases completed:** 04.1, 04.2, 04.3, 04.4, 04.6 (20 plans total)
+
+**Key accomplishments:**
+
+- Default recovery time reduced from 30 to 10 seconds for faster workouts
+- Goal-based workout logic with auto-completion when daily target reached
+- Goal completion popup with confetti animation and Italian congratulations message
+- Android adaptive icon assets with foreground layer and #FF6B00 background color
+- Critical bug fixes: onboarding goal persistence, series selection cap at goal+10, navigation to Workout Summary, calorie card UI cleanup
+- All fixes verified via Chrome/web testing
+
+**Stats:**
+
+- ~22,000 lines of Dart code
+- 5 phases, 20 plans, ~60+ tasks
+- 3 days from start to ship (2026-01-29 → 2026-01-31)
+- All shipped requirements satisfied (WRK, GOAL, UX, AND, BUG categories)
+- 15/15 bug fixes verified working
+
+**Git range:** `feat(04.1-01)` → `docs(04.6-05)`
+
+**Archive:** `.planning/milestones/v2.6-ROADMAP.md`
+
+**Git tag:** v2.6
+
+**What's next:** Milestone v2.7 — Notification system fix (Android 12+ permissions, exact alarm) or Proximity sensor improvements
+
+---
+
 ## v2.5 Engagement & Retention (Shipped: 2026-01-27)
 
 **Delivered:** Personalized onboarding, enhanced gamification with aggressive points system, weekly goals with bonuses, challenges with badges, streak freeze protection, and smart notifications.

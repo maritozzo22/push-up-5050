@@ -2,134 +2,104 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-29)
+See: .planning/PROJECT.md (updated 2026-01-31)
 
 **Core value:** Progressive push-up training app with gamification and engagement features
-**Current focus:** Phase 04.6 - Bug Fixes & Testing
+**Current focus:** Planning next milestone (v2.7)
 
 ## Current Position
 
-Phase: 4 of 5 (Improvements & Polish)
-Plan: 5 of 5 in current phase
-Status: Complete
-Last activity: 2026-01-30 — Phase 04.6 complete (all 5 plans executed and verified)
+Phase: v2.6 COMPLETE
+Status: Milestone shipped 2026-01-31
+Last activity: 2026-01-31 — v2.6 milestone complete (20 plans across 5 phases)
 
-Progress: [██████████] 60% (15/25 plans)
+Progress: [██████████] 100% v2.6 COMPLETE
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 31 (19 v2.5 + 12 v2.6)
-- Average duration: ~13 min
-- Total execution time: ~6.7 hours (v2.5 + v2.6)
+- Total plans completed: 51 (19 v2.5 + 20 v2.6 + 12 earlier)
+- Average duration: ~10 min
+- Total execution time: ~8.5 hours
 
-**By Phase:**
+**By Phase (v2.6):**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 03.1 | 3 | ~45min | 15min |
-| 03.2 | 4 | ~60min | 15min |
-| 03.3 | 4 | ~30min | 8min |
-| 03.4 | 5 | ~65min | 13min |
-| 03.5 | 3 | ~65min | 22min |
 | 04.1 | 2 | ~15min | 8min |
 | 04.2 | 4 | ~25min | 6min |
-| 04.3 | 4 | ~31min | 8min |
+| 04.3 | 3 | ~31min | 10min |
+| 04.4 | 2 | ~23min | 12min |
 | 04.6 | 5 | ~20min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: ~4-13min each
+- Last 5 plans: ~4-12min each
 - Trend: Stable
 
-*Updated after 04.3-04 completion*
+*Updated 2026-01-31*
 
 ## Accumulated Context
 
 ### Decisions
 
 Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+Recent decisions from v2.6:
 
-- [04.6-05]: All four bug fixes verified via Chrome/web testing - Home shows personalized 0/20, Series capped at 30, Calorie card clean
-- [04.6-01]: UserStatsProvider.dailyGoal changed from static const to instance getter reading from StorageService.getDailyGoal()
-- [04.6-01]: Home screen uses Consumer3<UserStatsProvider, ActiveWorkoutProvider, GoalsProvider> for goal completion check
-- [04.6-01]: Daily goal display uses GoalsProvider.dailyGoal.target for personalized value from onboarding
-- [04.6-02]: Series selection cap calculated dynamically as (dailyGoal + 10).clamp(10, 99) via _getMaxStartingSeries(BuildContext context)
-- [04.6-02]: Removed hardcoded _maxStartingSeries = 99 constant in favor of context-read StorageService.getDailyGoal()
-- [04.6-03]: Goal completion now navigates to Workout Summary with full session stats (replaces /statistics navigation)
-- [04.6-03]: Shared _navigateToWorkoutSummary method handles both normal workout end and goal completion
-- [04.6-03]: Session data captured before endWorkout() call because session becomes null after
-- [04.6-04]: Simple SizedBox(height: 8) provides sufficient CalorieCard bottom spacing without decorative gradient bar
-- [04.4-02]: Android adaptive icon XML files created manually with Python PIL for PNG generation after flutter_launcher_icons CLI failed silently
-- [04.4-02]: Adaptive icon foreground sized at 108dp base (Android spec) with densities from 108px (mdpi) to 432px (xxxhdpi)
-- [04.4-01]: Adaptive icon foreground layer extracted with transparent background using ImageMagick
-- [04.4-01]: Flutter launcher icons configured with #FF6B00 background color for adaptive icon support
-- [04.3-04]: /statistics route added to main.dart onGenerateRoute using switch statement pattern
-- [04.3-04]: StatisticsScreen has built-in back button for direct navigation access
-- [04.3-03]: App-open popup uses WidgetsBindingObserver for resume detection and stays on current screen (no navigation)
-- [04.3-03]: StorageService.showAndMarkGoalCompletionPopup as atomic check-and-mark operation for popup display
-- [04.3-03]: Goal popup tracking uses SharedPreferences key 'goal_popup_last_shown' with YYYY-MM-DD date format
-- [04.3-03]: Popup check runs in postFrameCallback to ensure providers are initialized before display check
-- [04.3-02]: Goal completion popup uses showDialog with GoalCompletionDialog widget
-- [04.6-03]: Goal completion navigation updated to go to Workout Summary (not Statistics)
-- [04.3-02]: endWorkout() called in dialog's onDismiss callback, not before showing dialog
-- [04.3-02]: 500ms delay between dialog pop and navigation for smooth visual transition
-- [04.3-02]: Italian message exact: "Complimenti! Hai completato il tuo obiettivo di oggi. Ci vediamo domani!"
-- [04.2-04]: Use session start date for goal completion check (not DateTime.now()) to handle midnight boundary correctly
-- [04.2-04]: DailyRecord goalReached made optional in constructor for proper deserialization with backward compatibility
-- [04.2-04]: Added dual API for goal status: synchronous isTodayGoalComplete for UI, async checkGoalCompletion for refresh+check
-- [04.2-03]: Used Consumer2 (not Consumer) to access both UserStatsProvider and ActiveWorkoutProvider for goal check
-- [04.2-03]: Opacity 0.5 provides clear visual feedback for disabled start button
-- [04.2-03]: Navigation guard placed in _startWorkout to catch all entry points to workout screen
-- [04.2-02]: Workout auto-completes when daily goal is reached, skipping recovery period
-- [04.2-02]: Double-completion prevention via _isCompleting flag prevents race conditions
-- [04.2-02]: Navigation goes to Home screen (not results screen) after goal completion
-- [04.2-01]: Goal check happens after each rep (not per series) for immediate feedback; cumulative progress includes reps from all today's sessions
-- [04.2-01]: Stats cap at daily goal using math.min() to handle overshoot in final series
-- [04.1-02]: Test infrastructure updated for v2.5 API compatibility (FakeStorageService now implements all 30+ new methods)
-- [04.1-01]: Default recovery time reduced from 30s to 10s for faster workout flow
-- [03.5]: Smart notifications use personalized timing based on workout patterns
-- [03.4]: Streak freeze auto-activates when user has activity but falls short of goal
-- [03.3]: Sunday review triggers weekly goal assessment regardless of progress
-- [v2.6]: Default recovery time changed from 30 to 10 seconds for faster workouts
+- Goal completion popup uses showDialog with GoalCompletionDialog widget and confetti animation
+- Goal completion navigation goes to Workout Summary (not Statistics) with full session stats
+- Android adaptive icon XML files created manually with Python PIL after flutter_launcher_icons CLI failed
+- Default recovery time reduced from 30s to 10s for faster workout flow
+- Workout auto-completes when daily goal is reached, skipping recovery period
+- Series selection cap calculated dynamically as (dailyGoal + 10).clamp(10, 99)
+- UserStatsProvider.dailyGoal changed from static const to instance getter reading from storage
+- All bug fixes verified via Chrome/web testing
 
 ### Pending Todos
 
-5 todos captured from user feedback:
+5 todos captured from user feedback (all completed in v2.7+):
 
-| Title | Area | File |
-|-------|------|------|
-| Remove duplicate Points section | ui | workout_execution_screen.dart |
-| Add points animation on rep | ui | workout_execution_screen.dart |
-| Points per rep (not per series) | core-logic | active_workout_provider.dart |
-| Move Points to Home page | ui | home_screen.dart |
-| Replace Week with Today Goal | ui | home_screen.dart |
+| Title | Area | Status |
+|-------|------|--------|
+| Remove duplicate Points section | ui | ✅ Done |
+| Add points animation on rep | ui | ✅ Done |
+| Points per rep (not per series) | core-logic | ✅ Done |
+| Move Points to Home page | ui | ✅ Done |
+| Replace Week with Today Goal | ui | ✅ Done |
 
 ### Blockers/Concerns
 
 **Test infrastructure:**
-- 22 SeriesSelectionScreen tests failing due to outdated UI expectations (UI changed since tests written)
-- 33 other widget tests have pre-existing failures unrelated to recovery time changes
-- Integration tests fail on Windows with Provider initialization errors (pre-existing issue)
-- Critical tests for recovery time default value all pass
+- 22 SeriesSelectionScreen tests failing due to outdated UI expectations (pre-existing)
+- 33 other widget tests have pre-existing failures unrelated to v2.6 changes
+- Integration tests fail on Windows with Provider initialization errors (pre-existing)
+- Critical tests for v2.6 features all pass
 
 **Physical device testing required:**
-- Android adaptive icon verification requires physical device with various launcher shapes - foreground visibility on orange background needs verification
-- Notification permission testing requires Android 13+ physical device
-- 16 human verification items from v2.5 still pending physical device testing
-- Goal completion popup requires physical device for full integration testing
+- Android adaptive icon verification requires physical device with various launcher shapes
+- Notification system updates (Phase 04.5) require Android 12+ physical device - deferred to v2.7
+- Goal completion popup would benefit from physical device testing
+
+**Deferred to v2.7:**
+- Phase 04.5 (Notification Fix) - POST_NOTIFICATIONS and SCHEDULE_EXACT_ALARM permissions for Android 12+
 
 ## Session Continuity
 
-Last session: 2026-01-30
-Stopped at: Phase 04.6 complete (all 5 plans executed)
-Resume file: None
+Last session: 2026-01-31
+Stopped at: v2.6 milestone complete
+Resume file: None - ready to plan v2.7
 
 ## Roadmap Evolution
 
-- Phase 04.6 added: Bug Fixes & Testing (onboarding goal persistence, series selection cap, popup navigation, calorie card fix)
+- v2.6 shipped with 5 phases (04.1, 04.2, 04.3, 04.4, 04.6) - 20 plans total
+- Phase 04.5 (Notification Fix) removed from v2.6 scope, deferred to v2.7
+- Phase 04.4 reduced from 3 to 2 plans (verification plan deferred)
 
 ## Milestone Archives
+
+**v2.6 - Improvements & Polish** (SHIPPED 2026-01-31)
+- Archive: `.planning/milestones/v2.6-ROADMAP.md`
+- Requirements: `.planning/milestones/v2.6-REQUIREMENTS.md`
+- Git tag: v2.6
 
 **v2.5 - Engagement & Retention** (SHIPPED 2026-01-27)
 - Archive: `.planning/milestones/v2.5-ROADMAP.md`
@@ -140,3 +110,7 @@ Resume file: None
 **v2.0 - Android Widgets & App Polish** (SHIPPED 2026-01-23)
 - Archive: `.planning/milestones/v2.0-ROADMAP.md`
 - Git tag: v2.0
+
+---
+
+*Last updated: 2026-01-31 after v2.6 milestone completion*

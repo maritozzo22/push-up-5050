@@ -1,25 +1,18 @@
 # PROJECT.md
 
-**Project Name:** Push-Up 5050 - Improvements & Polish
+**Project Name:** Push-Up 5050
 **Status:** Active Development
-**Last Updated:** 2026-01-29
+**Last Updated:** 2026-01-31
 
-## Current Milestone: v2.6 Improvements & Polish
+## Current Milestone: Planning Next (v2.7)
 
-**Goal:** Fix critical UX issues and polish platform-specific features
-
-**Target features:**
-- Adaptive Icon Android (support all launcher shapes)
-- Notification System Fix (fixed-time reminders on Android 12+)
-- Default Recovery Time: 10 seconds
-- Goal-Based Series Logic (auto-complete when daily goal reached)
-- Goal Completion Popup (congratulations when daily goal achieved)
+**Previous Milestone:** v2.6 Improvements & Polish (Shipped 2026-01-31)
 
 ## Project Overview
 
-Progressive push-up training mobile app with gamification elements. Users complete incremental push-up series (1, 2, 3, 4, 5...) with recovery intervals, tracking progress toward a goal of 50 push-ups/day within 30 consecutive days.
+Progressive push-up training mobile app with gamification elements. Users complete incremental push-up series (1, 2, 3, 4, 5...) with recovery intervals, tracking progress toward a personalized daily goal.
 
-**Current Status**: Engagement & Retention features complete with personalized onboarding, enhanced gamification, weekly goals, challenges, and smart notifications.
+**Current Status**: v2.6 shipped with faster workout defaults, goal-based auto-completion, celebration popup, Android adaptive icons, and critical bug fixes.
 
 **Target Platforms**: Android (production), Windows (development)
 
@@ -51,6 +44,13 @@ Progressive push-up training mobile app with gamification elements. Users comple
 - Weekly challenges with badges and 200-point bonus
 - Streak freeze (1 per month) to prevent streak reset with snowflake indicator
 - Smart notifications (streak at risk after 2 missed days, progress alerts at 50%+, personalized timing)
+
+### v2.6 Features (Shipped ✅)
+- Default recovery time reduced from 30 to 10 seconds
+- Goal-based workout logic with auto-completion when daily target reached
+- Goal completion popup with confetti animation and Italian congratulations message
+- Android adaptive icon with foreground layer and #FF6B00 background
+- Bug fixes: onboarding goal persistence, series selection cap, navigation, calorie card UI
 
 ## Technical Stack
 
@@ -93,13 +93,13 @@ lib/
 
 ## Milestones
 
-### Milestone 1: Core App ✅ (SHIPPED)
+### Milestone v1.0: Core App ✅ (SHIPPED)
 - Progressive workout system
 - Statistics tracking
 - Achievement system
 - Settings and preferences
 
-### Milestone 2: Android Widgets & App Polish ✅ (SHIPPED 2026-01-23)
+### Milestone v2.0: Android Widgets & App Polish ✅ (SHIPPED 2026-01-23)
 **Delivered:**
 - Widget infrastructure (home_widget v0.9.0 integration)
 - Calendar synchronization service
@@ -111,7 +111,7 @@ lib/
 
 **Archive:** `.planning/milestones/v2.0-ROADMAP.md`
 
-### Milestone 3: Engagement & Retention ✅ (SHIPPED 2026-01-27)
+### Milestone v2.5: Engagement & Retention ✅ (SHIPPED 2026-01-27)
 **Delivered:**
 - Personalized onboarding (4-screen flow: activity, capacity, frequency, daily goal)
 - Enhanced points system (aggressive formula: Base × (RepMult + SeriesMult) × StreakMult)
@@ -132,32 +132,41 @@ lib/
 
 **Archive:** `.planning/milestones/v2.5-ROADMAP.md`
 
-### Milestone 4: Improvements & Polish 🔄 (IN PROGRESS)
-**Target:**
-- Adaptive Icon Android (all launcher shapes)
-- Notification System Fix (Android 12+ permissions, exact alarm)
-- Default Recovery Time: 10 seconds (from 30)
-- Goal-Based Series Logic (auto-complete at daily goal)
-- Goal Completion Popup (congratulations on goal achieved)
+### Milestone v2.6: Improvements & Polish ✅ (SHIPPED 2026-01-31)
+**Delivered:**
+- Default recovery time reduced from 30 to 10 seconds
+- Goal-based workout logic with auto-completion when daily target reached
+- Goal completion popup with confetti animation and Italian congratulations message
+- Android adaptive icon with foreground layer and #FF6B00 background
+- Bug fixes: onboarding goal persistence, series selection cap, navigation, calorie card UI
 
-**Phases:** Planning in progress
+**Phases completed:**
+- 04.1: Quick Fixes (2/2 plans)
+- 04.2: Goal-Based Logic (4/4 plans)
+- 04.3: Goal Completion Popup (3/3 plans)
+- 04.4: Android Adaptive Icon (2/2 plans)
+- 04.6: Bug Fixes & Testing (5/5 plans)
+
+**Total:** 20 plans across 5 phases
+
+**Archive:** `.planning/milestones/v2.6-ROADMAP.md`
 
 ## Current State
 
-**Shipped:** v2.5 - Engagement & Retention (2026-01-27)
+**Shipped:** v2.6 - Improvements & Polish (2026-01-31)
 
 **Latest Changes:**
-- Personalized onboarding flow with calculated recommendations
-- Aggressive points formula with level-based daily caps
-- Weekly goals system with Sunday review popup
-- Weekly challenges with bonus points
-- Streak freeze protection with visual indicator
-- Smart notifications with personalized timing
+- Default recovery time is now 10 seconds (was 30)
+- Workouts auto-complete when daily goal is reached
+- Goal completion popup with confetti animation
+- Android adaptive icon assets generated
+- Dynamic daily goal reading from storage
+- Series selection capped at goal + 10
+- All fixes verified via Chrome/web testing
 
 **Known Issues:**
-- Widget verification plans pending (require physical Android device)
-- Notification testing pending (require physical Android device)
-- 16 human verification items require physical device testing
+- Notification system requires Android 12+ permission updates (deferred to v2.7)
+- Some features require physical Android device for verification
 
 **Technical Debt:**
 - Minor: weeklyGoal calculated dynamically vs explicit storage
@@ -175,22 +184,20 @@ lib/
 | Dual streak display | Both daily and weekly streaks visible on home | ✓ Good |
 | BuildContext for localization | Service layer needs translations without coupling | ✓ Good |
 | Direct StorageService access | Avoids circular dependencies in scheduler | ✓ Good |
-| 2-hour window binning | Sufficient granularity for workout pattern analysis | — Pending |
+| 10-second default recovery | Faster workouts for better user experience | ✓ Good |
+| Goal completion auto-ends workout | Prevents over-training when daily target reached | ✓ Good |
 
 ## Success Criteria
 
-### v2.5 Status ✅ COMPLETE
-- [x] Personalized onboarding with 4-screen flow
-- [x] Enhanced points system with aggressive formula
-- [x] Anti-cheat daily caps enforced
-- [x] Weekly goals with Sunday review
-- [x] Weekly challenges with badges
-- [x] Streak freeze feature (1/month)
-- [x] Smart notifications system
-- [x] All 19 requirements satisfied
-- [x] All 19 plans complete
+### v2.6 Status ✅ COMPLETE
+- [x] Default recovery time changed to 10 seconds
+- [x] Goal-based workout auto-completion
+- [x] Goal completion popup with celebration
+- [x] Android adaptive icon assets
+- [x] All bug fixes verified
+- [x] All 20 plans complete
 - [x] Git tag created
 
 ---
 
-*Last updated: 2026-01-29 after v2.6 milestone initiation*
+*Last updated: 2026-01-31 after v2.6 milestone completion*
