@@ -33,6 +33,7 @@ class CalorieCard extends StatelessWidget {
       height: 120,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Icon circle at top
           Container(
@@ -64,7 +65,7 @@ class CalorieCard extends StatelessWidget {
           Text(
             'CALORIE BRUCIATE',
             style: TextStyle(
-              fontSize: 8,
+              fontSize: 10,
               fontWeight: FontWeight.w800,
               letterSpacing: 0.4,
               color: Colors.white.withOpacity(0.70),
@@ -78,13 +79,12 @@ class CalorieCard extends StatelessWidget {
             child: Text(
               '$kcal kcal',
               style: const TextStyle(
-                fontSize: 13,
+                fontSize: 16,
                 fontWeight: FontWeight.w900,
                 color: Colors.white,
               ),
             ),
           ),
-          const SizedBox(height: 8),
         ],
       ),
     );
