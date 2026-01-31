@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
-import 'package:push_up_5050/widgets/design_system/progress_bar.dart';
 
-/// Total Pushups Card - displays total pushups vs goal with progress bar.
+/// Total Pushups Card - displays total pushups vs goal.
 ///
 /// Shows:
 /// - Icon with orange gradient circle (TOP)
 /// - "TOTALE PUSHUPS:" label
 /// - "X / Y" value display
-/// - Progress bar with percentage
 ///
 /// Used in Statistics Screen.
 /// Layout: Vertical (icon on top, text below)
@@ -24,8 +22,6 @@ class TotalPushupsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final progress = goal == 0 ? 0.0 : (total / goal).clamp(0.0, 1.0);
-    final percentage = (progress * 100).round();
 
     return FrostCard(
       height: 120,
@@ -80,19 +76,6 @@ class TotalPushupsCard extends StatelessWidget {
                 fontWeight: FontWeight.w900,
                 color: Colors.white,
               ),
-            ),
-          ),
-          const Spacer(),
-          // Progress bar
-          ProgressBar(value: progress),
-          const SizedBox(height: 2),
-          // Percentage
-          Text(
-            '$percentage%',
-            style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.w800,
-              color: Colors.white.withOpacity(0.55),
             ),
           ),
         ],
