@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-31)
 
 **Core value:** Progressive push-up training app with gamification and engagement features
-**Current focus:** Planning v2.7 - Play Store Ready
+**Current focus:** Phase 05 - Icon & Settings Cleanup
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements for v2.7
-Last activity: 2026-01-31 — Milestone v2.7 started
+Phase: 05 of 10 (Icon & Settings Cleanup)
+Plan: 0 of 2 in current phase
+Status: Ready to plan
+Last activity: 2026-01-31 — Milestone v2.7 roadmap created
 
-Progress: [░░░░░░░░░░] 0% v2.7 PLANNING
+Progress: [░░░░░░░░░░] 0% v2.7 (0/16 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 51 (19 v2.5 + 20 v2.6 + 12 earlier)
-- Average duration: ~10 min
-- Total execution time: ~8.5 hours
+- Total plans completed: 71 (22 v2.0 + 19 v2.5 + 20 v2.6 + 10 v1.0)
+- Average duration: ~15 min
+- Total execution time: ~18 hours across all milestones
 
 **By Phase (v2.6):**
 
@@ -57,47 +57,32 @@ Recent decisions from v2.6:
 
 ### Pending Todos
 
-v2.7 Goals (from user):
-
-| Priority | Feature | Description |
-|----------|---------|-------------|
-| 1 | Icon restoration | Restore original icon.png as main launcher |
-| 2 | Settings cleanup | Remove "Test notifications" section |
-| 3 | Statistics cards | Remove bar, center and enlarge text |
-| 4 | Goal notification | Top banner (non-blocking), confetti, continues workout |
-| 5 | Achievements | Add 9 new achievements (20 total) |
-| 6 | Proximity sensor | Fix functionality, move toggle to Workout Setup |
-| 7 | Onboarding | Improve design and content |
+None yet.
 
 ### Blockers/Concerns
 
+**Physical device testing required:**
+- Proximity sensor (Phase 09) requires physical Android device - no emulator support
+- Goal notification banner (Phase 07) should be tested on physical device
+- Icon restoration (Phase 05) should be verified on various Android launchers
+
 **Test infrastructure:**
-- 22 SeriesSelectionScreen tests failing due to outdated UI expectations (pre-existing)
+- 22 SeriesSelectionScreen tests failing due to outdated UI expectations (pre-existing, from v2.6)
 - 33 other widget tests have pre-existing failures unrelated to v2.6 changes
 - Integration tests fail on Windows with Provider initialization errors (pre-existing)
 - Critical tests for v2.6 features all pass
 
-**Physical device testing required:**
-- Android adaptive icon verification requires physical device with various launcher shapes
-- Notification system updates (Phase 04.5) require Android 12+ physical device - deferred to v2.7
-- Goal completion popup would benefit from physical device testing
-- Proximity sensor requires physical Android device (no emulator support)
-
-**Deferred to v2.7:**
-- Phase 04.5 (Notification Fix) - POST_NOTIFICATIONS and SCHEDULE_EXACT_ALARM permissions for Android 12+
-- Proximity sensor fix and UI improvements
-
 ## Session Continuity
 
 Last session: 2026-01-31
-Stopped at: v2.7 milestone started
+Stopped at: v2.7 roadmap created with 6 phases (05-10), ready to begin Phase 05 planning
 Resume file: None
 
 ## Roadmap Evolution
 
 - v2.6 shipped with 5 phases (04.1, 04.2, 04.3, 04.4, 04.6) - 20 plans total
-- Phase 04.5 (Notification Fix) removed from v2.6 scope, deferred to v2.7
-- v2.7 starting - 7 target features identified
+- Phase 04.5 (Notification Fix) removed from v2.6 scope, deferred to future milestone
+- v2.7 roadmap created with 6 phases (05-10), 16 estimated plans, 22 requirements
 
 ## Milestone Archives
 
@@ -118,4 +103,4 @@ Resume file: None
 
 ---
 
-*Last updated: 2026-01-31 after v2.7 milestone initiation*
+*Last updated: 2026-01-31 after v2.7 roadmap creation*

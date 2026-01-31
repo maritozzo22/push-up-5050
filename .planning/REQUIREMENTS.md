@@ -79,38 +79,46 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ICON-01 | TBD | Pending |
-| ICON-02 | TBD | Pending |
-| SETT-01 | TBD | Pending |
-| SETT-02 | TBD | Pending |
-| STAT-01 | TBD | Pending |
-| STAT-02 | TBD | Pending |
-| STAT-03 | TBD | Pending |
-| STAT-04 | TBD | Pending |
-| GOAL-01 | TBD | Pending |
-| GOAL-02 | TBD | Pending |
-| GOAL-03 | TBD | Pending |
-| GOAL-04 | TBD | Pending |
-| GOAL-05 | TBD | Pending |
-| ACHV-01 | TBD | Pending |
-| ACHV-02 | TBD | Pending |
-| ACHV-03 | TBD | Pending |
-| ACHV-04 | TBD | Pending |
-| SENS-01 | TBD | Pending |
-| SENS-02 | TBD | Pending |
-| SENS-03 | TBD | Pending |
-| SENS-04 | TBD | Pending |
-| ONBD-01 | TBD | Pending |
-| ONBD-02 | TBD | Pending |
-| ONBD-03 | TBD | Pending |
-| ONBD-04 | TBD | Pending |
+| ICON-01 | Phase 05 | Pending |
+| ICON-02 | Phase 05 | Pending |
+| SETT-01 | Phase 05 | Pending |
+| SETT-02 | Phase 05 | Pending |
+| STAT-01 | Phase 06 | Pending |
+| STAT-02 | Phase 06 | Pending |
+| STAT-03 | Phase 06 | Pending |
+| STAT-04 | Phase 06 | Pending |
+| GOAL-01 | Phase 07 | Pending |
+| GOAL-02 | Phase 07 | Pending |
+| GOAL-03 | Phase 07 | Pending |
+| GOAL-04 | Phase 07 | Pending |
+| GOAL-05 | Phase 07 | Pending |
+| ACHV-01 | Phase 08 | Pending |
+| ACHV-02 | Phase 08 | Pending |
+| ACHV-03 | Phase 08 | Pending |
+| ACHV-04 | Phase 08 | Pending |
+| SENS-01 | Phase 09 | Pending |
+| SENS-02 | Phase 09 | Pending |
+| SENS-03 | Phase 09 | Pending |
+| SENS-04 | Phase 09 | Pending |
+| ONBD-01 | Phase 10 | Pending |
+| ONBD-02 | Phase 10 | Pending |
+| ONBD-03 | Phase 10 | Pending |
+| ONBD-04 | Phase 10 | Pending |
 
 **Coverage:**
 - v2.7 requirements: 22 total
-- Mapped to phases: TBD
+- Mapped to phases: 22/22 (100%)
 - Unmapped: 0
+
+**Phase Distribution:**
+- Phase 05 (Icon & Settings): 4 requirements (ICON-01, ICON-02, SETT-01, SETT-02)
+- Phase 06 (Statistics UI): 4 requirements (STAT-01, STAT-02, STAT-03, STAT-04)
+- Phase 07 (Goal Notification): 5 requirements (GOAL-01, GOAL-02, GOAL-03, GOAL-04, GOAL-05)
+- Phase 08 (Achievements): 4 requirements (ACHV-01, ACHV-02, ACHV-03, ACHV-04)
+- Phase 09 (Proximity Sensor): 4 requirements (SENS-01, SENS-02, SENS-03, SENS-04)
+- Phase 10 (Onboarding): 4 requirements (ONBD-01, ONBD-02, ONBD-03, ONBD-04)
 
 ---
 
 *Requirements defined: 2026-01-31*
-*Last updated: 2026-01-31 after initial definition*
+*Last updated: 2026-01-31 after roadmap creation*
