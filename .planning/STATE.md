@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-31)
 ## Current Position
 
 Phase: 05 of 10 (Icon & Settings Cleanup)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-01-31 — Completed 05-02 (Settings test notification removal)
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-01-31 — Completed 05-01 (Icon restoration)
 
-Progress: [██░░░░░░░░░] 6% v2.7 (1/16 plans)
+Progress: [███░░░░░░░░] 12% v2.7 (2/16 plans)
 
 ## Performance Metrics
 
@@ -41,7 +41,7 @@ Progress: [██░░░░░░░░░] 6% v2.7 (1/16 plans)
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 05    | 1     | ~4min | 4min     |
+| 05    | 2     | ~16min| 8min     |
 
 *Updated 2026-01-31*
 
@@ -52,6 +52,7 @@ Progress: [██░░░░░░░░░] 6% v2.7 (1/16 plans)
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions from v2.6:
 
+- Icon restoration reverts to legacy single-icon approach using original icon.png for consistent branding
 - Goal completion popup uses showDialog with GoalCompletionDialog widget and confetti animation
 - Goal completion navigation goes to Workout Summary (not Statistics) with full session stats
 - Android adaptive icon XML files created manually with Python PIL after flutter_launcher_icons CLI failed
@@ -81,7 +82,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-31
-Stopped at: Completed 05-02 (Settings test notification removal)
+Stopped at: Completed 05-01 (Icon restoration)
 Resume file: None
 
 ## Roadmap Evolution
@@ -109,4 +110,4 @@ Resume file: None
 
 ---
 
-*Last updated: 2026-01-31 after completing 05-02*
+*Last updated: 2026-01-31 after completing 05-01*
