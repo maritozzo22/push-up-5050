@@ -5,6 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/providers/active_workout_provider.dart';
+import 'package:push_up_5050/providers/goals_provider.dart';
+import 'package:push_up_5050/providers/user_stats_provider.dart';
+import 'package:push_up_5050/repositories/storage_service.dart';
 import 'package:push_up_5050/screens/workout_execution/workout_execution_screen.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
@@ -32,13 +35,12 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
   AppLocalizations get _l10n => AppLocalizations.of(context)!;
 
   static const int _minStartingSeries = 1;
-  static const int _maxStartingSeries = 99;
   static const int _minRestTime = 5;
   static const int _maxRestTime = 120;
   static const int _maxGoalPushups = 500;
 
   int _startingSeries = 1;
-  int _restTime = 30;
+  int _restTime = 10;
   int _goalPushups = 0;
 
   // Long-press acceleration state for goal
@@ -55,6 +57,17 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
 
   int get startingSeries => _startingSeries;
 
+  /// Calculate maximum starting series based on daily goal.
+  ///
+  /// Caps at dailyGoal + 10 with absolute maximum of 99.
+  /// This prevents users from selecting excessively long workouts
+  /// that don't match their fitness level from onboarding.
+  int _getMaxStartingSeries(BuildContext context) {
+    final storage = context.read<StorageService>();
+    final dailyGoal = storage.getDailyGoal();
+    return (dailyGoal + 10).clamp(10, 99);
+  }
+
   @override
   void dispose() {
     _goalIncrementTimer?.cancel();
@@ -66,17 +79,19 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
 
   /// Calculate the next starting series value.
   int _getNextStartingSeries(int current) {
-    if (current < 10) return current + 1;
-    if (current < 95) return current + 5;
-    return 99;
+    final max = _getMaxStartingSeries(context);
+    if (current < 10) return (current + 1).clamp(1, max);
+    if (current < max - 5) return current + 5;
+    return max;
   }
 
   /// Calculate the previous starting series value.
   int _getPreviousStartingSeries(int current) {
-    if (current <= 11) return current - 1;
+    final max = _getMaxStartingSeries(context);
+    if (current <= 11) return (current - 1).clamp(1, max);
     if (current <= 15) return 10;
     if (current % 5 == 0) return current - 5;
-    return current - 5;
+    return (current - 5).clamp(1, max);
   }
 
   /// Handle goal increment with long-press acceleration.
@@ -247,8 +262,9 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
     await provider.loadWorkoutPreferences();
     if (provider.savedStartingSeries != null) {
       final savedValue = provider.savedStartingSeries!;
+      final maxSeries = _getMaxStartingSeries(context);
       if (savedValue >= _minStartingSeries &&
-          savedValue <= _maxStartingSeries &&
+          savedValue <= maxSeries &&
           mounted) {
         setState(() => _startingSeries = savedValue);
       }
@@ -272,6 +288,21 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
   /// Start workout with current settings.
   Future<void> _startWorkout() async {
     if (!mounted) return;
+
+    // Check if goal is already complete before navigating
+    final userStats = context.read<UserStatsProvider>();
+    final goals = context.read<GoalsProvider>();
+    if (userStats.todayPushups >= goals.dailyGoal.target) {
+      // Show message and prevent navigation
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(_l10n.goalCompleted),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
     final provider = context.read<ActiveWorkoutProvider?>();
     if (provider == null) return;
     await provider.startWorkout(
@@ -351,7 +382,7 @@ class _SeriesSelectionScreenState extends State<SeriesSelectionScreen> {
                               _savePreferences();
                             }
                           : null,
-                      onPlus: _startingSeries < _maxStartingSeries
+                      onPlus: _startingSeries < _getMaxStartingSeries(context)
                           ? () {
                               _triggerStartingSeriesHaptic();
                               setState(() => _startingSeries =

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:push_up_5050/core/constants/app_colors.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/models/goal.dart';
+import 'package:push_up_5050/providers/active_workout_provider.dart';
 import 'package:push_up_5050/providers/goals_provider.dart';
 import 'package:push_up_5050/providers/user_stats_provider.dart';
 import 'package:push_up_5050/providers/weekly_review_provider.dart';
@@ -14,6 +15,7 @@ import 'package:push_up_5050/widgets/design_system/frost_card.dart';
 import 'package:push_up_5050/widgets/design_system/mini_stat.dart';
 import 'package:push_up_5050/widgets/design_system/start_button_circle.dart';
 import 'package:push_up_5050/widgets/goals/goal_card.dart';
+import 'package:push_up_5050/widgets/goal_completion/goal_completion_dialog.dart';
 import 'package:push_up_5050/widgets/weekly/weekly_review_popup.dart';
 
 /// Home screen - entry point for the app with new dark glass + orange glow design.
@@ -38,12 +40,14 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   bool _weeklyReviewChecked = false;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+
     // Load stats on init after first frame
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final statsContext = context;
@@ -59,8 +63,25 @@ class _HomeScreenState extends State<HomeScreen> {
           _weeklyReviewChecked = true;
           await _checkAndShowWeeklyReview(statsContext);
         }
+
+        // Check goal completion popup for app open
+        await _checkAndShowGoalCompletion();
       }
     });
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      // Check if should show popup when app resumes from background
+      _checkAndShowGoalCompletion();
+    }
   }
 
   /// Schedule smart notifications based on current state.
@@ -133,6 +154,35 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         );
       }
+    }
+  }
+
+  /// Check and show goal completion popup if goal was completed earlier today.
+  ///
+  /// Triggers when:
+  /// - App opens and goal was already completed today
+  /// - App resumes from background (if not yet shown today)
+  ///
+  /// Only shows once per day (tracked by StorageService).
+  /// Popup stays on current screen after dismissal (no navigation).
+  Future<void> _checkAndShowGoalCompletion() async {
+    final storage = context.read<StorageService>();
+
+    // Check if should show (includes goal complete check)
+    final shouldShow = await storage.showAndMarkGoalCompletionPopup();
+    if (!shouldShow) return;
+
+    // Show popup (no navigation after dismissal)
+    if (mounted) {
+      showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (context) => GoalCompletionDialog(
+          onDismiss: () {
+            Navigator.of(context).pop(); // Just close dialog, stay on Home
+          },
+        ),
+      );
     }
   }
 
@@ -231,8 +281,17 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(height: 32),
         // START Button
-        StartButtonCircle(
-          onTap: widget.onStartWorkout ?? () {},
+        Consumer3<UserStatsProvider, ActiveWorkoutProvider, GoalsProvider>(
+          builder: (context, stats, workoutProvider, goals, child) {
+            // Check if today's goal is already complete
+            final goalComplete = stats.todayPushups >= goals.dailyGoal.target;
+
+            return StartButtonCircle(
+              onTap: widget.onStartWorkout ?? () {},
+              isDisabled: goalComplete,
+              disabledMessage: l10n.goalCompleted,
+            );
+          },
         ),
         const SizedBox(height: 24),
         // Today's Pushups Card
@@ -289,15 +348,20 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: FrostCard(
-                height: 120,
-                child: MiniStat(
-                  label: 'OGGI',
-                  value: '${stats.todayPushups}',
-                  showBar: true,
-                  barValue: (stats.todayPushups / UserStatsProvider.dailyGoal).clamp(0.0, 1.0),
-                  subtitle: '/ ${UserStatsProvider.dailyGoal}',
-                ),
+              child: Consumer<GoalsProvider>(
+                builder: (context, goals, child) {
+                  final dailyGoal = goals.dailyGoal.target;
+                  return FrostCard(
+                    height: 120,
+                    child: MiniStat(
+                      label: 'OGGI',
+                      value: '${stats.todayPushups}',
+                      showBar: true,
+                      barValue: (stats.todayPushups / dailyGoal).clamp(0.0, 1.0),
+                      subtitle: '/ $dailyGoal',
+                    ),
+                  );
+                },
               ),
             ),
           ],

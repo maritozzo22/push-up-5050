@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <!-- Foreground layer for Android adaptive icon -->
+  <!-- Transparent background - orange #FF6B00 will be applied by adaptive_icon_background -->
+
+  <defs>
+    <linearGradient id="orangeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="100%" stop-color="#FF5F1F"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Orange ring/border (outer ring) -->
+  <circle cx="256" cy="256" r="240" fill="none" stroke="url(#orangeGlow)" stroke-width="10" opacity="0.95"/>
+
+  <!-- Push-up figure silhouette -->
+  <g transform="translate(256, 260)" filter="url(#glow)">
+    <!-- Body -->
+    <ellipse cx="0" cy="-20" rx="70" ry="30" fill="url(#orangeGlow)" opacity="0.95"/>
+
+    <!-- Head -->
+    <circle cx="0" cy="-75" r="26" fill="url(#orangeGlow)"/>
+
+    <!-- Arms -->
+    <ellipse cx="-55" cy="-25" rx="28" ry="14" fill="url(#orangeGlow)" opacity="0.85" transform="rotate(-20, -55, -25)"/>
+    <ellipse cx="55" cy="-25" rx="28" ry="14" fill="url(#orangeGlow)" opacity="0.85" transform="rotate(20, 55, -25)"/>
+
+    <!-- Legs -->
+    <ellipse cx="-38" cy="18" rx="24" ry="12" fill="url(#orangeGlow)" opacity="0.85" transform="rotate(-15, -38, 18)"/>
+    <ellipse cx="38" cy="18" rx="24" ry="12" fill="url(#orangeGlow)" opacity="0.85" transform="rotate(15, 38, 18)"/>
+  </g>
+
+  <!-- "5050" text at bottom -->
+  <text x="256" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="url(#orangeGlow)" filter="url(#glow)">5050</text>
+
+  <!-- Orange glow accent at bottom -->
+  <ellipse cx="256" cy="485" rx="150" ry="22" fill="#FF7A18" opacity="0.4"/>
+</svg>

@@ -1,8 +1,19 @@
 # PROJECT.md
 
-**Project Name:** Push-Up 5050 - Engagement & Retention
+**Project Name:** Push-Up 5050 - Improvements & Polish
 **Status:** Active Development
-**Last Updated:** 2026-01-27
+**Last Updated:** 2026-01-29
+
+## Current Milestone: v2.6 Improvements & Polish
+
+**Goal:** Fix critical UX issues and polish platform-specific features
+
+**Target features:**
+- Adaptive Icon Android (support all launcher shapes)
+- Notification System Fix (fixed-time reminders on Android 12+)
+- Default Recovery Time: 10 seconds
+- Goal-Based Series Logic (auto-complete when daily goal reached)
+- Goal Completion Popup (congratulations when daily goal achieved)
 
 ## Project Overview
 
@@ -121,6 +132,16 @@ lib/
 
 **Archive:** `.planning/milestones/v2.5-ROADMAP.md`
 
+### Milestone 4: Improvements & Polish 🔄 (IN PROGRESS)
+**Target:**
+- Adaptive Icon Android (all launcher shapes)
+- Notification System Fix (Android 12+ permissions, exact alarm)
+- Default Recovery Time: 10 seconds (from 30)
+- Goal-Based Series Logic (auto-complete at daily goal)
+- Goal Completion Popup (congratulations on goal achieved)
+
+**Phases:** Planning in progress
+
 ## Current State
 
 **Shipped:** v2.5 - Engagement & Retention (2026-01-27)
@@ -172,4 +193,4 @@ lib/
 
 ---
 
-*Last updated: 2026-01-27 after v2.5 milestone*
+*Last updated: 2026-01-29 after v2.6 milestone initiation*

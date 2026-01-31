@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 import 'package:push_up_5050/models/daily_record.dart';
 import 'package:push_up_5050/models/widget_data.dart';
@@ -103,8 +105,16 @@ class UserStatsProvider extends ChangeNotifier {
   /// Weekly goal in pushups (50 per day × 5 workout days).
   static const int weeklyGoal = 250;
 
-  /// Daily goal in pushups.
-  static const int dailyGoal = 50;
+  /// Get the current daily goal from storage.
+  ///
+  /// Returns the user's personalized goal from onboarding (default: 50).
+  int get dailyGoal => _storage.getDailyGoal();
+
+  /// Whether today's daily goal has been completed.
+  ///
+  /// Returns true if todayPushups >= dailyGoal.
+  /// Synchronous check for UI consumption.
+  bool get isTodayGoalComplete => _todayPushups >= dailyGoal;
 
   /// Daily records for the last 30 days.
   ///
@@ -153,7 +163,9 @@ class UserStatsProvider extends ChangeNotifier {
     try {
       // Get today's record
       final todayRecord = await _storage.getDailyRecord(DateTime.now());
-      _todayPushups = todayRecord?.totalPushups ?? 0;
+      // Cap today's pushups at daily goal (handles overshoot in final series)
+      final dailyGoal = _storage.getDailyGoal();
+      _todayPushups = math.min(todayRecord?.totalPushups ?? 0, dailyGoal);
 
       // Get all records and calculate totals
       final allRecords = await _storage.loadDailyRecords();
@@ -432,6 +444,14 @@ class UserStatsProvider extends ChangeNotifier {
   /// Same as [loadStats] but can be called after initial load.
   Future<void> refreshStats() async {
     await loadStats();
+  }
+
+  /// Refresh stats and return goal completion status.
+  ///
+  /// Useful for checking goal status after app resume or state changes.
+  Future<bool> checkGoalCompletion() async {
+    await refreshStats();
+    return _todayPushups >= dailyGoal;
   }
 
   /// Manually activate streak freeze for the current week.

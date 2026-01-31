@@ -18,6 +18,7 @@ import 'package:push_up_5050/services/audio_service.dart';
 import 'package:push_up_5050/services/haptic_feedback_service.dart';
 import 'package:push_up_5050/widgets/design_system/app_background.dart';
 import 'package:push_up_5050/widgets/design_system/frost_card.dart';
+import 'package:push_up_5050/widgets/goal_completion/goal_completion_dialog.dart';
 import 'package:push_up_5050/widgets/workout/countdown_circle.dart';
 import 'package:push_up_5050/widgets/workout/goal_celebration.dart';
 import 'package:push_up_5050/widgets/workout/recovery_ring_button.dart';
@@ -44,6 +45,7 @@ class WorkoutExecutionScreen extends StatefulWidget {
 class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
   Timer? _recoveryTimer;
   bool _showCelebration = false;
+  bool _isCompleting = false;
 
   AppLocalizations get _l10n => AppLocalizations.of(context)!;
 
@@ -67,8 +69,14 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
           audio.playBeep();
         }
 
-        // Auto-advance to next series when recovery is complete
-        provider.advanceToNextSeries();
+        // Check if goal was reached - if so, end workout instead of advancing
+        // This is a defensive check in case recovery was already started
+        if (provider.session?.goalReached == true) {
+          _handleGoalCompletion(provider, context);
+        } else {
+          // Auto-advance to next series when recovery is complete
+          provider.advanceToNextSeries();
+        }
       }
     });
   }
@@ -116,13 +124,35 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
         }
       }
 
+      // Check if goal reached - if so, skip recovery and end workout
+      // This ensures series finishes before checking goal
+      if (session.goalReached) {
+        _handleGoalCompletion(provider, context);
+        return;
+      }
+
       // Start recovery when series is complete
       provider.startRecovery();
       _startRecoveryTimer(provider, context);
     }
   }
 
-  Future<void> _handleEndWorkout(ActiveWorkoutProvider provider) async {
+  /// Navigate to workout summary screen with session data.
+  ///
+  /// Captures session data BEFORE calling endWorkout() because
+  /// session becomes null after endWorkout(). Used by both
+  /// normal workout end and goal completion scenarios.
+  ///
+  /// This method handles:
+  /// 1. Data capture before endWorkout (session becomes null after)
+  /// 2. Ending the workout and refreshing user stats
+  /// 3. Points calculation with multipliers (streak, series, achievements)
+  /// 4. Achievement checking and unlocking
+  /// 5. Navigation to WorkoutSummaryScreen
+  Future<void> _navigateToWorkoutSummary({
+    required ActiveWorkoutProvider provider,
+    required BuildContext context,
+  }) async {
     final session = provider.session;
     if (session == null) return;
 
@@ -143,7 +173,7 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
 
     // 4. FIX #4: If no push-ups done, don't assign points - just return to home
     if (totalReps == 0) {
-      if (mounted) {
+      if (context.mounted) {
         Navigator.pop(context);
       }
       return;
@@ -217,7 +247,7 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
     final achievementMultiplier = Calculator.getAchievementMultiplier(newlyUnlocked.length);
 
     // 9. Navigate to summary screen
-    if (mounted) {
+    if (context.mounted) {
       await Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -235,6 +265,48 @@ class _WorkoutExecutionScreenState extends State<WorkoutExecutionScreen> {
             achievementMultiplier: achievementMultiplier,
             achievementPoints: achievementPoints,
           ),
+        ),
+      );
+    }
+  }
+
+  Future<void> _handleEndWorkout(ActiveWorkoutProvider provider) async {
+    await _navigateToWorkoutSummary(provider: provider, context: context);
+  }
+
+  Future<void> _handleGoalCompletion(
+    ActiveWorkoutProvider provider,
+    BuildContext context,
+  ) async {
+    // Prevent double-completion
+    if (_isCompleting) return;
+    _isCompleting = true;
+
+    // Show goal completion dialog first
+    if (mounted) {
+      await showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (dialogContext) => GoalCompletionDialog(
+          onDismiss: () async {
+            Navigator.of(dialogContext).pop(); // Close dialog
+
+            // Play goal achievement sound
+            final settings = context.read<AppSettingsService>();
+            final audio = context.read<AudioService>();
+            if (settings.soundsEnabled && settings.goalSoundEnabled) {
+              audio.playGoalAchieved();
+            }
+
+            // Navigate to workout summary using shared method
+            // This handles endWorkout, points calculation, achievements
+            if (context.mounted) {
+              await _navigateToWorkoutSummary(
+                provider: provider,
+                context: context,
+              );
+            }
+          },
         ),
       );
     }

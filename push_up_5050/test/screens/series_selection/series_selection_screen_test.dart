@@ -4,10 +4,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:push_up_5050/l10n/app_localizations.dart';
 import 'package:push_up_5050/models/daily_record.dart';
+import 'package:push_up_5050/models/notification_time_slot.dart';
 import 'package:push_up_5050/models/workout_session.dart';
 import 'package:push_up_5050/providers/active_workout_provider.dart';
 import 'package:push_up_5050/screens/series_selection/series_selection_screen.dart';
 import 'package:push_up_5050/repositories/storage_service.dart';
+import 'package:push_up_5050/services/widget_update_service.dart';
 
 /// Helper to create a MaterialApp with localization support for SeriesSelectionScreen tests.
 Widget createSeriesSelectionTestApp({
@@ -23,11 +25,16 @@ Widget createSeriesSelectionTestApp({
 
 void main() {
   late FakeStorageService fakeStorage;
+  late WidgetUpdateService fakeWidgetService;
   late ActiveWorkoutProvider workoutProvider;
 
   setUp(() {
     fakeStorage = FakeStorageService();
-    workoutProvider = ActiveWorkoutProvider(storage: fakeStorage);
+    fakeWidgetService = WidgetUpdateService(calendarService: null);
+    workoutProvider = ActiveWorkoutProvider(
+      storage: fakeStorage,
+      widgetUpdateService: fakeWidgetService,
+    );
   });
 
   group('SeriesSelectionScreen', () {
@@ -114,7 +121,7 @@ void main() {
       expect(find.text('1'), findsWidgets);
     });
 
-    testWidgets('rest time default value is 30', (tester) async {
+    testWidgets('rest time default value is 10', (tester) async {
       await tester.pumpWidget(
         ChangeNotifierProvider<ActiveWorkoutProvider>.value(
           value: workoutProvider,
@@ -125,7 +132,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('30'), findsWidgets);
+      expect(find.text('10'), findsWidgets);
     });
 
     testWidgets('INIZIA ALLENAMENTO button is tappable', (tester) async {
@@ -224,7 +231,7 @@ void main() {
 
       // Should display default values
       expect(find.text('1'), findsWidgets);
-      expect(find.text('30'), findsWidgets);
+      expect(find.text('10'), findsWidgets);
     });
 
     testWidgets('startingSeries value updates on increment', (tester) async {
@@ -263,8 +270,8 @@ void main() {
       await tester.tap(plusButtons.at(1));
       await tester.pumpAndSettle();
 
-      // Value should change from 30 to 31
-      expect(find.text('31'), findsOneWidget);
+      // Value should change from 10 to 11
+      expect(find.text('11'), findsOneWidget);
     });
 
     testWidgets('saves preferences when startingSeries changes', (tester) async {
@@ -285,7 +292,7 @@ void main() {
 
       // Preferences should be saved
       expect(workoutProvider.savedStartingSeries, 2);
-      expect(workoutProvider.savedRestTime, 30);
+      expect(workoutProvider.savedRestTime, 10);
     });
 
     testWidgets('saves preferences when restTime changes', (tester) async {
@@ -336,7 +343,7 @@ void main() {
       // Provider should have a session started
       expect(workoutProvider.session, isNotNull);
       expect(workoutProvider.session!.startingSeries, 1);
-      expect(workoutProvider.session!.restTime, 30);
+      expect(workoutProvider.session!.restTime, 10);
       expect(workoutProvider.session!.goalPushups, null); // Default goal is null (no goal)
     });
 
@@ -395,11 +402,16 @@ void main() {
 
   group('SeriesSelectionScreen - I18n', () {
     late FakeStorageService fakeStorage;
+    late WidgetUpdateService fakeWidgetService;
     late ActiveWorkoutProvider workoutProvider;
 
     setUp(() {
       fakeStorage = FakeStorageService();
-      workoutProvider = ActiveWorkoutProvider(storage: fakeStorage);
+      fakeWidgetService = WidgetUpdateService(calendarService: null);
+      workoutProvider = ActiveWorkoutProvider(
+        storage: fakeStorage,
+        widgetUpdateService: fakeWidgetService,
+      );
     });
 
     testWidgets('displays startingSeries title in Italian', (tester) async {
@@ -515,24 +527,28 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica default iniziale
-      expect(find.text('30'), findsWidgets);
+      expect(find.text('10'), findsWidgets);
 
-      // Incrementa il tempo di recupero a 35
+      // Incrementa il tempo di recupero a 15
       final plusButtons = find.byIcon(Icons.add);
       for (int i = 0; i < 5; i++) {
         await tester.tap(plusButtons.at(1));
         await tester.pumpAndSettle();
       }
 
-      expect(find.text('35'), findsOneWidget);
-      expect(workoutProvider.savedRestTime, 35);
+      expect(find.text('15'), findsOneWidget);
+      expect(workoutProvider.savedRestTime, 15);
 
       // Verifica che sia stato salvato nello storage
       final savedPrefs = await fakeStorage.loadWorkoutPreferences();
-      expect(savedPrefs?['restTime'], 35);
+      expect(savedPrefs?['restTime'], 15);
 
       // Simula riavvio app - crea nuovo provider e carica preferenze
-      final newProvider = ActiveWorkoutProvider(storage: fakeStorage);
+      final newWidgetService = WidgetUpdateService(calendarService: null);
+      final newProvider = ActiveWorkoutProvider(
+        storage: fakeStorage,
+        widgetUpdateService: newWidgetService,
+      );
       await newProvider.loadWorkoutPreferences();
 
       await tester.pumpWidget(
@@ -545,13 +561,13 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Dovrebbe mostrare 35, non 30 (default)
-      expect(find.text('35'), findsWidgets);
-      expect(find.text('30'), findsNothing);
-      expect(newProvider.savedRestTime, 35);
+      // Dovrebbe mostrare 15, non 10 (default)
+      expect(find.text('15'), findsWidgets);
+      expect(find.text('10'), findsNothing);
+      expect(newProvider.savedRestTime, 15);
     });
 
-    testWidgets('restTime defaults to 30 when no saved preferences',
+    testWidgets('restTime defaults to 10 when no saved preferences',
         (tester) async {
       // Nessuna preferenza salvata
       fakeStorage.setWorkoutPreferences(null);
@@ -566,8 +582,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Dovrebbe mostrare il default di 30
-      expect(find.text('30'), findsWidgets);
+      // Dovrebbe mostrare il default di 10
+      expect(find.text('10'), findsWidgets);
     });
   });
 
@@ -770,6 +786,29 @@ class FakeStorageService implements StorageService {
   WorkoutSession? _activeSession;
   Map<String, dynamic>? _workoutPreferences;
 
+  // Goals
+  int _dailyGoal = 50;
+  int _monthlyGoal = 1500;
+  int _weeklyGoal = 350;
+
+  // Onboarding
+  bool _onboardingCompleted = false;
+
+  // Weekly review/challenge tracking
+  final Map<String, bool> _weeklyReviewShown = {};
+  final Map<String, bool> _weeklyBonusAwarded = {};
+  final Map<String, bool> _weeklyChallengeCompleted = {};
+
+  // Streak freeze
+  int _streakFreezeRemaining = 3;
+  String? _streakFreezeActiveWeek;
+  String? _streakFreezeLastMonth;
+
+  // Notification time tracking
+  final List<String> _workoutCompletionTimes = [];
+  int _personalizedNotificationHour = 9;
+  int _personalizedNotificationMinute = 0;
+
   void setWorkoutPreferences(Map<String, dynamic>? prefs) {
     _workoutPreferences = prefs;
   }
@@ -848,5 +887,162 @@ class FakeStorageService implements StorageService {
   @override
   Future<void> clearProgramStartDate() async {
     _programStartDate = null;
+  }
+
+  // Goals
+  @override
+  Future<void> setDailyGoal(int goal) async => _dailyGoal = goal;
+
+  @override
+  int getDailyGoal() => _dailyGoal;
+
+  @override
+  Future<void> setMonthlyGoal(int goal) async => _monthlyGoal = goal;
+
+  @override
+  int getMonthlyGoal() => _monthlyGoal;
+
+  @override
+  Future<void> setWeeklyGoal(int goal) async => _weeklyGoal = goal;
+
+  @override
+  int getWeeklyGoal() => _weeklyGoal;
+
+  // Weekly challenge
+  @override
+  int calculateWeeklyChallengeTarget(int dailyGoal) => dailyGoal * 7;
+
+  @override
+  Future<bool> hasWeeklyChallengeBeenCompleted(String weekNumber) async =>
+      _weeklyChallengeCompleted[weekNumber] ?? false;
+
+  @override
+  Future<void> markWeeklyChallengeCompleted(String weekNumber) async {
+    _weeklyChallengeCompleted[weekNumber] = true;
+  }
+
+  @override
+  Future<int> awardWeeklyChallengeBonus(String weekNumber) async => 100;
+
+  @override
+  Future<int> checkWeeklyChallengeCompletion(
+    int weeklyTotal,
+    int dailyGoal,
+  ) async =>
+      weeklyTotal >= calculateWeeklyChallengeTarget(dailyGoal)
+          ? weeklyTotal
+          : 0;
+
+  // Onboarding
+  @override
+  Future<void> setOnboardingCompleted(bool completed) async =>
+      _onboardingCompleted = completed;
+
+  @override
+  bool isOnboardingCompleted() => _onboardingCompleted;
+
+  @override
+  Future<void> resetOnboarding() async => _onboardingCompleted = false;
+
+  @override
+  Future<void> resetAllUserData() async {
+    _dailyRecords.clear();
+    _activeSession = null;
+    _workoutPreferences = null;
+    _onboardingCompleted = false;
+    _weeklyReviewShown.clear();
+    _weeklyBonusAwarded.clear();
+    _weeklyChallengeCompleted.clear();
+    _streakFreezeRemaining = 3;
+    _streakFreezeActiveWeek = null;
+    _streakFreezeLastMonth = null;
+    _workoutCompletionTimes.clear();
+  }
+
+  // Weekly review
+  @override
+  Future<bool> hasWeeklyReviewBeenShown(String weekNumber) async =>
+      _weeklyReviewShown[weekNumber] ?? false;
+
+  @override
+  Future<void> markWeeklyReviewShown(String weekNumber) async {
+    _weeklyReviewShown[weekNumber] = true;
+  }
+
+  @override
+  Future<bool> hasWeeklyBonusBeenAwarded(String weekNumber) async =>
+      _weeklyBonusAwarded[weekNumber] ?? false;
+
+  @override
+  Future<void> markWeeklyBonusAwarded(String weekNumber) async {
+    _weeklyBonusAwarded[weekNumber] = true;
+  }
+
+  @override
+  Future<int> calculateWeeklyStreak() async => 0;
+
+  // Streak freeze
+  @override
+  Future<void> resetMonthlyStreakFreeze() async {
+    _streakFreezeRemaining = 3;
+    _streakFreezeActiveWeek = null;
+    _streakFreezeLastMonth = null;
+  }
+
+  @override
+  Future<bool> isStreakFreezeActive() async =>
+      _streakFreezeActiveWeek != null;
+
+  @override
+  String getStreakFreezeActiveWeek() => _streakFreezeActiveWeek ?? '';
+
+  @override
+  Future<int> getStreakFreezeAllowance() async => _streakFreezeRemaining;
+
+  @override
+  Future<bool> useStreakFreeze() async {
+    if (_streakFreezeRemaining > 0) {
+      _streakFreezeRemaining--;
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  Future<bool> autoActivateStreakFreezeIfNeeded(
+    int todayPushups,
+    int dailyGoal,
+  ) async =>
+      false;
+
+  // Notification time tracking
+  @override
+  Future<void> saveWorkoutCompletionTime(DateTime timestamp) async {
+    _workoutCompletionTimes.add(timestamp.toIso8601String());
+  }
+
+  @override
+  Future<List<NotificationTimeSlot>> getWorkoutCompletionTimes() async => [];
+
+  @override
+  Future<void> setPersonalizedNotificationTime(int hour, int minute) async {
+    _personalizedNotificationHour = hour;
+    _personalizedNotificationMinute = minute;
+  }
+
+  @override
+  Future<(int hour, int minute)> getPersonalizedNotificationTime() async =>
+      (_personalizedNotificationHour, _personalizedNotificationMinute);
+
+  @override
+  String getWeekNumber(DateTime date) {
+    final firstDayOfYear = DateTime(date.year, 1, 1);
+    final dayOfYear = date.difference(firstDayOfYear).inDays;
+    return ((dayOfYear - date.weekday + 10) / 7).floor().toString();
+  }
+
+  @override
+  DateTime getWeekStart(DateTime date) {
+    return DateTime(date.year, date.month, date.day - date.weekday + 1);
   }
 }
