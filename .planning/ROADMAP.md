@@ -124,11 +124,11 @@ Plans:
   1. "Totale Pushup" card displays count without progress bar below
   2. "Totale Pushup" card text is centered and enlarged for better readability
   3. "Calorie Bruciate" card text is centered and enlarged with consistent styling
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: Remove progress bar from Statistics cards
-- [ ] 06-02: Center and enlarge text in Statistics cards
+- [ ] 06-01-PLAN.md — Remove progress bar from TotalPushupsCard
+- [ ] 06-02-PLAN.md — Center and enlarge text in both Statistics cards
 
 #### Phase 07: Goal Notification System
 **Goal**: Replace blocking popup with non-blocking top banner notification
