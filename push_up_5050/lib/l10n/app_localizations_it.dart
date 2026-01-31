@@ -668,4 +668,7 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get notificationChallengeChannelDesc =>
       'Annuncia nuova sfida disponibile';
+
+  @override
+  String get goalCompleted => 'Obiettivo completato!';
 }

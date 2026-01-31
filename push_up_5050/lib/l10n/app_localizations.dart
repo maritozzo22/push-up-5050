@@ -1285,6 +1285,12 @@ abstract class AppLocalizations {
   /// In it, this message translates to:
   /// **'Annuncia nuova sfida disponibile'**
   String get notificationChallengeChannelDesc;
+
+  /// No description provided for @goalCompleted.
+  ///
+  /// In it, this message translates to:
+  /// **'Obiettivo completato!'**
+  String get goalCompleted;
 }
 
 class _AppLocalizationsDelegate

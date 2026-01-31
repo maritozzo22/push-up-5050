@@ -659,4 +659,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get notificationChallengeChannelDesc =>
       'Announces new weekly challenge available';
+
+  @override
+  String get goalCompleted => 'Goal completed!';
 }
