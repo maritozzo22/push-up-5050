@@ -112,8 +112,8 @@ Push-Up 5050 is a progressive training app with gamification, currently in v2.7 
 **Plans**: 2 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Restore original icon.png as main launcher icon
-- [ ] 05-02-PLAN.md — Remove "Test notifications" from Settings screen
+- [x] 05-01-PLAN.md — Restore original icon.png as main launcher icon (Ready to execute)
+- [x] 05-02-PLAN.md — Remove "Test notifications" from Settings screen (Ready to execute)
 
 #### Phase 06: Statistics UI Polish
 **Goal**: Improve statistics cards readability and visual hierarchy
