@@ -38,6 +38,7 @@ class NotificationService {
   final FlutterLocalNotificationsPlugin _plugin;
   bool _initialized = false;
   NotificationTapCallback? _onNotificationTapCallback;
+  bool? _cachedPermissionStatus;
 
   NotificationService() : _plugin = FlutterLocalNotificationsPlugin();
 
@@ -80,6 +81,7 @@ class NotificationService {
   /// Request notification permissions.
   ///
   /// Returns true if permissions granted.
+  /// Caches the permission status to avoid repeated prompts.
   Future<bool> requestPermissions() async {
     if (!kIsWeb && Platform.isAndroid) {
       final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
@@ -88,7 +90,8 @@ class NotificationService {
       if (androidPlugin == null) return false;
 
       final result = await androidPlugin.requestNotificationsPermission();
-      return result ?? false;
+      _cachedPermissionStatus = result ?? false;
+      return _cachedPermissionStatus!;
     }
 
     if (!kIsWeb && Platform.isIOS) {
@@ -102,7 +105,8 @@ class NotificationService {
         badge: true,
         sound: true,
       );
-      return result ?? false;
+      _cachedPermissionStatus = result ?? false;
+      return _cachedPermissionStatus!;
     }
 
     return true; // Default for platforms that don't need explicit permission
@@ -125,6 +129,33 @@ class NotificationService {
     }
 
     return true; // Not needed on other platforms
+  }
+
+  /// Check if notifications are enabled without requesting permission.
+  ///
+  /// Returns cached status from previous permission request,
+  /// or checks system settings if not cached.
+  /// This is useful for UI to show notification status without prompting the user.
+  Future<bool> areNotificationsEnabled() async {
+    // Return cached status if available
+    if (_cachedPermissionStatus != null) return _cachedPermissionStatus!;
+
+    // Check system status if not cached
+    if (!kIsWeb && Platform.isAndroid) {
+      final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>();
+      if (androidPlugin == null) return false;
+      final enabled = await androidPlugin.areNotificationsEnabled();
+      _cachedPermissionStatus = enabled ?? false;
+      return _cachedPermissionStatus!;
+    }
+
+    if (!kIsWeb && Platform.isIOS) {
+      // iOS doesn't have a direct check, assume true if initialized
+      return _initialized;
+    }
+
+    return true; // Default for other platforms
   }
 
   /// Get pending notifications for debugging.
