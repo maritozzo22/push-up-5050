@@ -49,6 +49,9 @@ Future<void> main() async {
   final notificationService = NotificationService();
   await notificationService.initialize();
 
+  // Request notification permissions on app startup (Android 13+ requires POST_NOTIFICATIONS)
+  await notificationService.requestPermissions();
+
   // Initialize widget update service
   final widgetUpdateService = WidgetUpdateService();
   await widgetUpdateService.initialize();
