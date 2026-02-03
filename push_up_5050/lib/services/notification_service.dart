@@ -73,7 +73,7 @@ class NotificationService {
     );
 
     final result = await _plugin.initialize(
-      initSettings,
+      settings: initSettings,
       onDidReceiveNotificationResponse: _onNotificationTap,
     );
 
@@ -271,13 +271,12 @@ class NotificationService {
 
     try {
       await _plugin.zonedSchedule(
-        0, // Notification ID
-        'Non perdere la tua serie!',
-        'Completa i tuoi push-up oggi per mantenere il moltiplicatore.',
-        scheduledTime,
-        platformDetails,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
+        scheduledDate: scheduledTime,
+        notificationDetails: platformDetails,
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        id: 0, // Notification ID
+        title: 'Non perdere la tua serie!',
+        body: 'Completa i tuoi push-up oggi per mantenere il moltiplicatore.',
         matchDateTimeComponents: DateTimeComponents.time,
       );
       debugPrint('NotificationService: Reminder scheduled successfully');
@@ -441,7 +440,7 @@ class NotificationService {
   /// Cancel daily reminder notification.
   Future<void> cancelDailyReminder() async {
     try {
-      await _plugin.cancel(NotificationIds.dailyReminder);
+      await _plugin.cancel(id: NotificationIds.dailyReminder);
     } catch (e) {
       // Ignore cancel errors
     }
@@ -450,7 +449,7 @@ class NotificationService {
   /// Cancel a specific notification by ID.
   Future<void> cancel(int id) async {
     try {
-      await _plugin.cancel(id);
+      await _plugin.cancel(id: id);
     } catch (e) {
       // Ignore cancel errors
     }
@@ -508,15 +507,14 @@ class NotificationService {
 
     try {
       await _plugin.zonedSchedule(
-        NotificationIds.streakAtRisk,
-        title,
-        body,
-        scheduledTime,
-        platformDetails,
-        payload: 'streak_at_risk',
+        scheduledDate: scheduledTime,
+        notificationDetails: platformDetails,
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        id: NotificationIds.streakAtRisk,
+        title: title,
+        body: body,
+        payload: 'streak_at_risk',
         matchDateTimeComponents: DateTimeComponents.time,
-        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       );
       debugPrint('NotificationService: Streak at risk notification scheduled for $hour:$minute');
       return true;
@@ -571,15 +569,14 @@ class NotificationService {
 
     try {
       await _plugin.zonedSchedule(
-        NotificationIds.progressEncouragement,
-        title,
-        body,
-        scheduledTime,
-        platformDetails,
-        payload: 'progress',
+        scheduledDate: scheduledTime,
+        notificationDetails: platformDetails,
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        id: NotificationIds.progressEncouragement,
+        title: title,
+        body: body,
+        payload: 'progress',
         matchDateTimeComponents: DateTimeComponents.time,
-        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       );
       debugPrint('NotificationService: Progress notification scheduled for $hour:$minute');
       return true;
@@ -643,15 +640,14 @@ class NotificationService {
 
     try {
       await _plugin.zonedSchedule(
-        NotificationIds.weeklyChallenge,
-        title,
-        body,
-        scheduled,
-        platformDetails,
-        payload: 'weekly_challenge',
+        scheduledDate: scheduled,
+        notificationDetails: platformDetails,
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        id: NotificationIds.weeklyChallenge,
+        title: title,
+        body: body,
+        payload: 'weekly_challenge',
         matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
-        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       );
       debugPrint('NotificationService: Weekly challenge notification scheduled for Sunday 8:00 AM');
       return true;
@@ -664,7 +660,7 @@ class NotificationService {
   /// Test immediato notifica (per debug).
   ///
   /// Mostra una notifica di test immediata per verificare che le notifiche funzionino.
-  /// Ritorna true se la notifica è stata mostrata con successo.
+  /// Ritorna true se la notifica e stata mostrata con successo.
   Future<bool> showTestNotification() async {
     if (!_initialized) {
       final initialized = await initialize();
@@ -695,10 +691,10 @@ class NotificationService {
 
     try {
       await _plugin.show(
-        999, // ID univoco per test
-        'Test Notifica',
-        'Se vedi questo, le notifiche funzionano!',
-        platformDetails,
+        id: 999, // ID univoco per test
+        title: 'Test Notifica',
+        body: 'Se vedi questo, le notifiche funzionano!',
+        notificationDetails: platformDetails,
       );
       debugPrint('NotificationService: Test notification sent successfully');
       return true;
@@ -753,13 +749,12 @@ class NotificationService {
       // Schedule notification for future time
       final scheduledTime = DateTime.now().add(Duration(seconds: seconds));
       await _plugin.zonedSchedule(
-        998, // ID univoco per test scheduled
-        'Test Notifica Programmata',
-        'Notifica inviata dopo $seconds secondi',
-        tz.TZDateTime.from(scheduledTime, tz.local),
-        platformDetails,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
+        scheduledDate: tz.TZDateTime.from(scheduledTime, tz.local),
+        notificationDetails: platformDetails,
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        id: 998, // ID univoco per test scheduled
+        title: 'Test Notifica Programmata',
+        body: 'Notifica inviata dopo $seconds secondi',
       );
       debugPrint('NotificationService: Scheduled test notification in $seconds seconds');
       // Verify by checking pending notifications
