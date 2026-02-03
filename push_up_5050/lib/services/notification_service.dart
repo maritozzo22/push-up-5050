@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
@@ -42,6 +43,10 @@ class NotificationService {
   bool _initialized = false;
   NotificationTapCallback? _onNotificationTapCallback;
   bool? _cachedPermissionStatus;
+  bool? _cachedExactAlarmPermission;
+
+  // Method channel for checking exact alarm permission on Android
+  static const _alarmChannel = MethodChannel('com.pushup5050.push_up_5050/alarm');
 
   NotificationService() : _plugin = FlutterLocalNotificationsPlugin();
 
@@ -119,6 +124,7 @@ class NotificationService {
   ///
   /// Returns true if permission granted, false otherwise.
   /// On Android < 12 or other platforms, returns true (not needed).
+  /// Note: This opens system settings on Android 12+. User must manually grant.
   Future<bool> requestExactAlarmPermission() async {
     if (!kIsWeb && Platform.isAndroid) {
       final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
@@ -128,6 +134,10 @@ class NotificationService {
 
       // Android 12+ (API 31+) requires SCHEDULE_EXACT_ALARM permission
       final result = await androidPlugin.requestExactAlarmsPermission();
+
+      // Clear cached permission status so next check gets fresh value
+      _cachedExactAlarmPermission = null;
+
       return result ?? false;
     }
 
@@ -164,18 +174,26 @@ class NotificationService {
   /// Check if SCHEDULE_EXACT_ALARM permission is granted (Android 12+).
   ///
   /// Returns true if permission granted or not needed (Android < 12, other platforms).
-  /// Note: flutter_local_notifications doesn't have a direct check method.
-  /// This returns optimistic true - actual permission is verified when scheduling.
+  /// Uses native Android method channel to check AlarmManager.canScheduleExactAlarms().
   Future<bool> checkExactAlarmPermission() async {
-    if (!kIsWeb && Platform.isAndroid) {
-      final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>();
-      if (androidPlugin == null) return false;
+    // Return cached value if available
+    if (_cachedExactAlarmPermission != null) {
+      return _cachedExactAlarmPermission!;
+    }
 
-      // Android 12+ (API 31+) requires SCHEDULE_EXACT_ALARM permission
-      // User must manually grant via system settings
-      // We return true optimistically - the actual check happens on scheduling
-      return true;
+    if (!kIsWeb && Platform.isAndroid) {
+      try {
+        // Use native method channel to check exact alarm permission
+        final result = await _alarmChannel.invokeMethod('canScheduleExactAlarms');
+        _cachedExactAlarmPermission = result as bool? ?? false;
+        debugPrint('NotificationService: SCHEDULE_EXACT_ALARM permission: $_cachedExactAlarmPermission');
+        return _cachedExactAlarmPermission!;
+      } catch (e) {
+        debugPrint('NotificationService: Error checking exact alarm permission: $e');
+        // If check fails, assume permission not granted
+        _cachedExactAlarmPermission = false;
+        return false;
+      }
     }
     return true; // Not needed on other platforms
   }
@@ -186,6 +204,8 @@ class NotificationService {
   /// POST_NOTIFICATIONS and SCHEDULE_EXACT_ALARM permissions.
   Future<void> openNotificationSettings() async {
     if (!kIsWeb && Platform.isAndroid) {
+      // Clear cached permissions so they're rechecked after returning
+      _cachedExactAlarmPermission = null;
       final intent = AndroidIntent(
         action: 'android.settings.APPLICATION_DETAILS_SETTINGS',
         data: 'package:com.pushup5050.push_up_5050',
@@ -229,13 +249,14 @@ class NotificationService {
       return false;
     }
 
-    // Try to request SCHEDULE_EXACT_ALARM permission (Android 12+)
-    // Note: This opens system settings on Android 12+
-    // User must manually grant the permission for scheduled notifications to work
+    // Check SCHEDULE_EXACT_ALARM permission (Android 12+)
     if (!kIsWeb && Platform.isAndroid) {
-      debugPrint('NotificationService: Requesting SCHEDULE_EXACT_ALARM permission...');
-      await requestExactAlarmPermission();
-      debugPrint('NotificationService: Please verify permission is granted in system settings');
+      final hasExactAlarmPermission = await checkExactAlarmPermission();
+      if (!hasExactAlarmPermission) {
+        debugPrint('NotificationService: SCHEDULE_EXACT_ALARM permission not granted, cannot schedule daily reminder');
+        return false;
+      }
+      debugPrint('NotificationService: SCHEDULE_EXACT_ALARM permission confirmed');
     }
 
     // Cancel any existing daily reminder
@@ -244,7 +265,6 @@ class NotificationService {
     final scheduledTime = _nextInstanceOfTime(hour, minute);
     final now = tz.TZDateTime.now(tz.local);
 
-    // FIX #2: Add detailed logging for debugging
     debugPrint('NotificationService: Scheduling daily reminder at $hour:$minute');
     debugPrint('NotificationService: Current time: ${now.toLocal()}');
     debugPrint('NotificationService: Scheduled time: ${scheduledTime.toLocal()}');
@@ -274,7 +294,7 @@ class NotificationService {
         scheduledDate: scheduledTime,
         notificationDetails: platformDetails,
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-        id: 0, // Notification ID
+        id: NotificationIds.dailyReminder,
         title: 'Non perdere la tua serie!',
         body: 'Completa i tuoi push-up oggi per mantenere il moltiplicatore.',
         matchDateTimeComponents: DateTimeComponents.time,
@@ -284,7 +304,6 @@ class NotificationService {
       await getPendingNotifications();
       return true;
     } catch (e) {
-      // FIX #2: Enhanced error logging
       debugPrint('NotificationService: Failed to schedule notification: $e');
       debugPrint('NotificationService: Error type: ${e.runtimeType}');
       return false;
@@ -316,14 +335,25 @@ class NotificationService {
       return false;
     }
 
-    // Try to schedule
-    final scheduled = await scheduleDailyReminder(hour: hour, minute: minute);
-
-    // If scheduling failed, show exact alarm permission dialog
-    if (!scheduled && context.mounted) {
-      await _showExactAlarmDialog(context);
+    // Check exact alarm permission before scheduling
+    if (!kIsWeb && Platform.isAndroid) {
+      final hasExactAlarmPermission = await checkExactAlarmPermission();
+      if (!hasExactAlarmPermission) {
+        debugPrint('NotificationService: SCHEDULE_EXACT_ALARM permission not granted');
+        if (context.mounted) {
+          await _showExactAlarmDialog(context);
+        }
+        // After dialog, check permission again
+        final stillHasPermission = await checkExactAlarmPermission();
+        if (!stillHasPermission) {
+          debugPrint('NotificationService: User did not grant SCHEDULE_EXACT_ALARM permission');
+          return false;
+        }
+      }
     }
 
+    // Try to schedule
+    final scheduled = await scheduleDailyReminder(hour: hour, minute: minute);
     return scheduled;
   }
 

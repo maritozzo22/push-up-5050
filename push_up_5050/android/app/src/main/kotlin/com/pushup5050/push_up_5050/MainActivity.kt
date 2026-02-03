@@ -9,6 +9,7 @@ class MainActivity: FlutterActivity() {
     companion object {
         private const val DEEP_LINK_CHANNEL = "com.pushup5050.push_up_5050/deep_link"
         private const val WIDGET_CHANNEL = "com.pushup5050/widget"
+        private const val ALARM_CHANNEL = "com.pushup5050.push_up_5050/alarm"
         const val DEEP_LINK_EXTRA = "deep_link_url"
     }
 
@@ -34,6 +35,24 @@ class MainActivity: FlutterActivity() {
                     "scheduleMidnightUpdate" -> {
                         WidgetUpdateReceiver.scheduleMidnightUpdate(this)
                         result.success(true)
+                    }
+                    else -> result.notImplemented()
+                }
+            }
+
+        // Set up method channel for alarm permission checks
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, ALARM_CHANNEL)
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "canScheduleExactAlarms" -> {
+                        // Check if SCHEDULE_EXACT_ALARM permission is granted (Android 12+)
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+                            val alarmManager = getSystemService(android.content.Context.ALARM_SERVICE) as android.app.AlarmManager
+                            result.success(alarmManager.canScheduleExactAlarms())
+                        } else {
+                            // Permission not needed on Android < 12
+                            result.success(true)
+                        }
                     }
                     else -> result.notImplemented()
                 }
