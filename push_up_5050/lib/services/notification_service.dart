@@ -292,6 +292,152 @@ class NotificationService {
     }
   }
 
+  /// Schedule daily reminder with permission guidance.
+  ///
+  /// Shows dialog if SCHEDULE_EXACT_ALARM permission is needed.
+  /// [context] is required for showing permission dialogs.
+  /// [hour] is in 24-hour format (0-23).
+  /// [minute] is 0-59.
+  /// Returns true if scheduled successfully.
+  Future<bool> scheduleDailyReminderWithDialog({
+    required BuildContext context,
+    required int hour,
+    required int minute,
+  }) async {
+    if (!_initialized) {
+      await initialize();
+    }
+
+    final hasNotificationPermission = await requestPermissions();
+    if (!hasNotificationPermission) {
+      debugPrint('NotificationService: POST_NOTIFICATIONS permission not granted');
+      if (context.mounted) {
+        _showPermissionDeniedDialog(context);
+      }
+      return false;
+    }
+
+    // Try to schedule
+    final scheduled = await scheduleDailyReminder(hour: hour, minute: minute);
+
+    // If scheduling failed, show exact alarm permission dialog
+    if (!scheduled && context.mounted) {
+      await _showExactAlarmDialog(context);
+    }
+
+    return scheduled;
+  }
+
+  /// Show permission denied dialog with option to open settings.
+  Future<void> _showPermissionDeniedDialog(BuildContext context) async {
+    final loc = AppLocalizations.of(context)!;
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xFF1A1F28),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: Text(
+          loc.notificationPermissionRequired,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          ),
+        ),
+        content: Text(
+          loc.notificationPermissionExplanation,
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: Colors.white.withOpacity(0.80),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              loc.notificationCancel,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              await openNotificationSettings();
+            },
+            child: Text(
+              loc.notificationOpenSettings,
+              style: const TextStyle(
+                color: Color(0xFFFFB347),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Show exact alarm permission dialog with option to open settings.
+  Future<void> _showExactAlarmDialog(BuildContext context) async {
+    final loc = AppLocalizations.of(context)!;
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xFF1A1F28),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: Text(
+          loc.notificationExactAlarmTitle,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          ),
+        ),
+        content: Text(
+          loc.notificationExactAlarmExplanation,
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: Colors.white.withOpacity(0.80),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              loc.notificationCancel,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              await openNotificationSettings();
+            },
+            child: Text(
+              loc.notificationOpenSettings,
+              style: const TextStyle(
+                color: Color(0xFFFFB347),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   /// Cancel daily reminder notification.
   Future<void> cancelDailyReminder() async {
     try {
