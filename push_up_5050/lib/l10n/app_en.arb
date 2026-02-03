@@ -376,5 +376,14 @@
   "notificationProgressChannelDesc": "Encouragement when you're close to your goal",
   "notificationChallengeChannel": "Weekly Challenge",
   "notificationChallengeChannelDesc": "Announces new weekly challenge available",
-  "goalCompleted": "Goal completed!"
+  "goalCompleted": "Goal completed!",
+  "notificationExactAlarmTitle": "Exact Alarm Permission Required",
+  "notificationExactAlarmExplanation": "To send scheduled reminders, this app needs 'Exact Alarms' permission in system settings. This allows the app to send notifications at the exact time specified.",
+  "notificationOpenSettings": "Open Settings",
+  "notificationCancel": "Cancel",
+  "notificationPermissionRequired": "Notification Permission Required",
+  "notificationPermissionExplanation": "To receive reminders and alerts, enable notifications for this app.",
+  "notificationsEnabled": "Notifications Enabled",
+  "notificationsDisabled": "Notifications Disabled",
+  "requestNotificationPermission": "Request Permission"
 }

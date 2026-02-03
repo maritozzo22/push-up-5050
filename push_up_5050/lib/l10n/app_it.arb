@@ -376,5 +376,14 @@
   "notificationProgressChannelDesc": "Incoraggiamenti quando sei vicino all'obiettivo",
   "notificationChallengeChannel": "Sfida Settimanale",
   "notificationChallengeChannelDesc": "Annuncia nuova sfida disponibile",
-  "goalCompleted": "Obiettivo completato!"
+  "goalCompleted": "Obiettivo completato!",
+  "notificationExactAlarmTitle": "Autorizzazione Allarme Esatto Richiesta",
+  "notificationExactAlarmExplanation": "Per inviare promemoria programmati, questa app necessita dell'autorizzazione 'Allarmi esatti' nelle impostazioni di sistema. Questo permette all'app di inviare notifiche esattamente all'orario specificato.",
+  "notificationOpenSettings": "Apri Impostazioni",
+  "notificationCancel": "Annulla",
+  "notificationPermissionRequired": "Autorizzazione Notifiche Richiesta",
+  "notificationPermissionExplanation": "Per ricevere promemoria e avvisi, attiva le notifiche per questa app.",
+  "notificationsEnabled": "Notifiche Attivate",
+  "notificationsDisabled": "Notifiche Disattivate",
+  "requestNotificationPermission": "Richiedi Autorizzazione"
 }
