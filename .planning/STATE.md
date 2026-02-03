@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-31)
 ## Current Position
 
 Phase: 11 of 11 (Android Notifications Fix)
-Plan: 1 of 4 in phase
+Plan: 2 of 4 in phase
 Status: In progress
-Last activity: 2026-02-03 — Completed 11-01 (Update package and add broadcast receivers)
+Last activity: 2026-02-03 — Completed 11-02 (POST_NOTIFICATIONS permission request on startup)
 
-Progress: [████░░░░░░░░] 23% v2.7 (5/20 plans)
+Progress: [████░░░░░░░░] 24% v2.7 (6/20 plans)
 
 ## Performance Metrics
 
@@ -43,7 +43,7 @@ Progress: [████░░░░░░░░] 23% v2.7 (5/20 plans)
 |-------|-------|-------|----------|
 | 05    | 2     | ~16min| 8min     |
 | 06    | 2     | ~7min | 4min     |
-| 11    | 1     | ~9min | 9min     |
+| 11    | 2     | ~11min| 6min     |
 
 *Updated 2026-02-03*
 
@@ -69,6 +69,8 @@ Recent decisions from v2.7 (Phase 11):
 - flutter_local_notifications upgraded from v17.2.3 to v20.0.0 for Android 14+ compatibility
 - Broadcast receivers added to AndroidManifest.xml with exported=false for security
 - QUICKBOOT_POWERON intent filters included for HTC device compatibility
+- POST_NOTIFICATIONS permission request on app startup with cached status in _cachedPermissionStatus field
+- Permission request called in main() after WidgetsFlutterBinding.ensureInitialized()
 
 ### Pending Todos
 
@@ -91,7 +93,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-03
-Stopped at: Completed 11-01 (Update package and add broadcast receivers)
+Stopped at: Completed 11-02 (POST_NOTIFICATIONS permission request on startup)
 Resume file: None
 
 ## Roadmap Evolution
