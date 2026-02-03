@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-31)
 ## Current Position
 
 Phase: 11 of 11 (Android Notifications Fix)
-Plan: 2 of 4 in phase
+Plan: 3 of 4 in phase
 Status: In progress
-Last activity: 2026-02-03 — Completed 11-02 (POST_NOTIFICATIONS permission request on startup)
+Last activity: 2026-02-03 — Completed 11-03 (Exact alarm permission dialog with Settings integration)
 
-Progress: [████░░░░░░░░] 24% v2.7 (6/20 plans)
+Progress: [████░░░░░░░░] 28% v2.7 (7/20 plans)
 
 ## Performance Metrics
 
@@ -43,7 +43,7 @@ Progress: [████░░░░░░░░] 24% v2.7 (6/20 plans)
 |-------|-------|-------|----------|
 | 05    | 2     | ~16min| 8min     |
 | 06    | 2     | ~7min | 4min     |
-| 11    | 2     | ~11min| 6min     |
+| 11    | 3     | ~10min| 3min     |
 
 *Updated 2026-02-03*
 
@@ -71,6 +71,10 @@ Recent decisions from v2.7 (Phase 11):
 - QUICKBOOT_POWERON intent filters included for HTC device compatibility
 - POST_NOTIFICATIONS permission request on app startup with cached status in _cachedPermissionStatus field
 - Permission request called in main() after WidgetsFlutterBinding.ensureInitialized()
+- android_intent_plus added (v5.0.0) for direct system settings navigation
+- User-friendly exact alarm permission dialogs with clear explanations and settings buttons
+- Settings screen shows notification permission status with color-coded icons (green/red)
+- Re-request permission button in Settings when notifications are disabled
 
 ### Pending Todos
 
@@ -93,7 +97,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-03
-Stopped at: Completed 11-02 (POST_NOTIFICATIONS permission request on startup)
+Stopped at: Completed 11-03 (Exact alarm permission dialog with Settings integration)
 Resume file: None
 
 ## Roadmap Evolution
