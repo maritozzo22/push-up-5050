@@ -5,21 +5,21 @@
 See: .planning/PROJECT.md (updated 2026-01-31)
 
 **Core value:** Progressive push-up training app with gamification and engagement features
-**Current focus:** Phase 06 - Statistics UI Polish
+**Current focus:** Phase 11 - Android Notifications Fix
 
 ## Current Position
 
-Phase: 06 of 10 (Statistics UI Polish)
-Plan: 2 of 2 in phase
-Status: Phase complete
-Last activity: 2026-01-31 — Completed 06-02 (Enlarge text in statistics cards)
+Phase: 11 of 11 (Android Notifications Fix)
+Plan: 1 of 4 in phase
+Status: In progress
+Last activity: 2026-02-03 — Completed 11-01 (Update package and add broadcast receivers)
 
-Progress: [███░░░░░░░░░] 19% v2.7 (4/16 plans)
+Progress: [████░░░░░░░░] 23% v2.7 (5/20 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 73 (22 v2.0 + 19 v2.5 + 20 v2.6 + 10 v1.0 + 2 v2.7)
+- Total plans completed: 74 (22 v2.0 + 19 v2.5 + 20 v2.6 + 10 v1.0 + 3 v2.7)
 - Average duration: ~15 min
 - Total execution time: ~18 hours across all milestones
 
@@ -43,8 +43,9 @@ Progress: [███░░░░░░░░░] 19% v2.7 (4/16 plans)
 |-------|-------|-------|----------|
 | 05    | 2     | ~16min| 8min     |
 | 06    | 2     | ~7min | 4min     |
+| 11    | 1     | ~9min | 9min     |
 
-*Updated 2026-01-31*
+*Updated 2026-02-03*
 
 ## Accumulated Context
 
@@ -63,6 +64,12 @@ Recent decisions from v2.6:
 - UserStatsProvider.dailyGoal changed from static const to instance getter reading from storage
 - All bug fixes verified via Chrome/web testing
 
+Recent decisions from v2.7 (Phase 11):
+
+- flutter_local_notifications upgraded from v17.2.3 to v20.0.0 for Android 14+ compatibility
+- Broadcast receivers added to AndroidManifest.xml with exported=false for security
+- QUICKBOOT_POWERON intent filters included for HTC device compatibility
+
 ### Pending Todos
 
 None yet.
@@ -73,6 +80,7 @@ None yet.
 - Proximity sensor (Phase 09) requires physical Android device - no emulator support
 - Goal notification banner (Phase 07) should be tested on physical device
 - Icon restoration (Phase 05) should be verified on various Android launchers
+- Notification boot receivers (Phase 11) require physical device for reboot testing
 
 **Test infrastructure:**
 - 22 SeriesSelectionScreen tests failing due to outdated UI expectations (pre-existing, from v2.6)
@@ -82,8 +90,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-31
-Stopped at: Completed 06-02 (Enlarge text in statistics cards)
+Last session: 2026-02-03
+Stopped at: Completed 11-01 (Update package and add broadcast receivers)
 Resume file: None
 
 ## Roadmap Evolution
@@ -91,6 +99,7 @@ Resume file: None
 - v2.6 shipped with 5 phases (04.1, 04.2, 04.3, 04.4, 04.6) - 20 plans total
 - Phase 04.5 (Notification Fix) removed from v2.6 scope, deferred to future milestone
 - v2.7 roadmap created with 6 phases (05-10), 16 estimated plans, 22 requirements
+- 2026-02-03: Phase 11 (Android Notifications Fix) added - 4 plans to fix scheduled notifications not working on Android despite permissions granted
 
 ## Milestone Archives
 
@@ -111,4 +120,4 @@ Resume file: None
 
 ---
 
-*Last updated: 2026-01-31 after Phase 06-02 execution*
+*Last updated: 2026-02-03 after adding Phase 11*
