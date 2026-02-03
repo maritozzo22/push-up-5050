@@ -671,4 +671,35 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get goalCompleted => 'Obiettivo completato!';
+
+  @override
+  String get notificationExactAlarmTitle =>
+      'Autorizzazione Allarme Esatto Richiesta';
+
+  @override
+  String get notificationExactAlarmExplanation =>
+      'Per inviare promemoria programmati, questa app necessita dell\'autorizzazione \'Allarmi esatti\' nelle impostazioni di sistema. Questo permette all\'app di inviare notifiche esattamente all\'orario specificato.';
+
+  @override
+  String get notificationOpenSettings => 'Apri Impostazioni';
+
+  @override
+  String get notificationCancel => 'Annulla';
+
+  @override
+  String get notificationPermissionRequired =>
+      'Autorizzazione Notifiche Richiesta';
+
+  @override
+  String get notificationPermissionExplanation =>
+      'Per ricevere promemoria e avvisi, attiva le notifiche per questa app.';
+
+  @override
+  String get notificationsEnabled => 'Notifiche Attivate';
+
+  @override
+  String get notificationsDisabled => 'Notifiche Disattivate';
+
+  @override
+  String get requestNotificationPermission => 'Richiedi Autorizzazione';
 }

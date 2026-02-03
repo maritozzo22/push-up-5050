@@ -662,4 +662,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get goalCompleted => 'Goal completed!';
+
+  @override
+  String get notificationExactAlarmTitle => 'Exact Alarm Permission Required';
+
+  @override
+  String get notificationExactAlarmExplanation =>
+      'To send scheduled reminders, this app needs \'Exact Alarms\' permission in system settings. This allows the app to send notifications at the exact time specified.';
+
+  @override
+  String get notificationOpenSettings => 'Open Settings';
+
+  @override
+  String get notificationCancel => 'Cancel';
+
+  @override
+  String get notificationPermissionRequired =>
+      'Notification Permission Required';
+
+  @override
+  String get notificationPermissionExplanation =>
+      'To receive reminders and alerts, enable notifications for this app.';
+
+  @override
+  String get notificationsEnabled => 'Notifications Enabled';
+
+  @override
+  String get notificationsDisabled => 'Notifications Disabled';
+
+  @override
+  String get requestNotificationPermission => 'Request Permission';
 }

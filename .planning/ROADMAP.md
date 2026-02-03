@@ -10,7 +10,8 @@ Push-Up 5050 is a progressive training app with gamification, currently in v2.7 
 - ✅ **v2.0 Android Widgets & App Polish** - Phases 02.1-02.11 (shipped 2026-01-23)
 - ✅ **v2.5 Engagement & Retention** - Phases 03.1-03.5 (shipped 2026-01-27)
 - ✅ **v2.6 Improvements & Polish** - Phases 04.1-04.4, 04.6 (shipped 2026-01-31)
-- 🚧 **v2.7 Play Store Ready** - Phases 05-11 (in progress)
+- 🚧 **v2.7 Play Store Ready** - Phases 05, 06, 09, 11 (in progress - reduced scope)
+- 📋 **v2.8 Feature Expansion** - Phases 07, 08, 10 (deferred from v2.7)
 
 ## Phases
 
@@ -97,11 +98,13 @@ Push-Up 5050 is a progressive training app with gamification, currently in v2.7 
 
 ---
 
-### 🚧 v2.7 Play Store Ready (In Progress)
+### 🚧 v2.7 Play Store Ready (In Progress - Reduced Scope)
 
-**Milestone Goal:** Polish app for Play Store release with UI improvements, proximity sensor fix, and enhanced achievements
+**Milestone Goal:** Icon restoration, statistics polish, proximity sensor fix, and Android notifications fix
 
-#### Phase 05: Icon & Settings Cleanup
+**Note:** Phases 07 (Goal Notification), 08 (Achievement Expansion), and 10 (Onboarding Improvements) have been deferred to v2.8.
+
+#### Phase 05: Icon & Settings Cleanup ✅ COMPLETE
 **Goal**: Restore original branding and clean up settings UI
 **Depends on**: Phase 04.6
 **Requirements**: ICON-01, ICON-02, SETT-01, SETT-02
@@ -116,7 +119,7 @@ Plans:
 - [x] 05-01-PLAN.md — Restore original icon.png as main launcher icon
 - [x] 05-02-PLAN.md — Remove "Test notifications" from Settings screen
 
-#### Phase 06: Statistics UI Polish
+#### Phase 06: Statistics UI Polish ✅ COMPLETE
 **Goal**: Improve statistics cards readability and visual hierarchy
 **Depends on**: Phase 05
 **Requirements**: STAT-01, STAT-02, STAT-03, STAT-04
@@ -127,77 +130,28 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Remove progress bar from TotalPushupsCard
-- [ ] 06-02-PLAN.md — Center and enlarge text in both Statistics cards
+- [x] 06-01-PLAN.md — Remove progress bar from TotalPushupsCard
+- [x] 06-02-PLAN.md — Center and enlarge text in both Statistics cards
 
-#### Phase 07: Goal Notification System
-**Goal**: Replace blocking popup with non-blocking top banner notification
-**Depends on**: Phase 06
-**Requirements**: GOAL-01, GOAL-02, GOAL-03, GOAL-04, GOAL-05
-**Success Criteria** (what must be TRUE):
-  1. Goal completion shows top banner notification (not full-screen popup)
-  2. Notification displays Italian message: "Complimenti! Hai superato il goal di X pushup!"
-  3. Confetti animation falls from notification banner
-  4. Workout session continues uninterrupted after goal completion
-  5. User can dismiss notification by tapping
-**Plans**: TBD
-
-Plans:
-- [ ] 07-01: Implement non-blocking top banner notification
-- [ ] 07-02: Add confetti animation to goal notification
-- [ ] 07-03: Update goal completion flow to continue workout
-
-#### Phase 08: Achievement Expansion
-**Goal**: Expand achievement system from 11 to 20 total achievements
-**Depends on**: Phase 07
-**Requirements**: ACHV-01, ACHV-02, ACHV-03, ACHV-04
-**Success Criteria** (what must be TRUE):
-  1. Achievement system supports 20 total achievements
-  2. 9 new achievements unlock correctly under specified conditions
-  3. Achievement UI displays all 20 achievements with proper layout
-  4. All achievements (old and new) trigger unlock notifications
-**Plans**: TBD
-
-Plans:
-- [ ] 08-01: Design and implement 9 new achievements
-- [ ] 08-02: Update achievement UI for 20-item display
-- [ ] 08-03: Test unlock logic for all achievements
-
-#### Phase 09: Proximity Sensor Fix
+#### Phase 09: Proximity Sensor Fix 📋 NOT STARTED
 **Goal**: Fix proximity sensor functionality and relocate control to Workout Setup
-**Depends on**: Phase 08
+**Depends on**: None (dependency removed since Phase 08 deferred)
 **Requirements**: SENS-01, SENS-02, SENS-03, SENS-04
 **Success Criteria** (what must be TRUE):
   1. Proximity sensor correctly counts push-ups (far→near transition = 1 rep)
   2. Proximity sensor toggle appears in Workout Setup screen (not Settings)
   3. User can enable/disable proximity mode before workout starts
   4. Proximity sensor works reliably with phone placed on ground
-**Plans**: TBD
+**Plans**: 3 plans (to be created)
 
 Plans:
-- [ ] 09-01: Fix proximity sensor detection logic
-- [ ] 09-02: Move proximity toggle from Settings to Workout Setup
-- [ ] 09-03: Test proximity sensor with physical device
+- [ ] 09-01-PLAN.md — Fix proximity sensor detection logic
+- [ ] 09-02-PLAN.md — Move proximity toggle from Settings to Workout Setup
+- [ ] 09-03-PLAN.md — Test proximity sensor with physical device
 
-#### Phase 10: Onboarding Improvements
-**Goal**: Enhance onboarding visual design and content for better user engagement
-**Depends on**: Phase 09
-**Requirements**: ONBD-01, ONBD-02, ONBD-03, ONBD-04
-**Success Criteria** (what must be TRUE):
-  1. Onboarding screens have improved visual design with better styling
-  2. Onboarding content is more detailed and helpful for new users
-  3. Onboarding maintains 4+ screen structure
-  4. Onboarding flow is smooth with proper transitions and engagement
-**Plans**: TBD
-
-Plans:
-- [ ] 10-01: Improve onboarding visual design
-- [ ] 10-02: Enhance onboarding content and messaging
-- [ ] 10-03: Test onboarding flow end-to-end
-
-#### Phase 11: Android Notifications Fix
+#### Phase 11: Android Notifications Fix 🔄 IN PROGRESS
 **Goal**: Fix all notification issues on Android - scheduled notifications not working despite permissions granted
-**Depends on**: Phase 10
+**Depends on**: None (dependency on Phase 10 removed)
 **Requirements**: NOTIF-01, NOTIF-02, NOTIF-03
 **Success Criteria** (what must be TRUE):
   1. All scheduled notifications (daily reminder, streak at risk, progress, weekly challenge) work reliably on Android
@@ -207,15 +161,35 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 11-01-PLAN.md — Update package and add broadcast receivers to AndroidManifest.xml
-- [ ] 11-02-PLAN.md — Implement POST_NOTIFICATIONS permission request on startup
-- [ ] 11-03-PLAN.md — Implement exact alarm permission dialog with Settings integration
+- [x] 11-01-PLAN.md — Update package and add broadcast receivers to AndroidManifest.xml
+- [x] 11-02-PLAN.md — Implement POST_NOTIFICATIONS permission request on startup
+- [x] 11-03-PLAN.md — Implement exact alarm permission dialog with Settings integration
 - [ ] 11-04-PLAN.md — Verify all notifications work on physical Android device
+
+---
+
+### 📋 v2.8 Feature Expansion (Planned - Deferred from v2.7)
+
+**Deferred Phases:** Goal Notification System, Achievement Expansion, Onboarding Improvements
+
+These phases were planned for v2.7 but have been deferred to focus on core Play Store readiness (sensor fix, notifications fix).
+
+**Phase 07: Goal Notification System** (deferred)
+- Replace blocking popup with non-blocking top banner notification
+- 3 plans to be created
+
+**Phase 08: Achievement Expansion** (deferred)
+- Expand achievement system from 11 to 20 total achievements
+- 3 plans to be created
+
+**Phase 10: Onboarding Improvements** (deferred)
+- Enhance onboarding visual design and content for better user engagement
+- 3 plans to be created
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 05 → 06 → 07 → 08 → 09 → 10 → 11
+Phases execute in numeric order: 05 → 06 → 09 → 11
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -225,15 +199,14 @@ Phases execute in numeric order: 05 → 06 → 07 → 08 → 09 → 10 → 11
 | 04.4. Adaptive Icon | v2.6 | 2/2 | Complete | 2026-01-30 |
 | 04.6. Bug Fixes & Testing | v2.6 | 5/5 | Complete | 2026-01-31 |
 | 05. Icon & Settings Cleanup | v2.7 | 2/2 | Complete | 2026-01-31 |
-| 06. Statistics UI Polish | v2.7 | 0/2 | Not started | - |
-| 07. Goal Notification System | v2.7 | 0/3 | Not started | - |
-| 08. Achievement Expansion | v2.7 | 0/3 | Not started | - |
+| 06. Statistics UI Polish | v2.7 | 2/2 | Complete | 2026-01-31 |
 | 09. Proximity Sensor Fix | v2.7 | 0/3 | Not started | - |
-| 10. Onboarding Improvements | v2.7 | 0/3 | Not started | - |
-| 11. Android Notifications Fix | v2.7 | 0/4 | Not started | - |
+| 11. Android Notifications Fix | v2.7 | 3/4 | In Progress | 2026-02-03 |
 
-**Overall Milestone Progress:** 2/20 plans complete (10%)
+**Overall Milestone Progress:** 7/12 plans complete (58%)
+
+**Deferred to v2.8:** Phases 07, 08, 10
 
 ---
 
-*Last updated: 2026-02-03 (Phase 11 plans created)*
+*Last updated: 2026-02-03 (Scope reduced - Phases 07, 08, 10 deferred to v2.8)*

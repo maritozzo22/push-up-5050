@@ -1291,6 +1291,60 @@ abstract class AppLocalizations {
   /// In it, this message translates to:
   /// **'Obiettivo completato!'**
   String get goalCompleted;
+
+  /// No description provided for @notificationExactAlarmTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Autorizzazione Allarme Esatto Richiesta'**
+  String get notificationExactAlarmTitle;
+
+  /// No description provided for @notificationExactAlarmExplanation.
+  ///
+  /// In it, this message translates to:
+  /// **'Per inviare promemoria programmati, questa app necessita dell\'autorizzazione \'Allarmi esatti\' nelle impostazioni di sistema. Questo permette all\'app di inviare notifiche esattamente all\'orario specificato.'**
+  String get notificationExactAlarmExplanation;
+
+  /// No description provided for @notificationOpenSettings.
+  ///
+  /// In it, this message translates to:
+  /// **'Apri Impostazioni'**
+  String get notificationOpenSettings;
+
+  /// No description provided for @notificationCancel.
+  ///
+  /// In it, this message translates to:
+  /// **'Annulla'**
+  String get notificationCancel;
+
+  /// No description provided for @notificationPermissionRequired.
+  ///
+  /// In it, this message translates to:
+  /// **'Autorizzazione Notifiche Richiesta'**
+  String get notificationPermissionRequired;
+
+  /// No description provided for @notificationPermissionExplanation.
+  ///
+  /// In it, this message translates to:
+  /// **'Per ricevere promemoria e avvisi, attiva le notifiche per questa app.'**
+  String get notificationPermissionExplanation;
+
+  /// No description provided for @notificationsEnabled.
+  ///
+  /// In it, this message translates to:
+  /// **'Notifiche Attivate'**
+  String get notificationsEnabled;
+
+  /// No description provided for @notificationsDisabled.
+  ///
+  /// In it, this message translates to:
+  /// **'Notifiche Disattivate'**
+  String get notificationsDisabled;
+
+  /// No description provided for @requestNotificationPermission.
+  ///
+  /// In it, this message translates to:
+  /// **'Richiedi Autorizzazione'**
+  String get requestNotificationPermission;
 }
 
 class _AppLocalizationsDelegate
