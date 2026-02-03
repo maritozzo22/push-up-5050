@@ -32,6 +32,93 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  bool _notificationsEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkNotificationStatus();
+  }
+
+  Future<void> _checkNotificationStatus() async {
+    final notificationService = context.read<NotificationService>();
+    final enabled = await notificationService.areNotificationsEnabled();
+    if (mounted) {
+      setState(() {
+        _notificationsEnabled = enabled;
+      });
+    }
+  }
+
+  Future<void> _requestNotificationPermission() async {
+    final notificationService = context.read<NotificationService>();
+    final granted = await notificationService.requestPermissions();
+
+    if (!granted && mounted) {
+      // Show explanation and offer to open settings
+      _showPermissionDeniedDialog(context);
+    } else {
+      // Refresh status
+      await _checkNotificationStatus();
+    }
+  }
+
+  void _showPermissionDeniedDialog(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        backgroundColor: const Color(0xFF1A1F28),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: Text(
+          l10n.notificationPermissionRequired,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          ),
+        ),
+        content: Text(
+          l10n.notificationPermissionExplanation,
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: Colors.white.withOpacity(0.80),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(
+              l10n.notificationCancel,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(dialogContext);
+              final notificationService = context.read<NotificationService>();
+              await notificationService.openNotificationSettings();
+              // Note: Status will update when user returns to app
+            },
+            child: Text(
+              l10n.notificationOpenSettings,
+              style: const TextStyle(
+                color: Color(0xFFFFB347),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -138,6 +225,56 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           title: l10n.notifications,
                           child: Column(
                             children: [
+                              // Permission status display
+                              ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                leading: Icon(
+                                  _notificationsEnabled
+                                      ? Icons.check_circle
+                                      : Icons.cancel,
+                                  color: _notificationsEnabled
+                                      ? Colors.green
+                                      : Colors.red,
+                                ),
+                                title: Text(
+                                  _notificationsEnabled
+                                      ? l10n.notificationsEnabled
+                                      : l10n.notificationsDisabled,
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                trailing: _notificationsEnabled
+                                    ? null
+                                    : ElevatedButton(
+                                        onPressed: () async {
+                                          await _requestNotificationPermission();
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              const Color(0xFFFFB347),
+                                          foregroundColor: Colors.black,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                            vertical: 8,
+                                          ),
+                                        ),
+                                        child: Text(
+                                          l10n.requestNotificationPermission,
+                                          style: const TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                      ),
+                              ),
+                              const SizedBox(height: 8),
                               SettingsSwitchTile(
                                 title: l10n.settingsDailyReminder,
                                 subtitle: l10n.settingsDailyReminderDesc,
@@ -147,8 +284,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   if (value && mounted) {
                                     _showTimePicker(context, settings);
                                   } else {
-                                    final notificationService = context.read<NotificationService>();
-                                    await notificationService.cancelDailyReminder();
+                                    final notificationService =
+                                        context.read<NotificationService>();
+                                    await notificationService
+                                        .cancelDailyReminder();
                                   }
                                 },
                               ),
