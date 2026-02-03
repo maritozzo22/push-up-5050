@@ -10,7 +10,7 @@ Push-Up 5050 is a progressive training app with gamification, currently in v2.7 
 - ✅ **v2.0 Android Widgets & App Polish** - Phases 02.1-02.11 (shipped 2026-01-23)
 - ✅ **v2.5 Engagement & Retention** - Phases 03.1-03.5 (shipped 2026-01-27)
 - ✅ **v2.6 Improvements & Polish** - Phases 04.1-04.4, 04.6 (shipped 2026-01-31)
-- 🚧 **v2.7 Play Store Ready** - Phases 05-10 (in progress)
+- 🚧 **v2.7 Play Store Ready** - Phases 05-11 (in progress)
 
 ## Phases
 
@@ -195,10 +195,27 @@ Plans:
 - [ ] 10-02: Enhance onboarding content and messaging
 - [ ] 10-03: Test onboarding flow end-to-end
 
+#### Phase 11: Android Notifications Fix
+**Goal**: Fix all notification issues on Android - scheduled notifications not working despite permissions granted
+**Depends on**: Phase 10
+**Requirements**: NOTIF-01, NOTIF-02, NOTIF-03
+**Success Criteria** (what must be TRUE):
+  1. All scheduled notifications (daily reminder, streak at risk, progress, weekly challenge) work reliably on Android
+  2. SCHEDULE_EXACT_ALARM permission handling is robust with user-friendly prompts
+  3. Notification scheduling survives app restart and device reboot
+  4. Notifications work correctly across Android 12+ and older versions
+**Plans**: 4 plans
+
+Plans:
+- [ ] 11-01-PLAN.md — Update package and add broadcast receivers to AndroidManifest.xml
+- [ ] 11-02-PLAN.md — Implement POST_NOTIFICATIONS permission request on startup
+- [ ] 11-03-PLAN.md — Implement exact alarm permission dialog with Settings integration
+- [ ] 11-04-PLAN.md — Verify all notifications work on physical Android device
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 05 → 06 → 07 → 08 → 09 → 10
+Phases execute in numeric order: 05 → 06 → 07 → 08 → 09 → 10 → 11
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -213,9 +230,10 @@ Phases execute in numeric order: 05 → 06 → 07 → 08 → 09 → 10
 | 08. Achievement Expansion | v2.7 | 0/3 | Not started | - |
 | 09. Proximity Sensor Fix | v2.7 | 0/3 | Not started | - |
 | 10. Onboarding Improvements | v2.7 | 0/3 | Not started | - |
+| 11. Android Notifications Fix | v2.7 | 0/4 | Not started | - |
 
-**Overall Milestone Progress:** 2/16 plans complete (12%)
+**Overall Milestone Progress:** 2/20 plans complete (10%)
 
 ---
 
-*Last updated: 2026-01-31 (v2.7 roadmap created)*
+*Last updated: 2026-02-03 (Phase 11 plans created)*
