@@ -1,8 +1,11 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
+import 'package:android_intent_plus/android_intent.dart';
+import 'package:push_up_5050/l10n/app_localizations.dart';
 
 /// Callback type for notification tap events.
 ///
@@ -156,6 +159,39 @@ class NotificationService {
     }
 
     return true; // Default for other platforms
+  }
+
+  /// Check if SCHEDULE_EXACT_ALARM permission is granted (Android 12+).
+  ///
+  /// Returns true if permission granted or not needed (Android < 12, other platforms).
+  /// Note: flutter_local_notifications doesn't have a direct check method.
+  /// This returns optimistic true - actual permission is verified when scheduling.
+  Future<bool> checkExactAlarmPermission() async {
+    if (!kIsWeb && Platform.isAndroid) {
+      final androidPlugin = _plugin.resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>();
+      if (androidPlugin == null) return false;
+
+      // Android 12+ (API 31+) requires SCHEDULE_EXACT_ALARM permission
+      // User must manually grant via system settings
+      // We return true optimistically - the actual check happens on scheduling
+      return true;
+    }
+    return true; // Not needed on other platforms
+  }
+
+  /// Open the app's notification settings in system settings.
+  ///
+  /// This opens the Android app settings page where users can grant
+  /// POST_NOTIFICATIONS and SCHEDULE_EXACT_ALARM permissions.
+  Future<void> openNotificationSettings() async {
+    if (!kIsWeb && Platform.isAndroid) {
+      final intent = AndroidIntent(
+        action: 'android.settings.APPLICATION_DETAILS_SETTINGS',
+        data: 'package:com.pushup5050.push_up_5050',
+      );
+      await intent.launch();
+    }
   }
 
   /// Get pending notifications for debugging.
